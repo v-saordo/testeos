@@ -40,7 +40,7 @@ Creación de un clúster de Docker con el servicio Contenedor de Azure
 
 Una vez que ha [solicitado](http://aka.ms/acspreview) y se le ha concedido acceso a la versión de vista previa, puede usar una de las plantillas del Administrador de recursos de Azure que le permiten implementar su primer clúster a través del Portal de Azure. Gracias a estas plantillas, podrá crear un servicio de forma rápida y empezar a implementar aplicaciones en él inmediatamente. Para empezar, solo tiene que decidir el tamaño del clúster y si desea usar Docker Swarm o Apache Mesos para administrar sus aplicaciones.
 
-También puede [usar la línea de comandos](/documentation/articles/resource-group-template-deploy/) para crear servicios Contenedor de Azure con estas mismas plantillas. Cuando se haya familiarizado con la estructura de estas plantillas, podrá escribir las suyas propias y automatizar completamente la creación de un clúster del servicio Contenedor de Azure.
+También puede [usar la línea de comandos]\(/documentation/articles/resource-group-template-deploy/) para crear servicios Contenedor de Azure con estas mismas plantillas. Cuando se haya familiarizado con la estructura de estas plantillas, podrá escribir las suyas propias y automatizar completamente la creación de un clúster del servicio Contenedor de Azure.
 
 Los usuarios de la versión de vista previa recibirán documentación y soporte completos, que se publicarán aquí una vez abierto el servicio para el público.
 
@@ -51,7 +51,7 @@ Durante la vista previa, se ofrece la posibilidad de elegir entre Docker Swarm o
 
 ### Uso de Apache Mesos
 
-Apache Mesos es un proyecto de código abierto que se hospeda en Apache Software Foundation. Incluye algunos de los [principales nombres de TI](http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
+Apache Mesos es un proyecto de código abierto que se hospeda en Apache Software Foundation. Incluye algunos de los [principales nombres de TI]\(http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
 
 ![ACS configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/acs-mesos.png)
 
@@ -71,7 +71,7 @@ Mesos contiene un conjunto de características increíble.
 
 -   IU web para ver el estado del clúster
 
-Mesos admite un gran número de [marcos](http://mesos.apache.org/documentation/latest/frameworks/) que pueden usarse para programar cargas de trabajo en el servicio Contenedor de Azure. De forma predeterminada, ACS incluye los marcos de Marathon y Chronos.
+Mesos admite un gran número de [marcos]\(http://mesos.apache.org/documentation/latest/frameworks/) que pueden usarse para programar cargas de trabajo en el servicio Contenedor de Azure. De forma predeterminada, ACS incluye los marcos de Marathon y Chronos.
 
 #### Uso de Marathon y Chronos
 
@@ -118,5 +118,5 @@ Introducción a ACS:
 
 
 <!---HONumber=AcomDC_0128_2016-->
-<!---Edite la linea 118-->
+<!---Edite la linea 74 y 83-->
 <!---Edite la linea 130-->
