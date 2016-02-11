@@ -50,7 +50,7 @@ Implementación de una aplicación
 Durante la vista previa, se ofrece la posibilidad de elegir entre Docker Swarm o Apache Mesos (con los marcos de DCOS Marathon y DCOS Chronos) para la orquestación.
 
 ### Uso de Apache Mesos
-
+<br>
 Apache Mesos es un proyecto de código abierto que se hospeda en Apache Software Foundation. Incluye algunos de los [principales nombres de TI]\(http://mesos.apache.org/documentation/latest/powered-by-mesos/) como usuarios y colaboradores.
 
 ![ACS configurado para Swarm, que muestra agentes y patrones.](media/acs-intro/acs-mesos.png)
@@ -120,3 +120,4 @@ Introducción a ACS:
 <!---HONumber=AcomDC_0128_2016-->
 <!---Edite la linea 74 y 83-->
 <!---Edite la linea 130-->
+<!---Br linea 53-->
