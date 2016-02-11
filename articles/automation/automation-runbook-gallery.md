@@ -86,6 +86,10 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 ### Para importar un módulo de la Galería de PowerShell con el Portal de vista previa de Azure
 
 1. En el Portal de vista previa de Azure, abra su cuenta de Automatización. 
+
+
+
+<br>
 2. Haga clic en el icono **Recursos** para abrir la lista de recursos.
 3. Haga clic en el icono **Módulos** para abrir la lista de módulos.
 3. Haga clic en el botón **Galería de PowerShell** para iniciar la Galería de PowerShell en otra ventana del explorador. <br> ![Galería de PowerShell](media/automation-runbook-gallery/powershell-gallery-button.png)
@@ -109,3 +113,4 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
 <!---HONumber=AcomDC_0128_2016-->
+<!---Linea 86-92-->
