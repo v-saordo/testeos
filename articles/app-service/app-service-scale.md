@@ -61,6 +61,8 @@ Si su aplicación depende de otros servicios, como SQL o Almacenamiento, tambié
 2. A continuación, en la parte **Resumen** de la hoja del grupo de recursos, haga clic en una de las bases de datos (o en otro recurso que desee escalar).
 
 	![Base de datos vinculada](./media/app-service-scale/ResourceGroup.png)
+
+<br>
 	
 3. En la hoja de recursos vinculada, haga clic en la parte **Nivel de precios**, seleccione uno de los niveles según sus requisitos de rendimiento y haga clic en **Seleccionar**.
 	
@@ -135,3 +137,4 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
  
 
 <!---HONumber=AcomDC_0128_2016-->
+<!---beeer linea 61-->
