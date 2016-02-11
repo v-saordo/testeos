@@ -97,7 +97,7 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 6. Debe seleccionar **Términos legales** y hacer clic en **Comprar**. Tenga en cuenta que, a pesar del nombre del botón, realmente no se le cobra por instalar un módulo.
 7. Haga clic en **Crear** para importar el módulo. Esto puede tardar un par de minutos, ya que cada actividad debe extraerse.  
 8. Recibirá una notificación de que se va a implementar el módulo y otra cuando se haya completado. 
-
+HOLA
 
 ## Solicitud de un runbook o módulo
 
@@ -109,3 +109,4 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
 <!---HONumber=AcomDC_0128_2016-->
+<!---Cambio de Lucas-->
