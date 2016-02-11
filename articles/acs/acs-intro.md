@@ -35,6 +35,8 @@ Uso del servicio Contenedor de Azure
 
 Nuestro objetivo con el servicio Contenedor de Azure es proporcionar un entorno de hospedaje de contenedores mediante el uso de tecnologías y herramientas de código abierto, conocidas por nuestros clientes. Con este fin, se exponen los puntos de conexión de API estándar para Docker y su Orchestrator elegido. Al usar estos puntos de conexión, puede aprovechar cualquier software que se comunique con los mismos. Por ejemplo, en el caso del punto de conexión Docker Swarm, puede optar por usar Docker Compose, mientras que para Apache Mesos, puede decidirse a utilizar CLI de DCOS.
 
+<br>
+
 Creación de un clúster de Docker con el servicio Contenedor de Azure
 -------------------------------------------------------
 
@@ -121,3 +123,4 @@ Introducción a ACS:
 <!---Edite la linea 74 y 83-->
 <!---Edite la linea 130-->
 <!---Edite la linea 130000000-->
+<!---Edite la linea 38-->
