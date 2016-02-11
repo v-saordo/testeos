@@ -33,7 +33,19 @@ Los runbooks gráficos permiten crear un runbook con las mismas actividades y cm
 
 ## Estructura básica de un flujo de trabajo
 
-El primer paso para convertir un script de PowerShell en un flujo de trabajo de PowerShell es delimitarlo con la palabra clave **Workflow**. Un flujo de trabajo comienza con la palabra clave **Workflow**, seguida del cuerpo del script entre llaves. El nombre del flujo de trabajo sigue a la palabra clave **Workflow**, tal como se muestra en la sintaxis siguiente.
+El primer paso para convertir un script de PowerShell en un flujo de trabajo de PowerShell es delimitarlo con la palabra clave **Workflow**. Un flujo de trabsasasas   
+
+
+sasa sas
+
+
+
+
+
+
+
+
+ajo comienza con la palabra clave **Workflow**, seguida del cuerpo del script entre llaves. El nombre del flujo de trabajo sigue a la palabra clave **Workflow**, tal como se muestra en la sintaxis siguiente.
 
     Workflow Test-Workflow
     {
