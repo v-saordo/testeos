@@ -2,4 +2,4 @@ Le agradecemos su contribución a la documentación técnica de Azure no escrita
 
 Para más información sobre cómo contribuir a los documentos técnicos de Azure, consulte la página [Léame](README.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!------HONumber=AcomDC_1125_2015-->
