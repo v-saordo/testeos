@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="¿Los servicios en la nube en Azure son la opción de proceso que deseo?" 
+	pageTitle="¿Son los servicios en la nube la opción de proceso de Azure apropiada para mí? | Microsoft Azure" 
 	description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales" 
 	services="cloud-services"
     documentationCenter=""
@@ -32,8 +32,8 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 ## Pasos siguientes
 [Creación de una aplicación de servicio en la nube en .NET](cloud-services-dotnet-get-started.md)<br/> [Creación de una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Creación de una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)<br/> [Creación de una aplicación de servicio en la nube en Python](../cloud-services-python-ptvs.md)<br/>
 
-[Servicio de aplicaciones]: app-service-choose-me.md
-[Máquinas virtuales]: ../virtual-machines-about.md
+[Servicio de aplicaciones]: ../app-service-web/app-service-web-overview.md
+[Máquinas virtuales]: ../virtual-machines/virtual-machines-about.md
 [Servicios en la nube]: #tellmecs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -19,6 +19,9 @@
 # Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a un blob de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
+En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de blobs de Azure y Base de datos SQL de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+ 
+
 ## Ejemplo: copia de datos de un blob de Azure a SQL de Azure
 El ejemplo siguiente muestra:
 
@@ -54,7 +57,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 **Conjunto de datos de entrada de blob de Azure:**
 
@@ -227,7 +230,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 
 **Conjunto de datos de entrada SQL de Azure:**
@@ -383,10 +386,10 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- | 
 | folderPath | Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\\myblobfolder\\ | Sí |
-| fileName | <p>Nombre del blob. fileName es opcional. </p><p>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.</p><p>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.</p><p>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
+| fileName | <p>El nombre del blob.fileName es opcional y distingue entre mayúsculas y minúsculas.</p><p>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.</p><p>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.</p><p>Cuando no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado tendrá el formato siguiente: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No |
 | partitionedBy | partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Aprovechamiento de la propiedad partitionedBy](#Leveraging-partitionedBy-property) a continuación para obtener información detallada y ejemplos. | No
 | formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. | No
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2** y los niveles admitidos son: **Óptimo** y **Más rápido**. Tenga en cuenta que esta vez no se admite la configuración de compresión de los datos que se encuentran en **AvroFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 
 ### Uso de la propiedad partitionedBy
 Tal como se mencionó anteriormente, puede especificar un folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy**, macros de la Factoría de datos y las variables del sistema: SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
@@ -475,7 +478,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Especifica si se debe tratar una cadena nula o vacía como un valor nulo. | TRUE<br/>FALSE | No |
+| treatEmptyAsNull | Especifica si se debe tratar una cadena nula o vacía como un valor nulo. <p>Tenga en cuenta que cuando se especifica la propiedad **quoteChar**, una cadena entrecomillada vacía también se puede tratar como nula con esta propiedad.</p> | TRUE (predeterminado) <br/>FALSE | No |
 | skipHeaderLineCount | Indica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa **TextFormat**. | Entero de 0 a Máx. | No | 
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. | True (valor predeterminado), False | No | 
 
@@ -508,4 +511,4 @@ false | mergeFiles | <p>Para una carpeta de origen Folder1 con la siguiente estr
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

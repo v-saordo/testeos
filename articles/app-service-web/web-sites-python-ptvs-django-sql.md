@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/13/2015"
+	ms.date="02/25/2016"
 	ms.author="huguesv"/>
 
 
@@ -35,10 +35,11 @@ Consulte el [Centro para desarrolladores de Python] para tener acceso a más art
  - [Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]
  - [Herramientas del SDK de Azure para 2013] o [Herramientas del SDK de Azure para VS 2015]
  - [Python 2.7 de 32 bits]
+ - Django 1.6 o anterior
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Creación del proyecto
 
@@ -219,4 +220,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Documentación de Django]: https://www.djangoproject.com/
 [Base de datos SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

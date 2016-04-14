@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico)" 
+	pageTitle="Tutorial: Copia de datos de salida en una base de datos de SQL Server (Portal de Azure clásico)" 
 	description="En este tutorial se amplía el uso del editor de la Factoría de datos en el Portal de Azure clásico, en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 
-# Tutorial: copia de datos de eficacia de campaña en una base de datos de SQL Server local 
+# Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure clásico) 
 En este tutorial, aprenderá a configurar el entorno para habilitar el proceso y trabajar con sus datos locales.
  
 En el último paso del escenario de procesamiento de registro desde el primer tutorial con Partición -> Enriquecer -> Analizar flujo de trabajo, la salida de la eficacia de la campaña de marketing se ha copiado en una base de datos SQL de Azure. También puede mover estos datos a un SQL Server local para realizar análisis dentro de su organización.
@@ -169,4 +169,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

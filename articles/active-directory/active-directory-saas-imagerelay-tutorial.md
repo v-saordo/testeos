@@ -3,7 +3,7 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory e ImageRelay."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
-	ms.author="markusvi"/>
+	ms.date="02/11/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con ImageRelay
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar ImageRelay con Azure Acti
 
 - Puede controlar en Azure AD quién tiene acceso a ImageRelay.
 - Puede permitir que los usuarios inicien sesión automáticamente en ImageRelay (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar la integración de Azure AD con ImageRelay, se necesitan los sig
 - Una suscripción habilitada para inicio de sesión único en ImageRelay
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -57,15 +57,15 @@ Para configurar la integración de ImageRelay en Azure AD, es preciso agregar Im
 
 **Para agregar ImageRelay desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del Portal de Azure, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
+1. En el Portal de Azure clásico, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br> ![Active Directory][1]<br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Pata abrir la vista de aplicaciones, en la vista de directorios, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
+3. Para abrir la vista de aplicaciones, en la vista de directorios, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **ImageRelay**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)<br>
-7. En el panel de resultados, seleccione **ImageRelay** y luego haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **ImageRelay** y después haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con ImageRelay con un usuario de prueba llamado "Britta Simon".
@@ -82,12 +82,12 @@ Para configurar y probar el inicio de sesión único de Azure AD con ImageRelay,
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD y configurar el inicio de sesión único en la aplicación ImageRelay.
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure AD clásico y configurar el inicio de sesión único en la aplicación ImageRelay.
 
 
 **Para configurar el inicio de sesión único de Azure AD con ImageRelay, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **ImageRelay**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1. En el Portal de Azure AD clásico, en la página de integración de aplicaciones de **ImageRelay**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
      ![Configurar inicio de sesión único][6] <br>
 
@@ -141,7 +141,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     - Seleccione el grupo de permisos, por ejemplo, **SSO Basic** (SSO básico), que podrá iniciar sesión solo mediante inicio de sesión único.<br><br>![Configurar inicio de sesión único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)<br>
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+6. En el Portal de Azure AD clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
     ![Inicio de sesión único de Azure AD][10]<br>
 
@@ -151,11 +151,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azure AD clásico llamada Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**.<br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el **Portal de Azure**, en el panel de navegación izquierdo, haga clic en **Active Directory**.<br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
+1. En el **Portal de Azure AD clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**.<br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) <br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -213,7 +213,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar Britta Simon a ImageRelay, realice los pasos siguientes:**
 
-1. En el Portal de Azure, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior. <br><br>![Asignar usuario][201] <br>
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.<br><br>![Asignar usuario][201] <br>
 
 2. En la lista de aplicaciones, seleccione **ImageRelay**. <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) <br>
 
@@ -253,4 +253,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Plan para el ciclo de vida de identidad híbrida 
@@ -64,4 +64,4 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

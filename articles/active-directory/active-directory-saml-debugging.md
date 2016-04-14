@@ -10,7 +10,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
@@ -25,7 +25,13 @@ Puede ver el token SAML seleccionando esta línea y, a continuación, selecciona
  
 **Nota**: Para ver el contenido de esta solicitud HTTP, es posible que Fiddler le solicite configurar el cifrado del tráfico HTTPS, que tendrá que llevar a cabo.
 
+## Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+- [Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

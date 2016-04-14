@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # collectd: métricas de rendimiento de Unix en Application Insights
@@ -143,4 +143,4 @@ Separar directivas con una nueva línea.
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

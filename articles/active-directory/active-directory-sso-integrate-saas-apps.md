@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/09/2016"
     ms.author="curtand"/>
 
 # Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS  
@@ -43,7 +43,7 @@ Azure AD proporciona varias maneras personalizables para implementar aplicacione
 
 La configuración del inicio de sesión único para una aplicación que ya se usa en su organización es un proceso diferente al de crear nuevas cuentas para una nueva aplicación. Hay un par de pasos preliminares: asignar las identidades de usuario de la aplicación a las identidades de Azure AD y comprender cómo los usuarios experimentarán el inicio de sesión en una aplicación una vez que esté integrada.
 
-> [AZURE.NOTE]Para configurar el inicio de sesión único para una aplicación existente, debe tener derechos de administrador global tanto en Azure AD como en la aplicación de SaaS.
+> [AZURE.NOTE] Para configurar el inicio de sesión único para una aplicación existente, debe tener derechos de administrador global tanto en Azure AD como en la aplicación de SaaS.
 
 ### Asignación de cuentas de usuario
 
@@ -68,4 +68,8 @@ Si la aplicación no está en la galería de aplicaciones, puede [agregarla a la
 
 Encontrará más información sobre todos estos problemas en la biblioteca de Azure.com, por ejemplo, [Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Consulte también
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

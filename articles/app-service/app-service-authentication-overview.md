@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure
@@ -216,4 +216,4 @@ Este artículo, se explican los servicios de autenticación que ofrece el Servic
 
 * [Obtención de un token de acceso y llamada a la API de SharePoint en una aplicación móvil](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Java, puede realizar esto con la implementación de Microsoft del ADAL4J orientado a la comunidad.
 
-  Aquí usaremos ADAL4J para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
+  Aquí, usaremos ADAL4J para:
+- Iniciar sesión del usuario en la aplicación con Azure AD como proveedor de identidades.
+- Mostrar información sobre el usuario.
+- Cerrar la sesión del usuario en la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -265,4 +268,4 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/03/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Administración del Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
@@ -27,7 +27,7 @@ Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análi
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **CLI de Azure** Consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md).
+- **CLI de Azure** Consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md).
 	- Descargue e instale la **versión preliminar** de las [herramientas de la CLI de Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para completar esta demostración.
 - **Autenticación**, mediante el comando siguiente:
 
@@ -85,8 +85,8 @@ Obtener detalles de una cuenta específica de Análisis de Data Lake
 
 Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
 
-- [Almacén de Azure Data Lake](data-lake-storage-overview.md)
-- [Almacenamiento de Azure](storage-introduction.md)
+- [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+- [Almacenamiento de Azure](../storage/storage-introduction.md)
 
 Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de almacenamiento de ADL sirve para almacenar los metadatos de trabajos y los registros de auditoría de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Almacén de Data Lake y/o cuentas de Almacenamiento de Azure.
 
@@ -100,7 +100,7 @@ El valor aparece en properties:datalakeStoreAccount:name.
 
   	azure datalake analytics account datasource add -n "<Data Lake Analytics Account Name>" -b "<Azure Blob Storage Account Short Name>" -k "<Azure Storage Account Key>"
 
->[AZURE.NOTE]Solo se admiten nombres cortos de almacenamiento de blobs. No use el FQDN, por ejemplo "myblob.blob.core.windows.net".
+>[AZURE.NOTE] Solo se admiten nombres cortos de almacenamiento de blobs. No use el FQDN, por ejemplo "myblob.blob.core.windows.net".
 
 ### Adición de más cuentas de Almacén de Data Lake
 
@@ -150,7 +150,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo. Par
 	
 ### Envío de trabajos
 
-> [AZURE.NOTE]La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
+> [AZURE.NOTE] La prioridad predeterminada de un trabajo es 1000 y el grado predeterminado de paralelismo para un trabajo es 1.
 
 	azure datalake analytics job create  "<Data Lake Analytics Account Name>" "<Job Name>" "<Script>"
 
@@ -191,7 +191,7 @@ Entre los tipos se incluyen la base de datos, esquema, ensamblado, externaldatas
 <!-- ################################ -->
 ## Usar grupos ARM
 
-Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
 Un servicio de Análisis de Data Lake puede incluir los siguientes componentes:
 
@@ -211,7 +211,7 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
-- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
+- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="02/16/2016"
 	ms.author="cephalin"/>
 
 # Configurar un nombre de dominio personalizado en el servicio de aplicaciones de Azure
@@ -112,14 +112,14 @@ Suponiendo que el nombre de dominio personalizado es 'contoso.com', esto crearí
 - **contoso.com** asignado a 168.62.48.183.
 - **www.contoso.com** asignado a **contoso.azurewebsites.net**.
 
->[AZURE.NOTE] Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns-web-sites-custom-domain).
+>[AZURE.NOTE] Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns/dns-web-sites-custom-domain).
 
 <a name="awverify" />
 ## Creación de un registro awverify (solo registros A)
 
 Si crea un registro A, la aplicación web también requiere un registro CNAME especial, que se usa para comprobar es propietario del dominio que está intentando utilizar. Este registro CNAME debe tener el formato siguiente.
 
-- *Si el registro A asigna el dominio raíz o un dominio con comodín: *cree un registro CNAME que se asigna desde **awverify.&lt;yourdomain&gt;** hasta **awverify.&lt;yourwebappname&gt;.azurewebsites.net**. Por ejemplo, si el registro A es para **contoso.com**, cree un registro CNAME para **awverify.contoso.com**.
+- *Si el registro A asigna el dominio raíz o un dominio con comodín:* cree un registro CNAME que se asigna desde **awverify.&lt;yourdomain&gt;** hasta **awverify.&lt;yourwebappname&gt;.azurewebsites.net**. Por ejemplo, si el registro A es para **contoso.com**, cree un registro CNAME para **awverify.contoso.com**.
 - *Si el registro A asigna un subdominio específico:* cree un registro CNAME que se asigne desde **awverify.&lt;subdomain&gt;** hasta **awverify.&lt;yourwebappname&gt;.azurewebsites.net**. Por ejemplo, si el registro A es para **blogs.contoso.com**, cree un registro CNAME para **awverify.blogs.contoso.com**.
 
 Los visitantes de su aplicación web no verán el subdominio awverify, este solo es para que Azure compruebe su dominio.
@@ -155,4 +155,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

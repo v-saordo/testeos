@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Salidas de runbook y mensajes en la Automatización de Azure | Microsoft Azure"
    description="Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Automatización de Azure."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="03/02/2016"
+   ms.author="magoedte;bwren" />
 
 # Salidas de runbook y mensajes en la Automatización de Azure
 
@@ -51,7 +51,7 @@ Cuando escribe en el flujo de salida de una función que está incluida en su ru
 	   Write-Verbose "Verbose outside of function"
 	   Write-Output "Output outside of function"
 	   $functionOutput = Test-Function
-	
+
 	   Function Test-Function
 	   {
 	      Write-Verbose "Verbose inside of function"
@@ -77,7 +77,7 @@ El siguiente runbook de ejemplo genera un objeto de cadena e incluye una declara
 	Workflow Test-Runbook
 	{
 	   [OutputType([string])]
-	
+
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
@@ -93,7 +93,7 @@ Los flujos de error y de advertencia están diseñados para registrar los proble
 Cree un mensaje de advertencia o de error mediante los cmdlets [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) o [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). También se pueden escribir actividades en estos flujos.
 
 	#The following lines create a warning message and then an error message that will suspend the runbook.
-	
+
 	$ErrorActionPreference = "Stop"
 	Write-Warning –Message "This is a warning message."
 	Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
@@ -107,7 +107,7 @@ Cuando se [prueba un runbook](http://msdn.microsoft.com/library/azure/dn879147.a
 Cree un mensaje detallado mediante el cmdlet [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx).
 
 	#The following line creates a verbose message.
-	
+
 	Write-Verbose –Message "This is a verbose message."
 
 ### Flujo de depuración
@@ -152,20 +152,42 @@ En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook co
 
 En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que finalice. Una vez completado, el flujo de salida se recopila del trabajo.
 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" 
-	
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+
 	$doLoop = $true
 	While ($doLoop) {
 	   $job = Get-AzureAutomationJob –AutomationAccountName "MyAutomationAccount" -Id $job.Id
 	   $status = $job.Status
-	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped") 
+	   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped")
 	}
-	
+
 	Get-AzureAutomationJobOutput –AutomationAccountName "MyAutomationAccount" -Id $job.Id –Stream Output
+
+### Creación gráfica
+
+Para Runbooks gráficos, hay disponible un registro adicional en forma de seguimiento del nivel de actividad. Hay dos niveles de seguimiento: básico y detallado. En el seguimiento básico, puede ver la hora de inicio y de finalización de cada actividad en el Runbook, así como información relacionada con los reintentos de actividad, como el número de intentos y la hora de inicio de la actividad. En el seguimiento detallado, obtendrá un seguimiento básico y, además, datos de entrada y de salida para cada actividad. Tenga en cuenta que actualmente los registros de seguimiento se escriben usando el flujo detallado, por lo que debe habilitar el registro detallado cuando habilite el seguimiento. En el caso de los Runbooks gráficos con el seguimiento habilitado no es necesario registrar los registros de progreso, ya que el seguimiento básico tiene la misma finalidad y es más informativo.
+
+![Vista de secuencias de trabajos de creación de gráficos](media/automation-runbook-output-and-messages/job_streams_view_blade.png)
+
+Puede ver en la captura de pantalla anterior que, cuando se habilita el registro detallado y el seguimiento para los Runbooks gráficos, hay mucha más información disponible en la vista de secuencias de trabajos de producción. Esta información adicional puede ser esencial para solucionar problemas de producción con un Runbook. Por lo tanto, solo debería habilitarlo con este fin, y no hacerlo como regla general. Los registros de seguimiento pueden ser especialmente numerosos. Con el seguimiento de Runbooks gráficos puede obtener de dos a cuatro registros por actividad, en función de si configuró el seguimiento básico o detallado. A menos que necesite esta información para realizar un seguimiento del progreso de un Runbook para solucionar problemas, le conviene mantener el seguimiento desactivado.
+
+**Para habilitar el seguimiento del nivel de actividad, siga estos pasos.**
+
+ 1. En el Portal de Azure, abra su cuenta de Automatización.
+
+ 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
+
+ 3. En la hoja Runbooks, haga clic para seleccionar un Runbook gráfico de la lista.
+
+ 4. En la hoja Configuración del Runbook seleccionado, haga clic en **Registro y seguimiento**.
+
+ 5. En la hoja Registro y seguimiento, en Registrar registros detallados, haga clic en **Activar** para habilitar el registro detallado. En Seguimiento del nivel de actividad, cambie el nivel de seguimiento a **Básico** o **Detallado**, en función del nivel de seguimiento que necesite.<br>
+
+    ![Hoja de registro y seguimiento de creación de gráficos](media/automation-runbook-output-and-messages/logging_and_tracing_settings_blade.png)
 
 ## Artículos relacionados
 
 - [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
 - [Runbooks secundarios](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

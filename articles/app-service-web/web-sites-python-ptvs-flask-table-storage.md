@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/18/2015"
+	ms.date="02/20/2016"
 	ms.author="huvalo"/>
 
 
@@ -40,7 +40,7 @@ Consulte el [Centro para desarrolladores de Python] para tener acceso a más art
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Creación del proyecto
 
@@ -74,9 +74,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 2. Haga clic en el icono **Nuevo** situado en la parte superior izquierda del portal y haga clic en **Datos y almacenamiento** > **Cuenta de almacenamiento**. Haga clic en **Crear** y, a continuación, asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
 5. Haga clic en la parte **Configuración** de la hoja de la cuenta de almacenamiento. Anote el nombre de la cuenta y la clave principal.
 
@@ -104,7 +102,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 1.  Presione `F5` para ejecutar la aplicación. Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en el Almacenamiento de tablas de Azure.
 
-	> [AZURE.NOTE]El entorno virtual de Python 2.7 pueden producir una interrupción de excepción en Visual Studio. Presione `F5` para continuar cargando el proyecto web.
+	> [AZURE.NOTE] El entorno virtual de Python 2.7 pueden producir una interrupción de excepción en Visual Studio. Presione `F5` para continuar cargando el proyecto web.
 
 1.  Vaya a la página **Acerca de** para comprobar que la aplicación usa el repositorio de **Almacenamiento de tablas de Azure**.
 
@@ -114,7 +112,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 Es fácil ver y editar tablas de almacenamiento con el Explorador de servidores en Visual Studio. En esta sección, vamos a utilizar el Explorador de servidores para ver el contenido de las tablas de la aplicación de sondeos.
 
-> [AZURE.NOTE]Para esto es necesario que estén instaladas las Herramientas de Microsoft Azure, que se encuentran disponibles como parte del [SDK de Azure para .NET].
+> [AZURE.NOTE] Para esto es necesario que estén instaladas las Herramientas de Microsoft Azure, que se encuentran disponibles como parte del [SDK de Azure para .NET].
 
 1.  Abra el **Explorador de servidores**. Expanda **Azure**, **Almacenamiento**, la cuenta de almacenamiento y, a continuación, **Tablas**.
 
@@ -185,7 +183,7 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 - [Uso del servicio de almacenamiento de tablas desde Python]
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 
 <!--Link references-->
@@ -213,4 +211,4 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

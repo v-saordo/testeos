@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/22/2016" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -38,11 +38,13 @@ Para recibir un correo electrónico cuando una métrica cruce un umbral, inicie 
 
 ![En la hoja Reglas de alerta, elija Agregar alerta. Establezca la aplicación como el recurso que se va a medir, proporcione un nombre para la alerta y elija una métrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
-
-Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
-
-El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
+* Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
+* Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
+* El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
+* Si activa la casilla "Propietarios de correo electrónico...", se enviarán alertas por correo electrónico a todos los usuarios con acceso a este recurso.
+* Si especifica "Correos electrónicos adicionales", se enviarán alertas a esos usuarios o grupos (independientemente de que haya activado la casilla "Propietarios de correo electrónico"). 
+* Establezca una [dirección de Webhook](../azure-portal/insights-webhooks-alerts.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando se active la alerta (es decir, cuando se desencadene) y cuando se haya resuelto.
+* Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior de la hoja.
 
 *No veo el botón Agregar alerta.* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a Configuración -> Usuarios. [Más información sobre el control de acceso][roles].
 
@@ -67,9 +69,11 @@ El historial de cambios de estado está en el registro Eventos de operaciones:
 
 ## Funcionamiento de las alertas
 
-* Una alerta tiene dos estados: "alerta" y "correcto". 
+* Una alerta tiene tres estados: "Nunca activada", "Activada" y "Resuelta". "Activada" significa que la condición especificada tenía el valor true cuando se evaluó por última vez.
 
-* Se envía un correo electrónico cuando una alerta cambia de estado.
+* Se genera una notificación cuando una alerta cambia de estado. (Si la condición de alerta ya tenía el valor true cuando creó la alerta, es posible que no reciba una notificación hasta que la condición cambie al valor false).
+
+* Si ha activado la casilla de correos electrónicos o si ha proporcionado direcciones de correo electrónico, cada notificación generará un correo. También puede consultar la lista desplegable de notificaciones.
 
 * Una alerta se evalúa cada vez que llega una métrica, pero no en caso contrario.
 
@@ -100,11 +104,15 @@ Las alertas más populares son:
 * **Tiempo de respuesta del servidor** y **Solicitudes incorrectas** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a estas métricas para ver si varían desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos.
 * **Excepciones de servidor**: para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
 
+## Automatización
+
+* [Uso de PowerShell para automatizar la configuración de alertas](app-insights-powershell-alerts.md)
+* [Uso de Webhook para automatizar la respuesta a alertas](../azure-portal/insights-webhooks-alerts.md)
 
 ## Consulte también
 
 * [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md)
-* [Use PowerShell to set alerts in Application Insights](app-insights-powershell-alerts.md) (Uso de PowerShell para definir alertas en Application Insights)
+* [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](app-insights-powershell-alerts.md)
 * [Application Insights: detección proactiva](app-insights-proactive-detection.md) 
 
 
@@ -119,4 +127,4 @@ Las alertas más populares son:
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

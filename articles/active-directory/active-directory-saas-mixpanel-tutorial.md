@@ -3,7 +3,7 @@
 	description="Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Mixpanel."
 	services="active-directory"
 	documentationCenter=""
-	authors="ashimaabrol"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="v-aabrol"/>
+	ms.date="02/02/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Integración de Azure Active Directory con Mixpanel
@@ -36,7 +36,7 @@ Para configurar la integración de Azure AD con Mixpanel, necesita los siguiente
 - Una suscripción habilitada para inicio de sesión único en Mixpanel
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -61,7 +61,7 @@ Para configurar la integración de Mixpanel en Azure AD, deberá agregar Mixpane
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Aplicaciones** en el menú superior de la vista de directorios.<br><br> ![Aplicaciones][2]<br>
+3. Para abrir la vista de aplicaciones, en la vista de directorios, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Mixpanel**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_01.png)<br>
@@ -97,7 +97,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de Mixpanel con el siguiente patrón: **“https://mixpanel.com/login/”**.
 
-    > [AZURE.NOTE]Regístrese en [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar las credenciales de inicio de sesión y póngase en contacto con el [equipo de soporte técnico de Mixpanel](mailto:support@Mixpanel.com) para habilitar la configuración de SSO para que el inquilino. <br>Si es necesario, también puede obtener el valor de la dirección URL de inicio de sesión del equipo de soporte de Mixpanel.
+    > [AZURE.NOTE] Regístrese en [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar las credenciales de inicio de sesión y póngase en contacto con el [equipo de soporte técnico de Mixpanel](mailto:support@Mixpanel.com) para habilitar la configuración de SSO para que el inquilino. <br>Si es necesario, también puede obtener el valor de la dirección URL de inicio de sesión del equipo de soporte de Mixpanel.
 
     b. Haga clic en **Siguiente**.
 
@@ -139,11 +139,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) <br>
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) <br>
 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) <br>
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) <br>
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_05.png) <br>
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -151,7 +151,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) <br>
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_06.png) <br>
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -237,4 +237,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-mixpanel-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0204_2016-->

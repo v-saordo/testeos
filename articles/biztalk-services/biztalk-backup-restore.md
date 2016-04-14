@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -23,7 +23,7 @@ Servicios de BizTalk de Azure incluye las capacidades de copia de seguridad y re
 
 También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API REST de Servicios de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584).
 
-> [AZURE.NOTE]NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición. Debe volver a crear las conexiones híbridas.
+> [AZURE.NOTE] NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición. Debe volver a crear las conexiones híbridas.
 
 ## Introducción
 
@@ -70,7 +70,9 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 
 	![][AutomaticBU]
 
-	**Notas**: en **Días de retención**, el período de retención debe ser superior a la frecuencia de las copias de seguridad. - Seleccione **Conservar siempre al menos una copia de seguridad**, incluso si ya ha pasado el período de retención.
+	**Notas**
+	- En **Días de retención**, el período de retención debe ser superior a la frecuencia de las copias de seguridad.
+	- Seleccione **Conservar siempre al menos una copia de seguridad**, incluso aunque haya pasado el período de retención.
 	
 
 4. Seleccione **Guardar**.
@@ -233,4 +235,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de Azure clásico, vay
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

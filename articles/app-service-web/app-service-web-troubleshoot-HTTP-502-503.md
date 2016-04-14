@@ -50,7 +50,7 @@ El servicio [Aplicaciones web del Servicio de aplicaciones](/services/app-servic
 
 ####	Seguimiento del estado del servicio
 
-Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Portal de Azure](https://portal.azure.com/). Para obtener más información, consulte [Seguimiento del estado del servicio](insights-service-health.md).
+Cada vez que hay una interrupción del servicio o una degradación del rendimiento, Microsoft Azure lo anuncia. Puede realizar un seguimiento del estado del servicio en el [Portal de Azure](https://portal.azure.com/). Para obtener más información, consulte [Seguimiento del estado del servicio](../azure-portal/insights-service-health.md).
 
 ####	Supervisión de la aplicación web
 
@@ -69,7 +69,7 @@ Algunas de las métricas que podría querer supervisar para su aplicación web s
 Para más información, consulte:
 
 -	[Supervisión de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
--	[Recibir notificaciones de alerta](insights-receive-alert-notifications.md)
+-	[Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 ### 2\. Recopilación de datos
@@ -136,6 +136,6 @@ Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lu
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+También puede administrar la aplicación web con Azure Powershell. Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

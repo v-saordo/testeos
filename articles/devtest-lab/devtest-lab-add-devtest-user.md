@@ -1,6 +1,6 @@
-    <properties
-	pageTitle="Add owners and users to a DevTest Lab | Microsoft Azure"
-	description="Securely add a user who is not in your subscription to your Azure DevTest Lab."
+<properties
+	pageTitle="Adición de propietarios y usuarios a un laboratorio de desarrollo y pruebas | Microsoft Azure"
+	description="Agregue de forma segura un usuario que no esté en su suscripción al Laboratorio de desarrollo y pruebas de Azure."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 # Adición de propietarios y usuarios a un laboratorio de desarrollo y pruebas
+
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo establecer la seguridad del laboratorio de desarrollo y pruebas](/documentation/videos/how-to-set-security-in-your-devtest-lab)
 
 ## Información general
 
@@ -26,7 +28,7 @@ Se concede acceso al laboratorio de desarrollo y pruebas a través de dos roles:
 
  - **Propietario**: los usuarios asignados al rol **propietario** en el nivel de suscripción de Azure tienen acceso completo al laboratorio, incluidas las funciones de administración y supervisión.
 
-     >[AZURE.NOTE] Los roles **propietario** que se asignan en niveles RBAC diferentes al nivel de suscripción no se admiten en Laboratorio de desarrollo y pruebas. La asignación de un usuario al rol **Propietario** en el laboratorio de desarrollo y pruebas no se admite.
+     > [AZURE.NOTE] Los roles **propietario** que se asignan en niveles RBAC diferentes al nivel de suscripción no se admiten en Laboratorio de desarrollo y pruebas. La asignación de un usuario al rol **Propietario** en el laboratorio de desarrollo y pruebas no se admite.
 
  -  **Usuario de laboratorio de desarrollo y pruebas**: los usuarios asignados al rol **Usuario de laboratorio de desarrollo y pruebas** pueden crear, actualizar y eliminar VM en el laboratorio especificado. Los usuarios pueden ser *internos* (miembro de Azure Active Directory para la suscripción) o *externos* (usuario que no es miembro de Azure AD, como un miembro de una organización asociada).
 	-  Un rol **Usuario de laboratorio de desarrollo y pruebas** debe asignarse a través de los iconos **Agregar usuarios** del laboratorio.
@@ -101,4 +103,4 @@ Para agregar un usuario de Laboratorio de desarrollo y pruebas al laboratorio, s
 
 	1. La hoja **Usuarios** muestra los roles y usuarios agregados.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

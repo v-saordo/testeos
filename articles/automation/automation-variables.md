@@ -3,7 +3,7 @@
    description="Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Automatización de Azure. En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Recursos de variables en Automatización de Azure
 
@@ -67,7 +67,7 @@ Las actividades de flujo de trabajo en la tabla siguiente se usan para acceder a
 1. Realice los pasos del asistente y haga clic en la casilla para guardar la nueva variable.
 
 
-### Para crear una nueva variable con el Portal de vista previa de Azure
+### Para crear una nueva variable con el Portal de Azure
 
 1. En la cuenta de Automatización, haga clic en la parte **Recursos** para abrir la hoja **Recursos**.
 1. Haga clic en la parte **Variables** para abrir la hoja **Variables**.
@@ -91,8 +91,8 @@ Los comandos de ejemplo siguientes muestran cómo crear una variable con un tipo
 	New-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 	
 	$vmValue = (Get-AzureAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $ vmValue.Name
-	$vmIpAddress = $ vmValue.IpAddress
+	$vmName = $vmValue.Name
+	$vmIpAddress = $vmValue.IpAddress
 
 
 
@@ -116,7 +116,7 @@ Los comandos de ejemplo siguientes muestran cómo establecer y recuperar una var
 	for ($i = 1; $i -le $NumberOfIterations; $i++) {
 	   Write-Output "$i`: $SampleMessage"
 	}
-	Set-AutomationVariable –Name NumberOfRunnings –Value (NumberOfRunngs += 1)
+	Set-AutomationVariable –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
 
 
 #### Establecimiento y recuperación de un objeto completo en una variable
@@ -188,4 +188,4 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

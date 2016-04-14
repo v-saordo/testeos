@@ -3,7 +3,7 @@
 	description="Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect Health. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad."
 	services="active-directory"
 	documentationCenter=""
-	authors="karavar"
+	authors="billmath"
 	manager="samueld"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
-	ms.author="vakarand"/>
+	ms.date="02/17/2016"
+	ms.author="billmath;vakarand"/>
 
 
 # Preguntas más frecuentes sobre Azure AD Connect Health
@@ -99,5 +99,6 @@ Deberá abrir los puertos 80, 443 y 5671 TCP/UDP para que el agente de Azure AD 
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
+* [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

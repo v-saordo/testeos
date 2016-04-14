@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: integración de Azure Active Directory con TOPdesk - Secure | Microsoft Azure" description="Aprenda cómo usar TOPdesk - Secure con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: integración de Azure Active Directory con TOPdesk - Secure | Microsoft Azure"
+    description="Aprenda cómo usar TOPdesk - Secure con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -94,7 +95,7 @@ La configuración del inicio de sesión único para TOPdesk - Secure requiere ca
         ![Servicio del consumidor de aserción](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Servicio del consumidor de aserción")
     3.  Copie el valor **AssertionConsumerService**.  
 
-        >[AZURE.NOTE]Necesitará el valor de la sección **Configurar dirección URL de la aplicación** más adelante en este tutorial.
+        >[AZURE.NOTE] Necesitará el valor de la sección **Configurar dirección URL de la aplicación** más adelante en este tutorial.
 
 6.  En otra ventana del explorador web, inicie sesión en su portal de **Azure Active Directory** como administrador.
 
@@ -181,7 +182,7 @@ En el caso de TOPdesk - Secure, el aprovisionamiento es una tarea manual.
     4.  En el cuadro de texto **Nombre de inicio de sesión** de la sección **Inicio de sesión de TOPdesk**, escriba un nombre de inicio de sesión para el usuario.
     5.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TOPdesk - Secure ofrecida por TOPdesk - Secure para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TOPdesk - Secure ofrecida por TOPdesk - Secure para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -201,4 +202,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

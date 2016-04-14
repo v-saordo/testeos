@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -51,4 +51,7 @@ Con el objetivo de simplificar las cosas para los usuarios que detecten un orige
 ##Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se registra y detecta un origen de datos, los usuarios pueden conectarse al origen de datos desde el menú "Abrir en…" del portal del **Catálogo de datos de Azure** o mediante sus herramientas de datos favoritas.
 
-<!---HONumber=Nov15_HO3-->
+## Consulte también
+- Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.
+
+<!---HONumber=AcomDC_0309_2016-->

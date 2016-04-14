@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/09/2016" 
 	ms.author="dariagrigoriu"/>
 
 # Descripción general de la implementación de Servicio de aplicaciones de Azure
@@ -23,4 +23,4 @@ Servicio de aplicaciones de Azure proporciona un conjunto de características en
 
 [AZURE.INCLUDE [app-service-blueprint-deployment](../../includes/app-service-blueprint-deployment.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

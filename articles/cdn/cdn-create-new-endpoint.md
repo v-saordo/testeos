@@ -1,18 +1,18 @@
-<properties 
-	 pageTitle="Habilitar la Red de entrega de contenido (CDN) para Azure" 
-	 description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="camsoper" 
-	 manager="dwrede" 
+<properties
+	 pageTitle="Habilitar la Red de entrega de contenido (CDN) para Azure"
+	 description="En este tema se muestra cómo habilitar la Red de entrega de contenido (CDN) para Azure."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
 	 editor=""/>
-<tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="01/20/2016" 
+<tags
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="02/25/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,7 +25,7 @@ CDN puede habilitarse para el origen mediante el Portal de administración de Az
 
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
-> [AZURE.NOTE]De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
+> [AZURE.NOTE] De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
 >
 > Los precios de red de entrega de contenido se aplican en el nivel de perfil de red de entrega de contenido. Si quiere utilizar una combinación de características de red de entrega de contenido estándar y premium, necesitará varios perfiles de red de entrega de contenido.
 
@@ -35,7 +35,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 1. En el [Portal de administración de Azure](https://portal.azure.com), en la parte superior, haga clic en **Nuevo**. En la hoja **Nuevo**, seleccione **Medios + CDN** y, luego, **CDN**.
 
     Aparece la nueva hoja del perfil de CDN.
-    
+
     ![Nuevo perfil de CDN][new-cdn-profile]
 
 2. Escriba un nombre para su perfil de CDN.
@@ -57,21 +57,21 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
 
     Aparece la hoja del perfil de CDN.
-    
+
     ![Perfil de CDN][cdn-profile-settings]
-    
+
 2. Haga clic en el botón **Agregar punto de conexión**.
 
     ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
 
     Aparecerá la hoja **Agregar un punto de conexión**.
-    
+
     ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
 3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
 
 4. En la lista desplegable **Tipo de origen**, seleccione su tipo de origen.
-	
+
 	![Tipo de origen de la red CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
 5. En la lista desplegable **Nombre de host de origen**, seleccione o escriba su dominio de origen. En la lista desplegable se muestran todos los orígenes disponibles del tipo especificado en el paso 4. Si seleccionó *Origen personalizado* como su **Tipo de origen**, tendrá que escribir el dominio de su origen personalizado.
@@ -88,7 +88,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
     ![Punto de conexión de CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
+    > [AZURE.NOTE] El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
 
 ##Otras referencias
 - [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](cdn-map-content-to-custom-domain.md)
@@ -99,6 +99,5 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
- 
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

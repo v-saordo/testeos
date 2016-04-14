@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016" 
+	ms.date="02/12/2016" 
 	ms.author="MarkVi"/>
 
 # Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y panel de acceso
@@ -186,4 +186,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

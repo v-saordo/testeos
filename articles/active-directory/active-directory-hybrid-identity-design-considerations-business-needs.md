@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="12/07/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determinación de los requisitos de identidad para la solución de identidad híbrida
@@ -47,7 +47,8 @@ Ahora que ya tiene una idea con respecto a los requisitos empresariales de su co
 También tiene que tener en cuenta los servicios en la nube que su compañía podría tener. Es muy importante realizar una evaluación para comprender la integración actual con modelos de SaaS, IaaS o PaaS en su entorno. Asegúrese de que responde a las preguntas siguientes durante esta evaluación: ¿Su empresa tiene una integración con un proveedor de servicios en la nube? En caso afirmativo ¿qué servicios se usan? ¿Está dicha integración actualmente en el entorno de producción o es un programa piloto?
 
 
->[AZURE.NOTE]Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para obtener acceso a esta herramienta, acuda a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
+>[AZURE.NOTE]
+Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para obtener acceso a esta herramienta, acuda a [https://appdiscovery.azure.com](https://appdiscovery.azure.com/)
 
 ## Evaluación de los requisitos de integración de identidades
 A continuación, tiene que evaluar los requisitos de integración de identidades. Esta evaluación es importante para definir los requisitos técnicos en relación a cómo se autenticarán los usuarios, qué aspecto tendrá la presencia de la organización en la nube, cómo permitirá la organización la autorización y cómo va a ser la experiencia del usuario. Asegúrese de responder a las siguientes preguntas:
@@ -94,6 +95,6 @@ También es necesario evaluar los requisitos del usuario. Esta evaluación es im
 [Determinación de los requisitos de sincronización de directorios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Consulte también
-[Información general sobre las consideraciones de diseño]((active-directory-hybrid-identity-design-considerations-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

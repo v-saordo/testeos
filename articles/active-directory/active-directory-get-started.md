@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Introducción al uso de HDInsight de Azure
@@ -28,7 +28,7 @@
 > [AZURE.NOTE] Azure AD está disponible para todos los usuarios de forma gratuita. Inscríbase ahora para obtener una suscripción de prueba gratuita de Azure y el directorio estará esperando por usted. El directorio es suyo independientemente de si compra algo o no. [Pruebe ahora Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ##Protección del acceso de su organización
-Proteja los datos de identidad de su organización en la nube con Multi-Factor Authentication para proteger el acceso local y remoto. [Obtenga más información sobre Multi-Factor Authentication.](../multi-factor-authentication.md)
+Proteja los datos de identidad de su organización en la nube con Multi-Factor Authentication para proteger el acceso local y remoto. [Obtenga más información sobre Multi-Factor Authentication.](../multi-factor-authentication/multi-factor-authentication.md)
 
 ##Cambio y restablecimiento de contraseñas
 Reduzca costos y disminuya las llamadas al soporte técnico al permitir a los usuarios cambiar o restablecer sus contraseñas de Active Directory o Azure Active Directory desde cualquier dispositivo y en cualquier ubicación. Un administrador puede administrar directivas de contraseña y notificación, además de ver la actividad de auditoría detallada de las operaciones de restablecimiento de estas contraseñas en el momento en que se producen. [Más información sobre la administración de contraseñas en Azure Active Directory](active-directory-manage-passwords.md)
@@ -44,4 +44,4 @@ Azure AD proporciona una serie de informes para los administradores. Hay aún m�
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

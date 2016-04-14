@@ -28,7 +28,7 @@ Para crear un laboratorio de desarrollo y pruebas, necesitará:
 
 ## Creación de un laboratorio
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
 1. Pulse **Examinar**.
 
@@ -61,4 +61,4 @@ Una vez creado el laboratorio, le presentamos algunos pasos que se deben tener e
 
 - [Incorporación de una máquina virtual con artefactos a un laboratorio de desarrollo y pruebas de Azure](devtest-lab-add-vm-with-artifacts.md)
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

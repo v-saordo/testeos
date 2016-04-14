@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
@@ -52,9 +52,9 @@ Compruebe que el servidor SQL Server es accesible desde la máquina donde está 
 2. Intentar conectarse a la instancia de SQL Server mediante las credenciales especificadas en el Portal de Azure clásico con SQL Server Management Studio (SSMS).
 
 
-## Problema: los segmentos de entrada están en el estado PendingExecution o PendingValidation de forma permanente.
+## Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
 
-Los segmentos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los segmentos pueden estar en el estado **En espera** por varias razones. Una de las más comunes es que la propiedad **external** no está establecida en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
@@ -97,7 +97,7 @@ Para obtener más información:
 1. Inicie el Administrador de configuración de Data Management Gateway en el equipo donde se instaló la puerta de enlace. Compruebe que **Nombre de la puerta de enlace** se establece en el nombre lógico de la puerta de enlace en el **Portal de Azure clásico**, **Estado de clave de puerta de enlace** es **Registrado** y **Estado del servicio** es **Iniciado**. 
 2. Inicie el **Visor de eventos**. Expanda **Registros de aplicaciones y servicios** y haga clic en **Data Management Gateway**. Vea si hay errores relacionados con Data Management Gateway. 
 
-## Problema: el aprovisionamiento de HDInsight a petición provoca un error.
+## Problema: El aprovisionamiento de HDInsight a petición causa un error
 
 Al usar un servicio vinculado de tipo HDInsightOnDemandLinkedService, debe especificar un linkedServiceName que apunte a Almacenamiento de blobs de Azure. Esta cuenta de almacenamiento se usará para copiar todos los registros y archivos auxiliares para el clúster de HDInsight a petición. A veces la actividad que realiza el aprovisionamiento a petición en HDInsight puede provocar el error siguiente:
 
@@ -109,7 +109,7 @@ Además, hay una segunda propiedad de JSON additionalLinkedServiceNames, donde p
 
 
 
-## Problema: la actividad personalizada produce un error.
+## Problema: La actividad personalizada produce un error
 Al usar una actividad personalizada en Factoría de datos de Azure (tipo de actividad de canalización CustomActivity), la aplicación personalizada se ejecuta en el servicio vinculado a HDInsight como un trabajo de MapReduce de streaming de solo asignación.
 
 Cuando se ejecuta la actividad personalizada, Factoría de datos de Azure podrá capturar los resultados desde el clúster de HDInsight y los guardará en el contenedor de almacenamiento *adfjobs* de la cuenta de Almacenamiento de blobs de Azure. Si se produce un error, puede leer el texto del archivo de salida **stderr**. Se puede tener acceso a los archivos y leerlos desde el propio Portal de Azure clásico en el explorador web o con las herramientas del explorador de almacenamiento para tener acceso a los archivos que se conservan en el contenedor de almacenamiento en Almacenamiento de blobs de Azure directamente.
@@ -374,4 +374,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

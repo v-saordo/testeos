@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="03/03/2016"
    ms.author="joaoma"/>
 
 # Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el Administrador de recursos de Azure
@@ -63,7 +63,7 @@ Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Azure PowerShell con Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos de Azure. Hay más información disponible en [Uso de Windows PowerShell con Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Paso 1
 
@@ -87,7 +87,7 @@ Elija qué suscripción de Azure va a utilizar.<BR>
 		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Paso 4
+### Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -145,7 +145,7 @@ Se configura el grupo de direcciones IP de back-end denominado "pool01" con las 
 
 Configura la opción de puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
-### Paso 4
+### Paso 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
@@ -157,7 +157,7 @@ Configura el puerto IP del front-end denominado "frontendport01" para el punto d
 
 Configura el certificado que se usa para la conexión SSL. Es preciso que el certificado tenga el formato .pfx y que la contraseña tenga entre 4 y 12 caracteres.
 
-### Paso 6
+### Paso 6
 
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
@@ -199,4 +199,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

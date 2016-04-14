@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="12/07/2015" 
 	ms.author="riande"/>
 
@@ -35,7 +35,7 @@ Aprenderá a realizar los siguientes procedimientos:
 * Cómo almacenar datos relacionales en la nube mediante el uso de Base de datos SQL de Azure.
 * Cómo implementar un proyecto web que usa una base de datos en una [aplicación web](http://go.microsoft.com/fwlink/?LinkId=529714) en el Servicio de aplicaciones de Azure.
 
->[AZURE.NOTE]Este es un tutorial largo. Si desea una rápida introducción a los proyectos web del Servicio de aplicaciones de Azure y Visual Studio, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md). Para obtener información sobre la solución de problemas, consulte la sección [Solución de problemas](#troubleshooting).
+>[AZURE.NOTE] Este es un tutorial largo. Si desea una rápida introducción a los proyectos web del Servicio de aplicaciones de Azure y Visual Studio, consulte [Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md). Para obtener información sobre la solución de problemas, consulte la sección [Solución de problemas](#troubleshooting).
 >
 >O bien, si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Pruebe el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -61,13 +61,13 @@ Para configurar el entorno de desarrollo, tiene que instalar [Visual Studio 2013
  
 	**Nota:** asegúrese de escribir "ContactManager". En los bloques de código que copiará más tarde se supone que el nombre del proyecto es ContactManager.
 
-1. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione la plantilla **MVC**. Compruebe que la opción **Autenticación** esté establecida en **Cuentas de usuario individuales**, que la casilla **Hospedar en la nube** esté activada y que el valor **Servicio de aplicaciones** esté seleccionado.
+1. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione la plantilla **MVC**. Compruebe que la opción **Autenticación** esté establecida en **Cuentas de usuario individuales**, que la casilla **Hospedar en la nube** esté activada y que **Servicio de aplicaciones** esté seleccionado.
 
 	![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newproject.png)
 
 1. Haga clic en **Aceptar**.
 
-3. Cuando aparezca el cuadro de diálogo **Establecer configuración de la aplicación web de Microsoft Azure**, asegúrese de que ha iniciado sesión en Azure; inicie sesión si aún no lo hizo o, si la sesión expiró, vuelva a escribir sus credenciales.
+3. Cuando aparezca el cuadro de diálogo **Establecer configuración de la aplicación web de Microsoft Azure**, asegúrese de que ha iniciado sesión en Azure; inicie sesión si aún no lo ha hecho o, si la sesión ha expirado, vuelva a escribir sus credenciales.
 
 	![Volver a escribir las credenciales](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/reentercredentials.png)
 
@@ -105,8 +105,7 @@ Para configurar el entorno de desarrollo, tiene que instalar [Visual Studio 2013
 
 ### Establecimiento del encabezado y pie de página
 
-
-1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\Shared*.
+1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\\Shared*.
 
 	![\_Layout.cshtml in Solution Explorer][newapp004]
 
@@ -279,11 +278,11 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 	
 	![Cuadro de diálogo Add Scaffold](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr6.png)
 
-
 1. En el cuadro desplegable **Clase de modelo**, seleccione **Contact (ContactManager.Models)**. (Consulte la imagen que aparece a continuación).
 
 1. En **Clase de contexto de datos**, seleccione **ApplicationDbContext (ContactManager.Models)**. El valor **ApplicationDbContext** se utilizará tanto para la base de datos de suscripciones como para los datos de nuestros contactos.
-1. En el cuadro de la entrada de texto **Nombre de controlador**, escriba "CmController" como nombre del controlador. 
+
+1. En el cuadro de la entrada de texto **Nombre de controlador**, escriba "CmController" como nombre del controlador.
 
 	![Cuadro de diálogo New Data Context](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss5.PNG)
 
@@ -299,7 +298,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
-2. En la ventana **Consola del Administrador de paquetes **, escriba el siguiente comando:
+2. En la ventana **Consola del Administrador de paquetes**, escriba el siguiente comando:
 
 		enable-migrations
 
@@ -314,7 +313,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
 
-3. Abra el archivo *Migrations\Configuration.cs*. 
+3. Abra el archivo *Migrations\\Configuration.cs*.
 
 4. Agregue la siguiente instrucción `using`.
 
@@ -375,7 +374,6 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	Este código inicializa la base de datos con la información de contactos. Para obtener más información acerca de la inicialización de la base de datos, consulte [Inicialización y depuración de bases de datos de Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).
 
-
 6. En **Consola del Administrador de paquetes**, escriba el comando:
 
 		update-database
@@ -390,11 +388,9 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 	![Vista MVC de los datos][rx2]
 
-
-
 ## Incorporación de un proveedor de OAuth2
 
->[AZURE.NOTE]Para obtener instrucciones detalladas sobre cómo usar los sitios de portal de desarrollador de Google y Facebook, este tutorial le ofrece vínculos a tutoriales en el sitio ASP.NET. De todas formas, los cambios en los sitios de Google y Facebook se producen con más frecuencia que la actualización de los tutoriales y estos son ahora obsoletos. Si tiene problemas para seguir las instrucciones, consulte los comentarios al final de este tutorial para obtener una lista de lo que ha cambiado.
+>[AZURE.NOTE] Para obtener instrucciones detalladas sobre cómo usar los sitios de portal de desarrollador de Google y Facebook, este tutorial le ofrece vínculos a tutoriales en el sitio ASP.NET. De todas formas, los cambios en los sitios de Google y Facebook se producen con más frecuencia que la actualización de los tutoriales y estos son ahora obsoletos. Si tiene problemas para seguir las instrucciones, consulte los comentarios al final de este tutorial para obtener una lista de lo que ha cambiado.
 
 [OAuth](http://oauth.net/ "http://oauth.net/") es un protocolo abierto que ofrece autorización segura a través de un método estándar sencillo para aplicaciones web, móviles y de escritorio. La plantilla de Internet ASP.NET MVC utiliza OAuth para ofrecer Facebook, Twitter, Google y Microsoft como proveedores de autenticación. Aunque este tutorial solo utiliza Google como proveedor de autenticación, puede modificar fácilmente el código para utilizar cualquiera de los proveedores. Los pasos necesarios para implementar otros proveedores son muy similares a los que verá en este tutorial. Para usar Facebook como proveedor de autenticación, consulte la página sobre la [aplicación MVC 5 con inicio de sesión OAuth2 de Facebook, Twitter, LinkedIn y Google](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
@@ -410,15 +406,15 @@ Además de la autenticación, este tutorial también usa roles para implementar 
 
 En esta sección, agregará un usuario local y el rol *canEdit* a la base de datos de suscripciones. Únicamente los usuarios incluidos en el rol *canEdit* podrán editar los datos. Es recomendable nombrar los roles en función de las acciones que pueden realizar, por lo que el nombre *canEdit* es más aconsejable que *admin*. A medida que la aplicación evoluciona, puede agregar nuevos roles del tipo *canDeleteMembers*, en lugar de *superAdmin*, que no es muy descriptivo.
 
-1. Abra el archivo *migrations\configuration.cs* y agregue las siguientes instrucciones `using`:
+1. Abra el archivo *migrations\\configuration.cs* y agregue las siguientes instrucciones `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
 1. Agregue el siguiente método **AddUserAndRole** a la clase:
 
-		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-		 {
+		bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		{
 		    IdentityResult ir;
 		    var rm = new RoleManager<IdentityRole>
 		        (new RoleStore<IdentityRole>(context));
@@ -455,7 +451,8 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
 
 En esta sección, modificará temporalmente el método **ExternalLoginConfirmation** del controlador de cuentas para agregar a los nuevos usuarios que se registran con un proveedor de OAuth en el rol *canEdit*. En el futuro, esperamos ofrecer una herramienta similar a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) que le permita crear y editar cuentas y roles de usuario. Hasta entonces, puede realizar la misma función mediante código temporal.
 
-1. Abra el archivo **Controllers\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
+1. Abra el archivo **Controllers\\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
+
 1. Agregue la siguiente llamada a **AddToRoleAsync** justo antes de la llamada a **SignInAsync**.
 
 		await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -504,7 +501,7 @@ En **Consola del Administrador de paquetes**, toque la tecla de flecha arriba pa
 
 		Update-Database
 
-El comando **Update-Database** ejecuta el método **Seed**, el cual ejecuta el método **AddUserAndRole** que agregó antes. El método **AddUserAndRole** crea la usuaria *user1@contoso.com* y la agrega al rol *canEdit*.
+El comando **Update-Database** ejecuta el método **Seed**, el cual ejecuta el método **AddUserAndRole** que agregó antes. El método **AddUserAndRole** crea la usuaria **user1@contoso.com* y la agrega al rol *canEdit*.
 
 ## Protección de la aplicación con SSL y el atributo Authorize ##
 
@@ -536,7 +533,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	Si realiza una búsqueda global de *AllowAnonymous*; puede ver que se usa en los métodos de inicio de sesión y registro del controlador de cuentas.
 
-1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final: 
+1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final:
 
 		// GET: Cm/Create
 		[Authorize(Roles = "canEdit")]
@@ -656,7 +653,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 5. Vuelva a Visual Studio y haga clic en **Publicar**.
 
-3. La aplicación de Azure se abre en el explorador predeterminado. Si ha iniciado sesión, ciérrela para ver la página principal como un usuario anónimo.  
+3. La aplicación de Azure se abre en el explorador predeterminado. Si ha iniciado sesión, ciérrela para ver la página principal como un usuario anónimo.
 
 4. Haga clic en el enlace **Acerca de**. Se le redirigirá a la página de inicio de sesión.
 
@@ -682,8 +679,7 @@ En esta sección, se aplica el atributo [Authorize](http://msdn.microsoft.com/li
 
 	**Nota:** no puede cerrar sesión en Google desde esta aplicación e iniciar sesión en otra cuenta de Google con el mismo explorador. Si utiliza un solo explorador, debe ir al sitio de Google y cerrar sesión desde allí. Puede iniciar sesión con otra cuenta del mismo autenticador externo (como Google) si utiliza un explorador diferente.
 
-Si no ha proporcionado aún el nombre y apellido en la información de su cuenta de Google, se producirá una excepción NullReferenceException.
-
+	Si no ha proporcionado aún el nombre y apellido en la información de su cuenta de Google, se producirá una excepción NullReferenceException.
 
 ## Examen de la base de datos SQL de Azure ##
 
@@ -703,7 +699,7 @@ Si no ha proporcionado aún el nombre y apellido en la información de su cuenta
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Observe el identificador de la cuenta de Google con la que se registró para pertenecer al rol **canEdit**, así como el identificador de *user1@contoso.com*. Estos deberían ser los únicos usuarios del rol **canEdit**. (Esto se comprobará en el paso siguiente).
+1. Observe que el identificador de la cuenta de Google con la que se registró estará incluido en el rol **canEdit**, al igual que el identificador de *user1@contoso.com*. Estos deberían ser los únicos usuarios del rol **canEdit**. (Esto se comprobará en el paso siguiente).
 
 	![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -741,7 +737,7 @@ Este tutorial es obra de [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twi
 
 ## Lo que ha cambiado
 
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -802,4 +798,4 @@ Este tutorial es obra de [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twi
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

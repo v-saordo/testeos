@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/09/2016"
    ms.author="curtand"/>
 
 # Colaboración de Azure Active Directory (Azure AD) B2B
@@ -71,5 +71,6 @@ Examine nuestros otros artículos sobre la colaboración de Azure B2B
 - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
 - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

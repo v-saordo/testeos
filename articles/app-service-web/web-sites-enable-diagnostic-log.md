@@ -134,7 +134,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
 4. En el [Portal de Azure](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
 
-[Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../insights-perf-analytics.md)
+[Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../azure-portal/insights-perf-analytics.md)
 
 ##<a name="streamlogs"></a> Registros
 
@@ -270,4 +270,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio de portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -1,18 +1,18 @@
-<properties 
-   pageTitle="Información general del Almacén de Azure Data Lake | Azure" 
-   description="Comprenda qué es el Almacén de Azure Data Lake y el valor que proporciona en comparación con otros almacenes de datos" 
-   services="data-lake-store" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Información general del Almacén de Azure Data Lake | Azure"
+   description="Comprenda qué es el Almacén de Azure Data Lake y el valor que proporciona en comparación con otros almacenes de datos"
+   services="data-lake-store"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
- 
+
 <tags
    ms.service="data-lake-store"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="01/22/2016"
    ms.author="nitinme"/>
 
@@ -83,9 +83,8 @@ Puede acceder a los datos en el Almacén de Data Lake mediante `adl://<data_lake
 
 Consulte [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md) para saber cómo aprovisionar un Almacén de Data Lake mediante el Portal de Azure. Una vez que aprovisione Azure Data Lake, puede aprender a usar productos de macrodatos tales como Análisis de Azure Data Lake o HDInsight de Azure con el Almacén de Data Lake. También puede crear una aplicación .NET para crear una cuenta de Almacén de Azure Data Lake y realizar operaciones como cargar datos, descargar datos, etc.
 
-- [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Introducción al Almacén de Azure Data Lake mediante SDK de .NET](data-lake-store-get-started-net-sdk.md)
-  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.topic="get-started-article"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 
@@ -21,7 +21,7 @@
 
 
 
-# Instalación del agente de Azure AD Connect Health 
+# Instalación del agente de Azure AD Connect Health
 
 Este documento le guiará en la instalación y configuración del agente de Azure AD Connect Health para AD FS y sincronización.
 
@@ -123,7 +123,7 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 
 - Servicio de análisis de AADSync de Azure AD Connect Health
 - Servicio de supervisión de AADSync de Azure AD Connect Health
- 
+
 ![Comprobación de Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/services.png)
 
 >[Azure.NOTE] Recuerde que el uso de Azure AD Connect Health requiere Azure AD Premium. Si no tiene Azure AD Premium no podrá completar la configuración en el portal de Azure. Para obtener más información, consulte los requisitos [aquí](active-directory-aadconnect-health.md#requirements).
@@ -135,7 +135,9 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
 Puede configurar agentes de Azure AD Connect Health para trabajar con un proxy HTTP
 
 >[AZURE.NOTE]
-- El uso de "Netsh WinHttp set ProxyServerAddress" no funcionará ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows. - La dirección del proxy Http configurada se utilizará para pasar mensajes Https cifrados. - No se admiten servidores proxy autenticados (mediante HTTPBasic).
+- El uso de “Netsh WinHttp set ProxyServerAddress” no funcionará, ya que el agente utiliza System.Net para realizar solicitudes web en lugar de los servicios HTTP de Microsoft Windows.
+- Se utilizará la dirección del proxy HTTP configurada para transmitir mensajes HTTPS cifrados.
+- No se admiten los servidores proxy autenticados (mediante HTTPBasic).
 
 ### Cambio de configuración del proxy del agente de estado
 Tiene las siguientes opciones para configurar el agente de Azure AD Connect Health para utilizar a un proxy HTTP.
@@ -176,7 +178,23 @@ Puede utilizar el comando siguiente para leer la configuración de proxy definid
 	Get-AzureAdConnectHealthProxySettings
 
 
-[//]: # "Fin de la sección de configuración del proxy del agente"
+## Prueba de la conectividad al servicio Azure AD Connect Health
+Pueden surgir problemas que hagan que el agente de Azure AD Connect Health pierda la conectividad con el servicio Azure AD Connect Health, por ejemplo, problemas de red, problemas de permisos o de otro tipo.
+
+Si el agente no puede enviar datos al servicio Azure AD Connect Health durante más de dos horas, verá una alerta que indica "Los datos del servicio de mantenimiento no están actualizados". Si esto sucede, ahora puede comprobar si los agentes de Azure AD Connect Health pueden o no cargar datos en el servicio Azure AD Connect Health mediante la ejecución del siguiente comando de PowerShell desde la máquina cuyo agente experimenta el problema.
+
+    Test-AzureADConnectHealthConnectivity -Role Adfs
+
+El parámetro de rol tiene actualmente los siguientes valores:
+	
+- ADFS
+- Sync
+
+Puede utilizar la marca - ShowResults en el comando para ver los registros detallados. Utilice el ejemplo siguiente:
+
+    Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
+
+>[AZURE.NOTE]Para poder utilizar la herramienta de conectividad, primero debe completar el registro del agente. Si no puede completar el registro del agente, asegúrese de que cumple todos los [requisitos](active-directory-aadconnect-health.md#requirements) para Azure AD Connect Health. Esta prueba de conectividad se realiza de forma predeterminada durante el registro del agente.
 
 
 ## Vínculos relacionados
@@ -186,5 +204,6 @@ Puede utilizar el comando siguiente para leer la configuración de proxy definid
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

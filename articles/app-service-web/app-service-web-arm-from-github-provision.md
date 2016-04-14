@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="tomfitz"/>
 
 # Implementación de una aplicación web vinculada a un repositorio de GitHub
@@ -66,7 +66,7 @@ Crea la aplicación web que está vinculada al proyecto en GitHub.
 
 Especifique el nombre de la aplicación web a través del parámetro **siteName** y la ubicación de la aplicación web a través del parámetro **siteLocation**. En el elemento **dependsOn**, la plantilla define la aplicación web como dependiente del plan de hospedaje de servicio. Puesto que depende del plan de hospedaje, la aplicación web no se crea hasta que ha terminado de crearse el plan de hospedaje. El elemento **dependsOn** solo se usa para especificar el orden de implementación. Si no marca la aplicación web como dependientes en el plan de hospedaje, el Administrador de recursos de Azure intentará crear ambos recursos al mismo tiempo y puede recibir un error si la aplicación web se crea antes que el plan de hospedaje.
 
-La aplicación web también tiene un recurso secundario que se define en la sección **Recursos** más adelante. Este recurso secundario define el control de código fuente para el proyecto implementado con la aplicación web. En esta plantilla, el control de código fuente está vinculado a un repositorio de GitHub determinado. El repositorio de GitHub se define con el código **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"**. Podría codificar la dirección URL del repositorio cuando desee crear una plantilla que implemente de forma repetida un único proyecto y se requiera el número mínimo de parámetros. En lugar de codificar la dirección URL del repositorio, puede agregar un parámetro para ella y usar ese valor para la propiedad **RepoUrl**. Puede ver un ejemplo de parámetro de dirección URL de repositorio en la [Aplicación web con la plantilla de trabajos web](../app-service-web-deploy-web-app-with-webjobs.md).
+La aplicación web también tiene un recurso secundario que se define en la sección **Recursos** más adelante. Este recurso secundario define el control de código fuente para el proyecto implementado con la aplicación web. En esta plantilla, el control de código fuente está vinculado a un repositorio de GitHub determinado. El repositorio de GitHub se define con el código **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"**. Podría codificar la dirección URL del repositorio cuando desee crear una plantilla que implemente de forma repetida un único proyecto y se requiera el número mínimo de parámetros. En lugar de codificar la dirección URL del repositorio, puede agregar un parámetro para ella y usar ese valor para la propiedad **RepoUrl**.
 
     {
       "apiVersion":"2015-04-01",
@@ -110,4 +110,4 @@ La aplicación web también tiene un recurso secundario que se define en la secc
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

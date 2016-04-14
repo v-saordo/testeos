@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="02/03/2016"
    ms.author="bwren;sngun" />
 
 # Administración de datos de Automatización de Azure
@@ -84,4 +84,4 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 
 En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0204_2016-->

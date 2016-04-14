@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -37,14 +37,19 @@ Esta función se puede utilizar con cientos de aplicaciones que puede agregar de
 4. También puede ver qué usuarios están asignados a la aplicación, directamente o mediante la pertenencia a un grupo. Para ello, cambie la opción **Mostrar lista desplegable de "Grupos"** a **"Todos los usuarios"**. La lista muestra los usuarios en el directorio y si cada uno de ellos está asignado o no a la aplicación. La lista también muestra si los usuarios asignados están asignados a la aplicación directamente (el tipo de asignación aparece como "Directo"), o en virtud de la pertenencia a un grupo (el tipo de asignación aparece como "Heredado").
 
 
-> [AZURE.NOTE]Solo después de habilitar Azure AD Premium o Azure AD Basic, verá la pestaña Usuarios y grupos.
+> [AZURE.NOTE]
+Solo después de habilitar Azure AD Premium o Azure AD Basic, verá la pestaña Usuarios y grupos.
+
+##Artículos relacionados
 
 Estos artículos proporcionan información adicional sobre Azure Active Directory.
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

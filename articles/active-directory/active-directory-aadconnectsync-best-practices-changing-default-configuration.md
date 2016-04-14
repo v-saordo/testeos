@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -28,11 +28,7 @@ Azure AD Connect Sync se está ejecutando con una cuenta de servicio creada por 
 - **No se admite** cambiar o restablecer la contraseña de la cuenta de servicio. Si lo hace, se destruirán las claves de cifrado y el servicio no podrá tener acceso a la base de datos ni se podrá iniciar.
 
 ## Cambios realizados en el programador
-Azure AD Connect Sync está configurado para sincronizar los datos de identidad cada tres horas. Durante la instalación se crea una tarea programada que se ejecuta con una cuenta de servicio con permisos para usar el servidor de sincronización.
-
-- **No se admite** realizar cambios en la tarea programada. No se conoce la contraseña de la cuenta de servicio. Consulte [Cambios en la cuenta de servicio](#changes-to-the-service-account)
-- **No se admite** realizar sincronizaciones con una frecuencia superior al valor predeterminado de tres horas.
-	- Se admiten sincronizaciones puntuales cuando se prueba una nueva configuración. Pero no se deben ejecutar exportaciones a Azure AD con una frecuencia mayor.
+A partir de las versiones de compilación 1.1 (febrero de 2016) puede configurar el [Programador](active-directory-aadconnectsync-feature-scheduler.md) para que tenga un ciclo de sincronización diferente al del valor predeterminado de 30 minutos.
 
 ## Cambios en las reglas de sincronización
 El Asistente para la instalación proporciona una configuración que se supone que funciona en la mayoría de los casos. En caso de que tenga que realizar cambios en la configuración, debe seguir entonces estas reglas para disponer de una configuración admitida.
@@ -113,4 +109,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 # Habilitación del proxy de la aplicación de Azure AD
@@ -63,7 +63,7 @@ Si el firewall fuerza el tráfico según los usuarios que se originan, abra esto
   - Proporcione sus credenciales de administrador global de Azure AD. Su inquilino de administrador global puede ser diferente de sus credenciales de Microsoft Azure.
   - Asegúrese de que el administrador que registra el conector está en el mismo directorio en que ha habilitado el servicio de proxy de la aplicación; por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias en ese dominio.
   - Si la configuración de seguridad mejorada de Internet Explorer está **Activada** en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que Internet Explorer Enhanced Security está desactivado.
-  - Si el registro del conector no funciona, vea [Solución de problemas del proxy de la aplicación](active-directory-application-proxy-troubleshoot.md).  
+  - Si el registro del conector no funciona, vea [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md) (Solucionar problemas de Proxy de la aplicación).  
 
 4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor, como se muestra a continuación. Se trata del servicio del conector, que permite la conectividad, y un servicio de actualización automatizada, que comprueba periódicamente las nuevas versiones del conector y actualiza el conector según sea necesario. Haga clic en **Finalizar** en la ventana de instalación para completar la instalación.
 
@@ -91,8 +91,9 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionales
-* [Registro en Azure como una organización](sign-up-organization.md)
-* [Identidad de Azure](fundamentals-identity.md)
-* [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Registro en Azure como una organización](sign-up-organization.md)
+- [Identidad de Azure](fundamentals-identity.md)
+- [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

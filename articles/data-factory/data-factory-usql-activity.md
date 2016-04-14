@@ -62,11 +62,10 @@ El código de autorización que se generó al hacer clic en el botón **Autoriza
  
 | Tipo de usuario | Expira después de |
 | :-------- | :----------- | 
-| No es usuario de AAD (@hotmail.com, @live.com, etc.) | 12 horas |
-| El usuario de AAD y el origen basado en OAuth están en un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que no es el de la Factoría de datos del usuario. | 12 horas |
-| El usuario de AAD y el origen basado en OAuth se encuentran en el mismo inquilino que la Factoría de datos. | 14 días |
+| Cuentas de usuarios NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 horas |
+| Cuentas de usuarios administradas por Azure Active Directory (AAD) | | 14 días después de la ejecución del último segmento. <p>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días.</p> |
 
-Para evitar o resolver este error, tendrá que volver a dar la autorización con el botón **Autorizar** cuando el **token expire** y volver a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, será preciso que vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
 
   
 ### Para generar los valores de sessionId y authorization mediante programación 
@@ -157,7 +156,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 Propiedad | Descripción | Obligatorio
 :-------- | :----------- | :--------
 type | La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL**. | Sí
-scriptPath | Ruta de acceso a la carpeta que contiene el script U-SQL. | No (si se utiliza el script)
+scriptPath | Ruta de acceso a la carpeta que contiene el script U-SQL. Tenga en cuenta que el nombre del archivo distingue mayúsculas de minúsculas. | No (si se utiliza el script)
 scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | No (si se utiliza el script)
 script | Especifique el script en línea en lugar de especificar scriptPath y scriptLinkedService. Por ejemplo: "script": "Prueba CREAR BASE DE DATOS". | No (si usa scriptPath y scriptLinkedService)
 degreeOfParallelism | Número máximo de nodos que se usará de forma simultánea para ejecutar el trabajo. | No
@@ -258,4 +257,4 @@ ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** en el 
 
 Puede especificar otro degreeOfParallelism de viz. de propiedades, prioridad, etc., también en su definición de la canalización para los trabajos que se ejecutan en el servicio Análisis de Azure Data Lake.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

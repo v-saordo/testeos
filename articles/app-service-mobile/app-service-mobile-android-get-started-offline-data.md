@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Activar la sincronización sin conexión para la aplicación móvil de Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -36,7 +34,7 @@ Con la sincronización sin conexión, se lee y se escribe desde una *tabla de si
 Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de Azure, se usa un *contexto de sincronización* (*MobileServiceClient.SyncContext*), que se inicializa con la base de datos local usada para almacenar los datos localmente.
 
 1. En `TodoActivity.java`, convierta en comentario la definición existente de `mToDoTable` y quite la marca de comentario de la versión de la tabla de sincronización:
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. En el método `onCreate`, convierta en comentario la inicialización existente de `mToDoTable` y quite la marca de comentario de esta definición:
@@ -118,4 +116,4 @@ Al presionar este botón, se inicia una nueva tarea en segundo plano que primero
 [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_0211_2016-->

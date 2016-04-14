@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Actividad de Hive
@@ -61,7 +61,7 @@ inputs | Entradas consumidas por la actividad de Hive | No
 outputs | Salidas producidas por la actividad de Hive | Sí 
 linkedServiceName | Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos | Sí 
 script | Especifica el script de Hive en línea | No
-script path | Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. | No 
+script path | Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. Tenga en cuenta que el nombre del archivo distingue mayúsculas de minúsculas. | No 
 define los campos | Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' | No
 
 ## Ejemplo
@@ -108,7 +108,7 @@ Para ejecutar este script de Hive en una canalización de Factoría de datos, ne
 3. Crear [conjuntos de datos](data-factory-create-datasets.md)que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada "HiveSampleIn" y al conjunto de datos de salida "HiveSampleOut"
 4. Copiar la consulta de Hive como un archivo en el almacenamiento de blobs de Azure configurado en el paso 2. Si el servicio vinculado para hospedar los datos es diferente al que hospeda este archivo de consulta, crear un servicio vinculado del almacenamiento de Azure independiente y hacer referencia a él en la configuración de la actividad. Use **scriptPath ** para especificar la ruta de acceso al archivo de consulta de hive y **scriptLinkedService** para especificar el almacenamiento de Azure que contiene el archivo de script.
 
-	> [AZURE.NOTE]También puede proporcionar el script de Hive en línea en la definición de la actividad mediante la propiedad **script**, pero no se recomienda porque todos los caracteres especiales del script dentro del documento JSON deben incluirse entre secuencias de escape y pueden causar problemas de depuración. La práctica recomendada es seguir el paso 4.
+	> [AZURE.NOTE] También puede proporcionar el script de Hive en línea en la definición de la actividad mediante la propiedad **script**, pero no se recomienda porque todos los caracteres especiales del script dentro del documento JSON deben incluirse entre secuencias de escape y pueden causar problemas de depuración. La práctica recomendada es seguir el paso 4.
 5.	Crear la siguiente canalización con la actividad HDInsightHive para procesar los datos.
 
 		{
@@ -214,4 +214,4 @@ Para usar un script de Hive parametrizado, haga lo siguiente:
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

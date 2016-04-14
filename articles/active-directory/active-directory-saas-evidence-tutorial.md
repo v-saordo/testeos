@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/23/2016"
 	ms.author="asmalser"/>
 
 
@@ -107,4 +107,4 @@ Para que los usuarios de AAD aprovisionados vean Evidence.com en su panel de acc
  
 4.	En el pie de página, haga clic en el botón **Asignar**.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

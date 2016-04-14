@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/17/2015"
+   ms.date="02/11/2016"
    ms.author="prkumar"/>
 
 
 # Introducción al agente de escucha HTTP y a la acción HTTP, y su incorporación a una aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Conéctese directamente a los recursos de HTTP para escuchar solicitudes HTTP y configurar solicitudes web HTTP. Hay algunos escenarios en los que puede que necesite trabajar con conexiones HTTP directas, entre los que se incluyen los siguientes:
 
 1.	Desarrollar una aplicación lógica que admita un front-end interactivo de usuario web o móvil.
@@ -38,10 +40,10 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 2. Busque "HTTP", seleccione Escucha HTTP y, después, seleccione **Crear**.
 3.	Configure la escucha HTTP de la siguiente forma: ![][1]
 
-4.	Al establecer la configuración del paquete, verá la siguiente opción sobre si el agente de escucha debe responder automáticamente o si es necesario que envíe una respuesta explícita. Seleccione **False** si desea enviar su propia respuesta: ![][2]
+4.	Al establecer la configuración del paquete, verá la siguiente opción sobre si el agente de escucha debe responder automáticamente o si es necesario que envíe una respuesta explícita. Establezca este valor en **False** para enviar su propia respuesta: ![][2]
 
 5.	Haga clic en **Aceptar** para crearla.
-6.	Una vez creada la instancia de aplicación de la API, abra la configuración para establecer la seguridad. La escucha HTTP actualmente admite la autenticación básica. Para configurarla, use la opción Seguridad al abrir el agente de escucha HTTP: ![][3]
+6.	Una vez creada la instancia de aplicación de la API, abra la configuración para establecer la seguridad. La escucha HTTP actualmente admite la autenticación básica. Puede configurar esto con la opción de seguridad al abrir la escucha HTTP: ![][3]
   
 	**Problema conocido** *La configuración de Seguridad muestra "No" como valor predeterminado, aunque no está definida. Debe cambiar la configuración a Básico y volver a Ninguno antes de guardarlo para asegurarse de que el agente de escucha de HTTP está configurado correctamente.*
 
@@ -58,10 +60,10 @@ Una vez creada la aplicación de la API, ahora puede usar el agente de escucha d
 
 7.	Para obtener el URI completo, haga doble clic en el agente de escucha HTTP para ver sus valores de configuración y copie la dirección URL para el "Host" de la aplicación de API: ![][6]
 8.	Ya puede usar los datos recibidos en la solicitud HTTP en otras acciones del flujo de la siguiente forma: ![][7] ![][8]
-9.	Por último, para enviar una respuesta, agregue otro agente de escucha de HTTP y seleccione la acción Enviar respuesta HTTP. En Id. de solicitud, seleccione el RequestID obtenido del agente de escucha HTTP y rellene el cuerpo de la respuesta y el estado HTTP que desee devolver: ![][9]
+9.	Por último, para enviar una respuesta, agregue otro agente de escucha de HTTP y seleccione la acción Enviar respuesta HTTP. Establezca el identificador de solicitud en el RequestID obtenido de la escucha HTTP y complete el cuerpo de respuesta y el estado HTTP que desee devolver: ![][9]
 
 ## Uso de la acción de HTTP
-Las aplicaciones lógicas admiten de forma nativa la acción de HTTP y no es necesario crear una aplicación de API primero para poder usarla. Puede insertar una acción de HTTP en cualquier momento en la aplicación lógica y elegir el URI, los encabezados y el cuerpo de la llamada. La acción HTTP admite varias opciones para la seguridad del cliente. Vea las [opciones de seguridad del lado cliente](../scheduler-outbound-authentication.md).
+Las aplicaciones lógicas admiten de forma nativa la acción de HTTP y no es necesario crear una aplicación de API primero para poder usarla. Puede insertar una acción de HTTP en cualquier momento en la aplicación lógica y elegir el URI, los encabezados y el cuerpo de la llamada. La acción HTTP admite varias opciones para la seguridad del cliente. Vea las [opciones de seguridad del lado cliente](../scheduler/scheduler-outbound-authentication.md).
 
 El resultado de la acción de HTTP son los encabezados y el cuerpo, que se pueden usar en el flujo similar al de cómo se consume el resultado de otras acciones y conectores.
 
@@ -72,7 +74,7 @@ Consulte la referencia de API de REST de Swagger en [Referencia de conectores y 
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
@@ -86,4 +88,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

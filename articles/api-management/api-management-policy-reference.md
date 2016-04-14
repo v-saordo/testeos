@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
@@ -42,6 +42,7 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
 	-	[Establecer estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
 	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
+	-	[Esperar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait): espera a que se completen las directivas adjuntas Enviar solicitud, Obtener el valor de caché o Flujo de control antes de continuar.
 -	[Directivas de autenticación][]
 	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
 	-	[Autenticar con certificado de cliente][]\: autenticar con un servicio de back-end mediante certificados de cliente.
@@ -118,4 +119,4 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi"/>
 
 
@@ -536,7 +536,7 @@ Se usa para determinar si CGuid() es correcto.
 
 **Comentarios:** <br> para un atributo, esto se evaluaría como True si el atributo no está presente o está presente pero es una cadena vacía.<br> La función contraria a esta es IsPresent.
 
-**Ejemplo:**<br>`IsNull([displayName])`<br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
+**Ejemplo:**<br>`IsNullOrEmpty([displayName])`<br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
 
 
 
@@ -1058,4 +1058,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

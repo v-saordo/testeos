@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 
 # Trabajar con las aplicaciones para notificaciones en Proxy de aplicación
 
-> [AZURE.IMPORTANT]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+> [AZURE.IMPORTANT] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Las aplicaciones para notificaciones realizan una redirección al servicio de token de seguridad (STS), que a su vez solicita las credenciales del usuario a cambio de un token antes de redirigir al usuario a la aplicación. Para permitir que el proxy de aplicación funcione con estas redirecciones, deben realizarse los siguientes pasos.
 
@@ -59,7 +59,10 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 
 ## Recursos adicionales
 
-* [Registro en Azure como una organización](sign-up-organization.md)
-* [Identidad de Azure](fundamentals-identity.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
+- [Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación](active-directory-application-proxy-native-client.md)
+- [Registro en Azure como una organización](sign-up-organization.md)
+- [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

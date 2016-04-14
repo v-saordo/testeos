@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones
@@ -127,7 +127,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 
 1.	En un explorador web, abra el Portal de administración de Azure en https://manage.windowsazure.com.
 2.	Vaya a **Active Directory > Directorio > [su directorio] > Aplicaciones** y seleccione **Agregar > Agregar una aplicación de la galería**.
-3.	Seleccione la pestaña **Personalizado** situada a la izquierda, escriba un nombre como "Aplicación de prueba SCIM" y haga clic en el icono de marca de verificación para crear un objeto de aplicación. Tenga en cuenta que el objeto de la aplicación creado está diseñado para representar la aplicación de destino a la que va a aprovisionar y para la que va a implementar el inicio de sesión único, no solo el punto de conexión SCIM.
+3.	Seleccione la pestaña **Personalizado** situada a la izquierda, escriba un nombre como "Aplicación de prueba SCIM" y haga clic en el icono de marca para crear un objeto de aplicación. Tenga en cuenta que el objeto de la aplicación creado está diseñado para representar la aplicación de destino a la que va a aprovisionar y para la que va a implementar el inicio de sesión único, no solo el punto de conexión SCIM.
 
 ![][2]
 
@@ -438,7 +438,7 @@ En el caso del ejemplo anterior de una consulta para un usuario con un valor esp
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2.** Si la respuesta a una consulta al servicio para un usuario con un valor de atributo externalId que coincide con el valor de atributo mailNickname de un usuario en Azure Active Directory no devuelve ningún usuario, Azure Active Directory solicitará al servicio que aprovisione un usuario correspondiente al de Azure Active Directory. Este es un ejemplo de dicha solicitud:
+**2.** Si la respuesta a una consulta al servicio para un usuario con un valor de atributo externalId que coincide con el valor de atributo mailNickname de un usuario en Azure Active Directory no devuelve ningún usuario, Azure Active Directory solicitará al servicio que aprovisione un usuario correspondiente a uno en Azure Active Directory. Este es un ejemplo de dicha solicitud:
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -654,7 +654,7 @@ En el caso del ejemplo anterior de una solicitud para actualizar un usuario, el 
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6.** Para desaprovisionar un usuario de un almacén de identidades dirigido por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
+**6:** Para desaprovisionar un usuario de un almacén de identidades proporcionado por un servicio SCIM, Azure Active Directory enviará una solicitud como esta:
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -684,6 +684,17 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 
 ![][5] *Ilustración: Secuencia de aprovisionamiento y desaprovisionamiento de usuarios*
 
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+- [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](active-directory-saas-customizing-attribute-mappings.md)
+- [Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtros de ámbito para el aprovisionamiento de usuario](active-directory-saas-scoping-filters.md)
+- [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
+
+
 	
 <!--Image references-->
 [1]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG
@@ -692,4 +703,4 @@ La siguiente ilustración muestra los mensajes que Azure Active Directory enviar
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

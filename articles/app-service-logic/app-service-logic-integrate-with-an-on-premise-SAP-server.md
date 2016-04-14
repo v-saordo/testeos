@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="02/18/2016"
 	ms.author="sameerch"/>
 
 
 # Integración con un servidor SAP local
-Mediante el conector SAP, puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Esto permite invocar RFC, BAPI y tRFC, así como enviar IDocs al servidor SAP, incluso si se sitúa detrás del firewall local.
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
+Mediante el [conector SAP](app-service-logic-connector-sap.md), puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Esto permite invocar RFC, BAPI y tRFC, así como enviar IDocs al servidor SAP, incluso si se sitúa detrás del firewall local.
 
 Si tiene un servidor de SAP local, use un agente de escucha híbrido para establecer la conexión con el conector de SAP como se muestra:
 
@@ -106,7 +109,7 @@ Seleccione **Desencadenadores y acciones**. Se abrirá el diseñador de flujo de
 
 Seleccione el conector SAP en el panel de la derecha y seleccione una acción en la pestaña Acciones.
 
-> [AZURE.NOTE]La lista de acciones se basa en la configuración que especificó cuando creó el conector SAP.
+> [AZURE.NOTE] La lista de acciones se basa en la configuración que especificó cuando creó el conector SAP.
 
 Para la acción seleccionada, consulte los parámetros de entrada y salida. Puede especificar las entradas de la acción y usar la salida de la acción actual en otras aplicaciones de API, posiblemente para tomar más decisiones en el flujo de trabajo.
 
@@ -121,4 +124,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://www.microsoft.com/download/details.aspx?id=35552
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

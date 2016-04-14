@@ -12,8 +12,8 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/27/2016" 
 	ms.author="riande"/>
 
 
@@ -108,4 +108,4 @@ También puede usar el servicio Caché en Redis para almacenar objetos en la mem
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

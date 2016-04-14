@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@ El objetivo de este tutorial es mostrar cómo integrar CS Stars con Azure Active
 
 - Puede controlar en Azure AD quién tiene acceso a CS Stars. 
 - Puede permitir que los usuarios inicien sesión automáticamente en CS Stars (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central, el Portal de Azure Active Directory.
+- Puede administrar sus cuentas en una ubicación central: el Portal de Azure clásico.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Para configurar la integración de Azure AD con CS Stars, necesita los siguiente
 - Una suscripción habilitada para el inicio de sesión único en CS Stars
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -56,7 +56,7 @@ Para configurar la integración de CS Stars en Azure AD, deberá agregar CS Star
 
 **Para agregar CS Stars desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Active Directory][1]<br>
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Active Directory][1]<br>
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -87,11 +87,11 @@ Para configurar y probar el inicio de sesión único de Azure AD con CS Stars, e
 
 ### Configuración del inicio de sesión único de Azure AD
 
-El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el portal de Azure AD y configurar el inicio de sesión único en la aplicación CS Stars.<br>
+El objetivo de esta sección es habilitar el inicio de sesión único de Azure AD en el Portal de Azure clásico y configurar el inicio de sesión único en la aplicación CS Stars.<br>
 
 **Para configurar el inicio de sesión único de Azure AD con CS Stars, realice los pasos siguientes:**
 
-1. En el Portal de Azure AD, en la página de integración de aplicaciones de **CS Stars**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][6]<br>
+1. En el Portal de Azure clásico, en la página de integración de la aplicación **CS Stars**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][6]<br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en CS Stars?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en **Siguiente**. <br><br>![Inicio de sesión único de Azure AD][7]<br>
 
@@ -99,7 +99,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
      3\.1 En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que usan los usuarios para iniciar sesión en la aplicación CS Stars (por ejemplo, **https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2*).
 
-     >[AZURE.NOTE]Si desconoce el valor correcto, póngase en contacto con su representante de Marsh ClearSight.
+     > [AZURE.NOTE] Si desconoce el valor correcto, póngase en contacto con su representante de Marsh ClearSight.
 
      3\.2. Haga clic en **Siguiente**.
  
@@ -108,7 +108,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 5. Para habilitar el inicio de sesión único para CS Stars, póngase en contacto con su representante de Marsh ClearSight y entregue el archivo de metadatos.
 
 
-6. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][10]<br>
+6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][10]<br>
 
 7. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Qué es Azure AD Connect][11]<br>
 
@@ -116,11 +116,11 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 
 ### Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear una usuaria de prueba en el Portal de Azure llamada Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Creación de un usuario de Azure AD][20]<br>
+El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure clásico llamado Britta Simon.<br> En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Creación de un usuario de Azure AD][20]<br>
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png)<br> 
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
@@ -163,7 +163,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar a Britta Simon a CS Stars, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior. <br><br>![Asignar usuario][201]<br>
+1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior. <br><br>![Asignar usuario][201]<br>
 2. En la lista de aplicaciones, seleccione **CS Stars**. <br><br>![Asignar usuario][202]<br>
 1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br><br>![Asignar usuario][203]<br>
 1. En la lista Usuarios, seleccione **Britta Simon**.
@@ -205,4 +205,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

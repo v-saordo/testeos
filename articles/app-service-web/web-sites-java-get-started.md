@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="03/04/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web de Java en el Servicio de aplicaciones de Azure
@@ -27,9 +27,9 @@
 
 En este tutorial se muestra cómo crear una [aplicación web de Java en el Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante el [Portal de Azure](https://portal.azure.com/). El Portal de Azure es una interfaz web que puede usarse para administrar los recursos de Azure.
 
-> [AZURE.NOTE] Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio][] o bien [registrarse para obtener una evaluación gratuita][].
+> [AZURE.NOTE] Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio] o bien [registrarse para obtener una evaluación gratuita].
 >
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones][]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones]. Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 ## Opciones de la aplicación Java
 
@@ -53,7 +53,7 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
 	* Desea configurar el contenedor web desde el principio. 
 	* Quiere usar una versión de Java que no es compatible con el Servicio de aplicaciones y desea cargarla.
 
-	En todos estos casos, puede crear una aplicación mediante el Portal de Azure y después proporcionar los archivos en tiempo de ejecución adecuados manualmente. En este caso, los archivos se deducirán de las cuotas de espacio de almacenamiento para su plan de Servicio de aplicaciones. Para obtener más información, consulte [Carga de una aplicación web de Java personalizada en Azure](https://acom-sandbox.azurewebsites.net/es-ES/documentation/articles/web-sites-java-custom-upload/).
+	En todos estos casos, puede crear una aplicación mediante el Portal de Azure y después proporcionar los archivos en tiempo de ejecución adecuados manualmente. En este caso, los archivos se deducirán de las cuotas de espacio de almacenamiento para su plan de Servicio de aplicaciones. Para obtener más información, consulte [Carga de una aplicación web de Java personalizada en Azure](web-sites-java-custom-upload.md).
 
 ## <a name="portal"></a> Creación y configuración de una aplicación web de Java
 
@@ -91,7 +91,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 
 11. Elija la **versión Java** deseada.
 
-12. Elija la **versión secundaria de Java** deseada. Si selecciona **Más reciente**, la aplicación usará la versión secundaria más reciente que está disponible en el Servicio de aplicaciones para esa versión principal de Java. El elemento **Newest** es único para aplicaciones Java creadas desde **Configuración de la aplicación**. Si crea su aplicación Java desde la galería, tendrá que administrar su propio contenedor y los cambios de JVM.
+12. Elija la **versión secundaria de Java** deseada. Si selecciona **Más reciente**, la aplicación usará la versión secundaria más reciente que está disponible en el Servicio de aplicaciones para esa versión principal de Java. El elemento **Más reciente** es único para las aplicaciones Java creadas desde **Configuración de la aplicación**. Si crea su aplicación Java desde la galería, tendrá que administrar su propio contenedor y los cambios de JVM.
 
 12. Elija el **contenedor web** deseado. Si selecciona un nombre de contenedor que comienza con **Más reciente**, la aplicación se mantendrá en la versión más reciente de esa versión principal del contenedor web que está disponible en el Servicio de aplicaciones.
 
@@ -176,7 +176,6 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 <!-- External Links -->
 [activar los beneficios de suscripción a Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-
 [prueba gratuita del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

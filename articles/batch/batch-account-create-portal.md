@@ -12,11 +12,9 @@
 	ms.workload="big-compute"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/10/2015"
-	ms.author="danlep"/>
-
-
+	ms.topic="get-started-article"
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # Creación y administración de una cuenta de Lote de Azure en el Portal de Azure
 
@@ -24,13 +22,13 @@
 - [Azure portal](batch-account-create-portal.md)
 - [Batch Management .NET](batch-management-dotnet.md)
 
-En este artículo se muestra cómo usar el [Portal de Azure](https://portal.azure.com) para crear y administrar la cuenta de Lote de Azure, así como sus valores de configuración, por ejemplo, las claves de cuenta. Para autenticar todas las solicitudes de la API de Lote necesita una dirección URL de cuenta de Lote y una clave de acceso asociada. Y, todos los recursos de Lote (como grupos, trabajos y tareas) de la carga de trabajo de Lote se asocian con una cuenta de Lote específica.
+En este artículo se muestra cómo usar el [Portal de Azure][azure_portal] para crear y administrar la cuenta de Lote de Azure, incluyendo donde encontrar valores de configuración como la URL de cuenta y las claves de cuenta. Para autenticar todas las solicitudes de la API de Lote necesita una dirección URL de cuenta de Lote y una clave de acceso asociada. Y, todos los recursos de Lote (como grupos, trabajos y tareas) de la carga de trabajo de proceso se asocian con una cuenta de Lote específica.
 
->[AZURE.NOTE]En la actualidad el Portal de vista previa admite características de administración de cuentas de Lote y visualización de algunos recursos de cuenta. Las características completas del servicio Lote están disponibles para los desarrolladores a través de las API de Lote.
+>[AZURE.NOTE] En la actualidad el Portal de Azure admite características de administración de cuentas de Lote y visualización de algunos recursos de cuenta. El conjunto completo de características del servicio Lote están disponibles para los desarrolladores a través de las API de Lote.
 
 ## Crear una cuenta de lote
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure][azure_portal].
 
 2. Haga clic en **Nuevo** > **Proceso** > **Servicio de Lote**.
 
@@ -42,7 +40,7 @@ En este artículo se muestra cómo usar el [Portal de Azure](https://portal.azur
 
 	a. En **Nombre de la cuenta**, escriba un nombre único para usarlo en la dirección URL de la cuenta de Lote.
 
-	>[AZURE.NOTE]El nombre de la cuenta de Lote debe ser único para Azure, contener entre 3 y 24 caracteres y usar solo letras minúsculas y números.
+	>[AZURE.NOTE] El nombre de la cuenta de Lote debe ser único para Azure, contener entre 3 y 24 caracteres y usar solo letras minúsculas y números.
 
 	b. Si tiene más de una suscripción, haga clic en **Suscripción** para seleccionar una suscripción disponible donde se creará la cuenta.
 
@@ -65,10 +63,9 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 
 ## Otras cosas que hay que saber sobre la cuenta de Lote
 
-* Otras formas de crear y administrar cuentas de Lote son los [cmdlets de PowerShell para Lote](batch-powershell-cmdlets-get-started.md) y la [biblioteca .NET de administración de Lote](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
+* Otras formas de crear y administrar cuentas de Lote son los [cmdlets de PowerShell para Lote](batch-powershell-cmdlets-get-started.md) y la [biblioteca .NET de administración de Lote](batch-management-dotnet.md).
 
-
-* Azure no cobra por tener una cuenta de Lote. Solo se le cobrará por el uso de los recursos de proceso de Azure y otros servicios cuando se ejecuten las cargas de trabajo (consulte los [precios de Lote](https://azure.microsoft.com/pricing/details/batch/)).
+* Azure no cobra por tener una cuenta de Lote. Solo se le cobrará por el uso de los recursos de proceso de Azure y otros servicios cuando se ejecuten las cargas de trabajo (consulte los [precios de Lote][batch_pricing]).
 
 * Puede ejecutar varias cargas de trabajo de Lote en una sola cuenta de Lote, o bien distribuir las cargas de trabajo entre cuentas de Lote situadas en diferentes regiones de Azure.
 
@@ -80,8 +77,11 @@ Para ver y administrar las claves de acceso, haga clic en el icono de llave.
 
 * Comience a desarrollar su primera aplicación con la [biblioteca de cliente .NET de Lote](batch-dotnet-get-started.md)
 
+[azure_portal]: https://portal.azure.com
+[batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
+
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

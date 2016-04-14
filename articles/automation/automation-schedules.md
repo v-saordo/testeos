@@ -17,13 +17,13 @@
 
 # Programaciones en Automatización de Azure
 
-Las programaciones de Automatización se usan para programar la ejecución automática de runbooks. Podría ser una sola fecha y hora para que el runbook se ejecute una vez. O bien, podría ser una programación periódica para iniciar el runbook varias veces. Normalmente, no se accede a las programaciones desde los runbooks.
+Las programaciones de Automatización se usan para programar la ejecución automática de runbooks. Podría ser una sola fecha y hora para que el runbook se ejecute una vez. O bien, se puede tratar de una programación periódica para iniciar el runbook varias veces. Normalmente, no se accede a las programaciones desde los runbooks.
 
 >[AZURE.NOTE]  Las programaciones no admiten actualmente las configuraciones de DSC de Automatización de Azure.
 
 ## Cmdlets de Windows PowerShell
 
-Los cmdlets de la siguiente tabla se usan para crear y administrar variables con Windows PowerShell en Automatización de Azure. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md).
+Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con Windows PowerShell en Automatización de Azure. Se incluyen como parte del [módulo Azure PowerShell](../powershell-install-configure.md).
 
 |Cmdlets|Descripción|
 |:---|:---|
@@ -37,15 +37,15 @@ Los cmdlets de la siguiente tabla se usan para crear y administrar variables con
 
 ## Creación de una nueva programación
 
-### Para crear una nueva programación con el Portal de Azure
+### Para crear una nueva programación con el Portal de Azure clásico
 
 
 1. En la cuenta de Automatización, haga clic en **Recursos** en la parte superior de la ventana.
 1. En la parte inferior de la ventana, haga clic en **Agregar configuración**.
 1. Haga clic en **Agregar programación**.
-1. Realice los pasos del asistente y haga clic en la casilla para guardar la nueva variable.
+1. Realice los pasos del asistente y haga clic en la casilla para guardar la nueva programación.
 
-### Para crear una nueva programación con el Portal de vista previa de Azure
+### Para crear una nueva programación con el Portal de Azure
 
 1. En la cuenta de Automatización, haga clic en la parte **Recursos** para abrir la hoja **Recursos**.
 1. Haga clic en la parte **Programaciones** para abrir la hoja **Programaciones**.
@@ -68,4 +68,4 @@ El cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Programación de un runbook en Automatización de Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -10,15 +10,15 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
-
 
 # Creación de un proceso B2B
 
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 ## Escenario empresarial 
 Contoso y Northwind son dos socios comerciales. Contoso (el minorista) envía los pedidos de compra a Northwind (proveedor) a través de un transporte industrial como AS2. Northwind almacena todos los pedidos entrantes en su almacenamiento en nube. Los pedidos de compra son mensajes XML entre estos dos socios. Una vez que el mensaje se almacena en el almacenamiento en la nube de Northwind, los procesos internos de Northwind controlan el pedido a partir de ese punto.
@@ -69,4 +69,4 @@ En este tutorial se supone que tiene conocimientos básicos de Servicios de apli
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

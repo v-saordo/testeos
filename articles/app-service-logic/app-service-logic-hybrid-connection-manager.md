@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Conexión a conectores locales en Servicio de aplicaciones de Azure mediante el Administrador de conexiones híbridas
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Para usar un sistema local, el Servicio de aplicaciones de Azure emplea el Administrador de conexiones híbridas. Algunos conectores pueden conectar a un sistema local, como SQL Server, SAP, SharePoint, etc.
 
 El Administrador de conexiones híbridas (HCM) es un instalador de un solo clic que se instala en un servidor IIS de la red, detrás del firewall. Mediante una Retransmisión de bus de servicio de Azure, HCM autentica el sistema local con el conector de Azure.
@@ -106,7 +109,7 @@ Puerto del sistema local | En el sistema local, abra el puerto usado por el sist
 
 ## P+F
 
-**Pregunta**: hay dos administradores de conexiones híbridas. ¿Cuál es la diferencia?<br/> **Respuesta**: está la tecnología de [conexiones híbridas](../integration-hybrid-connection-overview.md) que usan principalmente las aplicaciones web (antes sitios web) y las aplicaciones móviles (antes servicios móviles) para conectarse al entorno local. Este Administrador de conexiones híbridas tiene su propio [programa de instalación](../integration-hybrid-connection-create-manage.md) y usa un servicio de BizTalk de Azure (en segundo plano). Admite únicamente los protocolos TCP y HTTP.
+**Pregunta**: hay dos administradores de conexiones híbridas. ¿Cuál es la diferencia?<br/> **Respuesta**: está la tecnología de [conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) que usan principalmente las aplicaciones web (antes sitios web) y las aplicaciones móviles (antes servicios móviles) para conectarse al entorno local. Este Administrador de conexiones híbridas tiene su propio [programa de instalación](../biztalk-services/integration-hybrid-connection-create-manage.md) y usa un servicio de BizTalk de Azure (en segundo plano). Admite únicamente los protocolos TCP y HTTP.
 
 Con los conectores del Servicio de aplicaciones de Azure, también contamos con un Administrador de conexiones híbridas. Este Administrador de conexiones híbridas *no* usa un servicio de BizTalk de Azure (en segundo plano) y admite más protocolos además de TCP y HTTP. Consulte la [Lista de conectores y aplicaciones de API](app-service-logic-connectors-list.md).
 
@@ -114,7 +117,7 @@ Ambos usan el Bus de servicio de Azure para conectarse al sistema local.
 
 ¿**Pregunta**: al crear una aplicación de API personalizada, ¿puedo usar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectar con el entorno local? <br/> **Respuesta**: no, en el sentido tradicional. Puede usar un conector integrado y configurar el Administrador de conexiones híbridas del Servicio de aplicaciones para conectarse al sistema local. Luego, use este conector con su aplicación de API personalizada, mediante una aplicación lógica posiblemente. Actualmente, no puede desarrollar o crear su propia aplicación de API híbrida (como el conector de SQL o el conector de archivos).
 
-Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbridas](../integration-hybrid-connection-overview.md) y su Administrador de conexiones híbridas. En este escenario, se usa un servicio de BizTalk de Azure. [Conectarse a un servidor SQL Server local desde una aplicación web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) puede servir de ayuda.
+Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) y su Administrador de conexiones híbridas. En este escenario, se usa un servicio de BizTalk de Azure. [Conectarse a un servidor SQL Server local desde una aplicación web](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) puede servir de ayuda.
 
 
 ## Más información.
@@ -133,4 +136,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

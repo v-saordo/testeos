@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Solución de problemas de roles que se inician| Microsoft Azure"
-   description="A continuación, se indican algunas causas habituales de por qué un rol de servicio en la nube no se inicia. También se proporcionan soluciones a estos problemas."
+   pageTitle="Solución de problemas de roles que no se inician| Microsoft Azure"
+   description="A continuación, se indican algunas causas habituales por las que un rol de servicio en la nube puede no iniciarse. También se proporcionan soluciones a estos problemas."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
@@ -13,43 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/20/2016"
+   ms.date="02/25/2016"
    ms.author="daleche" />
 
-# Pasos comunes para solucionar problemas de roles de servicio en la nube que no se inician
+# Solución de problemas de roles de servicios en la nube que no se inician
 
-Presentamos algunos problemas y soluciones comunes relacionados con los roles de servicio en la nube de Azure que se inician.
+Presentamos algunos problemas y soluciones comunes relacionados con los roles de los servicios en la nube de Azure que no se inician.
 
 ## Póngase en contacto con el servicio de atención al cliente de Azure
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure o de desbordamiento de pila](https://azure.microsoft.com/support/forums/).
 
-Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
-
+Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](http://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte**. Para obtener información sobre el uso del soporte técnico de Azure, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 ## DLL o dependencias que faltan
-Los roles que no responden y los roles que han entrado en un bucle de estado **inicializando**, **ocupado** y **deteniendo** pueden deberse a archivos DLL o ensamblados que faltan.
 
-**Síntoma:** Entre los síntomas de DLL o ensamblados que faltan se encuentran los siguientes:
+Tanto que los roles no respondan como que alternen entre lo estados **Inicializando**, **Ocupado** y **Deteniendo** puede deberse a que faltan DLL o ensamblados.
 
-- La instancia de rol entra en un bucle entre **inicializando** / **ocupado** / **deteniendo**
-- La instancia de rol se ha movido a **listo** pero no se muestra la página al navegarse a la aplicación web
+Estos son los síntomas de que faltan DLL o ensamblados:
 
-Resolución: Hay tres métodos recomendados para investigar estos problemas.
+- Una instancia de rol alterna entre los estados **Inicializando**, **Ocupado** y **Deteniendo**.
+- La instancia de rol se ha movido al estado **Listo**, pero si se navega a la aplicación web, la página no aparece.
 
-## Diagnosticar problemas de DLL que faltan en un rol web
+Hay varios métodos recomendados para investigar estos problemas.
 
-Cuando se desplaza a un sitio web que se implementa en un rol web y el explorador muestra un error de servidor similar al siguiente:
+## Diagnóstico del problema de DLL que faltan en un rol web
+
+Cuando se navega a un sitio web que se implementa en un rol web y el explorador muestra un error de servidor similar al siguiente, puede significar que falta alguna DLL.
 
 ![Error del servidor en la aplicación '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## Diagnóstico de problemas mediante la desactivación de errores personalizados
 
-Se pueden ver más errores al configurar el archivo web.config para el rol web estableciendo el modo de error personalizado en desactivado e implementado de nuevo el servicio.
+Para ver una información más completa de los errores, configure el archivo web.config del rol web estableciendo el modo de error personalizado en desactivado y vuelva a implementar el servicio.
 
 Para ver más errores completos sin usar Escritorio remoto:
 
-1. Abra la solución en Visual Studio.
+1. Abra la solución en Microsoft Visual Studio.
 
 2. En el **Explorador de soluciones**, busque el archivo web.config y ábralo.
 
@@ -63,21 +63,21 @@ Para ver más errores completos sin usar Escritorio remoto:
 
 5. Vuelva a empaquetar e implementar el servicio.
 
-Una vez que se vuelva a implementar el servicio, verá el error siguiente con el nombre del ensamblado o DLL que falta.
+Una vez que se vuelva a implementar el servicio, verá un mensaje de error con el nombre del ensamblado o DLL que faltan.
 
 ## Diagnóstico de problemas mediante la comprobación del error de forma remota
 
-Puede usar Escritorio remoto para acceder al rol y ver más errores de forma remota. Use los pasos siguientes para ver los errores con Escritorio remoto:
+Puede usar Escritorio remoto para acceder al rol y ver información más completa sobre los errores de forma remota. Use los pasos siguientes para ver los errores desde Escritorio remoto:
 
-1. Asegúrese de que está instalado Azure SDK 1.3 o una versión posterior.
+1. Asegúrese de que está instalado el SDK 1.3 de Azure, o una versión posterior.
 
-2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto..." Para obtener más información acerca de cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con los roles de Azure](https://msdn.microsoft.com/library/gg443832.aspx).
+2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto...". Para obtener más información sobre cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con roles de Azure](../vs-azure-tools-remote-desktop-roles.md).
 
 3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, haga clic en una de las instancias de rol.
 
-4. Haga clic en el icono **Conectar** en el área de **acceso remoto** de la cinta de opciones.
+4. Haga clic en el icono **Conectar** del área **Acceso remoto** de la cinta de opciones.
 
-5. Inicie sesión en la máquina virtual con las credenciales especificadas durante la configuración de Escritorio remoto.
+5. Inicie sesión en la máquina virtual con las credenciales especificadas en la configuración de Escritorio remoto.
 
 6. Abra el símbolo del sistema.
 
@@ -89,7 +89,7 @@ Puede usar Escritorio remoto para acceder al rol y ver más errores de forma rem
 
 10. Escriba la dirección y el nombre de la aplicación web. Por ejemplo: `http://<IPV4 Address>/default.aspx`.
 
-Si se desplaza al sitio web, se devolverán los mensajes de error más explícitos.
+Si navega al sitio web, se devolverán mensajes de error más explícitos:
 
 * Error del servidor en la aplicación '/'
 
@@ -101,33 +101,33 @@ Por ejemplo:
 
 ![Error explícito del servidor en la aplicación '/'](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503389.png)
 
-## Diagnóstico de problemas con el emulador de proceso
+## Diagnóstico de problemas mediante el emulador de proceso
 
-Puede usar el emulador de proceso de Microsoft Azure para diagnosticar y solucionar problemas de errores en web.config y dependencias que faltan.
+El emulador de proceso de Microsoft Azure se puede usar para diagnosticar y solucionar problemas de errores en web.config y dependencias que faltan.
 
-Para obtener unos mejores resultados con este método de diagnóstico, debe usar un equipo o máquina virtual que tenga una instalación limpia de Windows. Para simular mejor el entorno de Azure, debe usar Windows Server 2008 R2 x64.
+Para obtener unos mejores resultados con este método de diagnóstico, debe usar un equipo o máquina virtual que tenga una instalación limpia de Windows. Para simular lo mejor posible el entorno de Azure, use Windows Server 2008 R2 x64.
 
 1. Instale la versión independiente del [SDK de Azure](https://azure.microsoft.com/downloads/)
 
-2. En la máquina de desarrollo, cree el proyecto de servicio en la nube.
+2. En la máquina de desarrollo, compile el proyecto de servicio en la nube.
 
 3. En el Explorador de Windows, desplácese a la carpeta bin\\debug del proyecto del servicio en la nube.
 
-4. Copie la carpeta .csx y el archivo .cscfg en el equipo que está usando para depurar los problemas.
+4. Copie la carpeta .csx y el archivo .cscfg en el equipo que se usa para depurar los problemas.
 
-5. En la máquina limpia abra un símbolo del sistema del SDK de Azure y escriba `csrun.exe /devstore:start`.
+5. En la máquina limpia, abra una ventana del símbolo del sistema del SDK de Azure y escriba `csrun.exe /devstore:start`.
 
 6. En el símbolo del sistema, escriba `run csrun <path to .csx folder> <path to .cscfg file> /launchBrowser`.
 
-7. Cuando se inicia el rol, verá información detallada del error en Internet Explorer. También puede usar las herramientas de solución de problemas estándar de Windows para efectuar un diagnóstico exhaustivo del problema.
+7. Cuando se inicie el rol, verá información detallada del error en Internet Explorer. También puede usar las herramientas de solución de problemas estándar de Windows para efectuar un diagnóstico exhaustivo del problema.
 
-## Diagnóstico de problemas con IntelliTrace
+## Diagnóstico de problemas mediante IntelliTrace
 
 Para los roles web y de trabajo que usan .NET Framework 4, puede usar [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), que está disponible en [Microsoft Visual Studio Ultimate](https://www.visualstudio.com/products/visual-studio-ultimate-with-MSDN-vs).
 
 Siga estos pasos para implementar el servicio con IntelliTrace habilitado:
 
-1. Confirme que está instalado Azure SDK 1.3 o una versión posterior.
+1. Confirme que está instalado el SDK 1.3 de Azure, o una versión posterior.
 
 2. Implemente la solución con Visual Studio. Durante la implementación, active la casilla **Habilitar IntelliTrace para roles de .NET 4**.
 
@@ -143,7 +143,7 @@ Siga estos pasos para implementar el servicio con IntelliTrace habilitado:
 
 8. Expanda los **datos de excepción** y busque errores **System.IO.FileNotFoundException** similares al siguiente:
 
-![Datos de excepción, falta archivo o ensamblado](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
+![Datos de excepción, faltan archivo o ensamblado](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503390.png)
 
 ## Tratamiento de archivos DLL y ensamblados que faltan
 
@@ -155,16 +155,16 @@ Para tratar los errores de ensamblado y de DLL que faltan, siga estos pasos:
 
 3. Haga clic en el ensamblado identificado en el error.
 
-4. En el panel **propiedades**, busque la propiedad Copy Local y establezca el valor en **True**.
+4. En el panel **Propiedades**, busque la **propiedad Copy Local** y establezca su valor en **True**.
 
-5. Vuelva a implementar el servicio hospedado.
+5. Vuelva a implementar el servicio en la nube.
 
-Cuando haya comprobado que todos los errores se han corregido, el servicio se puede implementar sin la configuración de **Habilitar IntelliTrace para roles de .NET 4** activada.
+Cuando haya comprobado que se han corregido todos los errores, se puede implementar el servicio sin activar la casilla **Habilitar IntelliTrace para roles de .NET 4**.
 
 ## Pasos siguientes
 
 Vea más [artículos de solución de problemas](..\?tag=top-support-issue&service=cloud-services) para servicios en la nube.
 
-Para más información acerca de cómo solucionar el problema de los roles de servicio en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para más información acerca de cómo solucionar los problemas de los roles de los servicios en la nube mediante el uso de datos de diagnóstico de equipos de PaaS de Azure, consulte la [serie de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

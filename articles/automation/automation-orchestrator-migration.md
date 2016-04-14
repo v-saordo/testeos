@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 
@@ -68,7 +68,7 @@ Además de admitir los runbooks convertidos, es posible que un usuario familiari
 
 ## Módulos de integración de System Center Orchestrator
 
-Microsoft proporciona [paquetes de integración](http://technet.microsoft.com/library/hh295851.aspx) para crear runbooks a fin de automatizar componentes de System Center y otros productos. Algunos de estos paquetes de integración se basan en OIT pero actualmente no se pueden convertir en módulos de integración debido a problemas conocidos. Los [Módulos de integración de System Center Orchestrator](https://www.microsoft.com/download/details.aspx?id=49555) incluyen las versiones convertidas de estos paquetes de integración que se pueden importar en Automatización de Azure y Service Management Automation.
+Microsoft proporciona [paquetes de integración](http://technet.microsoft.com/library/hh295851.aspx) para crear runbooks a fin de automatizar componentes de System Center y otros productos. Algunos de estos paquetes de integración se basan en OIT pero actualmente no se pueden convertir en módulos de integración debido a problemas conocidos. Los [Módulos de integración de System Center Orchestrator](https://www.microsoft.com/download/details.aspx?id=49555) incluyen las versiones convertidas de estos paquetes de integración que se pueden importar a Automatización de Azure y Service Management Automation.
 
 Mediante la versión RTM de esta herramienta, se publicarán las versiones actualizadas de los paquetes de integración basados en OIT que se pueden convertir con el Convertidor de paquetes de integración. También se proporcionarán instrucciones para ayudarle a convertir runbooks mediante actividades de los paquetes de integración que no se basan en OIT.
 
@@ -160,4 +160,4 @@ Los runbooks de Orchestrator inician otros runbooks con la actividad **Invocar R
 - [Actividades estándar de Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/18/2015" 
+	ms.date="02/09/2016" 
 	ms.author="spelluru"/>
 
 # Introducción al servicio Factoría de datos de Azure
@@ -25,7 +25,7 @@ La Factoría de datos funciona transversalmente en orígenes de datos locales y 
 
 ![Información general](./media/data-factory-introduction/data-factory-overview.png)
 
-**Ilustración 1.** Recopile datos de distintos orígenes de datos locales, introdúzcalos y prepárelos, organícelos y analícelos con una serie de transformaciones, y publique datos listos para usar para su consumo.
+**Ilustración 1.** Recopile datos de distintos orígenes de datos locales, introdúzcalos y prepárelos, organícelos y analícelos con una serie de transformaciones, y publique datos listos para usar para su consumo.
 
 Puede usar la Factoría de datos cada vez que tenga que recopilar datos de diferentes formas y tamaños, transformarlos y publicarlos para extraer conocimientos profundos: todo en una programación confiable. La Factoría de datos se usa para crear canalizaciones de flujo de datos de alta disponibilidad para muchos escenarios en diferentes sectores para sus necesidades de canalización de análisis. Los distribuidores en línea la usan para generar [recomendaciones de producto](data-factory-product-reco-usecase.md) personalizadas en función del comportamiento de exploración del cliente. Los estudios de juegos la usan para comprender la [eficacia de sus campañas de marketing](data-factory-customer-profiling-usecase.md). Sepa directamente de nuestros clientes cómo y por qué usan la Factoría de datos revisando[casos prácticos de clientes](data-factory-customer-case-studies.md).
 
@@ -57,4 +57,16 @@ Los servicios vinculados definen la información necesaria para que Factoría de
 
 Con los cuatro conceptos sencillos de conjuntos de datos, actividades, canalizaciones y servicios vinculados, está listo para comenzar. Puede [compilar su primera canalización](data-factory-build-your-first-pipeline.md) desde el principio o implementar una muestra lista para usar siguiendo las instrucciones que se ofrecen en nuestro artículo [Ejemplos de la Factoría de datos](data-factory-samples.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+## Regiones admitidas
+Puede crear factorías de datos en las regiones **Oeste de EE. UU.** y **Europa del Norte** en este momento. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
+
+Data Factory de Azure no almacena ningún dato. Permite crear flujos controlados por datos para coordinar el movimiento de los datos entre los [almacenes de datos admitidos](data-factory-data-movement-activities.md#supported-data-stores) y el procesamiento de datos mediante [servicios de proceso](data-factory-compute-linked-services.md) en otras regiones o en un entorno local. También permite [supervisar y administrar flujos de trabajo](data-factory-monitor-manage-pipelines.md) mediante programación y los mecanismos de interfaz de usuario.
+
+Tenga en cuenta que aunque Data Factory de Azure solo está disponible en la región **Oeste de EE. UU.** y **Europa del Norte**, el servicio que atiende el movimiento de datos en Data Factory está disponible [globalmente](data-factory-data-movement-activities.md#global) en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, los datos los mueve una [puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md) instalada en su entorno de local.
+
+Por ejemplo, supongamos que sus entornos de proceso, tales como clúster de Azure HDInsight y Aprendizaje automático de Azure, se ejecutan fuera de la región de Europa occidental. Puede crear y aprovechar una instancia de Data Factory de Azure en Europa del Norte y usarla para programar trabajos en los entornos de proceso en Europa Occidental. El servicio Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
+
+En el futuro, pretendemos tener Data Factory de Azure en todas las ubicaciones geográficas admitidas por Azure.
+  
+
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Más información sobre la administración de contraseñas
@@ -101,7 +101,7 @@ Obtenga más información sobre cómo implementar la escritura diferida de contr
 ### ¿Qué datos sirven para restablecer la contraseña?
 En la tabla siguiente se describe dónde y cómo se usan estos datos durante el restablecimiento de la contraseña y está diseñada para ayudarle a decidir qué opciones de autenticación resultan apropiadas para su organización. En esta tabla también se indican los requisitos de formato para los casos donde va a proporcionar datos en nombre de usuarios desde rutas de acceso de entrada que no validan estos datos.
 
-> [AZURE.NOTE]El teléfono del trabajo no aparece en el portal de registro porque los usuarios actualmente no pueden editar esta propiedad en el directorio.
+> [AZURE.NOTE] El teléfono del trabajo no aparece en el portal de registro porque los usuarios actualmente no pueden editar esta propiedad en el directorio.
 
 <table>
           <tbody><tr>
@@ -365,7 +365,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -379,4 +379,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

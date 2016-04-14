@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 	
 
 # Restablecimiento de contraseña de Azure AD para usuarios y administradores
 
-  >[AZURE.IMPORTANT]¿Está aquí porque quiere restablecer su contraseña de Azure o O365? Si es así, [vaya a esta sección](#users-how-to-manage-your-own-password).
+  >[AZURE.IMPORTANT] ¿Está aquí porque quiere restablecer su contraseña de Azure o O365? Si es así, [vaya a esta sección](#users-how-to-manage-your-own-password).
   
 El autoservicio ha sido durante mucho tiempo un objetivo clave para los departamentos de TI de todo el mundo como una medida de reducción de costos y ahorro de mano de obra. De hecho, el mercado está atestado de productos que le permiten administrar los grupos locales, las contraseñas o los perfiles de usuario en la nube o a nivel local. Azure AD se distingue de estas ofertas proporcionando algunas de las capacidades de autoservicio más fáciles de usar y más eficaces disponibles hoy día.
 
@@ -242,7 +242,7 @@ A continuación se muestran algunas de las interesantes características en las 
 ## Vínculos a la documentación de restablecimiento de contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -252,4 +252,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 # Application Insights para ASP.NET 5
@@ -21,8 +21,9 @@ Visual Studio Application Insights le permite supervisar la disponibilidad, el r
 
 ![Ejemplo](./media/app-insights-asp-net-five/sample.png)
 
-Necesitará una suscripción a [Microsoft Azure](http://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, XBox Live u otros servicios en la nube de Microsoft.
+Necesitará una suscripción a [Microsoft Azure](http://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, XBox Live u otros servicios en la nube de Microsoft. Si su equipo tiene una suscripción organizativa a Azure, el propietario puede agregarle a esta con la cuenta de Microsoft.
 
+[Demostración del ejemplo](https://github.com/aspnet/Docs/tree/master/aspnet/fundamentals/application-insights/sample)
 
 ## Introducción
 
@@ -78,4 +79,4 @@ Las vistas del portal se dividen en dos categorías principales:
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/06/2016"
+   ms.date="02/25/2016"
    ms.author="mbaldwin"/>
 
 
@@ -72,7 +72,7 @@ En estos artículos se describe cómo realizar tareas específicas con Azure Act
 - [Creación de una aplicación con las API de Office 365](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 - [Envío de aplicaciones web para Office 365 al panel de vendedores](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
 - [Vista previa: cómo compilar aplicaciones que inician sesión para los usuarios tanto con cuentas personales como profesionales o educativas](active-directory-appmodel-v2-overview.md)
-- [Vista previa: Creación de aplicaciones que registren e inicien la sesión de los consumidores](active-directory-b2c-overview.md)
+- [Vista previa: Creación de aplicaciones que registren e inicien la sesión de los consumidores](../active-directory-b2c/active-directory-b2c-overview.md)
 
 
 ## Referencia
@@ -141,4 +141,4 @@ Los ponentes de estas presentaciones de información general sobre el desarrollo
 
 - [Azure Active Directory en Twitter](https://twitter.com/azuread): anuncios de Azure Active Directory en 140 caracteres o menos.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

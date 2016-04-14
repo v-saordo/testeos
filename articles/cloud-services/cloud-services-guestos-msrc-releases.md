@@ -20,19 +20,36 @@
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+
+## SO invitado de febrero
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-009 | [3134220] | Actualización de seguridad acumulativa para Internet Explorer | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-013 | [3134811] | Actualización de seguridad de Windows Journal para tratar la ejecución remota de código | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-014 | [3134228] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-016 | [3136041] | Actualización de seguridad de WebDAV para tratar la elevación de privilegios | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-018 | [3136082] | Actualización de seguridad de los controladores del modo Kernel de Windows para tratar la elevación de privilegios | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-019 | [3137893] | Actualización de seguridad de .NET Framework para tratar la ejecución remota de código | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| MS16-021 | [3133043] | Actualización de seguridad del servidor NPS RADIUS para tratar la denegación de servicio | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| Documento informativo sobre seguridad de Microsoft | [3109853] | Actualización para mejorar la interoperabilidad de TLS | 4\.29, 3.36 | 9 de febrero de 2016 |
+| Volver a publicar la versión-MS15-101 | [3089662] | Vulnerabilidades en .NET Framework podrían permitir la elevación de privilegios | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| Volver a publicar la versión-MS15-118 | [3104507] | Actualización de seguridad de .NET Framework para tratar la elevación de privilegios | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+| Volver a publicar la versión-MS15-128 | [3104503] | Actualizaciones de seguridad del componente de gráficos de Microsoft para tratar la ejecución remota de código | 4\.29, 3.36, 2.48 | 9 de febrero de 2016 |
+
 ## SO invitado de enero
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS16-001 | [3124903] | Actualización de seguridad acumulativa para Internet Explorer | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
-| MS16-003 | [3125540] | Actualización de seguridad acumulativa para JScript y VBScript | 2\.47 | 12 de enero de 2015 |
-| MS16-005 | [3124584] | Actualización de seguridad de los controladores del modo kernel de Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
-| MS16-007 | [3124901] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
-| MS16-008 | [3124605] | Actualización de seguridad del kernel para tratar la elevación de privilegios | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
-| Revisión de documento informativo sobre seguridad de Microsoft | [2755801] | Actualización para vulnerabilidades en Adobe Flash Player en Internet Explorer (KB paquete: por determinar) - Marcador de posición de documento informativo | 4\.28, 3.35 | 12 de enero de 2015 |
-| Documento informativo sobre seguridad de Microsoft | [3109853] | Actualización para mejorar la interoperabilidad de TLS | 4\.28, 3.35 | 12 de enero de 2015 |
-| Documento informativo sobre seguridad de Microsoft | [3123479] | Degradación del algoritmo hash SHA-1 para el Programa de certificados raíz de Microsoft | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
-| Documento informativo sobre seguridad de Microsoft | [2736233] | Actualizaciones para bits de cierre de ActiveX | 4\.28, 3.35, 2.47 | 12 de enero de 2015 |
+| MS16-001 | [3124903] | Actualización de seguridad acumulativa para Internet Explorer | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
+| MS16-003 | [3125540] | Actualización de seguridad acumulativa para JScript y VBScript | 2\.47 | 12 de enero de 2016 |
+| MS16-005 | [3124584] | Actualización de seguridad de los controladores del modo kernel de Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
+| MS16-007 | [3124901] | Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
+| MS16-008 | [3124605] | Actualización de seguridad del kernel para tratar la elevación de privilegios | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
+| Revisión de documento informativo sobre seguridad de Microsoft | [2755801] | Actualización para vulnerabilidades en Adobe Flash Player en Internet Explorer (KB paquete: por determinar) - Marcador de posición de documento informativo | 4\.28, 3.35 | 12 de enero de 2016 |
+| Documento informativo sobre seguridad de Microsoft | [3109853] | Actualización para mejorar la interoperabilidad de TLS | 4\.28, 3.35 | 12 de enero de 2016 |
+| Documento informativo sobre seguridad de Microsoft | [3123479] | Degradación del algoritmo hash SHA-1 para el Programa de certificados raíz de Microsoft | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
+| Documento informativo sobre seguridad de Microsoft | [2736233] | Actualizaciones para bits de cierre de ActiveX | 4\.28, 3.35, 2.47 | 12 de enero de 2016 |
 
 ## SO invitado de diciembre
 
@@ -178,7 +195,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-029 | [3035126][3035126] | Una vulnerabilidad del componente descodificador de fotografías de Windows podría permitir la divulgación de información | 4,18; 3,25; 2,37 | N/D |
 | MS15-030 | [3039976] | Una vulnerabilidad en el Protocolo de escritorio remoto podría permitir la denegación de servicio | 4,18; 3,25; 2,37 | N/D |
 
-> [AZURE.NOTE]El boletín MS15-031 puede aparecer como desinstalado. Sin embargo, no se aplica a esta versión del SO invitado.
+> [AZURE.NOTE] El boletín MS15-031 puede aparecer como desinstalado. Sin embargo, no se aplica a esta versión del SO invitado.
 
 ## SO invitado de febrero
 
@@ -190,7 +207,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 | [3004361][3004361] | Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad | 4,17; 3,24; 2,36 | N/D |
 | MS15-015 | [3031432][3031432] | Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios | 4,17; 3,24; 2,36 | N/D |
 | MS15-016 | [3029944][3029944] | Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información | 4,17; 3,24; 2,36 | N/D |
-| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
+| N/D | [3004375][3004375] | Actualización para mejorar la auditoría de línea de comandos de Windows<p/>** Nota **: se instala pero la clave del registro para habilitarlo está desactivada | 4,17; 3,24; 2,36 | N/D |
  
 
 ## SO invitado de enero
@@ -224,6 +241,18 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [3007054][3007054] | Siempre se muestra la opción de impresión protegida con PIN al imprimir un documento en una aplicación de la Tienda Windows en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
+
+[3134220]: http://support.microsoft.com/kb/3134220
+[3134811]: http://support.microsoft.com/kb/3134811
+[3134228]: http://support.microsoft.com/kb/3134228
+[3136041]: http://support.microsoft.com/kb/3136041
+[3136082]: http://support.microsoft.com/kb/3136082
+[3137893]: http://support.microsoft.com/kb/3137893
+[3133043]: http://support.microsoft.com/kb/3133043
+[3109853]: http://support.microsoft.com/kb/3109853
+[3089662]: http://support.microsoft.com/kb/3089662
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104503]: http://support.microsoft.com/kb/3104503
 
 [3124903]: http://support.microsoft.com/kb/3124903
 [3125540]: http://support.microsoft.com/kb/3125540
@@ -377,4 +406,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

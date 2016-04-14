@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,18 +64,18 @@ Para configurar la integración de Ariba en Azure AD, es preciso agregar Ariba d
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Ariba**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_01.png)<br>
-7. En el panel de resultados, seleccione **Ariba** y luego haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Ariba** y haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Ariba con una usuaria de prueba llamada "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Ariba para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Ariba.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Ariba.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Ariba para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Ariba.<br> Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **Nombre de usuario** en Ariba.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Ariba, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Ariba](#creating-a-Ariba-test-user)**: para tener un homólogo de Britta Simon en Ariba que esté vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba de Ariba](#creating-a-ariba-test-user)**: para tener un homólogo de Britta Simon en Ariba que esté vinculado a su representación en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -89,12 +89,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de aplicaciones de **Ariba**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br>![Configurar inicio de sesión único][6]<br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Ariba?**, seleccione **Inicio de sesión único de Azure AD** y después haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Ariba?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_04.png) <br>
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación Ariba con el siguiente patrón: **“https://<companyname>.sourcing.ariba.com"** o **"https://<CompanyName>.supplier.ariba.com”**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Ariba con el siguiente patrón: **“https://<companyname>.sourcing.ariba.com"** o **"https://<CompanyName>.supplier.ariba.com”**.
 
 
 4. En la página **Configurar inicio de sesión único en Ariba**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-ariba-tutorial/tutorial_ariba_05.png) <br>
@@ -104,7 +104,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para obtener SSO configurado para su aplicación, póngase en contacto con el equipo de soporte de Ariba a través del **1-866-218-2155**.
+5. Para configurar el SSO para su aplicación, póngase en contacto con el equipo de soporte de Ariba mediante el teléfono **1-866-218-2155**.
 
 
 > [AZURE.NOTE] Asegúrese de que ese nombre de usuario en el sistema de Ariba coincide con el de Azure AD ya que, en caso contrario, no funcionará la integración.
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 ### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon utilice el inicio de sesión único de Azure concediéndole acceso a Ariba. <br><br>![Asignar usuario][200] <br>
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a Ariba. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar Britta Simon a Ariba, realice los pasos siguientes:**
 
@@ -214,4 +214,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

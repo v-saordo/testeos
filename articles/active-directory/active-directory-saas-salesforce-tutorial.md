@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integración de Salesforce con Azure Active Directory | Microsoft Azure"
-   description="Aprenda cómo usar Salesforce con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Integración de Azure Active Directory con Salesforce | Microsoft Azure"
+    description="Aprenda cómo usar Salesforce con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: Integración de Salesforce con Azure Active Directory
 
@@ -26,7 +26,7 @@ Este tutorial le mostrará cómo conectar el entorno de Salesforece a Azure Acti
 
 2. Debe tener un inquilino válido en [Salesforce.com](https://www.salesforce.com/).
 
-> [AZURE.IMPORTANT]Si utiliza una cuenta de**prueba** de Salesforce.com, no podrá configurar el aprovisionamiento automático de usuarios. Las cuentas de prueba no disponen del acceso necesario a la API habilitado hasta que se adquieren.
+> [AZURE.IMPORTANT] Si utiliza una cuenta de**prueba** de Salesforce.com, no podrá configurar el aprovisionamiento automático de usuarios. Las cuentas de prueba no disponen del acceso necesario a la API habilitado hasta que se adquieren.
 > 
 > Puede evitar limitación mediante una [cuenta libre de desarrollador](https://developer.salesforce.com/signup) para completar este tutorial.
 
@@ -60,7 +60,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Haga clic en Agregar para agregar una nueva aplicación.][2]
 
-5. En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
 	![Haga clic en Agregar una aplicación de la galería.][3]
 
@@ -84,7 +84,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE]Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. En la página **Configurar opciones de aplicación**, complete la **dirección URL de inicio de sesión** escribiendo la dirección URL de dominio de Salesforce con el formato siguiente:
  - Cuenta de empresa: `https://<domain>.my.salesforce.com`
@@ -106,7 +106,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Haga clic en el botón Editar][11]
 
-	> [AZURE.NOTE]Si no puede habilitar la configuración de inicio de sesión único para su cuenta de Salesforce, puede que necesite ponerse en contacto con el soporte técnico de Salesforce para habilitar la característica.
+	> [AZURE.NOTE] Si no puede habilitar la configuración de inicio de sesión único para su cuenta de Salesforce, puede que necesite ponerse en contacto con el soporte técnico de Salesforce para habilitar la característica.
 
 9. Seleccione **SAML habilitado** y, a continuación, haga clic en **Guardar**.
 
@@ -152,7 +152,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Seleccione la configuración de SSO][17]
 
-	> [AZURE.NOTE]Si se selecciona más de un servicio de autenticación, cuando los usuarios intentan realizar un inicio de sesión único para el entorno Salesforce, se le solicitará que seleccione el servicio de autenticación con el que les gustaría iniciar sesión. Si no desea que esto ocurra, **deje sin activar todos los servicios de autenticación**.
+	> [AZURE.NOTE] Si se selecciona más de un servicio de autenticación, cuando los usuarios intentan realizar un inicio de sesión único para el entorno Salesforce, se le solicitará que seleccione el servicio de autenticación con el que les gustaría iniciar sesión. Si no desea que esto ocurra, **deje sin activar todos los servicios de autenticación**.
 
 15. En Azure AD, seleccione la casilla de confirmación de configuración de inicio de sesión único para habilitar el certificado que cargó en Salesforce. A continuación, haga clic en **Siguiente**.
 
@@ -174,7 +174,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 	![Escriba el nombre de usuario de administrador o contraseña][21]
 
-	> [AZURE.NOTE]Si va a configurar un entorno de producción, la práctica recomendada es crear una nueva cuenta de administrador en Salesforce específicamente para este paso. Esta cuenta debe tener el perfil **Administrador del sistema** asignado en Salesforce.
+	> [AZURE.NOTE] Si va a configurar un entorno de producción, la práctica recomendada es crear una nueva cuenta de administrador en Salesforce específicamente para este paso. Esta cuenta debe tener el perfil **Administrador del sistema** asignado en Salesforce.
 
 3. Para obtener el token de seguridad de Salesforce, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Mi configuración**.
 
@@ -220,7 +220,10 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 4. Para probar la configuración de inicio de sesión única, abra el Panel de acceso en[https://myapps.microsoft.com](https://myapps.microsoft.com/) y, a continuación, inicie sesión en la cuenta de prueba y haga clic en **Salesforce**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -253,4 +256,4 @@ Puede seguir este tutorial con los vídeos a continuación.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

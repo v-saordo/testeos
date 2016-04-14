@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a Azure AD AngularJS | Microsoft Azure"
+	pageTitle="Introducción AngularJS de Azure AD v2.0 | Microsoft Azure"
 	description="Cómo crear una aplicación de una página Angular JS que inicia la sesión de los usuarios tanto con cuentas de Microsoft personales como educativas o profesionales."
 	services="active-directory"
 	documentationCenter=""
@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 
-# Versión preliminar del modelo de aplicaciones v2.0: agregar inicio de sesión a una aplicación de una página AngularJS (.NET)
+# Agregar inicio de sesión a una aplicación de una página AngularJS (.NET)
 
-En este artículo vamos a agregar inicio de sesión con cuentas con tecnología de Microsoft a una aplicación AngularJS mediante el modelo de aplicaciones v2.0 de Azure Active Directory. El modelo de aplicaciones v2.0 le permite realizar una sola integración en su aplicación y autenticar a los usuarios con cuentas tanto personales como educativas o profesionales.
+En este artículo vamos a agregar inicio de sesión con cuentas con tecnología de Microsoft a una aplicación AngularJS mediante el punto de conexión v2.0 de Azure Active Directory. El punto de conexión v2.0 le permite realizar una sola integración en su aplicación y autenticar a los usuarios con cuentas tanto personales como educativas o profesionales.
 
-Este ejemplo es una sencilla aplicación de lista de tareas de una sola página que almacena las tareas en una API de REST, escrita con el marco .NET 4.5 MVC y protegida con tokens de portador OAuth de Azure AD. La aplicación AngularJS usará nuestra biblioteca de autenticación JavaScript de código abierto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para gestionar el proceso completo de inicio de sesión y adquirir tokens para llamar a la API de REST. Se puede aplicar el mismo patrón para autenticarse en otras API de REST, como las API de [Microsoft Graph](https://graph.microsoft.com) o del Administrador de recursos de Azure.
+Este ejemplo es una sencilla aplicación de lista de tareas de una sola página que almacena las tareas en una API de REST, escrita con el marco .NET 4.5 MVC y protegida con tokens de portador OAuth de Azure AD. La aplicación AngularJS usará nuestra biblioteca de autenticación JavaScript de código abierto [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) para gestionar el proceso completo de inicio de sesión y adquirir tokens para llamar a la API de REST. Se puede aplicar el mismo patrón para autenticarse en otras API de REST, como [Microsoft Graph](https://graph.microsoft.com).
+
+> [AZURE.NOTE]
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 
 ## Descargar
 
 Para comenzar, necesitará descargar e instalar Visual Studio. Luego, puede clonar o [descargar](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) una aplicación de esqueleto:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarst/AppModelv2-SinglePageApp-AngularJS-DotNet.git
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
 La aplicación de esqueleto incluye todo el código reutilizable para una aplicación sencilla AngularJS, pero faltan todas las partes relacionadas con la identidad. Si no desea continuar por este camino, en su lugar puede clonar o [descargar](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip) el ejemplo finalizado.
@@ -219,10 +222,10 @@ return $http.get('/api/tasks');
 
 ¡Enhorabuena! La aplicación de una sola página integrada de Azure AD está terminada ahora. !Ya puede salir a recibir el aplauso del público! Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario. De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD. Ejecute la aplicación, y en un explorador, vaya a `https://localhost:44326/`. Inicie sesión con una cuenta de Microsoft personal, profesional o educativa. Agregue tareas a la lista de tareas del usuario y cierre la sesión. Intente iniciar sesión con el otro tipo de cuenta. Si necesita un inquilino de Azure AD para crear usuarios de cuentas profesionales o educativas, [obtenga información sobre cómo conseguir uno aquí](active-directory-howto-tenant.md) (es gratuito).
 
-Para seguir aprendiendo sobre la versión preliminar del modelo de aplicaciones v2.0, regrese a nuestra [guía para desarrolladores de v2.0](active-directory-appmodel-v2-overview.md). Para obtener recursos adicionales, consulte:
+Para obtener más información sobre el punto de conexión v2.0, regrese a nuestra [guía para desarrolladores de v2.0](active-directory-appmodel-v2-overview.md). Para obtener recursos adicionales, consulte:
 
 - [Ejemplos de Azure en GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD en Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Documentación de Azure AD en [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.topic="article"
+	ms.date="02/16/2016"
 	ms.author="tdykstra"/>
 
 # Metadatos de aplicaciones de API del Servicio de aplicaciones para la detección de API y la generación de código 
@@ -50,10 +50,10 @@ Si se usa Visual Studio para crear una aplicación de API, el punto de conexión
 
 Una de las ventajas de integrar Swagger en aplicaciones de API de Azure es la generación automática de código. Las clases de cliente generadas hacen que sea más fácil escribir código que llame a una aplicación de API.
 
-Puede generar código de cliente para una aplicación de API con Visual Studio o desde la línea de comandos. Para información sobre cómo generar clases de cliente en Visual Studio para un proyecto de ASP.NET Web API, consulte [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md#codegen). Para información sobre cómo hacerlo desde la línea de comandos en todos los lenguajes admitidos, consulte el archivo Léame del repositorio [Azure/autorest](https://github.com/azure/autorest) en GitHub.com.
+Puede generar código de cliente para una aplicación de API con Visual Studio o desde la línea de comandos. Para información sobre cómo generar clases de cliente en Visual Studio para un proyecto de API web ASP.NET, consulte [Introducción a las aplicaciones de API y ASP.NET](app-service-api-dotnet-get-started.md#codegen). Para información sobre cómo hacerlo desde la línea de comandos en todos los lenguajes admitidos, consulte el archivo Léame del repositorio [Azure/autorest](https://github.com/azure/autorest) en GitHub.com.
  
 ## Pasos siguientes
 
 Para obtener un tutorial detallado que le guíe en el proceso de creación, implementación y consumo de una aplicación de API, consulte [Introducción a Aplicaciones de API y ASP.NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-get-started.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

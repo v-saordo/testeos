@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/26/2016"
+	ms.date="03/01/2016"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -28,6 +28,7 @@ Existen dos tipos de prueba web:
 * [Prueba de ping de la dirección URL](#set-up-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Ultimate o Visual Studio Enterprise y se carga en el portal.
 
+Puede crear hasta 10 pruebas web por recurso de aplicación.
 
 
 ## Configuración de una prueba de ping de la dirección URL
@@ -102,7 +103,7 @@ De este modo se muestran los resultados de la prueba.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
+La prueba se ejecuta desde varias ubicaciones, elija una donde los resultados sean inferiores al 100 %.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -129,7 +130,7 @@ Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a
 
 Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
 
-#### 1. Grabar un escenario
+#### 1\. Grabar un escenario
 
 Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
@@ -160,7 +161,7 @@ Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
 
-#### 2. Cargar la prueba web en Application Insights
+#### 2\. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
@@ -207,19 +208,22 @@ Los complementos de prueba web proporcionan la manera de hacerlo.
 
 Ahora puede cargar la prueba en el portal. Utilizará los valores dinámicos en cada ejecución de la prueba.
 
-## Inicio de sesión de OAuth
+## Tratamiento del inicio de sesión
 
-Si los usuarios inician sesión en la aplicación con su contraseña de OAuth (por ejemplo, Microsoft, Google o Facebook), puede simular el inicio de sesión en su prueba web de varios pasos mediante el complemento SAML.
+Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión para poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
 
-![Prueba web de ejemplo para OAuth](./media/app-insights-monitor-web-app-availability/81.png)
+En todos los casos, debe crear una cuenta solo con fines de prueba. Si es posible, restrinja sus permisos para que sea de solo lectura.
 
-La prueba de ejemplo realiza estos pasos:
+* Nombre de usuario y contraseña simples: solo debe registrar una prueba web de la forma habitual. Elimine las cookies en primer lugar.
+* Autenticación SAML. Para ello, puede utilizar el complemento SAML que está disponible para las pruebas web.
+* Secreto de cliente: si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory la proporciona. 
+* Autenticación abierta: por ejemplo, al iniciar sesión con su cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa de secreto de cliente, por lo que es la primera táctica que hay que investigar. Si la prueba tiene que iniciar sesión con OAuth, el enfoque general es el siguiente:
+ * Utilice una herramienta como Fiddler para examinar el tráfico entre el explorador web, el sitio de autenticación y la aplicación. 
+ * Realice dos o más inicios de sesión mediante distintas máquinas o exploradores o en intervalos largos de tiempo (para permitir que los tokens expiren).
+ * Mediante la comparación de diferentes sesiones, identifique el token pasado desde el sitio de autenticación que, a continuación, se pasa al servidor de aplicaciones después de iniciar sesión. 
+ * Grabe una prueba web con Visual Studio. 
+ * Parametrice los tokens, estableciendo el parámetro cuando se devuelve el token desde el autenticador y utilizándolo en la consulta al sitio. (Visual Studio intentará parametrizar la prueba, pero no parametrizará correctamente los tokens).
 
-1. Pide a la aplicación web sometida a prueba la dirección del punto de conexión de OAuth.
-2. Inicia sesión mediante el complemento SAML.
-3. Realiza el resto de la prueba en el estado conectado.
-
-El complemento SAML establece una variable `Assert` que se utiliza en el paso 2.
 
 ## <a name="edit"></a> Modificación o deshabilitación de una prueba
 
@@ -228,6 +232,10 @@ Abra una prueba individual para editarla o deshabilitarla.
 ![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit.png)
 
 Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
+
+## Automatización
+
+También puede [usar scripts de PowerShell para configurar una prueba web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automáticamente.
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
@@ -243,6 +251,10 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
     Usamos ambos términos de manera intercambiable.
 
+* *Me gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
+
+    Configure el firewall para que permita las solicitudes de las direcciones IP de la lista que aparece al final de este artículo.
+
 ## <a name="video"></a>Vídeo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -254,6 +266,124 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [Solución de problemas][qna]
 
 
+## Direcciones IP de pruebas web
+
+Si necesita abrir un firewall para que se puedan realizar las pruebas web, esta es la lista actual de direcciones IP. Dicha lista puede cambiar de vez en cuando.
+
+Abra los puertos 80 (http) y 443 (https).
+
+```
+
+213.199.178.54
+213.199.178.55
+213.199.178.56
+213.199.178.61
+213.199.178.57
+213.199.178.58
+213.199.178.59
+213.199.178.60
+213.199.178.63
+213.199.178.64
+207.46.98.158
+207.46.98.159
+207.46.98.160
+207.46.98.157
+207.46.98.152
+207.46.98.153
+207.46.98.156
+207.46.98.162
+207.46.98.171
+207.46.98.172
+65.55.244.40
+65.55.244.17
+65.55.244.42
+65.55.244.37
+65.55.244.15
+65.55.244.16
+65.55.244.44
+65.55.244.18
+65.55.244.46
+65.55.244.47
+207.46.14.60
+207.46.14.61
+207.46.14.62
+207.46.14.55
+207.46.14.63
+207.46.14.64
+207.46.14.51
+207.46.14.52
+207.46.14.56
+207.46.14.65
+157.55.14.60
+157.55.14.61
+157.55.14.62
+157.55.14.47
+157.55.14.64
+157.55.14.65
+157.55.14.43
+157.55.14.44
+157.55.14.49
+157.55.14.50
+65.54.66.56
+65.54.66.57
+65.54.66.58
+65.54.66.61
+207.46.71.54
+207.46.71.52
+207.46.71.55
+207.46.71.38
+207.46.71.51
+207.46.71.57
+207.46.71.58
+207.46.71.37
+202.89.228.67
+202.89.228.68
+202.89.228.69
+202.89.228.57
+65.54.78.49
+65.54.78.50
+65.54.78.51
+65.54.78.54
+94.245.82.32
+94.245.82.33
+94.245.82.37
+94.245.82.38
+94.245.72.44
+94.245.72.45
+94.245.72.46
+94.245.72.49
+207.46.56.57
+207.46.56.58
+207.46.56.59
+207.46.56.67
+207.46.56.61
+207.46.56.62
+207.46.56.63
+207.46.56.64
+65.55.82.84
+65.55.82.85
+65.55.82.86
+65.55.82.81
+65.55.82.87
+65.55.82.88
+65.55.82.89
+65.55.82.90
+65.55.82.91
+65.55.82.92
+94.245.78.40
+94.245.78.41
+94.245.78.42
+94.245.78.45
+70.37.147.43
+70.37.147.44
+70.37.147.45
+70.37.147.48
+94.245.66.43
+94.245.66.44
+94.245.66.45
+94.245.66.48
+
+```
 
 
 <!--Link references-->
@@ -263,4 +393,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0309_2016-->

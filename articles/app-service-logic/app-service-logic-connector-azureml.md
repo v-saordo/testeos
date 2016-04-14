@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,24 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jehollan"/>
    
 # Información general
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 El conector de Aprendizaje automático de Azure para Aplicaciones lógicas permite llamar a las API de Aprendizaje automático de Azure de puntuación de lotes (servicio de ejecución por lotes) y reciclaje. Estas características junto con desencadenadores de aplicación lógica permiten programar trabajos por lotes y configurar el reciclaje programado de modelos.
 
  ![][1]
  
 ## Introducción al conector de Aprendizaje automático de Azure y su incorporación a la aplicación lógica
-Para empezar, cree un experimento en Estudio de aprendizaje automático y luego configure e implemente un servicio web. Después, puede usar la dirección URL de API y la clave de la URL del mensaje de BES que se encuentra en la página de Ayuda de Exacción de lotes ([más información](https://github.com/Azure/azure-content/blob/master/articles/machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
+Para empezar, cree un experimento en Estudio de aprendizaje automático y luego configure e implemente un servicio web. Después, puede usar la dirección URL de API y la clave de la URL del mensaje de BES que se encuentra en la página de Ayuda de Exacción de lotes. ([Tutorial de aprendizaje automático](../machine-learning/machine-learning-walkthrough-5-publish-web-service.md))
 
-Para ejecutar un trabajo de BES mediante el conector, agregue el conector de Aprendizaje automático de Azure a su aplicación lógica. Después, escriba la información necesaria (vea a continuación para más información al respecto). Para configurar Reciclaje, agregue un segundo conector de Aprendizaje automático de Azure y especifique los parámetros de entrada (vea [aquí](machine-learning-retrain-models-programmatically.md) para más información sobre cómo configurar un modelo para reciclaje).
+Para ejecutar un trabajo de BES mediante el conector, agregue el conector de Aprendizaje automático de Azure a su aplicación lógica. Después, escriba la información necesaria (vea a continuación para más información al respecto). Para configurar el reciclaje, agregue un segundo conector de aprendizaje automático de Azure y especifique los parámetros de entrada (vea cómo [configurar un modelo para reciclaje](../machine-learning/machine-learning-retrain-models-programmatically.md)).
 
 ## Ejecución de un trabajo de ejecución de lotes de Aprendizaje automático de Azure
 El conector de Aprendizaje automático de Azure ofrece las cuatro opciones siguientes para ejecutar trabajos de ejecución de lotes (BES): 1. Trabajo por lotes con entrada y salida: el experimento tiene módulos de entrada y salida de servicio web 2. Trabajo por lotes sin entrada y salida: el experimento no tiene módulo de entrada o salida de web servicio (por ejemplo, usa módulos Lector y Escritor) 3. Trabajo por lotes con solo entrada: el experimento tiene módulo de entrada de servicio web, pero no módulo de salida de servicio web (por ejemplo, usa un módulo Escritor) 4. Trabajo por lotes con solo salida: el experimento no tiene ningún módulo de entrada de servicio web, pero tiene un módulo de salida de servicio web (por ejemplo, se usa un módulo Lector). Tenga en cuenta que BES es una solicitud asincrónica y puede tardar tiempo en completarse en función del tamaño de los datos y la complejidad del modelo. Al finalizar el trabajo, el conector devolverá el resultado de salida.
 
 ### Ejecución de la ejecución por lotes: con entrada y salida
-Si el experimento de estudio tiene módulos de entrada y salida de servicio web, tendrá que proporcionar información sobre la cuenta del blob de almacenamiento y la ubicación ([más aquí](machine-learning-consume-web-services.md)). Además, puede incluir parámetros globales (servicio web) si se configuran en el experimento ([más aquí](machine-learning-web-service-parameters.md)).
+Si la experimentación de Estudio tiene módulos de entrada y salida de servicio web, tendrá que [proporcionar información sobre la cuenta y la ubicación del blob de Almacenamiento](../machine-learning/machine-learning-consume-web-services.md). Además, puede incluir parámetros globales (servicio web) si se configuran en la experimentación ([Parámetros de servicio web de aprendizaje automático](../machine-learning/machine-learning-web-service-parameters.md)).
 
 ![][2]
 
@@ -77,4 +79,4 @@ Con el conector de Aprendizaje automático de Azure para aplicaciones lógicas, 
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

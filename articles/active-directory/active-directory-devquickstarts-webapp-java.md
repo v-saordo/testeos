@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/14/2015"
+	ms.date="02/19/2016"
 	ms.author="brandwe"/>
 
 
@@ -23,7 +23,10 @@
 
 Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Java, puede realizar esto con la implementación de Microsoft del ADAL4J orientado a la comunidad.
 
-  Aquí usaremos ADAL4J para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
+  Aquí, usaremos ADAL4J para:
+- Iniciar sesión del usuario en la aplicación con Azure AD como proveedor de identidades.
+- Mostrar información sobre el usuario.
+- Cerrar la sesión del usuario en la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -237,7 +240,8 @@ El archivo debería tener este aspecto:
 
 Deje el resto de los parámetros de configuración solos.
 
-> [AZURE.NOTE]Como puede ver en el archivo XML, estamos escribiendo una aplicación web JSP/Servlet llamada `mvc-dispatcher` que usará el `BasicFilter` cada vez que se visite la dirección URL segura. Verá en el resto que escribimos que vamos a usar /secure como un lugar donde reside nuestro contenido protegido y forzará la autenticación a Azure Active Directory.
+> [AZURE.NOTE]
+Como puede ver en el archivo XML, estamos escribiendo una aplicación web JSP/Servlet llamada `mvc-dispatcher` que usará el `BasicFilter` cada vez que se visite la dirección URL segura. Verá en el resto que escribimos que vamos a usar /secure como un lugar donde reside nuestro contenido protegido y forzará la autenticación a Azure Active Directory.
 
 -	A continuación, crearemos el archivo `mvc-dispatcher-servlet.xml` ubicado en `\webapp\WEB-INF` y escribiremos lo siguiente:
 
@@ -350,7 +354,8 @@ Nuestro objetivo es crear algunos archivos de Java que:
 1. Permitan el inicio y el cierre de sesión al usuario
 2. Impriman datos sobre el usuario.
 
-> [AZURE.NOTE]Para obtener los datos sobre el usuario, debemos usar la API Graph de Azure Active Directory. API Graph es un servicio web seguro que se puede usar para capturar datos acerca de la organización, incluidos usuarios individuales. Es mucho mejor que rellenar previamente los datos confidenciales en tokens, ya que garantiza que el usuario al que se solicitan los datos está autorizado y todo el que capture el token (desde un teléfono desbloqueado o desde la memoria caché del explorador en un equipo de escritorio) no recibirá información de detalles importantes sobre el usuario o la organización.
+> [AZURE.NOTE] 
+Para obtener los datos sobre el usuario, debemos usar la API Graph de Azure Active Directory. API Graph es un servicio web seguro que se puede usar para capturar datos acerca de la organización, incluidos usuarios individuales. Es mucho mejor que rellenar previamente los datos confidenciales en tokens, ya que garantiza que el usuario al que se solicitan los datos está autorizado y todo el que capture el token (desde un teléfono desbloqueado o desde la memoria caché del explorador en un equipo de escritorio) no recibirá información de detalles importantes sobre el usuario o la organización.
 
 Vamos a escribir algunos archivos de Java para que se encarguen de hacer este trabajo:
 
@@ -1734,7 +1739,8 @@ Ahora debería tener un archivo `adal4jsample.war` en su directorio `/targets`. 
 `http://localhost:8080/adal4jsample/`
 
 
-> [AZURE.NOTE]Es muy fácil de implementar un WAR con los servidores Tomcat más recientes. Simplemente vaya a `http://localhost:8080/manager/` y siga las instrucciones acerca de cómo cargar el archivo '`adal4jsample.war`. Se implementará automáticamente con el punto de conexión correcto.
+> [AZURE.NOTE] 
+Es muy fácil de implementar un WAR con los servidores Tomcat más recientes. Simplemente vaya a `http://localhost:8080/manager/` y siga las instrucciones acerca de cómo cargar el archivo '`adal4jsample.war`. Se implementará automáticamente con el punto de conexión correcto.
 
 ##Pasos siguientes
 
@@ -1744,4 +1750,4 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

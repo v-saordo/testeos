@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -21,7 +21,10 @@
 
 La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](https://azure.microsoft.com/pricing/details/application-insights/).
 
-(Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja. Si desea ver datos de Power BI, use [el adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que *no* usa la exportación continua).
+>[AZURE.NOTE] Si lo que le interesa es [explorar los datos en Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), puede hacerlo sin usar la exportación continua.
+>
+>Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja.
+
 
 ## Crear una cuenta de almacenamiento
 
@@ -42,7 +45,7 @@ En la hoja de información general del portal de Application Insights, abra Expo
 
 ![Desplácese hacia abajo y haga clic en Exportación continua.](./media/app-insights-export-telemetry/01-export.png)
 
-Agregue una exportación y elija una [cuenta de almacenamiento de Azure](../storage-introduction.md) donde colocar los datos:
+Agregue una exportación y elija una [cuenta de almacenamiento de Azure](../storage/storage-introduction.md) donde colocar los datos:
 
 ![Haga clic en Agregar, Destino de exportación, Cuenta de almacenamiento y cree un nuevo almacén o elija uno almacén.](./media/app-insights-export-telemetry/02-add.png)
 
@@ -170,7 +173,6 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
     Si la cuenta pertenece a su organización, debe ser miembro de los grupos de propietarios o colaboradores.
 
-    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *¿Puedo exportar directamente a mi propio almacén local?*
 
@@ -210,4 +212,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

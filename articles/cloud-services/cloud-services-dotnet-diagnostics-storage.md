@@ -12,7 +12,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="10/21/2015"
+  ms.date="02/20/2016"
   ms.author="robb" />
 
 # Almacenamiento y visualización de los datos de diagnóstico en Almacenamiento de Azure
@@ -52,7 +52,7 @@ Para la versión 2.5 y posteriores de SDK, la solicitud de transferencia de dato
 Para la versión 2.4 y anteriores de SDK, se puede solicitar la transferencia de los datos de diagnóstico a través del archivo de configuración y mediante programación. El método mediante programación también permite realizar transferencias a petición.
 
 
->[AZURE.IMPORTANT]Cuando se realiza una transferencia de datos de diagnóstico a una cuenta de Almacenamiento de Azure, se incurre en costos por los recursos de almacenamiento que usan los datos de diagnóstico.
+>[AZURE.IMPORTANT] Cuando se realiza una transferencia de datos de diagnóstico a una cuenta de Almacenamiento de Azure, se incurre en costos por los recursos de almacenamiento que usan los datos de diagnóstico.
 
 ## Almacenamiento de datos de diagnóstico
 
@@ -83,14 +83,15 @@ Los datos de registro se almacenan en almacenamiento BLOB o Tabla con los nombre
 ## Herramientas para ver los datos de diagnóstico
 Existen varias herramientas para ver los datos una vez que se transfieren al almacenamiento. Por ejemplo:
 
-- **El Explorador de servidores en Visual Studio**: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Almacenamiento de Azure en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Almacenamiento de Azure. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración de recursos de almacenamiento con el Explorador de servidores](https://msdn.microsoft.com/library/ff683677.aspx).
+- El Explorador de servidores en Visual Studio: si instaló Azure Tools para Microsoft Visual Studio, puede usar el nodo de Almacenamiento de Azure en el Explorador de servidores para ver los datos de tabla y blob de solo lectura de las cuentas de Almacenamiento de Azure. Puede mostrar datos de la cuenta del emulador de almacenamiento local y también desde cuentas de almacenamiento que haya creado para Azure. Para obtener más información, consulte [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
 
-- **Azure Storage Explorer de Neudesic**: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) es una herramienta de interfaz gráfica de usuario útil para inspeccionar y modificar los datos en los proyectos de Almacenamiento de Azure, incluyendo los registros de las aplicaciones de Azure. Para descargar la herramienta, consulte [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/).
+- El [Explorador de almacenamiento de Azure de Neudesic](http://azurestorageexplorer.codeplex.com/) es una herramienta de interfaz gráfica de usuario útil para inspeccionar y modificar los datos en los proyectos de Almacenamiento de Azure, incluidos los registros de las aplicaciones de Azure.
 
-- Azure Diagnostics Manager by Cerebrata: [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) es un cliente basado en Windows (WPF) para administrar Diagnósticos de Azure. Le permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure. Para descargar la herramienta, consulte [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx).
+- [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) incluye Azure Diagnostics Manager, que permite ver, descargar y administrar los datos de diagnóstico recopilados por las aplicaciones que se ejecutan en Azure.
+
 
 ## Pasos siguientes
 
 [Seguimiento del flujo en una aplicación de servicios en la nube con Diagnósticos de Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

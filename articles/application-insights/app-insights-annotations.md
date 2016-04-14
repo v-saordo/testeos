@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Anotaciones de implementación de Application Insights | Microsoft Azure"
+    pageTitle="Anotaciones de la versión de Application Insights | Microsoft Azure"
     description="Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights."
     services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="02/22/2016"
     ms.author="awills"/>
 
 # Anotaciones de la versión de Application Insights
@@ -42,7 +42,7 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](app-insights-overview.md), si aún no lo ha hecho).
 2. Abra **Configuración**, **Acceso de API** y realice una copia de **Id. de la aplicación**.
 
-    ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie los archivos](./media/app-insights-annotations/20.png)
+    ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie el identificador de aplicación.](./media/app-insights-annotations/20.png)
 
 2. En una ventana de explorador independiente, abra (o cree) la plantilla de versión que administra sus implementaciones de Visual Studio Team Services.
 
@@ -69,8 +69,13 @@ Deberá hacer esto en cada plantilla de versión para la que desee crear anotaci
 
 5. Por último, haga clic en **Guardar** para guardar la definición de versión.
 
-## Anotaciones de implementación
+## Anotaciones de la versión
 
 Ahora, cuando se utilice la plantilla de versión para implementar una nueva versión, se enviará una anotación a Application Insights. Las anotaciones se mostrarán en los gráficos del Explorador de métricas.
 
-<!---HONumber=AcomDC_0121_2016-->
+Haga clic en cualquier marcador de anotación para abrir los detalles de la versión, incluidos el solicitante, la bifurcación de control de código fuente, la definición de la versión, el entorno y mucho más.
+
+
+![Haga clic en cualquier marcador de anotación de la versión.](./media/app-insights-annotations/60.png)
+
+<!---HONumber=AcomDC_0224_2016-->

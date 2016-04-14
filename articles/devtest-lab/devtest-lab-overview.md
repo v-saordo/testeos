@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="What is the DevTest Lab service? | Microsoft Azure"
-	description="Learn how DevTest Lab can make it easy to create, manage, and monitor Azure virtual machines"
+<properties 
+	pageTitle="¿Qué es el servicio Laboratorio de desarrollo y pruebas? | Microsoft Azure"
+	description="Aprenda cómo el Laboratorio de desarrollo y pruebas puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 #¿Qué es el Laboratorio de desarrollo y pruebas?
@@ -52,7 +52,7 @@ Los **artefactos** se utilizan para implementar y configurar la aplicación desp
 - Acciones que desea ejecutar en la máquina virtual, como la clonación de un repositorio.
 - Aplicaciones que desea probar.
 
-Los artefactos son archivos JSON basados en el Administrador de recursos de Azure que contienen instrucciones para realizar la implementación y aplicar la configuración. Puede leer más acerca del Administrador de recursos de Azure en [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+Los artefactos son archivos JSON basados en el Administrador de recursos de Azure que contienen instrucciones para realizar la implementación y aplicar la configuración. Puede leer más acerca del Administrador de recursos de Azure en [Información general del Administrador de recursos de Azure](/resource-group-overview.md).
 
 Los **repositorios de artefactos** son repositorios de Git donde se insertan los artefactos. Es posible agregar los mismos repositorios de artefactos a varios laboratorios de su organización a fin de reutilizarlos y compartirlos.
 
@@ -66,4 +66,4 @@ Las**directivas** ayudan a controlar los costos en su laboratorio. Por ejemplo, 
 
 Para obtener una introducción al Laboratorio de desarrollo y pruebas, siga el tutorial paso a paso [Creación de un laboratorio de desarrollo y pruebas de Azure](devtest-lab-create-lab.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0204_2016-->

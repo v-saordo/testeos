@@ -34,7 +34,7 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 * [Azure WebJobs are awesome and you should start using them right now! (¡Los WebJobs de Azure son impresionantes y debería comenzar a usarlos ya!)](http://www.troyhunt.com/2015/01/azure-webjobs-are-awesome-and-you.html) (Blog publicado por Troy Hunt.)
 * [Características de WebJobs de Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [¿Qué es el SDK de WebJobs](websites-dotnet-webjobs-sdk.md)
-* [Orientación sobre trabajos en segundo plano: Microsoft Patterns and Practices](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
+* [Orientación sobre trabajos en segundo plano: Microsoft Patterns and Practices](/documentation/articles/best-practices-background-jobs/)
 * [Anuncio de la versión RTM 1.1.0 del SDK de WebJobs de Microsoft Azure](/blog/azure-webjobs-sdk-1-1-0-rtm/)
 * [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk-get-started.md)
 * [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -139,4 +139,4 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Twitter](http://twitter.com/). Utilice el hashtag #AzureWebJobs.
 * [Report a WebJobs bug or issue (Notificar un problema o error de WebJobs)](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

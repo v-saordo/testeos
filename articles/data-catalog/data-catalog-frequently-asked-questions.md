@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Preguntas frecuentes sobre el Catálogo de datos de Azure
@@ -43,8 +43,10 @@ Durante la vista previa, los servicios del **Catálogo de datos de Azure** solo 
 
 - Oeste de EE. UU.
 - Este de EE. UU.
-- Europa Occidental
+- Europa occidental
+- Europa del Norte
 - Australia Oriental
+- Sudeste asiático
 
 ## P: ¿Cuáles son los límites del número de activos de datos del Catálogo de datos de Azure?
 
@@ -80,11 +82,11 @@ Las propiedades específicas variarán en función del origen de datos pero, en 
 - Tipos de datos de columna o atributo
 - Descripción de la columna o atributo
 
-> [AZURE.IMPORTANT]Al registrar recursos de datos con **Catálogo de datos de Azure** no se mueven ni copian los datos a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada activo y se almacenarán como instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
+> [AZURE.IMPORTANT] Al registrar recursos de datos con **Catálogo de datos de Azure** no se mueven ni copian los datos a la nube. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada activo y se almacenarán como instantánea en el **Catálogo de datos de Azure**. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
 
 <br/>
 
-> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE] Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P: ¿Cuánto tiempo se debe esperar a que aparezcan los recursos recién registrados en el Catálogo de datos de Azure?
 
@@ -147,4 +149,4 @@ Si tiene problemas o necesita ayuda con la vista previa del **Catálogo de datos
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

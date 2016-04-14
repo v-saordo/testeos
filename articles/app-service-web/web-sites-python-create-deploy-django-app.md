@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="11/16/2015"
+	ms.date="02/19/2016"
 	ms.author="huvalo"/>
 
 
@@ -26,7 +26,7 @@ Creará una aplicación con el marco web de Django (consulte las versiones alter
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
 ## Requisitos previos
@@ -57,7 +57,6 @@ Debe tener Python y Git instalados, pero asegúrese de que tiene Python 2.7 o 3.
 El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de Azure](https://portal.azure.com).
 
 1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda.
-2. Haga clic en **Web y móvil**.
 3. En el cuadro de búsqueda, escriba "python".
 4. En los resultados de búsqueda, seleccione **Django**, a continuación, haga clic en **Crear**.
 5. Configure la nueva aplicación Django, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
@@ -118,7 +117,7 @@ Archivos de configuración de IIS. El script de implementación utilizará el we
 
 ### Archivos opcionales - Implementación de personalización
 
-[AZURE.INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
+[AZURE.INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
 ### Archivos opcionales - Tiempo de ejecución de Python
 
@@ -183,7 +182,7 @@ Presione F5 para iniciar la depuración y el explorador web abrirá automáticam
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, etc. Consulte la [Documentación sobre Python Tools para Visual Studio] para más información sobre las distintas características.
+Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, etc. Consulte la [Documentación sobre Python Tools para Visual Studio] para obtener más información sobre las distintas características.
 
 ### Realización de cambios
 
@@ -517,4 +516,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 [Documentación sobre Python Tools para Visual Studio]: http://aka.ms/ptvsdocs
 [Documentación de Django]: https://www.djangoproject.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_0224_2016-->

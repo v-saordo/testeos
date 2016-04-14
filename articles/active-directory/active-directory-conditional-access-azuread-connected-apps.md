@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="02/09/2016"
 	ms.author="femila"/>
 
 # Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS
@@ -86,4 +86,8 @@ En el ejemplo siguiente se muestra cómo habilitar MFA local mediante el cmdlet 
 
 Además de establecer esta marca, la instancia de AD FS de inquilinos federados debe configurarse para llevar a cabo Multi-Factor Authentication. Siga las instrucciones para implementar Azure Multi-Factor Authentication en modo local.
 
-<!---HONumber=Nov15_HO2-->
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

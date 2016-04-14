@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Casos prácticos de clientes
@@ -48,4 +48,4 @@ Factoría de datos es un servicio de administración de información basado en l
 
 [Búsqueda de una mejor conexión con los clientes a través del aprendizaje automático en la nube](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,8 @@ Para configurar la integración de Birst Agile Business Analytics en Azure AD, e
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Birst Agile Business Analytics**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-birst-tutorial/tutorial_birst_01.png)<br>
-7. En el panel de resultados, seleccione **Birst Agile Business Analytics** y haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Birst Agile Business Analytics** y haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-birst-tutorial/tutorial_birst_02.png)<br>
+
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Birst Agile Business Analytics con una usuaria de prueba llamada "Britta Simon".
@@ -75,7 +76,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Birst Agile
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Birst Agile Business Analytics] (#creating-a-Birst Agile Business Analytics-test-user)**: para tener un homólogo de Britta Simon en Birst Agile Business Analytics que está vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba en Birst Agile Business Analytics](#creating-a-birst-agile-business-analytics-test-user)**: para tener un homólogo de Britta Simon en Birst Agile Business Analytics que esté vinculado a su representación en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -89,12 +90,12 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure AD, en la página de integración de la aplicación **Birst Agile Business Analytics**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**. <br><br> ![Configurar inicio de sesión único][6] <br>
 
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Birst Agile Business Analytics**, seleccione **Inicio de sesión único de Azure AD** y luego haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-birst-tutorial/tutorial_birst_03.png) <br>
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Birst Agile Business Analytics?**, seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**. <br><br> ![Configurar inicio de sesión único](./media/active-directory-saas-birst-tutorial/tutorial_birst_03.png) <br>
 
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png) <br>
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Birst Agile Business Analytics con el modelo siguiente: **"https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID"**.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Birst Agile Business Analytics con el siguiente patrón: **"https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID"**.
 
 
 4. En la página **Configurar inicio de sesión único en Birst Agile Business Analytics**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-birst-tutorial/tutorial_birst_05.png) <br>
@@ -104,10 +105,10 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
     b. Haga clic en **Siguiente**.
 
 
-5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Birst Agile Business Analytics a través de [info@birst.com](emailTo:info@birst.com) y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
+5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Birst Agile Business Analytics mediante [info@birst.com](emailTo:info@birst.com) y adjunte el archivo de certificado descargado al correo electrónico. Además, proporcione la dirección URL de inicio de sesión único de SAML, la dirección URL de cierre de sesión y la dirección URL del emisor para que se puedan configurar para la integración de SSO.
 
 
-> [AZURE.NOTE] Indique al equipo de Birst que esta integración necesita el algoritmo SHA256 (no se admite SHA1) para que pueda establecer el SSO en el servidor adecuado, como **app2101** etc.
+> [AZURE.NOTE] Indique al equipo de Birst que esta integración necesita el algoritmo SHA256 (no se admite SHA1) para que pueda establecer el SSO en el servidor adecuado, como **app2101**, etc.
 
 
 
@@ -170,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 ### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Birst Agile Business Analytics. <br><br>![Asignar usuario][200] <br>
+El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure, para lo que se le concederá acceso a Birst Agile Business Analytics. <br><br>![Asignar usuario][200] <br>
 
 **Para asignar Britta Simon a Birst Agile Business Analytics, siga estos pasos:**
 
@@ -215,4 +216,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-birst-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-birst-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

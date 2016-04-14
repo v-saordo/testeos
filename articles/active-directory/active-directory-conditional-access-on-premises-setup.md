@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.topic="get-started-article"
+	ms.date="02/26/2016"
 	ms.author="femila"/>
 
 
@@ -39,26 +39,26 @@ Dispositivos compatibles
 Requisitos previos de escenario
 ------------------------------------------------------------------------
 * Suscripción a Office 365 o Azure Active Directory Premium
-* Inquilino de Azure Active Directory
+* Un inquilino de Azure Active Directory
 * Windows Server Active Directory (Windows Server 2008 o versiones posteriores)
 * Esquema actualizado en Windows Server 2012 R2
-* Suscripción a Azure Active Directory Premium
+* Licencia de Azure Active Directory Premium
 * Servicios de federación con Windows Server 2012 R2, configurados para SSO en Azure AD
 * Windows Server 2012 R2, Web Application Proxy, Microsoft Azure Active Directory Connect (Azure AD Connect). [Descargue Azure AD Connect aquí](http://www.microsoft.com/es-ES/download/details.aspx?id=47594).
-* Dominio comprobado. 
+* Dominio comprobado.
 
 Problemas conocidos en esta versión
 -------------------------------------------------------------------------------
 * Las directivas de acceso condicional basado en dispositivos requieren reescritura de objetos de dispositivo en Active Directory de Azure Active Directory. Los objetos de dispositivo pueden tardar hasta tres horas en reescribirse en Active Directory.
-* Los dispositivos iOS7 siempre solicitarán al usuario que seleccione un certificado durante la autenticación de certificados de cliente. 
-* Algunas versiones de iOS8 no funcionan antes de iOS 8.3. 
+* Los dispositivos iOS7 siempre solicitarán al usuario que seleccione un certificado durante la autenticación de certificados de cliente.
+* Algunas versiones de iOS8 no funcionan antes de iOS 8.3.
 
 ## Escenarios hipotéticos
-En este escenario se asume que tiene un entorno híbrido que consta de un inquilino de Azure AD y un Active Directory local. Estos inquilinos deben conectarse mediante Azure AD Connect y con un dominio comprobado y AD FS para SSO. La lista de comprobación siguiente le ayudará a configurar su entorno para la fase descrita anteriormente.
+En este escenario se asume que tiene un entorno híbrido que consta de un inquilino de Azure AD y una versión local de Active Directory. Estos inquilinos deben conectarse mediante Azure AD Connect y con un dominio comprobado y AD FS para SSO. La lista de comprobación siguiente le ayudará a configurar su entorno para la fase descrita anteriormente.
 
 Lista de comprobación: requisitos previos para un escenario de acceso condicional
 --------------------------------------------------------------
-Conecte un inquilino de Azure AD al Active Directory local.
+Conecte su inquilino de Azure AD a versión local de Active Directory.
 
 ## Configuración del servicio de registro de dispositivos de Azure Active Directory
 Use esta guía para implementar y configurar el servicio Registro de dispositivos de Azure Active Directory para su organización.
@@ -89,11 +89,11 @@ Siga la lista de comprobación mostrada a continuación para habilitar y configu
 | Tarea | Referencia |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
 | Complete la parte 2 de Habilitación de reescritura de dispositivos en Azure AD Connect. Tras la finalización, vuelva a esta guía. | [Habilitación de reescritura de dispositivos en Azure AD] (#Upgrade your Active Directory Domain Services Schema) |
-	 
+
 
 ##[Opcional] Parte 4: Habilitar Multi-factor Authentication
 
-Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea requerir MFA, consulte [Selección de la solución de seguridad multifactor más adecuada](multi-factor-authentication-get-started.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.
+Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea requerir MFA, consulte [Selección de la solución de seguridad multifactor más adecuada](../multi-factor-authentication/multi-factor-authentication-get-started.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.
 
 ## Parte 5: verificación
 
@@ -109,19 +109,22 @@ La implementación ha finalizado. Ya puede probar algunos escenarios. Siga los v
 
 
 
-## Integración de Azure Active Directory con Active Directory local
-Esto le ayudará a integrar un inquilino de Azure AD con Active Directory local mediante Azure AD Connect. Aunque los pasos están disponibles en el Portal de Azure, anote las instrucciones especiales que se enumeran en esta sección.
+## Integración de Azure Active Directory con una versión local de Active Directory
+Esto le ayudará a integrar un inquilino de Azure AD con la versión local de Active Directory mediante Azure AD Connect. Aunque los pasos están disponibles en el Portal de Azure clásico, anote las instrucciones especiales que se enumeran en esta sección.
 
-1.	Inicie sesión en el Portal de Azure como administrador.
+1.	Inicie sesión en el Portal de Azure clásico con una cuenta que sea un administrador global en Azure AD.
 2.	En el panel izquierdo, seleccione **Active Directory**.
 3.	En la pestaña **Directorio**, seleccione su directorio.
 4.	Seleccione la pestaña **Integración de directorios**.
-5.	En la sección **implementar y administrar**, siga los pasos del 1 al 3 para integrar Azure Active Directory con su directorio local.
+5.	En la sección acerca de la **implementación y administración**, siga los pasos 1 a 3 para integrar Azure Active Directory en su directorio local.
   1.	Adición de dominios.
   2.	Instalar y ejecutar Azure AD Connect: para instalar Azure AD Connect, siga las instrucciones que se indican a continuación, [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
-  3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso. >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado anterior. >[AZURE.NOTE] No es preciso configurar las características de vista previa.
-  
-   
+  3. Comprobación y administración de la sincronización de directorios. Las instrucciones de inicio de sesión único están disponibles en este paso.
+
+  >[AZURE.NOTE] Configurar la federación con AD FS como se describe en el documento vinculado arriba.
+  >[AZURE.NOTE] No es preciso configurar las características de vista previa.
+
+
 
 
 ## Actualizar el esquema de Servicios de dominio de Active Directory
@@ -129,7 +132,7 @@ Esto le ayudará a integrar un inquilino de Azure AD con Active Directory local 
 La actualización del esquema de Active Directory no se puede revertir. Se recomienda realizar la operación primero en un entorno de prueba.
 
 1. Inicie sesión en el controlador de dominio con una cuenta que tenga derechos de administrador de organización y de administrador de esquema.
-2. Copie el directorio **[media]\\support\\adprep** y los subdirectorios en uno de los controladores de dominio de Active Directory. 
+2. Copie el directorio **[media]\\support\\adprep** y los subdirectorios en uno de los controladores de dominio de Active Directory.
 3. Donde [media] es la ruta de acceso a los medios de instalación de Windows Server 2012 R2.
 4. En un símbolo del sistema, navegue hasta el directorio adprep y ejecute: **adprep.exe /forestprep**. Siga las instrucciones en pantalla para completar la actualización del esquema.
 
@@ -162,7 +165,7 @@ Se trata de una operación que se realiza una sola vez que debe ejecutar para pr
 
 ### Preparación de Azure AD Connect para la reescritura de dispositivos
 
-1.	Complete la parte 1: preparación de AAD Connect. 
+1.	Complete la Parte 1: Preparar Azure AD Connect
 
 
 ## Unión de dispositivos al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
@@ -187,7 +190,7 @@ Existen varias formas de comunicar la URL a los usuarios. Una forma que se recom
 4. Cuando se lo pidan, inicie sesión con sus credenciales. El dispositivo ahora está unido.
 
 ###Unión de un dispositivo Windows 7 al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
-Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configuración del registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
+Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Unión al lugar de trabajo para Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). Las instrucciones para utilizar el paquete están disponibles en [Configure el registro automático de dispositivos para dispositivos Windows 7 unidos a un dominio](active-directory-conditional-access-automatic-device-registration-windows7.md).
 
 ### Unión de un dispositivo Android al área de trabajo mediante el Registro de dispositivos de Azure Active Directory
 
@@ -244,4 +247,8 @@ Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no 
 
 ![Captura de pantalla de un error cuando los usuarios no han registrado su dispositivo en Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_0128_2016-->
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0302_2016-->

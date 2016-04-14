@@ -49,7 +49,8 @@ La aplicación web debe estar ejecutándose en el modo **Estándar** o **Premium
 
 	![Agregar una nueva ranura de implementación][QGAddNewDeploymentSlot]
 
-	> [AZURE.NOTE]Si la aplicación web ya no está en el modo **Estándar** o **Premium**, recibirá un mensaje que indica los modos compatibles para habilitar la publicación de ensayo. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escalar** de la aplicación web antes de continuar.
+	> [AZURE.NOTE]
+	Si la aplicación web ya no está en el modo **Estándar** o **Premium**, recibirá un mensaje que indica los modos compatibles para habilitar la publicación de ensayo. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escalar** de la aplicación web antes de continuar.
 
 2. En la hoja **Agregar ranura**, asigne un nombre a la ranura y seleccione si la configuración de la aplicación web se debe clonar de otra ranura de implementación existente. Haga clic en la marca de verificación para continuar.
 
@@ -97,7 +98,7 @@ Para establecer una configuración de aplicación o una cadena de conexión que 
 <a name="Swap"></a>
 ## Para intercambiar ranuras de implementación ##
 
->[AZURE.IMPORTANT]Antes de colocar una aplicación web de una ranura de implementación en producción, asegúrese de que todos los valores específicos que no son de ranura están configurados exactamente como desea que estén en el destino de intercambio.
+>[AZURE.IMPORTANT] Antes de colocar una aplicación web de una ranura de implementación en producción, asegúrese de que todos los valores específicos que no son de ranura están configurados exactamente como desea que estén en el destino de intercambio.
 
 1. Para intercambiar las ranuras de implementación, haga clic en el botón **Intercambiar** en la barra de comandos de la aplicación web o en la barra de comandos de una ranura de implementación. Asegúrese de que el origen y el destino del intercambio estén correctamente establecidos. Normalmente, el destino de intercambio suele ser el espacio de producción.  
 
@@ -109,7 +110,7 @@ Para establecer una configuración de aplicación o una cadena de conexión que 
 
 El intercambio automático optimiza los escenarios de DevOps donde desee implementar continuamente la aplicación web sin arranques en frío ni tiempos de inactividad para los clientes finales de la aplicación web. Cuando se configura un espacio de implementación para el intercambio automático en producción, cada vez que inserte una actualización de código para ese espacio, el Servicio de aplicaciones coloca automáticamente la aplicación web en producción, una vez que ya esté correcta en el espacio.
 
->[AZURE.IMPORTANT]Al habilitar el intercambio automático para una ranura, asegúrese de que la configuración de ranura sea exactamente la configuración prevista para la ranura de destino (normalmente la ranura de producción).
+>[AZURE.IMPORTANT] Al habilitar el intercambio automático para una ranura, asegúrese de que la configuración de ranura sea exactamente la configuración prevista para la ranura de destino (normalmente la ranura de producción).
 
 Es fácil configurar el intercambio automático para un espacio. Siga estos pasos:
 
@@ -123,7 +124,7 @@ Es fácil configurar el intercambio automático para un espacio. Siga estos paso
 
 	![][Autoswap2]
 
-	>[AZURE.NOTE]Para probar el intercambio automático para la aplicación web, puede seleccionar primero una ranura de destino que no sea de producción en **Ranura de intercambio automático** para familiarizarse con la característica.
+	>[AZURE.NOTE] Para probar el intercambio automático para la aplicación web, puede seleccionar primero una ranura de destino que no sea de producción en **Ranura de intercambio automático** para familiarizarse con la característica.
 
 3. Ejecute una inserción de código para este espacio de implementación. El intercambio automático se realizará después de un breve tiempo y la actualización se reflejará en la dirección URL del espacio de destino.
 
@@ -134,7 +135,18 @@ El intercambio de varias fase está disponible para simplificar la validación e
 
 <a name="Rollback"></a>
 ## Para revertir una aplicación de producción después de un intercambio ##
+
 Si se identifican errores en producción después del intercambio de espacios, revierta los espacios a sus estados anteriores. Para ello, intercambie los mismos dos espacios inmediatamente.
+
+<a name="Warm-up"></a>
+## Preparación personalizada antes del intercambio ##
+
+Es posible que algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración applicationInitialization en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio esperará a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
+
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[web app hostname]" />
+        <add initializationPage="/Home/About" hostname="[web app hostname]" />
+    </applicationInitialization>
 
 <a name="Delete"></a>
 ## Para eliminar una ranura de implementación##
@@ -150,7 +162,7 @@ En la hoja de una ranura de implementación, haga clic en **Eliminar** en la bar
 
 PowerShell de Azure es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluida la compatibilidad para administrar espacios de implementación de aplicaciones web del Servicio de aplicaciones de Azure.
 
-- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).  
+- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).  
 
 - Para poder utilizar el nuevo modo del Administrador de recursos de Azure para cmdlets de PowerShell, empiece con lo siguiente: `Switch-AzureMode -Name AzureResourceManager`.
 
@@ -233,7 +245,7 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 
 ----------
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Pasos siguientes ##
 [Aplicación web del Servicio de aplicaciones de Azure: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -259,4 +271,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

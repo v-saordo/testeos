@@ -140,19 +140,19 @@ Después de habilitar los diagnósticos para una aplicación web, haga clic en e
 
 Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la sección **Configuración de aplicaciones** de la página de administración **Configurar**. Se pueden configurar las siguientes opciones en **Configuración de aplicaciones**:
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\..\LogFiles\Application
+- Valor predeterminado: ..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - El tamaño máximo de búfer que se utilizará cuando se capturen registros de aplicación. La información inicialmente se escribe en el búfer antes de vaciarla al archivo o el almacenamiento. Si se escribe información nueva en el búfer antes de poder vaciarla, es posible que pierda la información anteriormente registrada. Si la aplicación genera grandes ráfagas de información de registro, considere aumentar el tamaño del búfer.
 
 - Valor predeterminado: 10 MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - El tamaño máximo de la carpeta de **aplicaciones**, en la que se almacenan los diagnósticos de la aplicación escritos en el archivo.
 
@@ -171,7 +171,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 **Azure PowerShell**
 
-1. En la **pantalla de inicio** o en el **menú Inicio**, busque **Azure PowerShell**. Haga clic con el botón secundario en la entrada **Azure PowerShell** y seleccione **Ejecutar como administrador**.
+1. En la **pantalla Inicio** o en el **menú Inicio**, busque **Windows PowerShell**. Haga clic con el botón derecho en la entrada **Windows PowerShell** y seleccione **Ejecutar como administrador**.
 
 	> [AZURE.NOTE] Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
 
@@ -289,4 +289,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

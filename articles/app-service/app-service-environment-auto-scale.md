@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="03/01/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -56,7 +56,11 @@ La mejor manera de ilustrar el escalado automático de un **entorno del Servicio
 ###Introducción al escenario
 Frank es administrador de sistemas de una empresa y ha migrado parte de las cargas de trabajo que administra a un **entorno del Servicio de aplicaciones**.
 
-El **entorno del Servicio de aplicaciones** está configurado para el escalado manual de la manera siguiente: * Grupo de servidores front-end: 3 * Grupo de trabajo 1: 10 * Grupo de trabajo 2: 5 * Grupo de trabajo 3: 5
+El **entorno del Servicio de aplicaciones** está configurado a escala manual de la siguiente manera:
+* Servidores front-end: 3
+* Grupo de trabajo 1: 10
+* Grupo de trabajo 2: 5
+* Grupo de trabajo 3: 5
 
 El **grupo de trabajo 1** se usa para las cargas de trabajo de producción, en tanto que el **grupo de trabajo 2** y el **grupo de trabajo 3** se usan para las cargas de trabajo de control de calidad y desarrollo.
 
@@ -124,7 +128,7 @@ En el caso de la regla *Escalado automático - Reducir verticalmente* del perfil
 
 Esto significa que el **plan del Servicio de aplicaciones** de producción puede crecer a una tasa máxima de **8** instancias por hora durante la semana y de **4** instancias por hora durante los fines de semana. Además, puede liberar las instancias a una tasa máxima de **4** instancias por hora durante la semana y **6** instancias por hora durante los fines de semana.
 
-Si se hospedan varios **Planes del Servicio de aplicaciones** en un **grupo de trabajo**, debe calcularse la **tasa de inflación total**, que se puede expresar como la *suma* de la tasa de inflación de todos los **Planes del Servicio de aplicaciones** que se hospedan en dicho **grupo de trabajo**.
+Si se hospedan varios **planes del Servicio de aplicaciones** en un **grupo de trabajo**, debe calcularse la **tasa de inflación total**, que se puede expresar como la *suma* de la tasa de inflación de todos los **planes del Servicio de aplicaciones** que se hospedan en dicho **grupo de trabajo**.
 
 ![][ASP-Total-Inflation]
 
@@ -155,16 +159,16 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 |	**Duración:** 20 minutos |	**Duración:** 30 minutos |
 |	**Agregación de tiempo:** Media |	**Agregación de tiempo:** Media |
 |	**Acción:** Aumentar recuento en 8 |	**Acción:** Aumentar recuento en 3 |
-|	**Tiempo de finalización (minutos):** 90 |	**Tiempo de finalización (minutos):** 90 |
+|	**Tiempo de finalización (minutos):** 180 |	**Tiempo de finalización (minutos):** 180 |
 | | |
 |	**Regla de escalado automático (reducir verticalmente)** |	**Regla de escalado automático (reducir verticalmente)** |
 |	**Recurso:** Grupo de trabajo 1 |	**Recurso:** Grupo de trabajo 1 |
 |	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operación:** Mayor que 8 |	**Operación:** Menor que 3 |
+|	**Operación:** Mayor que 8 |	**Operación:** mayor que 3 |
 |	**Duración:** 20 minutos |	**Duración:** 15 minutos |
 |	**Agregación de tiempo:** Media |	**Agregación de tiempo:** Media |
 |	**Acción:** Reducir recuento en 2 |	**Acción:** Reducir recuento en 3 |
-|	**Tiempo de finalización (minutos):** 90 |	**Tiempo de finalización (minutos):** 90 |
+|	**Tiempo de finalización (minutos):** 120 |	**Tiempo de finalización (minutos):** 120 |
 
 El rango objetivo definido en el perfil se calcula sumando el número mínimo de instancias definido en el perfil para el **plan del Servicio de aplicaciones** + búfer.
 
@@ -199,7 +203,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 |	**Duración:** 20 minutos |
 |	**Agregación de tiempo:** Media |
 |	**Acción:** Aumentar recuento en 3 |
-|	**Tiempo de finalización (minutos):** 90 |
+|	**Tiempo de finalización (minutos):** 120 |
 | |
 |	**Regla de escalado automático (reducir verticalmente)** |
 |	**Recurso:** Grupo de trabajo 1 |
@@ -208,7 +212,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 |	**Duración:** 20 minutos |
 |	**Agregación de tiempo:** Media |
 |	**Acción:** Reducir recuento en 3 |
-|	**Tiempo de finalización (minutos):** 90 |
+|	**Tiempo de finalización (minutos):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -227,4 +231,4 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 # Creación de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure
 Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) es una excelente opción para las campañas de marketing digital. Las campañas de marketing digital suelen tener corta duración y están pensadas para conseguir un objetivo de marketing a corto plazo. Hay dos escenarios principales que se han de tener en cuenta. En el primer escenario, una empresa de marketing externa crea y administra la campaña para sus clientes mientras dura la promoción. En el segundo escenario, la empresa de marketing crea y, a continuación, transfiere la titularidad de los recursos de la campaña de marketing digital a sus clientes. A continuación, el cliente ejecuta y administra la campaña de marketing digital por su cuenta. Es una excelente combinación para ambos escenarios.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 A continuación, aparece un ejemplo de una campaña de marketing digital global multicanal que utiliza Aplicaciones web del Servicio de aplicaciones. Muestra lo que puede hacer al simplemente componer Aplicaciones web del Servicio de aplicaciones en conjunto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para leer más información al respecto.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Esta guía presenta algunas de las áreas y tareas más comunes alineadas con la ejecución de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure. Sin embargo, existentes otras soluciones comunes que puede implementar en Aplicaciones web del Servicio de aplicaciones. Para revisar estas soluciones, consulte las otras guías sobre [presencia web global](web-sites-global-web-presence-solution-overview.md) y [aplicaciones empresariales](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Esta guía presenta algunas de las áreas y tareas más comunes alineadas con la ejecución de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure. Sin embargo, existentes otras soluciones comunes que puede implementar en Aplicaciones web del Servicio de aplicaciones. Para revisar estas soluciones, consulte las otras guías sobre [presencia web global](web-sites-global-web-presence-solution-overview.md) y [aplicaciones empresariales](web-sites-business-application-solution-overview.md).
 
 ## Crear desde cero o aprovechar recursos existentes
 
@@ -88,7 +89,7 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
 ## Más recursos
 
 - [Documentación de Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/)
-- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](websites-learning-map.md)
+- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog web de Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -138,4 +139,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

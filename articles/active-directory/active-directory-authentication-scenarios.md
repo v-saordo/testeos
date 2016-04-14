@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/08/2016"
+   ms.date="02/09/2016"
    ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
@@ -63,12 +63,12 @@ Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe sab
 • Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente para las partes implicadas. Los desarrolladores pueden usar las bibliotecas de autenticación proporcionadas para administrar la validación de cualquier token de Azure AD, incluidos los tokens web JSON (JWT) o de SAML 2.0. Si desea realizar la validación manualmente, vea la documentación del [Controlador de tokens JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
-> [AZURE.IMPORTANT]Azure AD usa criptografía de clave pública para firmar los tokens y verificar que son válidos. Consulte [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obtener más información sobre la lógica necesaria que debe tener en la aplicación para garantizar que siempre está actualizada con las claves más recientes.
+> [AZURE.IMPORTANT] Azure AD usa criptografía de clave pública para firmar los tokens y verificar que son válidos. Consulte [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obtener más información sobre la lógica necesaria que debe tener en la aplicación para garantizar que siempre está actualizada con las claves más recientes.
 
 
 • El flujo de solicitudes y respuestas del proceso de autenticación lo determina el protocolo de autenticación que se use, como OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Estos protocolos se analizan con más detalle en el tema [Protocolos de autenticación de Azure Active Directory](active-directory-authentication-protocols.md) y en las secciones siguientes.
 
-> [AZURE.NOTE]Azure AD admite los estándares OAuth 2.0 y OpenID Connect, que hacen un uso generalizado de tokens portadores, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens portadores de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
+> [AZURE.NOTE] Azure AD admite los estándares OAuth 2.0 y OpenID Connect, que hacen un uso generalizado de tokens portadores, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens portadores de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
 
 Ahora que ya tiene información general sobre los conceptos básicos, lea las secciones siguientes para comprender cómo funciona el aprovisionamiento en Azure AD, así como los escenarios comunes admitidos por Azure AD.
@@ -138,7 +138,7 @@ Cada uno de los escenarios incluidos en este documento incluye una subsección e
 
 ## Tipos de aplicaciones y escenarios
 
-Cada uno de los escenarios que se describe en este documento puede desarrollarse con diversos lenguajes y plataformas, y existen [ejemplos de código completo disponibles en GitHub](https://github.com/AzureADSamples) para cada uno. Además, si la aplicación necesita un determinado fragmento o segmento de un escenario de un extremo a otro, dicha funcionalidad se podrá agregar de manera independiente en la mayoría de los casos. Por ejemplo, si tiene una aplicación nativa que llama a una API web, puede agregar fácilmente una aplicación web que también llame a la API web. En el diagrama siguiente se ilustran estos escenarios y tipos de aplicación, además de cómo pueden agregarse distintos componentes:
+Cada uno de los escenarios que se describen en este documento puede desarrollarse con varios lenguajes y plataformas. Todos están respaldados por ejemplos de código completo que están disponibles en nuestra [guía de ejemplos de código](active-directory-code-samples.md) o directamente en los [repositorios de ejemplos de GitHub](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=active-directory) correspondientes. Además, si la aplicación necesita un determinado fragmento o segmento de un escenario de un extremo a otro, dicha funcionalidad se podrá agregar de manera independiente en la mayoría de los casos. Por ejemplo, si tiene una aplicación nativa que llama a una API web, puede agregar fácilmente una aplicación web que también llame a la API web. En el diagrama siguiente se ilustran estos escenarios y tipos de aplicación, además de cómo pueden agregarse distintos componentes:
 
 ![Tipos de aplicaciones y escenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
@@ -292,7 +292,7 @@ Si usa las bibliotecas de autenticación de AD, la mayoría de los detalles del 
 6. Cuando el token de acceso expire, la aplicación cliente recibirá un mensaje de error que indica que el usuario debe volver a autenticarse. Si la aplicación tiene un token de actualización válido, puede usarse para adquirir un nuevo token de acceso sin pedir al usuario que vuelva a iniciar sesión. Si el token de actualización expira, será necesario que la aplicación vuelva a autenticar interactivamente al usuario.
 
 
-> [AZURE.NOTE]El token de actualización que emite Azure AD se puede usar para obtener acceso a varios recursos. Por ejemplo, si tiene una aplicación cliente con permiso para llamar a dos API web, el token de actualización puede usarse para obtener también un token de acceso a la otra API web.
+> [AZURE.NOTE] El token de actualización que emite Azure AD se puede usar para obtener acceso a varios recursos. Por ejemplo, si tiene una aplicación cliente con permiso para llamar a dos API web, el token de actualización puede usarse para obtener también un token de acceso a la otra API web.
 
 
 #### Ejemplos de código
@@ -467,4 +467,4 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0211_2016-->

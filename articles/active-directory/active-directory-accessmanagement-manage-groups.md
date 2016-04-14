@@ -13,8 +13,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.topic="get-started-article"
+	ms.date="02/10/2016"
 	ms.author="curtand"/>
 
 
@@ -70,8 +70,10 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Trabajos híbridos de runbook de Automatización de Azure
@@ -60,7 +60,7 @@ Requisitos del firewall:
 El siguiente procedimiento describe cómo instalar y configurar Hybrid Runbook Worker. Realice los dos primeros pasos una vez para su entorno de Automatización y después repita los pasos restantes en cada equipo de trabajo.
 
 ### 1\. Creación del área de trabajo de Operations Management Suite
-Si todavía no tiene un área de trabajo de Operations Management Suite, puede crear una siguiendo las instrucciones que aparecen en [Configuración del área de trabajo de Visión operativa](../operational-insights/operational-insights-onboard-in-minutes.md). Si cuenta con un área de trabajo existente, puede usarla.
+Si todavía no tiene un área de trabajo de Operations Management Suite, puede crear una siguiendo las instrucciones que aparecen en [Configurar el área de trabajo](https://technet.microsoft.com/library/mt484119.aspx). Si cuenta con un área de trabajo existente, puede usarla.
 
 ### 2\. Adición de soluciones de Automatización de área de trabajo de Operations Management Suite
 Las soluciones agregan funcionalidad a Operations Management Suite. La solución de Automatización agrega funcionalidad a Automatización de Azure, incluida la compatibilidad con Hybrid Runbook Worker. Cuando se agrega la solución al área de trabajo, se insertarán automáticamente los componentes de trabajo al equipo del agente que va a instalar en el paso siguiente.
@@ -190,4 +190,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

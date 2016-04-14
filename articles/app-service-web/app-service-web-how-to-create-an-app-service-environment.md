@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="01/14/2016" 
 	ms.author="ccompy"/>
 
@@ -30,7 +30,13 @@ La creación de un ASE requiere que los clientes proporcionen la siguiente infor
 - Selección de la red virtual de Azure junto con una subred
 - Definición del grupo de recursos de ASE
 
-Existen algunos detalles importantes para cada uno de estos elementos. - El nombre del ASE se usará en el subdominio en cualquiera de las aplicaciones creadas en ese ASE - Todas las aplicaciones creadas en un ASE estarán en la misma suscripción que el propio ASE - Si no tiene acceso a la suscripción usada para crear el ASE, no podrá usar el ASE para crear aplicaciones - Las redes virtuales usadas para hospedar un ASE deben ser redes virtuales clásicas regionales "v1" - La subred usada para hospedar el ASE no debe contener ningún otro recurso de proceso - Solo puede haber un ASE en una subred
+Existen algunos detalles importantes para cada uno de esos elementos.
+- El nombre del ASE se utilizará en el subdominio para cualquier aplicación realizada en ese ASE.
+- Todas las aplicaciones que se creen en un ASE estarán en la misma suscripción en la que se encuentre el ASE.
+- Si no tiene acceso a la suscripción utilizada para crear el ASE, no podrá utilizarlo para crear aplicaciones.
+- Las redes virtuales que se utilizan para hospedar un ASE deben ser redes virtuales clásicas y regionales del tipo "v1". 
+- La subred utilizada para hospedar el ASE no debe contener otros recursos informáticos.
+- En una subred solo puede haber un ASE.
 
 Cada implementación de ASE es un servicio hospedado que Azure administra y mantiene. Los recursos de proceso que hospedan los roles del sistema ASE no son accesibles para el cliente aunque este administre la cantidad de instancias y sus tamaños.
 
@@ -68,7 +74,9 @@ Si usa la IU de creación de red virtual, tiene que proporcionar lo siguiente:
 
 La ubicación de la red virtual es la ubicación del ASE porque este se implementa en esa red virtual.
 
-Después de especificar o seleccionar la red virtual, debe crear o seleccionar una subred, según corresponda. Los detalles necesarios que debe proporcionar aquí son el nombre de la subred estos son: - Nombre de subred - Intervalo de subred en la notación CIDR.
+Después de especificar o seleccionar la red virtual, debe crear o seleccionar una subred, según corresponda. Aquí debe proporcionar los detalles siguientes:
+- Nombre de subred
+- Intervalo de subred en la notación CIDR
 
 Si no está familiarizado con CIDR (Enrutamiento de interdominios sin clases), adopta la forma de una dirección IP que está separada del valor de CIDR por una barra diagonal. Es como esta *10.0.0.0/22*. El valor CIDR indica el número de bits de referencia que se enmascaran en la dirección IP mostrada. Una manera más fácil de expresar el concepto aquí es que los valores CIDR proporcionan un intervalo de IP. En este ejemplo, /10.0.0.0/22 significa un intervalo de 1024 direcciones o entre 10.0.0.0 y 10.0.3.255. /23 significa 512 direcciones, y así sucesivamente.
 
@@ -155,4 +163,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -53,7 +53,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ### Siga estos pasos para habilitar la integración de aplicaciones para DocuSign:
 
-1. En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**. <br><br>![Configuración del inicio de sesión único][1]<br>
+1. En el Portal de Azure clásico, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Configuración del inicio de sesión único][1]<br>
 
 2. En la lista Directory, seleccione el directorio cuya integración desee habilitar.
 
@@ -78,14 +78,14 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 
 ### Siga estos pasos para configurar el inicio de sesión único:
 
-1. En el Portal de Azure AD, en la página de **integración de aplicaciones de DocuSign**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo Configurar inicio de sesión único. <br><br>![Configuración del inicio de sesión único][7]<br>
+1. En el Portal de Azure clásico, en la página de **integración de la aplicación DocuSign**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo Configurar inicio de sesión único. <br><br>![Configuración del inicio de sesión único][7]<br>
 
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Docusign?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y después haga clic en Siguiente. <br><br>![Configuración del inicio de sesión único][8]<br>
 
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **URL de inicio de sesión de DocuSign**, escriba la dirección URL del inquilino de DocuSign y después haga clic en **Siguiente**. La dirección URL sigue el siguiente esquema: *https://<yourcompanyname>.docusign.net/Member/MemberLogin.aspx?ssoname=<yourSSOInstanceName>* <br><br>![Configuración del inicio de sesión único][9]<br>
 
 
-    > [AZURE.TIP]Si no sabe cuál es la dirección URL de aplicación para el inquilino, póngase en contacto con DocuSign a través de SSOSetup@Docusign.com para obtener la URL de SSO iniciado por el SP para el inquilino.
+    > [AZURE.TIP] Si no sabe cuál es la dirección URL de aplicación para el inquilino, póngase en contacto con DocuSign a través de SSOSetup@Docusign.com para obtener la URL de SSO iniciado por el SP para el inquilino.
  
 
 4. En la página **Configuración de inicio de sesión único en DocuSign**, haga clic en **Descargar certificado** y después guarde el archivo de certificado localmente en el equipo. <br><br>![Configuración del inicio de sesión único][10]<br>
@@ -103,9 +103,9 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
 8. En la sección **SAML 2.0 Configuration** (Configuración de SAML 2.0), realice los pasos siguientes: <br><br>![Configuración del inicio de sesión único][13]<br>
 
 
-    a. En el Portal de Azure, en la página de cuadro de diálogo **Configuración de inicio de sesión único en DocuSign**, copie el valor de Dirección URL de emisor** y péguelo en el cuadro de texto **Identity Provider Endpoint URL** (Dirección URL de extremo del proveedor de identidades).
+    a. En el Portal de Azure clásico, en la página de diálogo **Configuración de inicio de sesión único en DocuSign**, copie el valor de Dirección URL de emisor** y péguelo en el cuadro de texto **Dirección URL de punto de conexión del proveedor de identidades**.
 
-    > [AZURE.IMPORTANT]Si esta opción de configuración no está disponible, póngase en contacto con el administrador de cuenta de DocuSign o con el equipo de soporte de SSO por correo electrónico ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)).
+    > [AZURE.IMPORTANT] Si esta opción de configuración no está disponible, póngase en contacto con el administrador de cuenta de DocuSign o con el equipo de soporte de SSO por correo electrónico ([SSOSetup@docusign.com](mailto:SSOSetup@docusign.com)).
  
     b. Haga clic en **Browse** (Examinar) para cargar el certificado descargado.
 
@@ -116,7 +116,7 @@ El objetivo de esta sección es describir cómo permitir que los usuarios se aut
     d. Haga clic en **Guardar**.
 
 
-9. En el Portal de Azure AD, seleccione la **confirmación de la configuración de inicio de sesión único** y después haga clic en **Siguiente**. <br><br>![Aplicaciones][14]<br>
+9. En el Portal de Azure clásico, seleccione la **confirmación de la configuración de inicio de sesión único** y haga clic en **Siguiente**. <br><br>![Aplicaciones][14]<br>
 
 10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completar**. <br><br>![Aplicaciones][15]<br>
 
@@ -129,7 +129,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ### Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1. En el **Portal de administración de Azure**, en la página de **integración de aplicaciones de DocuSign**, haga clic en **Configurar aprovisionamiento de cuentas** para abrir el cuadro de diálogo Configurar aprovisionamiento de usuarios. <br><br>![Configuración del aprovisionamiento de cuentas][30]<br>
+1. En el **Portal de Azure clásico**, en la página de integración de la aplicación **DocuSign**, haga clic en **Configurar aprovisionamiento de cuentas** para abrir el cuadro de diálogo Configurar aprovisionamiento de usuarios. <br><br>![Configuración del aprovisionamiento de cuentas][30]<br>
  
 
 2. En la página **Configuración y credenciales de administrador**, para habilitar el aprovisionamiento automático de usuarios, proporcione las credenciales de una cuenta de DocuSign con derechos suficientes y después haga clic en **Siguiente**. <br><br>![Configuración del aprovisionamiento de cuentas][31]<br>
@@ -147,7 +147,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ### Para asignar usuarios a DocuSign, lleve a cabo los siguientes pasos:
 
-1. En el **Portal de Azure AD**, cree una cuenta de prueba.
+1. En el **Portal de Azure clásico**, cree una cuenta de prueba.
 
 2. En la página de **integración de aplicaciones de DocuSign**, haga clic en **Asignar usuarios**. <br><br>![Asignación de usuarios][40]<br>
  
@@ -159,7 +159,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Ahora debería esperar 10 minutos y comprobar si la cuenta se sincronizó con DocuSign.
 
-Como primer paso de verificación, puede comprobar el estado del aprovisionamiento haciendo clic en Panel en la página de integración de aplicaciones de DocuSign en el Portal de administración de Azure. <br><br>![Asignación de usuarios][42]<br>
+Como primer paso de verificación, puede comprobar el estado del aprovisionamiento haciendo clic en Panel en la página de integración de la aplicación DocuSign en el Portal de Azure clásico. <br><br>![Asignación de usuarios][42]<br>
 
 Cuando un ciclo de aprovisionamiento de usuarios se completa correctamente, se indica con un estado relacionado: <br><br>![Asignación de usuarios][43]<br>
 
@@ -208,4 +208,4 @@ Para obtener más información sobre el Panel de acceso, consulte Introducción 
 [42]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_17.png
 [43]: ./media/active-directory-saas-docussign-tutorial/tutorial_docusign_18.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

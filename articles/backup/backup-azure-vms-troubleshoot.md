@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2016"
-	ms.author="trinadhk;jimpark;aashishr"/>
+	ms.date="01/28/2016"
+	ms.author="trinadhk;jimpark;"/>
 
 
 # Solución de problemas de copia de seguridad de máquinas virtuales de Azure
@@ -105,7 +105,7 @@ Para las máquinas virtuales de Windows:
 
 Máquinas virtuales de Linux:
 
-- Siga las instrucciones proporcionadas en [Actualización del agente de VM de Linux](../virtual-machines-linux-update-agent.md).
+- Siga las instrucciones proporcionadas en [Actualización del agente de VM de Linux](../virtual-machines/virtual-machines-linux-update-agent.md).
 
 
 ### Validación de la instalación del agente de la máquina virtual
@@ -149,6 +149,6 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
     - Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico. Encontrará [aquí](backup-azure-vms-prepare.md#2-network-connectivity) pasos para implementar un servidor proxy HTTP.
     - Agregue reglas al NSG (si dispone de uno implementado) para permitir el acceso a INTERNET desde el proxy HTTP.
 
->[AZURE.NOTE]DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información acerca de cómo establecer una dirección IP estática privada interna, vaya [aquí](virtual-networks-reserved-private-ip.md).
+>[AZURE.NOTE] DHCP debe estar habilitado dentro del invitado para que Copia de seguridad de VM de IaaS funcione. Si necesita una dirección IP privada estática, debe configurarla a través de la plataforma. La opción DHCP dentro de la máquina virtual debe continuar habilitada. Para más información acerca de cómo establecer una dirección IP estática privada interna, vaya [aquí](virtual-networks-reserved-private-ip.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="02/29/2016" 
 	ms.author="tdykstra"/>
 
 # Cómo usar el almacenamiento de tablas de Azure con el SDK de WebJobs
@@ -141,7 +141,7 @@ El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una enti
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obtener más información acerca de cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas de .NET](../storage-dotnet-how-to-use-tables.md)
+Para obtener más información acerca de cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas de .NET](../storage/storage-dotnet-how-to-use-tables.md)
 
 ## <a id="queues"></a>Temas relacionados tratados en el artículo sobre procedimientos de las colas
 
@@ -163,4 +163,4 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

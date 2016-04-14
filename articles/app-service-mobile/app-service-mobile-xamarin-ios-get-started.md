@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/23/2015"
+	ms.date="02/13/2016"
 	ms.author="normesta"/>
 
 
 #Creación de una aplicación Xamarin.iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Información general
 
@@ -35,10 +33,10 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2013] o posterior. Si instala Visual Studio Community 2013, instale [Xamarin] por separado. Puede instalar las herramientas de Xamarin al instalar Visual Studio 2015.
+* [Visual Studio Community 2013](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) o posterior. Si instala Visual Studio Community 2013, instale [Xamarin] por separado. Puede instalar las herramientas de Xamarin al instalar Visual Studio 2015.
 
 * Un equipo Mac con [Xcode] v7.0 o versiones posteriores y [Xamarin Studio] instalados.
- 
+
 * Si planea compilar la aplicación en un equipo con Windows y Visual Studio, necesitará acceso a un equipo Mac en red con el host de compilación Xamarin.iOS para compilarla e implementarla. Para más información, consulte [Instalación Xamarin.iOS en Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/)
 
 >[AZURE.NOTE] Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Allí puede crear de forma inmediata una aplicación móvil de corta duración para iniciarse en el Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
@@ -121,4 +119,4 @@ Si eligió una configuración de back-end de .NET, tiene la opción de probar el
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installing Xamarin.iOS on Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_0128_2016--->
+<!---HONumber=AcomDC_0224_2016-->

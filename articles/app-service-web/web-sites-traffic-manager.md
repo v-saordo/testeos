@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/25/2016" 
 	ms.author="cephalin"/>
 
 # Control del tráfico de aplicaciones web de Azure con el Administrador de tráfico de Azure
@@ -63,4 +63,4 @@ Para obtener información detallada acerca del equilibrio de carga en el Adminis
 Para obtener más información sobre el uso de Traffic Manager con Sitios web de Azure, consulte las publicaciones del blog [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) y [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

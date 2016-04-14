@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/10/2016" 
 	ms.author="byvinyal"/>
 	
 # Servicio de aplicaciones de Azure: escalado de aplicaciones de Servicio de aplicaciones
@@ -38,4 +38,4 @@ Esta sección lo ayudará a comprender todos los factores y a diseñar una estra
 
 [AZURE.INCLUDE [app-service-blueprint-scaling-app-service-applications](../../includes/app-service-blueprint-scaling-app-service-applications.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

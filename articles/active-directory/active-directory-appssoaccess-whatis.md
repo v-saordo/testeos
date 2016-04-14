@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser-msft"/>
 
 #¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
@@ -80,7 +80,7 @@ El SSO con contraseña depende de la extensión del navegador para recuperar inf
 
 Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
 
-- Internet Explorer 8, 9 y 10, en Windows 7 o posterior (consulte también la [Guía de implementación de extensión de IE](active-directory-saas-ie-group-policy.md))
+- Internet Explorer 8, 9, 10 y 11, en Windows 7 o posterior (consulte también la [Guía de implementación de la extensión de IE](active-directory-saas-ie-group-policy.md))
 - Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 - Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
@@ -210,7 +210,14 @@ Cuando un usuario autorizado hace clic en uno de estos vínculos específicos de
 
 Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel de acceso y Office 365, y solo los usuarios o grupos que se han asignado a la aplicación en el portal de administración de Azure podrán autenticarse correctamente. Sin embargo, cualquier usuario que no tenga autorización, verá un mensaje que explica que no se le ha concedido acceso y se proporcionan un vínculo para cargar el panel de acceso y ver las aplicaciones disponibles a las que tienen acceso.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Búsqueda de aplicaciones de nube no sancionadas con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Introducción a la administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md)
+- [Comparación de funcionalidades para administrar identidades externas con Azure Active Directory](active-directory-b2b-compare-external-identities.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -220,4 +227,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

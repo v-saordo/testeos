@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="02/07/2016"
    ms.author="curtand"/>
 
 # Métodos abreviados de teclado del Portal de Azure clásico
@@ -50,4 +50,4 @@
 
 Conocer mejor el Portal de Azure clásico: http://azure.microsoft.com.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

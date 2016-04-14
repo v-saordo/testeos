@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="02/04/2016"
 	ms.author="ricksal"/>
 
 
 # Uso de la biblioteca de cliente Android para Aplicaciones móviles
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 Esta guía muestra cómo utilizar el SDK de cliente Android para Aplicaciones móviles a fin de implementar escenarios comunes, como consultar datos (insertar, actualizar y eliminar), autenticar usuarios, controlar errores y personalizar el cliente. También realiza una profundización en el código de cliente común que se utiliza en la mayoría de aplicaciones móviles.
 
@@ -34,27 +32,27 @@ Esta guía se centra en el SDK de Android del cliente. Para más información so
 
 El SDK de Servicios móviles para Android admite la versión 2.2 de Android u otra posterior, aunque recomendamos que la compilación se lleve a cabo en la versión 4.2 o posterior.
 
-Complete el tutorial [Inicio rápido de Aplicaciones móviles](app-service-mobile-android-get-started.md), que se asegurará de que ha instalado Android Studio; le ayudará a configurar su cuenta y crear su primer back-end de aplicación móvil. Si lo hace, puede omitir el resto de esta sección.
+Complete el tutorial de [inicio rápido de Aplicaciones móviles](app-service-mobile-android-get-started.md), que se asegurará de que ha instalado Android Studio; le ayudará a configurar su cuenta y crear su primer back-end de aplicación móvil. Si lo hace, puede omitir el resto de esta sección.
 
 Si decide no completar el tutorial de Inicio rápido y desea conectar una aplicación Android a un back-end de aplicación móvil, debe hacer lo siguiente:
 
-- [Crear un back-end de aplicación móvil](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) para utilizar con su aplicación Android (a menos que la aplicación ya tenga uno)
-- En Android Studio, [actualizar los archivos de compilación de Gradle](#gradle-build), y
+- [Crear un nuevo back-end de Aplicaciones móviles de Azure](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) para utilizar con su aplicación Android (a menos que la aplicación ya tenga uno)
+- En Android Studio, [actualizar el archivo de compilación de Gradle](#gradle-build) y
 - [Habilitar permisos de Internet](#enable-internet)
 
 Después de esto, debe completar los pasos descritos en la sección de profundización.
 
-###<a name="gradle-build"></a>Actualización del archivo de compilación de Gradle 
+###<a name="gradle-build"></a>Actualización del archivo de compilación de Gradle
 
 Cambie ambos archivos **build.gradle**:
 
 1. Agregue este código al archivo **build.gradle** del nivel *Project* dentro de la etiqueta *buildscript*:
- 
+
 		buildscript {
 		    repositories {
 		        jcenter()
 		    }
-		} 
+		}
 
 2. Agregue este código al archivo **build.gradle** del nivel *Module app* dentro de la etiqueta *dependencies*:
 
@@ -67,7 +65,7 @@ Para obtener acceso a Azure, la aplicación debe tener habilitado el permiso de 
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## Profundización en los conceptos básicos  
+## Profundización en los conceptos básicos
 
 Esta sección describe parte del código en la aplicación de inicio rápido. Si no completó el inicio rápido, deberá agregar este código a la aplicación.
 
@@ -104,7 +102,7 @@ Por ejemplo, si tuviera una columna Prioridad de tipo entero, podría agregar es
 	    public Integer getPriority() {
 	        return mPriority;
 	    }
-	
+
 	    /**
 	     * Sets the item priority
 	     *
@@ -115,11 +113,11 @@ Por ejemplo, si tuviera una columna Prioridad de tipo entero, podría agregar es
 	        mPriority = priority;
 	    }
 
-Para obtener información sobre cómo crear tablas adicionales en el back-end de aplicaciones móviles, vea [Cómo definir un controlador de tabla](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end de. NET) o [Definición de tablas con un esquema dinámico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end de Node.js). Para un back-end de Node.js, también puede usar la configuración **Tablas fáciles** en el [Portal de Azure].
+Para más información sobre cómo crear tablas adicionales en el back-end de Aplicaciones móviles, consulte [Cómo definir un controlador de tabla](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (back-end de. NET) o [Definición de tablas con un esquema dinámico](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (back-end de Node.js). Para un back-end de Node.js, también puede usar la configuración **Tablas fáciles** en el [Portal de Azure].
 
 ###<a name="create-client"></a>Creación del contexto de cliente
 
-Este código crea el objeto **MobileServiceClient** que se usa para obtener acceso al back-end de la aplicación móvil. El código está en el método `onCreate` de la clase de **actividad** especificada en *AndroidManifest.xml* como una acción **PRINCIPAL** y una categoría **INICIADOR** En el código de inicio rápido, está en el archivo **ToDoActivity.java**.
+Este código crea el objeto **MobileServiceClient** que se usa para obtener acceso al back-end de la aplicación móvil. El código está en el método `onCreate` de la clase de **actividad** especificada en *AndroidManifest.xml* como una acción **PRINCIPAL** y una categoría **INICIADOR**. En el código de inicio rápido, está en el archivo **ToDoActivity.java**.
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileAppUrl", // Replace with the above Site URL
@@ -131,7 +129,7 @@ En este código, reemplace `MobileAppUrl` por la dirección URL del back-end de 
 
 ###<a name="instantiating"></a>Creación de una referencia de tabla
 
-La forma más sencilla de consultar o modificar los datos del back-end es utilizar el *modelo de programación con tipo*, ya que Java es un lenguaje fuertemente tipado (más adelante trataremos el modelo *sin tipo*). Este modelo ofrece una perfecta serialización y deserialización de JSON usando la biblioteca [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) al enviar datos entre objetos cliente y tablas en el Azure SQL del back-end: el desarrollador no tiene que hacer nada, el marco se encarga de todo.
+La forma más sencilla de consultar o modificar los datos del back-end es utilizar el *modelo de programación con tipo*, ya que Java es un lenguaje fuertemente tipado (más adelante trataremos el modelo *sin tipo*). Este modelo ofrece una perfecta serialización y deserialización de JSON mediante la biblioteca [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) al enviar datos entre objetos cliente y tablas en Azure SQL del back-end: el desarrollador no tiene que hacer nada, el marco se encarga de todo.
 
 Para obtener acceso a una tabla, cree primero un objeto [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) mediante una llamada al método **getTable** en [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html). Este método tiene dos sobrecargas:
 
@@ -177,7 +175,7 @@ El diseño lo definen varios fragmentos de código XML. Dado el diseño existent
     </ListView>
 
 
-En el código anterior, el atributo *listitem* especifica el identificador del diseño para una fila concreta de la lista. Aquí está este código, que especifica una casilla y su texto asociado. Se crea una instancia de este por cada elemento de la lista. Este diseño no muestra el campo **id**, y un diseño más complejo especificaría campos adicionales en la pantalla. Este código está en el archivo **row\_list\_to\_do.xml**.
+En el código anterior, el atributo *listitem* especifica el identificador del diseño para una fila concreta de la lista. Aquí está este código, que especifica una casilla y su texto asociado. Se crea una instancia de este por cada elemento de la lista. Este diseño no muestra el campo **id** y un diseño más complejo especificaría campos adicionales en la pantalla. Este código está en el archivo **row\_list\_to\_do.xml**.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -305,13 +303,13 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 
 La consulta siguiente devuelve todos los elementos de la tabla *ToDoItem*.
 
-	List<ToDoItem> results = mToDoTable.execute().get();             
+	List<ToDoItem> results = mToDoTable.execute().get();
 
 La variable *results* devuelve el conjunto de resultados de la consulta como una lista.
 
 ### <a name="filtering"></a>Filtro de datos devueltos
 
-La siguiente ejecución de consulta siguiente devuelve todos los elementos de la tabla *ToDoItem* donde *complete* es igual a *false*. Este es el código que ya está en el inicio rápido.
+La ejecución de consulta siguiente devuelve todos los elementos de la tabla *ToDoItem* donde *complete* es igual a *false*. Este es el código que ya está en el inicio rápido.
 
 	List<ToDoItem> result = mToDoTable.where()
 								.field("complete").eq(false)
@@ -321,7 +319,7 @@ La siguiente ejecución de consulta siguiente devuelve todos los elementos de la
 
 Se define un filtro mediante la llamada al método **where** en la referencia de tabla. A esto le sigue una llamada de método **field** seguida de una llamada de método que especifica el predicado lógico. Los métodos de predicado posibles incluyen **eq** (igual a), **ne** (no igual a), **gt** (mayor que), **ge** (mayor o igual que), **lt** (menor que), **le** (menor o igual que), etc. Estos métodos permiten comparar campos de número y cadena con valores específicos.
 
-Puede filtrar por fechas. Los siguientes métodos permiten comparar el campo de fecha entero o partes de la fecha: **year**, **month**, **day**, **hour**, **minute** y **second**. El ejemplo siguiente agrega un filtro para los elementos cuyo valor *due date* sea igual a 2013.
+Puede filtrar por fechas. Los métodos siguientes permiten comparar el campo de fecha entero o partes de la fecha: **year**, **month**, **day**, **hour**, **minute** y **second**. El ejemplo siguiente agrega un filtro para los elementos cuyo valor *due date* sea igual a 2013.
 
 	mToDoTable.where().year("due").eq(2013).execute().get();
 
@@ -329,7 +327,7 @@ Los métodos siguientes admiten filtros complejos en campos de cadena: **startsW
 
 	mToDoTable.where().startsWith("text", "PRI0").execute().get();
 
-Se admiten los siguientes métodos de operador en los campos de número: **add**, **sub**, **mul**, **div**, **mod**, **floor**, **ceiling**, and **round**. El ejemplo siguiente filtra las filas de tabla cuya columna *duration* empieza por un número par.
+Se admiten los siguientes métodos de operador en los campos de número: **add**, **sub**, **mul**, **div**, **mod**, **floor**, **ceiling** y **round**. El ejemplo siguiente filtra las filas de tabla en las que *duration* es un número par.
 
 	mToDoTable.where().field("duration").mod(2).eq(0).execute().get();
 
@@ -362,7 +360,7 @@ Tenga en cuenta que si filtra usando el método ***where***, el método ***where
 
 ### <a name="paging"></a>Devolución de datos en páginas
 
-El primer ejemplo muestra cómo seleccionar los cinco primeros elementos de una tabla. La consulta devuelve los elementos de una tabla de *ToDoItems*. *mToDoTable* es la referencia a la tabla de back-end que ha creado previamente.
+El primer ejemplo muestra cómo seleccionar los cinco primeros elementos de una tabla. La consulta devuelve los elementos de una tabla de *ToDoItems*. *mToDoTable* es la referencia a la tabla de back-end que ha creado previamente:
 
     List<ToDoItem> result = mToDoTable.top(5).execute().get();
 
@@ -381,7 +379,7 @@ El código siguiente ilustra cómo devolver todos los elementos de una tabla de 
 
 Aquí los parámetros para la función de selección son los nombres de las cadenas de las columnas de la tabla que desea devolver.
 
-El método **select** tiene que seguir métodos como **where** y **orderBy**, si están presentes. Pueden ir seguidos de métodos de paginación como **top**.
+El método **select** tiene que seguir métodos como **where** y **orderBy**, si están presentes. Puede ir seguido de métodos de paginación como **top**.
 
 ### <a name="chaining"></a>Concatenación de métodos de consulta
 
@@ -443,7 +441,7 @@ También puede eliminar un elemento especificando el campo **id** de la fila que
 
 	String myRowId = "2FA404AB-E458-44CD-BC1B-3BC847EF0902";
    	mToDoTable.delete(myRowId);
-                    
+
 
 ##<a name="lookup"></a>Búsqueda de un elemento específico
 
@@ -480,7 +478,7 @@ El código siguiente muestra cómo realizar una inserción. El primer paso es cr
 
 El paso siguiente es insertar el objeto.
 
-    mJsonToDoTable.insert(jsonItem).get();                   
+    mJsonToDoTable.insert(jsonItem).get();
 
 
 Si necesita obtener el identificador del objeto insertado, use esta llamada al método:
@@ -548,30 +546,30 @@ Una API personalizada le permite definir extremos personalizados que exponen la 
 Desde un cliente Android, llame al método **invokeApi** para llamar al punto de conexión de API personalizado. En el ejemplo siguiente se muestra cómo llamar a un punto de conexión de API denominado *completeAll*, que devuelve una clase de colección denominada MarkAllResult.
 
 	public void completeItem(View view) {
-	    
-	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class ); 
-	    	
+
+	    ListenableFuture<MarkAllResult> result = mClient.invokeApi( "completeAll", MarkAllResult.class );
+
 	    	Futures.addCallback(result, new FutureCallback<MarkAllResult>() {
 	    		@Override
 	    		public void onFailure(Throwable exc) {
 	    			createAndShowDialog((Exception) exc, "Error");
 	    		}
-	    		
+
 	    		@Override
 	    		public void onSuccess(MarkAllResult result) {
 	    			createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-	                refreshItemsFromTable();	
+	                refreshItemsFromTable();
 	    		}
 	    	});
 	    }
-	
+
 El método **invokeApi** se llama en el cliente, el cual envía una solicitud de POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores. Otras versiones de **invokeApi** le permiten enviar opcionalmente un objeto en el cuerpo de solicitud, especificar el método HTTP y enviar parámetros de consulta con la solicitud. También se proporcionan versiones sin tipo de **invokeApi**.
 
 ##<a name="authentication"></a>Incorporación de autenticación a la aplicación
 
 Los tutoriales ya describen detalladamente cómo agregar estas características.
 
-Servicio de aplicaciones es compatible con la [autenticación de los usuarios de aplicaciones](mobile-services-android-get-started-users.md) mediante diversos proveedores de identidades externas: Facebook, Google, cuenta Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end.
+Servicio de aplicaciones es compatible con la [autenticación de los usuarios de aplicaciones](app-service-mobile-android-get-started-users.md) mediante diversos proveedores de identidades externas: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end.
 
 Se admiten dos flujos de autenticación: un *server* flow y un *client* flow. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de clientes permite una mayor integración con capacidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del dispositivo y específicos del proveedor, y requiere que lo codifique.
 
@@ -591,14 +589,14 @@ El código siguiente inicia el proceso de inicio de sesión del flujo de servido
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-Puede obtener el identificador del usuario que ha iniciado sesión desde un **MobileServiceUser** utilizando el método **getUserId**. Para obtener un ejemplo de cómo usar Futures para llamar a las API de inicio de sesión asincrónico, vea [Introducción a la autenticación].
+Puede obtener el identificador del usuario que ha iniciado sesión desde un **MobileServiceUser** utilizando el método **getUserId**. Para obtener un ejemplo de cómo usar Futures para llamar a las API de inicio de sesión asincrónico, consulte [Agregar autenticación a su aplicación de Android].
 
 
 ### <a name="caching"></a>Almacenamiento de tokens de autenticación en la memoria caché
 
 El almacenamiento en caché de los tokens de autenticación requiere el almacenamiento del identificador de usuario y el token de autenticación localmente en el dispositivo. La próxima vez que se inicie la aplicación, compruebe la caché y, si estos valores están presentes, puede omitir el procedimiento de inicio de sesión y rehidratar el cliente con estos datos. No obstante, estos datos son confidenciales y deben almacenarse cifrados por seguridad en caso de que le roben el teléfono.
 
-Puede ver un ejemplo completo de cómo almacenar en memoria caché los tokens de autenticación en la [sección sobre el almacenamiento en caché de tokens de autenticación](app-service-mobile-android-get-started-users.md#cache-tokens).
+Puede ver un ejemplo completo de cómo almacenar en memoria caché los tokens de autenticación en la sección [Almacenamiento en caché de tokens de autenticación en el cliente](app-service-mobile-android-get-started-users.md#cache-tokens).
 
 Si intenta utilizar un token caducado, recibirá como respuesta *401 unauthorized*. El usuario deberá pues iniciar sesión para obtener nuevos tokens. Es posible evitar la necesidad de escribir código para gestionar esto en cada sitio de su aplicación que llame a su servicio móvil utilizando filtros; así, podrá interceptar llamadas y respuestas de Servicios móviles. El código de filtro probará la respuesta para un 401, desencadenará el proceso de inicio de sesión si procede y, a continuación, reanudará la solicitud que generó el 401. También puede inspeccionar el token para comprobar la caducidad.
 
@@ -615,13 +613,13 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 
 3. Agregue el siguiente código a la aplicación y realice las siguientes sustituciones:
 
-* Sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que ha aprovisionado la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
+* Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que ha aprovisionado la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
-* Sustituya **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
+* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
 
-* Sustituya **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
+* Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
 
-* Sustituya **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
 		private void authenticate() {
@@ -839,6 +837,7 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Portal de Azure]: https://portal.azure.com
+[Agregar autenticación a su aplicación de Android]: app-service-mobile-android-get-started-users.md
 [Introducción a la autenticación]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

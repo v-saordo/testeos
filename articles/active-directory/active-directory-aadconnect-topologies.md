@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Topologías admitidas de Azure AD Connect | Microsoft Azure"
-   description="En este tema se detallan las topologías admitidas y no admitidas de Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Topologías admitidas de Azure AD Connect | Microsoft Azure"
+    description="En este tema se detallan las topologías admitidas y no admitidas de Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="AndKjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="01/22/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Topologías de Azure AD Connect
 
@@ -178,4 +177,4 @@ Obtenga más información sobre la configuración de [sincronización de Azure A
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

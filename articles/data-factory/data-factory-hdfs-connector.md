@@ -21,6 +21,7 @@ En este artículo se describe cómo se puede usar la actividad de copia en Facto
 
 En la actualidad, Factoría de datos solo admite el movimiento de datos desde HDFS local a otros almacenes de datos, pero no el movimiento inverso.
 
+
 ## Habilitación de la conectividad
 El servicio Factoría de datos admite la conexión a HDFS local mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace. Es preciso que sacar provecho de la puerta de enlace para conectar con HDFS, aunque esté hospedado en una máquina virtual de IaaS de Azure.
 
@@ -28,7 +29,9 @@ Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máqu
 
 ## Ejemplo: copiar datos de HDFS local a un blob de Azure
 
-El ejemplo siguiente muestra:
+En este ejemplo, se muestra cómo copiar datos de un sistema HDFS local al Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+ 
+El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado del tipo [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -40,7 +43,7 @@ El ejemplo copia los datos del resultado de una consulta en HDFS local en un blo
 
 Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
-**Servicio vinculado de HDFS** Este ejemplo utiliza la autenticación de Windows. Consulte la sección [HDFS linked service](#hdfs-linked-service-properties) (Servicio vinculado de HDFS) para conocer los diferentes tipos de autenticación que se pueden utilizar.
+**Servicio vinculado de HDFS** En este ejemplo se usa la autenticación de Windows. Consulte la sección [Propiedades del servicio vinculado de HDFS](#hdfs-linked-service-properties) para conocer los diferentes tipos de autenticación que se pueden usar.
 
 	{
 	    "name": "HDFSLinkedService",
@@ -203,13 +206,13 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | -------- | ----------- | -------- | 
 | type | La propiedad type debe establecerse en: **Hdfs** | Sí | 
 | URL | Dirección URL a HDFS | Sí |
-| encryptedCredential | Salida [AzureRMDataFactoryEncryptValue nuevo](https://msdn.microsoft.com/library/mt603802.aspx) de la credencial de acceso. | No |
+| encryptedCredential | Salida de [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de la credencial de acceso. | No |
 | userName | Nombre de usuario para la autenticación de Windows | Sí (para la autenticación de Windows)
 | contraseña | Contraseña para la autenticación de Windows | Sí (para la autenticación de Windows)
 | authenticationType | Windows o de forma anónima. | Sí |
 | gatewayName | Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. | Sí |   
 
-Para más información acerca de cómo configurar las credenciales para HDFS local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+Para más información acerca de cómo configurar las credenciales para un sistema HDFS local, consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ### Uso de autenticación anónima
 
@@ -251,9 +254,9 @@ Para más información acerca de cómo configurar las credenciales para HDFS loc
 
 ## Propiedades del tipo de conjunto de datos de HDFS
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
-La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **FileShare** (que incluye el conjunto de datos de HDFS) tiene las propiedades siguientes
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección typeProperties del conjunto de datos del tipo **FileShare** (que incluye el conjunto de datos de HDFS) tiene las propiedades siguientes:
 
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
@@ -261,11 +264,11 @@ folderPath | Ruta de acceso a la carpeta. Ejemplo: myfolder<p>Use el carácter d
 fileName | Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<p>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo tendría este formato:</p><p>Data.<Guid>. txt (por ejemplo: : Data.0a405f8a 93ff 4c6f b3be f69616f1df7a.txt</p> | No
 partitionedBy | partitionedBy se puede usar para especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No
 fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <p>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).</p><p>Ejemplo 1: "fileFilter": "*. log"</p>Ejemplo 2: "fileFilter": 2014-1-?. txt"</p><p>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada</p> | No
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: **GZip**, **Deflate** y **BZip2** y los niveles admitidos son: **óptimo** y **más rápido**. Tenga en cuenta que esta vez no se admite la configuración de compresión de los datos que se encuentran en **AvroFormat**. Vea la sección [Compatibilidad de compresión](#compression-support) para más detalles. | No |
 | formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección [Especificación de TextFormat](#specifying-textformat) a continuación para obtener más detalles. | No
 
 
-> [AZURE.NOTE]filename y fileFilter no pueden usarse simultáneamente.
+> [AZURE.NOTE] filename y fileFilter no pueden usarse simultáneamente.
 
 
 ### Uso de la propiedad partitionedBy
@@ -350,7 +353,7 @@ Para obtener una lista completa de las secciones y propiedades disponibles para 
 
 Por otro lado, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad y, en caso de la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-En caso de actividad de copia si el origen es del tipo **FileSystemSource**, las propiedades siguientes estarán disponibles en la sección typeProperties:
+En caso de actividad de copia si el origen es del tipo **FileSystemSource**, estarán disponibles las propiedades siguientes en la sección typeProperties:
 
 **FileSystemSource** admite las siguientes propiedades:
 
@@ -362,4 +365,4 @@ En caso de actividad de copia si el origen es del tipo **FileSystemSource**, las
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

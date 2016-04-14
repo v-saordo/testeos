@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)" 
+	pageTitle="Tutorial: Copia de datos de salida en una base de datos de SQL Server (Azure PowerShell)" 
 	description="En este tutorial amplía el del uso de Azure PowerShell en el sentido de que la canalización copia los datos de salida a una base de datos de SQL Server."
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 
-# Tutorial: copia de datos de eficacia de campaña en una base de datos de SQL Server local
+# Tutorial: Copia de datos de salida en una base de datos de SQL Server local (Azure PowerShell)
 En este tutorial, aprenderá a configurar el entorno para habilitar el proceso y trabajar con sus datos locales.
  
 En el último paso del escenario de procesamiento de registro desde el primer tutorial con Partición -> Enriquecer -> Analizar flujo de trabajo, la salida de la eficacia de la campaña de marketing se ha copiado en una base de datos SQL de Azure. También puede mover estos datos a un SQL Server local para realizar análisis dentro de su organización.
@@ -170,4 +170,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

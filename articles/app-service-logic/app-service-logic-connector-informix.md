@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/03/2015"
+   ms.date="02/10/2016"
    ms.author="plarsen"/>
 
 # Conector de Informix
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Microsoft Connector para Informix es una aplicación de API para conectar aplicaciones a los recursos almacenados en una base de datos Informix de IBM a través del Servicio de aplicaciones de Azure. El conector incluye un cliente Microsoft para conectarse a equipos servidores remotos de Informix a través de una conexión de red TCP/IP, incluidas las conexiones híbridas de Azure con servidores locales de Informix mediante la Retransmisión de bus de servicio de Azure. El conector admite las siguientes operaciones de base de datos:
 
@@ -66,7 +67,7 @@ PollToAlterData | No | Instrucción UPDATE o DELETE para usar con un desencadena
 ## Aplicación lógica con la acción del conector de Informix para agregar datos ##
 Puede definir una acción de aplicación lógica para agregar datos a una tabla de Informix mediante una operación de OData para la inserción de API o la publicación en una entidad. Por ejemplo, puede insertar un registro de pedido de cliente nuevo; para ello, se procesa una instrucción SQL INSERT en una tabla definida con una columna de identidad, lo que devuelve el valor de identidad o las filas afectadas a la aplicación lógica (SELECT ORDID FROM FINAL TABLE (INSERT INTO NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP]Con "*Publicar en EntitySet*" en la conexión de Informix, se devuelve el valor de la columna de identidad y con "*Inserción de API*", se devuelven las filas afectadas.
+> [AZURE.TIP] Con "*Publicar en EntitySet*" en la conexión de Informix, se devuelve el valor de la columna de identidad y con "*Inserción de API*", se devuelven las filas afectadas.
 
 1. En el panel de inicio de Azure, seleccione **+** (signo más), **Web y móvil** y después **Aplicación lógica**.
 2. Escriba el nombre (por ejemplo, "NewOrdersInformix"), el plan del Servicio de aplicaciones y otras propiedades, y después seleccione **Crear**.
@@ -199,7 +200,7 @@ Puede crear una nueva aplicación lógica desde Azure Marketplace y después usa
 **Nota:** El diseñador de aplicaciones lógicas trunca los nombres de tabla. Por ejemplo, la operación **Eliminación condicional de NEWORDERS** se trunca como **Eliminación condicional de N**.
 
 
-> [AZURE.TIP]Use las siguientes instrucciones SQL para crear la tabla y los procedimientos almacenados de ejemplo.
+> [AZURE.TIP] Use las siguientes instrucciones SQL para crear la tabla y los procedimientos almacenados de ejemplo.
 
 Puede crear la tabla NEWORDERS de ejemplo mediante las siguientes instrucciones DDL de SQL para Informix:
  
@@ -242,7 +243,7 @@ Puede crear el procedimiento almacenado SPORDERID de ejemplo mediante la siguien
 
 ## Configuración híbrida (opcional)
 
-> [AZURE.NOTE]Este paso solo es necesario si usa un conector de DB2 local tras el firewall.
+> [AZURE.NOTE] Este paso solo es necesario si usa un conector de DB2 local tras el firewall.
 
 El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa un servidor IBM DB2 local para Windows, se necesita el Administrador de conexiones híbridas.
 
@@ -252,7 +253,7 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia de Aplicaciones de API y conectores](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
@@ -273,4 +274,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_TriggersActions.png
 [14]: ./media/app-service-logic-connector-informix/LogicApp_RemoveOrdersInformix_Outputs.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

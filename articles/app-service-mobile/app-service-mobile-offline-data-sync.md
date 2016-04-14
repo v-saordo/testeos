@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/11/2015"
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Sincronización de datos sin conexión en Aplicaciones móviles de Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## ¿Qué es la sincronización de datos sin conexión?
 
@@ -37,8 +35,8 @@ La sincronización sin conexión tiene una serie de ventajas:
 Los siguientes tutoriales muestran cómo incorporar la sincronización sin conexión a los clientes móviles con Aplicaciones móviles de Azure:
 
 * [Android: habilitar la sincronización sin conexión]
-* [iOS: habilitar la sincronización sin conexión]			
-* [Xamarin iOS: habilitar la sincronización sin conexión]	
+* [iOS: habilitar la sincronización sin conexión]
+* [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]
 * [Windows 8.1: habilitar la sincronización sin conexión]
 
@@ -65,10 +63,10 @@ Un almacén local se asocia con el contexto de sincronización mediante un méto
 <!-- TODO: link to client references -->
 
 
-<!-- 
+<!--
 Client code will interact with the table using the `IMobileServiceSyncTable` interface to support offline buffering. This interface supports all the methods of `IMobileServiceTable` along with additional support for pulling data from a Mobile App backend table and merging it into a local store table. How the local table is synchronized with the backend database is mainly controlled by your logic in the client app.
 
-The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization. 
+The sync table uses the [System Properties](https://msdn.microsoft.com/library/azure/dn518225.aspx) on the table to implement change tracking for offline synchronization.
 
 
 
@@ -103,22 +101,23 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
   Si desea cancelar la sincronización incremental, pase `null` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `PullAsync`, que es potencialmente ineficaz.
 
- 
+
 
 <!--   mymobileservice-code.azurewebsites.net/tables/TodoItem?$filter=(__updatedAt ge datetimeoffset'1970-01-01T00:00:00.0000000%2B00:00')&$orderby=__updatedAt&$skip=0&$top=50&__includeDeleted=true&__systemproperties=__updatedAt%2C__deleted
  -->
+
 * **Purgado**: el contenido del almacén local se puede borrar con `IMobileServiceSyncTable.PurgeAsync`. Esto puede ser necesario si tiene datos obsoletos en la base de datos cliente o si desea descartar todos los cambios pendientes.
 
   Una purga borra una tabla del almacén local. Si hay operaciones con sincronización pendiente con la base de datos del servidor, la purga genera una excepción, a menos que esté establecido el parámetro *force purge*.
 
   Como un ejemplo de datos obsoletos en el cliente, supongamos que en el ejemplo "lista de tareas pendientes", Dispositivo1 extrae solo los elementos que no se han completado. Luego, otro dispositivo marca una tarea pendiente "Comprar leche" como completa en el servidor. Sin embargo, Dispositivo1 seguirá teniendo la tarea pendiente "Comprar leche" en el almacén local porque solo está extrayendo los elementos que no están marcados como completos. Una purga borra este elemento obsoleto.
- 
+
 ## Pasos siguientes
 
-* [iOS: habilitar la sincronización sin conexión]			
-* [Xamarin iOS: habilitar la sincronización sin conexión]	
+* [iOS: habilitar la sincronización sin conexión]
+* [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]
-* [Windows 8.1: habilitar la sincronización sin conexión]	
+* [Windows 8.1: habilitar la sincronización sin conexión]
 
 <!-- Links -->
 
@@ -128,4 +127,4 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 [Xamarin Android: habilitar la sincronización sin conexión]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: habilitar la sincronización sin conexión]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

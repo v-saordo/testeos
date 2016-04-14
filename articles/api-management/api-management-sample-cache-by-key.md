@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="02/19/2016"
 	ms.author="v-darmi"/>
 
 # Almacenamiento en caché personalizado en Administración de API de Azure
@@ -245,4 +245,4 @@ La libertad de utilizar la caché de Administración de API de Azure para almace
 ## Pasos siguientes
 Envíenos sus comentarios sobre este tema en la conversación Disqus si hay otros escenarios en los que estas directivas se hayan habilitado para usted, o si existen escenarios que le gustaría conseguir pero que actualmente no cree posibles.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

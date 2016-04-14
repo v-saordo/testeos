@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2015" ms.author="aashishr", "giridham"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # Copia de seguridad de Azure para cargas de trabajo de SQL Server con DPM
@@ -29,7 +36,7 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](.
 
 1. En el servidor DPM, configure una nueva directiva de copia de seguridad para bases de datos SQL Server mediante la creación de un nuevo **Grupo de protección**. Haga clic en el área de trabajo **Protección**.
 
-2. Haga clic en **Nuevo** para crear un nuevo grupo de protección.
+2. Haga clic en **nuevo** para crear un nuevo grupo de protección.
 
     ![Creación de un grupo de protección](./media/backup-azure-backup-sql/protection-group.png)
 
@@ -55,7 +62,7 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](.
 
     ![Objetivos a corto plazo](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE]A las 8:00 p.m. (de acuerdo con la entrada de la pantalla) se crea un punto de copia de seguridad cada día mediante la transferencia de los datos modificados desde el punto de copia de seguridad de las 8:00 p.m. del día anterior. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 p.m., entonces se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8 p.m. en este caso).
+    >[AZURE.NOTE] A las 8:00 p.m. (de acuerdo con la entrada de la pantalla) se crea un punto de copia de seguridad cada día mediante la transferencia de los datos modificados desde el punto de copia de seguridad de las 8:00 p.m. del día anterior. Este proceso se denomina **Copia de seguridad completa rápida**. Mientras los registros transaccionales se sincronizan cada 15 minutos, si es necesario recuperar la base de datos a las 9:00 p.m., entonces se crea el punto mediante la reproducción de los registros de la última copia de seguridad completa rápida (8 p.m. en este caso).
 
 8. Haga clic en **Siguiente**.
 
@@ -91,7 +98,7 @@ Antes de comenzar, asegúrese de que se cumplen todos los [requisitos previos](.
 
     En este ejemplo, las copias de seguridad se realizan una vez a las 12:00 p.m. y a las 8 p.m. (parte inferior de la pantalla)
 
-    >[AZURE.NOTE]Es recomendable tener algunos puntos de recuperación a corto plazo en disco para una recuperación rápida. Esto se denomina "recuperación operativa". Azure actúa como una ubicación válida fuera de sitio con unos contratos de nivel de servicio mayores y una disponibilidad garantizada.
+    >[AZURE.NOTE] Es recomendable tener algunos puntos de recuperación a corto plazo en disco para una recuperación rápida. Esto se denomina "recuperación operativa". Azure actúa como una ubicación válida fuera de sitio con unos contratos de nivel de servicio mayores y una disponibilidad garantizada.
 
     **Práctica recomendada**: asegúrese de que se programan copias de seguridad de Azure tras realizar copias de seguridad de disco local con DPM. Esto permitirá que la última copia de seguridad de disco se copie en Azure.
 
@@ -167,4 +174,4 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
 
 • [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

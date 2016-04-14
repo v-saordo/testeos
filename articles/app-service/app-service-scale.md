@@ -16,10 +16,6 @@
 	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
-
-ACA METI MANO YO !!!
-
-
 # Escala de nivel de precios de Servicio de aplicaciones de Azure
 
 Para aumentar el rendimiento y la capacidad de las aplicaciones de Microsoft Azure, puede usar el [Portal de Azure](https://portal.azure.com/) para escalar el plan del Servicio de aplicaciones de **Gratis** a **Compartido**, **Básico**, **Estándar** o **Premium**.
@@ -61,8 +57,6 @@ Si su aplicación depende de otros servicios, como SQL o Almacenamiento, tambié
 2. A continuación, en la parte **Resumen** de la hoja del grupo de recursos, haga clic en una de las bases de datos (o en otro recurso que desee escalar).
 
 	![Base de datos vinculada](./media/app-service-scale/ResourceGroup.png)
-
-<br>
 	
 3. En la hoja de recursos vinculada, haga clic en la parte **Nivel de precios**, seleccione uno de los niveles según sus requisitos de rendimiento y haga clic en **Seleccionar**.
 	
@@ -137,4 +131,3 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
  
 
 <!---HONumber=AcomDC_0128_2016-->
-<!---PAYMOOOOOOOOOOOOOORE PAYMOOOOOOOOOOOOORE-->

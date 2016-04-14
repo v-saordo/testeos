@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo configurar la autenticación mediante Google para la aplicación de Servicios de aplicaciones."
     services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,26 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/20/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Google
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 En este tema se muestra cómo configurar Servicio de aplicaciones de Azure para usar Google como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
-> [AZURE.NOTE]En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de ese tema.
+> [AZURE.NOTE]
+En este tema se muestra el uso de la característica Autenticación/autorización del Servicio de aplicaciones. Esto reemplaza a la puerta de enlace del Servicio de aplicaciones en la mayoría de las aplicaciones. Las diferencias que se aplican al uso de la puerta de enlace se indican con notas a lo largo de ese tema.
 
 
 ## <a name="register"> </a>Registro de la aplicación con Google
 
 1. Inicie sesión en el [Portal de Azure] y vaya a la aplicación. Copie la **Dirección URL**. La usará para configurar la aplicación de Google.
- 
+
 2. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
 
 3. En la barra de navegación de la izquierda, haga clic en **API y autenticación** y luego, en **API sociales**, haga clic en **API de Google+** > **Habilitar API**.
@@ -44,18 +43,21 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 6. Pegue la **URL** del Servicio de aplicaciones que copió anteriormente en **Orígenes de JavaScript autorizados** y luego pegue el **URI de redirección** que copió antes en el **URI de redirección autorizado**. El URI de redireccionamiento es la dirección URL de la aplicación anexada a la ruta de acceso, _/.auth/login/google/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear**.
 
 
-	> [AZURE.NOTE]Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-google_.
+	> [AZURE.NOTE]
+	Si usa la puerta de enlace en lugar de la característica Autenticación o autorización del Servicio de aplicaciones, la URL de redireccionamiento usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-google_.
 
 
 7. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
 
 
-    > [AZURE.IMPORTANT]El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
+    > [AZURE.IMPORTANT]
+	El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
 
 ## <a name="secrets"> </a>Adición de información de Google a la aplicación
 
-> [AZURE.NOTE]Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Google**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
+> [AZURE.NOTE]
+Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y en su lugar, vaya a la puerta de enlace en el portal. Seleccione **Configuración**, **Identidad** y, luego, **Google**. Pegue los valores que obtuvo anteriormente y haga clic en **Guardar**.
 
 
 8. Vuelva al [Portal de Azure] y vaya a la aplicación. Haga clic en **Configuración** y luego en **Autenticación o autorización**.
@@ -91,6 +93,5 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
 [Portal de Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

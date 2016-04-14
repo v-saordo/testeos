@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de Office 365 y su incorporación a las aplicaciones lógicas
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Conéctese a su cuenta de Office 365 para enviar y recibir correos electrónicos y administrar su calendario y contactos. Puede realizar diversas acciones como enviar, recibir y obtener mensajes de correo electrónico, crear y eliminar eventos del calendario y crear, actualizar, obtener y eliminar los contactos.
 
 Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de Office 365 a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -41,7 +43,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Crear una aplicación lógica
 Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba un correo electrónico (en el identificador de correo electrónico de consultas sobre ventas, por ejemplo, sales@contoso.com). Crea un evento, agrega un contacto con los detalles del remitente, envía un correo electrónico a su cuenta personal y finalmente envía una respuesta con una confirmación.
 
-1.	Inicie sesión en el Portal de Azure y haga clic en "Nuevo -> Web + móvil -> Aplicación lógica": ![][1]
+1.	Inicie sesión en el portal de Azure y haga clic en "Nuevo -> Web + móvil -> Aplicación lógica": ![][1]
 
 2.	En la página "Crear aplicación lógica", especifique la información necesaria, como el nombre, el plan de servicio de la aplicación y la ubicación: ![][2]
 
@@ -100,7 +102,7 @@ Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-> [AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -129,4 +131,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

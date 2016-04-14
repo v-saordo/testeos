@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cambios en el modelo de aplicación de la versión 2.0 de Azure AD | Microsoft Azure"
+	pageTitle="Cambios en el punto de conexión de Azure AD v2.0 | Microsoft Azure"
 	description="Una descripción de los cambios que se están realizando en los protocolos de vista previa pública del modelo de aplicación v2.0."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
 # Actualizaciones importantes de los protocolos de autenticación de la versión 2.0
@@ -67,12 +67,10 @@ Anteriormente, el punto de conexión v2.0 ha estado devolviendo un objeto JSON c
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
-La respuesta era como el siguiente objeto JSON:
-
-```
+La respuesta se parecerá al siguiente objeto JSON: ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -87,7 +85,7 @@ Vamos a quitar el valor `profile_info`, pero no se preocupe, seguiremos proporci
 ```
 { 
 	"token_type": "Bearer",
-	"expires_in": "3599",
+	"expires_in": 3599,
 	"scope": "https://outlook.office.com/mail.read",
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -113,7 +111,7 @@ O en una respuesta de token:
 ```
 { 
 	"token_type": "Bearer",
-	"id_token_expires_in": "3599",
+	"id_token_expires_in": 3599,
 	"scope": "openid",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
@@ -145,7 +143,7 @@ En esta actualización se está cambiando la información a la que el ámbito `o
 ```
 { 
 	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0",
+	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
 	"iat": 1449520283,
 	"nbf": 1449520283,
 	"exp": 1449524183,
@@ -186,7 +184,7 @@ https://login.microsoftonline.com/{some-guid}/v2.0/
 Donde el GUID era el valor tenantId del inquilino de Azure AD que emitió el token. Con estos cambios, el valor del emisor se convierte en
 
 ```
-https://login.microsoftonline.com/{some-guid}/v2.0
+https://login.microsoftonline.com/{some-guid}/v2.0 
 ```
 
 en ambos tokens y en el documento de detección de OpenID Connect.
@@ -212,12 +210,10 @@ Si tiene alguna pregunta en todo lo relacionado con los cambios, no dude en cont
 ## ¿Con qué frecuencia se realizan cambios en los protocolos?
 No se prevén más cambios sustanciales en los protocolos de autenticación. Hemos juntado todos estos cambios en una sola versión de forma intencionada, para que no tenga que volver a pasar pronto por este tipo de proceso de actualización. Por supuesto que seguiremos agregando características al servicio de autenticación convergente de v2.0, de las que esperamos que saque provecho, pero estos cambios deberían ser aditivos y por tanto no será necesario cambiar el código existente.
 
-Dicho esto, el punto de conexión v2.0 se encuentra aún en estado de vista previa. Lo que significa que debe tener cuidado al publicar aplicaciones de producción que dependan de él y estar preparado para realizar cambios cuando se produzcan situaciones de este tipo. Solo cuando el punto de conexión v2.0 alcance el estado GA, animaremos a los desarrolladores a crear dependencias del estado del servicio.
-
-Por último, queremos darles las gracias por probar las cosas durante este período de vista previa. Las ideas y las experiencias de nuestros primeros usuarios han tenido un valor inestimables hasta ahora, y esperamos que sigan compartiendo sus opiniones e ideas con nosotros.
+Por último, queremos darles las gracias por probar las funciones durante el período de vista previa. Las ideas y las experiencias de nuestros primeros usuarios han tenido un valor inestimables hasta ahora, y esperamos que sigan compartiendo sus opiniones e ideas con nosotros.
 
 ¡ Feliz codificación!
 
 Microsoft Identity Division
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

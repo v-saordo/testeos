@@ -64,7 +64,7 @@ Hay tres orígenes de datos:
 Las principales categorías son:
 
 * [Telemetría de servidor web](app-insights-asp-net.md): solicitudes HTTP. Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. Identificador de sesión.
-* [Páginas web](articles/app-insights-javascript.md): contadores de sesión, página y usuario. Tiempos de carga de las páginas. Excepciones.
+* [Páginas web](app-insights-javascript.md): contadores de sesión, página y usuario. Tiempos de carga de las páginas. Excepciones. Llamadas AJAX.
 * Contadores de rendimiento: memoria, CPU, E/S, ocupación de la red.
 * Contexto de cliente y servidor: SO, configuración regional, tipo de dispositivo, explorador y resolución de pantalla.
 * [Excepciones](app-insights-asp-net-exceptions.md) y bloqueos: **volcados de pila**, identificador de compilación y tipo de CPU. 
@@ -191,7 +191,7 @@ Acción del usuario | Clases de datos recopilados (ver tabla siguiente)
 [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] | ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>usuarios
 [Instalar monitor de estado en IIS][redfield]<br/>[Agregar la extensión AI a una aplicación web o máquina virtual de Azure][azure]|Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento
 [Agregar el SDK de Application Insights a una aplicación web de Java][java]|ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>usuarios
-[Agregar el SDK de JavaScript a una página web][client]|ClientContext <br/>Inferidos<br/>Página<br/>Rendimiento del cliente
+[Agregar el SDK de JavaScript a una página web][client]|ClientContext <br/>Inferidos<br/>Página<br/>Rendimiento del cliente<br/>AJAX
 [Agregar el SDK a una aplicación de la Tienda Windows][windows]|DeviceContext<br/>Usuarios<br/>Datos de bloqueo
 [Definir propiedades predeterminadas][apiproperties]|**Propiedades** en todos los eventos estándar y personalizados
 [Llamar a TrackMetric][api]|Valores numéricos<br/>**Propiedades**
@@ -218,6 +218,7 @@ Métricas | Nombre y valor de la métrica
 Eventos | Nombre y valor del evento
 PageViews | URL y nombre de página o nombre de pantalla
 Rendimiento del cliente | URL o nombre de página, tiempo de carga del explorador
+AJAX | Llamadas HTTP de la página web al servidor
 Solicitudes |URL, duración, código de respuesta
 Dependencias|Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado)
 **Excepciones** | Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso
@@ -264,4 +265,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

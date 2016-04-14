@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -39,6 +39,7 @@ Este tema es la principal referencia para **sincronización de Azure AD Connect*
 | **Características** ||
 | [Implementación de la sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) | Describe cómo funciona la sincronización de contraseñas, cómo implementarla y cómo utilizarla y solucionar problemas. |
 | [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Describe la característica *evitar eliminaciones accidentales* y cómo configurarla. |
+| [Programador](active-directory-aadconnectsync-feature-scheduler.md) | Describe el programador integrado que permite importar, sincronizar y exportar datos. |
 | **Operaciones** ||
 | [Tareas y consideraciones operativas](active-directory-aadconnectsync-operations.md) | Describe las preocupaciones operativas, como la recuperación ante desastres. |
 | **Más información y referencias** ||
@@ -50,4 +51,4 @@ Este tema es la principal referencia para **sincronización de Azure AD Connect*
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

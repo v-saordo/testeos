@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="02/26/2016" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación web con una base de datos SQL
@@ -457,4 +457,4 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

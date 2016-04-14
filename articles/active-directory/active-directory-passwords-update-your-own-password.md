@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Actualización de la propia contraseña
@@ -48,7 +48,7 @@ La forma más rápida de registrarse para el restablecimiento de contraseña es 
  
     ![][015]
 
- >[AZURE.IMPORTANT]Si el administrador le permite registrarse para más de una opción, es muy recomendable que también se registre para una opción de copia de seguridad por si acaso pierde su teléfono o el acceso a su correo electrónico.
+ >[AZURE.IMPORTANT] Si el administrador le permite registrarse para más de una opción, es muy recomendable que también se registre para una opción de copia de seguridad por si acaso pierde su teléfono o el acceso a su correo electrónico.
 
 ## Cambio de la contraseña en Office 365
 Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o educativa en Office 365. Si ha olvidado su contraseña y desea restablecerla, siga los pasos que se describen [aquí](#how-to-reset-your-password).
@@ -76,7 +76,7 @@ Siga los pasos siguientes para cambiar la contraseña de la cuenta profesional o
 
 Para restablecer la contraseña de su cuenta profesional o educativa desde cualquier pantalla de inicio de sesión con una de estas cuentas, siga estos pasos.
 
- >[AZURE.IMPORTANT]Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
  
 
  1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos "¿No se puede tener acceso a su cuenta?" u "¿Olvidó su contraseña?", o vaya a https://passwordreset.microsoftonline.com directamente.
@@ -123,7 +123,7 @@ Para restablecer la contraseña de su cuenta profesional o educativa desde cualq
 ## Desbloqueo de la cuenta
 Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio de sesión de cualquier cuenta educativa o profesional. **Nota: Solo podrá desbloquear la cuenta si se ha bloqueado de forma local.**
 
- >[AZURE.IMPORTANT]Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
+ >[AZURE.IMPORTANT] Esta característica solo está disponible si el administrador la ha activado. Si no está activada, verá un mensaje que indica que la cuenta no está habilitada para esta característica. Puede usar el vínculo "Póngase en contacto con el administrador" en este caso para ponerse en contacto con su administrador y desbloquear la cuenta.<br><br>Si su administrador ha habilitado para usted esta característica, primero deberá registrarse para poder usarla. Esto puede hacerlo aquí: http://aka.ms/ssprsetup.
 
 
  1. En la página de inicio de sesión de cualquiera de las cuentas, profesional o educativa, haga clic en uno de los vínculos "¿No se puede tener acceso a su cuenta?" u "¿Olvidó su contraseña?", o vaya a https://passwordreset.microsoftonline.com directamente.
@@ -162,7 +162,7 @@ Para desbloquear la cuenta local, siga estos pasos desde la pantalla de inicio d
  
     ![][010]
   
- >[AZURE.IMPORTANT]Asegúrese de actualizar todos los dispositivos con la contraseña más reciente, dado que en ocasiones una aplicación no autorizada con una contraseña antigua (por ejemplo, su cliente de correo electrónico del teléfono) puede ser la principal causa de que su cuenta se haya bloqueado.
+ >[AZURE.IMPORTANT] Asegúrese de actualizar todos los dispositivos con la contraseña más reciente, dado que en ocasiones una aplicación no autorizada con una contraseña antigua (por ejemplo, su cliente de correo electrónico del teléfono) puede ser la principal causa de que su cuenta se haya bloqueado.
  
 ¿Surge un problema al desbloquear la cuenta? Lea sobre [problemas comunes y sus soluciones](#common-problems-and-their-solutions).
 
@@ -252,4 +252,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [014]: ./media/active-directory-passwords-update-your-own-password/014.jpg "Image_014.jpg"
 [015]: ./media/active-directory-passwords-update-your-own-password/015.jpg "Image_015.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

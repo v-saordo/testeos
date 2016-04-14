@@ -23,6 +23,7 @@ Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 
+
 ## Carga y enlace de un nuevo certificado SSL ##
 
 Escenario: El usuario desea enlazar un certificado SSL a una de sus aplicaciones web.
@@ -30,6 +31,15 @@ Escenario: El usuario desea enlazar un certificado SSL a una de sus aplicaciones
 Conociendo el nombre del grupo de recursos que contiene la aplicación web, el nombre de la aplicación web, la ruta del archivo .pfx de certificado en el equipo del usuario, la contraseña para el certificado y el nombre de host personalizado, podemos usar el siguiente comando de PowerShell para crear ese enlace SSL:
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName myresourcegroup -WebAppName mytestapp -CertificateFilePath PathToPfxFile -CertificatePassword PlainTextPwd -Name www.contoso.com
+
+Tenga en cuenta que, antes de agregar un enlace SSL a una aplicación web, ya debe tener configurado un nombre de host (dominio personalizado). Si el nombre de host no está configurado, se producirá un error que indica que el nombre de host no existe al ejecutar New-AzureRmWebAppSSLBinding. Puede agregar un nombre de host directamente desde el portal o mediante Azure PowerShell. Puede usar el siguiente fragmento de PowerShell para configurar el nombre de host antes de ejecutar New-AzureRmWebAppSSLBinding.
+  
+    $webApp = Get-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup  
+    $hostNames = $webApp.HostNames  
+    $HostNames.Add("www.contoso.com")  
+    Set-AzureRmWebApp -Name mytestapp -ResourceGroupName myresourcegroup -HostNames $HostNames   
+  
+Es importante comprender que el cmdlet Set-AzureRmWebApp sobrescribe los nombres de host de la aplicación web. Por lo tanto, el fragmento de PowerShell anterior se anexa a la lista existente de nombres de host de la aplicación web.
 
 ## Carga y enlace de un certificado SSL existente ##
 
@@ -61,4 +71,4 @@ Tenga en cuenta que si el enlace SSL quitado era el último que usaba ese certif
 - [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
 - [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

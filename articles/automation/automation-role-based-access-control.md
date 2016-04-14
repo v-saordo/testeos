@@ -9,10 +9,10 @@
 <tags 
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/13/2016"
+   ms.date="02/11/2016"
    ms.author="sngun"/>
 
 # Control de acceso basado en rol en Automatización de Azure
@@ -139,4 +139,4 @@ En los cmdlets anteriores, reemplace el nombre de inicio de sesión, el identifi
 - Para más información sobre las distintas maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
 - Para más información acerca de distintos tipos, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

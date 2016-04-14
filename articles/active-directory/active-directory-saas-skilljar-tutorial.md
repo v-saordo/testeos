@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -35,7 +35,7 @@ Para configurar la integración de Azure AD con Skilljar, necesita los siguiente
 - Una suscripción habilitada para el inicio de sesión único en Skilljar
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -101,7 +101,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 4. En la página **Configurar inicio de sesión único en Skilljar**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-skilljar-tutorial/tutorial_skilljar_05.png) <br>
 
-    a. Haga clic en **Descargar metadatos** y después guarde el archivo en el equipo.
+    a. Haga clic en **Descargar metadatos** y luego guarde el archivo en el equipo.
 
     b. Copie el valor del ** Formato de identificador de nombre**.
 
@@ -127,11 +127,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_03.png) <br>
 
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_04.png) <br>
 
-5. En la página de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_05.png) <br>
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_05.png) <br>
 
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
 
@@ -139,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
     c. Haga clic en **Siguiente**.
 
-6.  En la página de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_06.png) <br>
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_06.png) <br>
 
     a. En el cuadro de texto **Nombre**, escriba **Britta**.
 
@@ -151,7 +151,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
+7. En la página de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_07.png) <br>
 
 8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-skilljar-tutorial/create_aaduser_08.png) <br>
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Skillja
 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de obtener acceso a Skilljar se creará un nuevo usuario, en caso de que no exista.
 
-> [AZURE.NOTE]Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Skilljar.
+> [AZURE.NOTE] Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Skilljar.
 
 
 ### Asignación del usuario de prueba de Azure AD
@@ -217,4 +217,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-skilljar-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

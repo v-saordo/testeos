@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Administración de Análisis de Azure Data Lake mediante el Portal de Azure
@@ -48,7 +48,7 @@ Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de
 	- **Nombre**: el nombre de la cuenta de Análisis.
 	- **Almacén de Data Lake**: cada cuenta de Análisis de Data Lake tiene una cuenta de Almacén de Azure Data Lake dependiente. La cuenta de Análisis de Data Lake y la cuenta de Almacén de Data Lake dependiente deben ubicarse en el mismo centro de datos de Azure. Siga las instrucciones para crear una nueva cuenta de Almacén de Data Lake o seleccione una existente.
 	- **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Análisis.
-	- **Grupo de recursos**. seleccione un grupo de recursos de Azure existente o cree uno nuevo. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md). 
+	- **Grupo de recursos**: seleccione un grupo de recursos de Azure existente o cree uno nuevo. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md). 
 	- **Ubicación**: seleccione un centro de datos de Azure para la cuenta de Análisis de Data Lake. 
 
 8. Haga clic en **Crear**. Se abre la pantalla de inicio del portal. Se agrega un nuevo icono al Panel de inicio con la etiqueta "Implementación de Análisis de Azure Data Lake". Se tarda unos momentos en crear una cuenta de Análisis de Data Lake. Cuando la cuenta está creada, se abre la cuenta en una hoja nueva.
@@ -102,8 +102,8 @@ Si elimina una cuenta de Análisis, no se eliminará la cuenta de Almacén de Da
 
 Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
 
-- [Almacén de Azure Data Lake](data-lake-store-overview.md)
-- [Almacenamiento de blobs de Azure](storage-introduction.md)
+- [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+- [Almacenamiento de Azure](../storage/storage-introduction.md)
 
 Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. Una vez creada la cuenta de Análisis de Data Lake, puede agregar más cuentas de Almacén de Data Lake o cuentas de Almacenamiento de Azure.
 
@@ -154,7 +154,7 @@ Cuando se crea una cuenta de Análisis de Data Lake, debe designar una cuenta de
 
 <a name="upload-data-to-wasb"></a> **Para cargar archivos a la cuenta de almacenamiento de blobs de Azure**
 
-Consulte [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md). La información se aplica a Análisis de Data Lake.
+Consulte [Carga de datos para trabajos de Hadoop en HDInsight](../hdinsight/hdinsight-upload-data.md). La información se aplica a Análisis de Data Lake.
 
 
 ## Administrar usuarios
@@ -170,7 +170,7 @@ Análisis de Data Lake usa el control de acceso basado en roles con Azure Active
 |Usuario del laboratorio de desarrollo y pruebas|Permite ver todo el contenido y conectar, iniciar, reiniciar y apagar las máquinas virtuales.|  
 |Administrador de acceso de usuario|Permite administrar el acceso de usuario a los recursos de Azure.|  
 
-Para obtener información sobre la creación de grupos de seguridad y usuarios de Azure Active Directory, consulte [¿Qué es Azure Active Directory?](active-directory-whatis.md)
+Para obtener información sobre la creación de grupos de seguridad y usuarios de Azure Active Directory, consulte [¿Qué es Azure Active Directory?](../active-directory/active-directory-whatis.md)
 
 **Para agregar usuarios o grupos de seguridad a una cuenta de Análisis**
 
@@ -181,7 +181,7 @@ Para obtener información sobre la creación de grupos de seguridad y usuarios d
 3. En la hoja **Usuario**, haga clic en **Agregar**.
 4. Seleccione un rol, agregue un usuario y después haga clic en **Aceptar**.
 
-**Nota: si este usuario o grupo de seguridad necesita enviar trabajos, se le deberá conceder también permiso para el Almacén de Data Lake. Para obtener más detalles, consulte [Protección de datos almacenados en el Almacén de Azure Data Lake](data-lake-store-secure-data.md).**
+**Nota: si este usuario o grupo de seguridad necesita enviar trabajos, se le deberá conceder también permiso para el Almacén de Data Lake. Para obtener más detalles, consulte [Protección de datos almacenados en el Almacén de Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md).**
 
 
 
@@ -244,8 +244,6 @@ Consulte [Supervisión de trabajos de Análisis de Data Lake](#monitor-jobs).
 
 ##Supervisión del uso de la cuenta
 
-[introduction - we need to explain the terms, and connect the pieces. ]
-
 **Para supervisar el uso de la cuenta**
 
 1. Abra la cuenta de Análisis que desee administrar. Para obtener instrucciones, consulte [Acceso a las cuentas de Análisis de Data Lake](#access-adla-account). En el panel Uso muestra el uso:
@@ -271,7 +269,7 @@ El [catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md) se usa para es
 <!-- ################################ -->
 ## Uso de grupos del Administrador de recursos de Azure
 
-Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
 Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
 
@@ -292,7 +290,7 @@ La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes
 
 - [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 - [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
-- [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-use-powershell.md)
+- [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

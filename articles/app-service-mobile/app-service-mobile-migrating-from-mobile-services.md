@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
@@ -65,7 +65,7 @@ Todos los sitios de Servicios móviles que comparten un plan de hospedaje se mig
 
   1.  Inicie sesión en el [Portal de Azure clásico].
   2.  Seleccione su servicio móvil.
-  3.  Seleccione la pestaña **ESCALA**.
+  3.  Seleccione la pestaña **ESCALAR VERTICALMENTE**.
   4.  En **Capa de servicio móvil**, haga clic en el nivel **ESTÁNDAR**. Haga clic en el icono **GUARDAR** situado en la parte inferior de la página.
 
 Recuerde establecer el plan de tarifa en un valor adecuado después de la migración.
@@ -117,7 +117,7 @@ Como punto de partida, se recomienda lo siguiente:
 
 Tenga en cuenta que hay una flexibilidad considerable en la elección del plan de tarifa adecuado para su aplicación. Consulte [Precios de Servicio de aplicaciones] para obtener detalles sobre los precios de su nuevo Servicio de aplicaciones.
 
-> [AZURE.TIP]El nivel Estándar del Servicio de aplicaciones contiene acceso a muchas características que querrá usar, como [ranuras de ensayo], copias de seguridad automáticas y ajuste de escala automático. Examine las nuevas funciones mientras está ahí.
+> [AZURE.TIP] El nivel Estándar del Servicio de aplicaciones contiene acceso a muchas características que querrá usar, como [ranuras de ensayo], copias de seguridad automáticas y ajuste de escala automático. Examine las nuevas funciones mientras está ahí.
 
 ### <a name="review-migration-scheduler-jobs"></a>Revisión de los trabajos del Programador migrados
 
@@ -143,7 +143,7 @@ La configuración de CORS migrada está disponible como la configuración de apl
 
 Esta es una tarea opcional, pero se proporciona para una mejor experiencia de administración a partir de ahora.
 
-> [AZURE.TIP]Una de las ventajas de usar un Servicio de aplicaciones de Azure es que puede ejecutar su sitio web y el servicio móvil en el mismo sitio. Para más información, consulte la sección [Pasos siguientes](#next-steps).
+> [AZURE.TIP]  Una de las ventajas de usar un Servicio de aplicaciones de Azure es que puede ejecutar su sitio web y el servicio móvil en el mismo sitio. Para más información, consulte la sección [Pasos siguientes](#next-steps).
 
 ### <a name="download-publish-profile"></a>Descarga de un nuevo perfil de publicación
 
@@ -192,7 +192,7 @@ La mayoría de las configuraciones de un servicio móvil migrado están disponib
 
 Puede actualizar varias configuraciones de aplicación al mismo tiempo.
 
-> [AZURE.TIP]Observará que hay dos configuraciones de aplicación con el mismo valor. Por ejemplo, verá _ApplicationKey_ y _MS\_ApplicationKey_. Solo necesitará modificar la configuración con el prefijo **MS\_**. Sin embargo, es una buena idea actualizar ambas configuraciones de aplicación al mismo tiempo.
+> [AZURE.TIP]  Observará que hay dos configuraciones de aplicación con el mismo valor. Por ejemplo, verá _ApplicationKey_ y _MS\_ApplicationKey_. Solo necesitará modificar la configuración con el prefijo **MS\_**. Sin embargo, es una buena idea actualizar ambas configuraciones de aplicación al mismo tiempo.
 
 ### <a name="authentication"></a>Autenticación
 
@@ -208,9 +208,9 @@ Todas las configuraciones de autenticación están disponibles como configuraci�
 
 Nota: **MS\_AadTenants** se almacena como una lista de dominios de inquilino separados por coma (los campos "Inquilinos permitidos" del Portal de Servicios móviles).
 
-> [AZURE.WARNING]**No utilice los mecanismos de autenticación del menú Configuración.**
+> [AZURE.WARNING] **No utilice los mecanismos de autenticación del menú Configuración.**
 >
-> El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio] para aprovechar la autenticación del Servicio de aplicaciones de Azure.
+> El Servicio de aplicaciones de Azure proporciona un sistema de autenticación y autorización "sin código" independiente en el menú de configuración _Autenticación y autorización_ y la opción (en desuso) _Autenticación móvil_ en el menú Configuración. Estas opciones no son compatibles con un servicio móvil de Azure migrado. Puede [actualizar su sitio](app-service-mobile-net-upgrading-from-mobile-services.md) para aprovechar la autenticación del Servicio de aplicaciones de Azure.
 
 ### <a name="easytables"></a>Datos
 
@@ -277,11 +277,11 @@ El centro de notificaciones se administrará mediante el [Portal de Azure]. Anot
   2. Seleccione **Examinar**> y luego **Centros de notificaciones**.
   3. Haga clic en el nombre del centro de notificaciones asociado al servicio móvil.
 
-> [AZURE.NOTE]El centro de notificaciones no será visible si es de tipo "Mixto". Los centros de notificaciones mixtos usan características de Centros de notificaciones y características heredadas de Bus de servicio. Deberá [convertir los espacios de nombres mixtos]. Una vez finalizada la conversión, el centro de notificaciones aparecerá en el [Portal de Azure].
+> [AZURE.NOTE] El centro de notificaciones no será visible si es de tipo "Mixto". Los centros de notificaciones mixtos usan características de Centros de notificaciones y características heredadas de Bus de servicio. Deberá [convertir los espacios de nombres mixtos]. Una vez finalizada la conversión, el centro de notificaciones aparecerá en el [Portal de Azure].
 
 Para más información, revise la documentación de [Centros de notificaciones].
 
-> [AZURE.TIP]Las características de administración de Centros de notificaciones en el [Portal de Azure] se encuentran aún en versión preliminar. El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
+> [AZURE.TIP] Las características de administración de Centros de notificaciones en el [Portal de Azure] se encuentran aún en versión preliminar. El [Portal de Azure clásico] sigue estando disponible para administrar todos los centros de notificaciones.
 
 ### <a name="app-settings"></a>Otra configuración de aplicación
 
@@ -393,4 +393,4 @@ Tenga en cuenta que como la aplicación se migra al Servicio de aplicaciones, ha
 [red virtual]: ../app-service-web/web-sites-integrate-with-vnet.md
 [WebJobs]: ../app-service-web/websites-webjobs-resources.md
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicación web .NET del modelo de aplicación v2.0 | Microsoft Azure"
+	pageTitle="Aplicación web .NET de Azure AD v2.0 | Microsoft Azure"
 	description="Cómo crear una aplicación web de MVC de .NET que llame a los servicios web mediante cuentas personales de Microsoft y cuentas profesionales o educativas para iniciar sesión."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,32 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Vista previa del modelo de aplicaciones v2.0: llamar a una API web desde una aplicación web de .NET
+# Llamada a una API web desde una aplicación web .NET
+
+Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. Aquí compilaremos una aplicación web MVC que inicia la sesión de los usuarios mediante OpenID Connect, con un poco de ayuda del software intermedio OWIN de Microsoft. La aplicación web obtendrá tokens de acceso de OAuth 2.0 para una API web protegida por OAuth 2.0 que permite las tareas de creación, lectura y eliminación en la "lista de tareas pendientes" de un usuario determinado.
 
 > [AZURE.NOTE]
-	Esta información se aplica a la vista previa pública del extremo v2.0. Para obtener instrucciones acerca de la integración con el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 
-Con el modelo de aplicaciones v2.0 puede agregar rápidamente la autenticación para sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. En este caso, vamos a crear una aplicación web MVC:
+Este tutorial se centra principalmente en el uso de ADAL para obtener y usar tokens de acceso en una aplicación web. Encontrará [aquí](active-directory-v2-flows.md#web-apps) la descripción completa. Como requisitos previos, es aconsejable que aprenda primero cómo [agregar un inicio de sesión básico a una aplicación web](active-directory-v2-devquickstarts-dotnet-web.md) o cómo [proteger correctamente una API web](active-directory-v2-devquickstarts-dotnet-api.md).
 
-- Inicia sesiones de usuarios mediante OpenID Connect, con un poco de ayuda del middleware OWIN de Microsoft.
-- Obtiene los tokens de acceso de OAuth 2.0 para una API web mediante ADAL.
-- Crea, lee y elimina los elementos de la "Lista de tareas pendientes" de un usuario, que se hospeda en la api web y está protegida por OAuth 2.0.
+## Descarga de código de ejemplo
 
-Este tutorial se centra principalmente en cómo obtener y usar token de acceso en una aplicación web; la descripción completa está [aquí](active-directory-v2-flows.md#web-apps). Como requisitos previos, es aconsejable que aprenda primero cómo [agregar un inicio de sesión básico a una aplicación web](active-directory-v2-devquickstarts-dotnet-web.md) o cómo [proteger correctamente una API web](active-directory-v2-devquickstarts-dotnet-api.md).
-
-Los pasos básicos para llamar a la API web de la lista de tareas pendientes desde el cliente son:
-
-1. Registrar una aplicación
-2. Iniciar la sesión del usuario en la aplicación web con OpenID Connect
-3. Usar ADAL para obtener un token de acceso al iniciar la sesión del usuario
-4. Llamar a la API web de la lista de tareas pendientes con un token de acceso.
-
-El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet).
-
-Para poder continuar, puede [descargar el esqueleto de la aplicación como .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) o clonar el esqueleto:
+El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/skeleton.zip) o clonar el esqueleto:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -46,7 +35,7 @@ Como alternativa, puede [descargar la aplicación completada como .zip](https://
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Registrar una aplicación
+## Registrar una aplicación
 Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
@@ -55,17 +44,8 @@ Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 - Escribir el **URI de redireccionamiento** correcto. El uri de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación: el valor predeterminado para este tutorial es `https://localhost:44326/`.
 
 
-## 2. Iniciar la sesión del usuario con OpenID Connect
-Aquí configuraremos el middleware OWIN para usar el [protocolo de autenticación OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
-
--	Para comenzar, abra el archivo `web.config` en la raíz del proyecto `TodoList-WebApp` y escriba los valores de configuración de la aplicación en la sección `<appSettings>`.
-    -	El `ida:ClientId` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
-	- El `ida:ClientSecret` es el **secreto de aplicación** que creó en el portal de registro.
-    -	El `ida:RedirectUri` es el **identificador URI de redireccionamiento** que escribió en el portal.
-- Abra el archivo `web.config` en la raíz del proyecto `TodoList-Service` y reemplace el `ida:Audience` con el mismo **Id. de aplicación** que en el caso anterior.
-
-
--	Ahora agregue los paquetes NuGet de middleware OWIN al proyecto `TodoList-WebApp` mediante la Consola del Administrador de paquetes.
+## Instalar OWIN
+Agregue los paquetes NuGet del software intermedio OWIN al proyecto `TodoList-WebApp` mediante la Consola del Administrador de paquetes. Se usará el software intermedio OWIN para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
@@ -73,7 +53,17 @@ PM> Install-Package Microsoft.Owin.Security.Cookies -ProjectName TodoList-WebApp
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
--	Abra el archivo `App_Start\Startup.Auth.cs` y agregue instrucciones de `using` para las bibliotecas anteriores.
+## Iniciar la sesión del usuario
+Ahora configure el software intermedio OWIN para usar el [protocolo de autenticación OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).
+
+-	Abra el archivo `web.config` en la raíz del proyecto `TodoList-WebApp` y escriba los valores de configuración de su aplicación en la sección `<appSettings>`.
+    -	El `ida:ClientId` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
+	- El `ida:ClientSecret` es el **secreto de aplicación** que creó en el portal de registro.
+    -	El `ida:RedirectUri` es el **identificador URI de redireccionamiento** que escribió en el portal.
+- Abra el archivo `web.config` en la raíz del proyecto `TodoList-Service` y reemplace el `ida:Audience` con el mismo **Id. de aplicación** que en el caso anterior.
+
+
+- Abra el archivo `App_Start\Startup.Auth.cs` y agregue instrucciones de `using` para las bibliotecas anteriores.
 - Implemente el método `ConfigureAuth(...)` en el mismo archivo. Los parámetros que proporciona en `OpenIDConnectAuthenticationOptions` servirán como coordenadas para que su aplicación se comunique con Azure AD.
 
 ```C#
@@ -87,12 +77,12 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+					// The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
 					// The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
 					// In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
 					ClientId = clientId,
-					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+					Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0 "),
 					Scope = "openid email profile offline_access",
 					RedirectUri = redirectUri,
 					PostLogoutRedirectUri = redirectUri,
@@ -114,14 +104,12 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3\. Usar ADAL para obtener un token de acceso al iniciar la sesión del usuario
+## Uso de ADAL para obtener tokens de acceso
 Queremos usar [OAuth 2.0 conjuntamente con OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) en la notificación de `AuthorizationCodeReceived` para canjear el authorization\_code en un token de acceso para el servicio de lista de tareas pendientes. ADAL puede facilitarle este proceso:
 
 - En primer lugar, instale la versión preliminar de ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` 
-- Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para ADAL. 
-- Ahora agregue un método nuevo, el controlador de eventos `OnAuthorizationCodeReceived`. Este controlador usará ADAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de ADAL para su uso posterior:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para ADAL. - Ahora agregue un método nuevo, el controlador de eventos `OnAuthorizationCodeReceived`. Este controlador usará ADAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de ADAL para su uso posterior:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -143,7 +131,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4\. Llamar a la API web de lista de tareas pendientes
+## 4\. Llamada a la API web
 Ahora es el momento de usar el access\_token que adquirió en el paso 3. Abra el archivo `Controllers\TodoListController.cs` de la aplicación web para hacer todas las solicitudes CRUD a la API de la lista de tareas pendientes.
 
 - Puede usar ADAL aquí de nuevo para capturar access\_tokens de la memoria caché de ADAL. En primer lugar, agregue una instrucción de `using` para ADAL en este archivo.
@@ -203,8 +191,6 @@ Como referencia, [aquí puede ver](https://github.com/AzureADQuickStarts/AppMode
 
 ## Pasos siguientes
 
-Para obtener recursos adicionales, consulte: 
-- [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) 
-- [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "adal" de StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

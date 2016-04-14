@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="01/31/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Medición de la eficacia de una campaña de marketing  
@@ -390,7 +390,7 @@ En este paso, creará los siguientes procesos:
 
 	![Hoja SEGMENTO DE DATOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **Validación pendiente**, según la rapidez con la que se procesen.
+	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **En espera**, según la rapidez con la que se procesen.
 
 	Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**.
  
@@ -483,4 +483,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

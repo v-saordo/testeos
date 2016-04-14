@@ -13,16 +13,21 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/22/2016"
+	ms.date="02/29/2016"
 	ms.author="kgremban"/>
 
 # Administración del control de acceso basado en rol con Azure PowerShell
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
+- [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
+- [API DE REST](role-based-access-control-manage-access-rest.md)
+
 
 ## Enumeración de roles de control de acceso basado en rol (RBAC)
+
+>[AZURE.IMPORTANT] Para poder usar los cmdlets de este artículo, debe [instalar los cmdlets de Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) en PowerShell.
+
 ### Lista de todos los roles disponibles
 Para enumerar los roles RBAC disponibles para asignación y para inspeccionar las operaciones a las que conceden acceso, use:
 
@@ -64,7 +69,7 @@ Para enumerar las asignaciones de acceso para el administrador y los coadministr
 
 ## Conceder acceso
 ### Búsqueda de identificadores de objetos
-Para usar las siguientes secuencias de comandos, primero debe encontrar los identificadores de los objetos. Se presume que ya conoce el identificador de la suscripción con la que trabaja; si no es así, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) en MSDN.
+Para usar las siguientes secuencias de comandos, primero debe encontrar los identificadores de los objetos. Se da por supuesto que ya conoce el identificador de la suscripción con la que trabaja; si no es así, consulte [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx) en MSDN.
 
 #### Búsqueda del identificador del objeto de un grupo de Azure AD
 Para obtener el identificador del objeto de un grupo de Azure AD, use:
@@ -79,14 +84,14 @@ Para obtener el identificador del objeto de una entidad de servicio de Azure AD,
 ### Asignación de un rol a grupo en el ámbito de la suscripción
 Para conceder acceso a un grupo en el ámbito de la suscripción, use:
 
-    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de pantalla](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment1.png)
 
 ### Asignación de un rol a aplicación en el ámbito de la suscripción
 Para conceder acceso a una aplicación en el ámbito de la suscripción, use:
 
-    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
+    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -Scope <scope such as subscription/subscription id>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de pantalla](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment2.png)
 
@@ -100,14 +105,14 @@ Para conceder acceso a un usuario en el ámbito del grupo de recursos, use:
 ### Asignación de un rol a grupo en el ámbito del recurso
 Para conceder acceso a un grupo en el ámbito del recurso, use:
 
-    New-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
+    New-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name in quotes> -ResourceName <resource name> -ResourceType <resource type> -ParentResource <parent resource> -ResourceGroupName <resource group name>
 
 ![RBAC PowerShell - New-AzureRmRoleAssignment - captura de pantalla](./media/role-based-access-control-manage-access-powershell/2-new-azure-rm-role-assignment4.png)
 
 ## Quitar acceso
 Para quitar el acceso de usuarios, grupos y aplicaciones, use:
 
-    Remove-AzureRmRoleAssignment -ObjId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
+    Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription/subscription id>
 
 ![RBAC PowerShell - Remove-AzureRmRoleAssignment - captura de pantalla](./media/role-based-access-control-manage-access-powershell/3-remove-azure-rm-role-assignment.png)
 
@@ -151,4 +156,4 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 ## Temas de RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

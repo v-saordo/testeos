@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="02/26/2016" 
 	ms.author="cephalin"/>
 
 
@@ -21,13 +21,14 @@
 
 Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) tiene todas las funcionalidades necesarias para establecer una presencia web global para su sitio .COM. Independientemente del tamaño de la organización, necesita una plataforma sólida, segura y escalable para impulsar su negocio, el reconocimiento de su marca y las comunicaciones de su cliente. Aplicaciones web del Servicio de aplicaciones puede ayudar a mantener su identidad y marca corporativa con la continuidad empresarial respaldada por Microsoft.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 A continuación, aparece un ejemplo de un sitio web .COM que se ejecuta en Aplicaciones web del Servicio de aplicaciones. Muestra lo que puede hacer al simplemente componer Aplicaciones web en conjunto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para leer más información al respecto.**
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
-> [AZURE.NOTE]Esta guía presenta algunas de las tareas y áreas más comunes alineadas con la ejecución de un sitio .COM de acceso público en Aplicaciones web del Servicio de aplicaciones de Azure. Sin embargo, existen otras soluciones comunes que puede implementar en Aplicaciones web del Servicio de aplicaciones de Azure. Para revisar estas soluciones, consulte también las otras guías sobre [campañas de marketing digital](web-sites-digital-marketing-application-solution-overview.md) y [aplicaciones empresariales](web-sites-business-application-solution-overview.md).
+> [AZURE.NOTE]
+Esta guía presenta algunas de las tareas y áreas más comunes alineadas con la ejecución de un sitio .COM de acceso público en Aplicaciones web del Servicio de aplicaciones de Azure. Sin embargo, existen otras soluciones comunes que puede implementar en Aplicaciones web del Servicio de aplicaciones de Azure. Para revisar estas soluciones, consulte también las otras guías sobre [campañas de marketing digital](web-sites-digital-marketing-application-solution-overview.md) y [aplicaciones empresariales](web-sites-business-application-solution-overview.md).
 
 ## Crear desde cero o aprovechar recursos existentes
 
@@ -89,7 +90,7 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 ## Más recursos
 
 - [Documentación de Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/)
-- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](websites-learning-map.md)
+- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](/documentation/learning-paths/appservice-webapps/)
 - [Blog web de Azure](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
@@ -137,4 +138,4 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

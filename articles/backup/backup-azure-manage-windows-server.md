@@ -3,7 +3,7 @@
 	description="Use este tutorial para aprender a administrar almacenes y servidores de Copia de seguridad de Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="Jim-Parker"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="12/15/2015"
-	ms.author="jimpark; aashishr; giridham"/>
+	ms.author="jimpark; markgal"/>
 
 
 # Administración de almacenes y servidores de Copia de seguridad
@@ -54,4 +54,4 @@ Aquí puede realizar las siguientes tareas:
 - Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->

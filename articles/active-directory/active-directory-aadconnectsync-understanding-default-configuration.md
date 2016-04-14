@@ -1,20 +1,19 @@
 <properties
-   pageTitle="Sincronización de Azure AD Connect: descripción de la configuración predeterminada | Microsoft Azure"
-   description="En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="stevenpo"
-   editor=""/>
-
+    pageTitle="Sincronización de Azure AD Connect: descripción de la configuración predeterminada | Microsoft Azure"
+    description="En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="01/21/2016"
-   ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+	ms.topic="get-started-article"
+    ms.date="02/12/2016"
+    ms.author="andkjell"/>
 
 # Sincronización de Azure AD Connect: descripción de la configuración predeterminada
 
@@ -241,4 +240,4 @@ Ahora conocemos lo suficiente de las reglas de sincronización para poder compre
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

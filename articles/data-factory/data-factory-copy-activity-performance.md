@@ -63,11 +63,11 @@ A continuación se indican los pasos típicos sugeridos para optimizar el rendim
 3. **Expanda la configuración a todos los datos** Una vez que esté satisfecho con los resultados y el rendimiento de la ejecución, puede expandir la definición del conjunto de datos y el período activo de la canalización para incluir todos los datos en la imagen.
 
 ## Referencia de rendimiento
-> [AZURE.IMPORTANT]**Aviso de declinación de responsabilidades:** los datos siguientes se publicaron únicamente con fines de orientación y planificación general. Se da por hecho que el ancho de banda, el hardware, la configuración, etc. son de los mejores de su clase. Use esto solo como referencia. La capacidad de proceso del movimiento de datos que observe se verá afectada por diversas variables. Consulte las secciones siguientes para obtener información acerca de cómo optimizar y lograr un mejor rendimiento para sus necesidades de movimiento de datos. Estos datos se actualizará a medida que se agreguen características y mejoras del rendimiento.
+> [AZURE.IMPORTANT] **Aviso de declinación de responsabilidades:** los datos siguientes se publicaron únicamente con fines de orientación y planificación general. Se da por hecho que el ancho de banda, el hardware, la configuración, etc. son de los mejores de su clase. Use esto solo como referencia. La capacidad de proceso del movimiento de datos que observe se verá afectada por diversas variables. Consulte las secciones siguientes para obtener información acerca de cómo optimizar y lograr un mejor rendimiento para sus necesidades de movimiento de datos. Estos datos se actualizará a medida que se agreguen características y mejoras del rendimiento.
 
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [AZURE.NOTE]**Próximamente:** estamos en proceso de mejora de las características de rendimiento base y en breve verá más y mejores cifras de capacidad de proceso en la tabla anterior.
+> [AZURE.NOTE] **Próximamente:** estamos en proceso de mejora de las características de rendimiento base y en breve verá más y mejores cifras de capacidad de proceso en la tabla anterior.
 
 Puntos a tener en cuenta:
 
@@ -76,19 +76,19 @@ Puntos a tener en cuenta:
 - En el caso de los almacenes de datos de Microsoft Azure, el origen y el receptor se encuentran en la misma región de Azure.
 - En el caso del movimiento de datos híbrido (local a nube o nube a local), Data Management Gateway (instancia única) se hospedó en una máquina diferente que el almacén de datos local, con la siguiente configuración. Tenga en cuenta que cuando se ejecuta una sola actividad en la puerta de enlace, la operación de copia solo consume una pequeña parte del ancho de banda de red y de los recursos de CPU y de memoria de esta máquina.
 	<table>
-<tr>
-	<td>CPU</td>
-	<td>Intel Xeon ® E5-2660 v2 de 32 núcleos, 2,20 GHz </td>
-</tr>
-<tr>
-	<td>Memoria</td>
-	<td>128 GB</td>
-</tr>
-<tr>
-	<td>Red</td>
-	<td>Interfaz de Internet: 10 Gbps; interfaz de intranet: 40 Gbps</td>
-</tr>
-</table>
+	<tr>
+		<td>CPU</td>
+		<td>Intel Xeon ® E5-2660 v2 de 32 núcleos, 2,20 GHz </td>
+	</tr>
+	<tr>
+		<td>Memoria</td>
+		<td>128 GB</td>
+	</tr>
+	<tr>
+		<td>Red</td>
+		<td>Interfaz de Internet: 10 Gbps; interfaz de intranet: 40 Gbps</td>
+	</tr>
+	</table>
 
 ## Consideraciones sobre el origen
 ### General
@@ -189,7 +189,7 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ll
 ## Caso práctico: copia de una instancia de SQL Server local a Blob de Azure
 **Escenario:** se crea una canalización para copiar los datos de una instancia de SQL Server local a Blob de Azure en formato CSV. Para acelerar la copia, se especifica que los archivos CSV se deben comprimir en formato BZIP2.
 
-**Análisis y pruebas:** se observa que la capacidad de proceso de la actividad de copia es inferior a 2 MB/s, mucho menor que los valores de referencia de rendimiento.
+**Análisis y pruebas:** se observa que la capacidad de proceso de la actividad de copia es inferior a 2 MB/s, mucho menor que los valores de referencia de rendimiento.
 
 **Análisis y optimización del rendimiento:** para solucionar el problema de rendimiento, primero veremos cómo se procesan y se mueven los datos:
 
@@ -218,10 +218,10 @@ En este caso, la compresión de datos BZIP2 podría estar ralentizando toda la c
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos compatibles:
 
 - Almacenamiento de Azure (incluidos Blob de Azure y Tabla de Azure): [Objetivos de escalabilidad de Almacenamiento de Azure](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage//storage-performance-checklist.md)
-- Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md#monitoring-performance) y comprobar el porcentaje de unidades de capacidad de proceso de base de datos (DTU).
+- Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md#monitoring-performance) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 - Almacenamiento de datos SQL de Azure: su capacidad se mide por unidades de almacenamiento de datos (DWU). Consulte [Rendimiento y escala flexibles con Almacenamiento de datos SQL](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
 - Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx).
 - Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

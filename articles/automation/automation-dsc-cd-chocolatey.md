@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="02/04/2016"
    ms.author="golive"/>
 
 # Ejemplo de uso: implementación continua en máquinas virtuales DSC de Automatización y Chocolatey
@@ -78,7 +78,7 @@ La Galería de PowerShell está equipada para instalar recursos de DSC en su cue
 También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera la Automatización de Azure. Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para obtener más información sobre la creación de módulos de integración de PowerShell, vea este artículo: [Creación de módulos de integración para la automatización de Azure](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
 
 -   Instale el módulo que necesita en su estación de trabajo, como sigue:
-    -   Instale [Windows Management Framework, v5](http://aka.ms/wmf5latest). 
+    -   Instale [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) (no es necesario para Windows 10).
     -   `Install-Module  –ModuleName MODULENAME` <—toma el módulo de la Galería de PowerShell. 
 -   Copie la carpeta del módulo de `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` a una carpeta temporal. 
 -   Elimine los ejemplos y la documentación de la carpeta principal. 
@@ -88,7 +88,7 @@ También podemos aplicar el enfoque manual. La estructura de carpetas de un mód
 
         New-AzureAutomationModule ``
             -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT ``
-            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
+            -Name MODULE-NAME –ContentLink "https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip"
         
 
 El ejemplo incluido realiza estos pasos para cChoco y xNetworking. Consulte las [Notas](#notes) del control especial para cChoco.
@@ -177,8 +177,6 @@ No es necesario usar una plantilla de ARM ni la extensión de máquina virtual p
 
 Por supuesto, cuando se actualiza un paquete en una máquina virtual que se encuentra en producción, debe sacar esa máquina virtual de producción mientras se instala la actualización. Existen métodos muy diversos de hacerlo. Por ejemplo, con una máquina virtual tras un equilibrador de carga de Azure, puede agregar un sondeo personalizado. Al actualizar la máquina virtual, haga que el extremo de sondeo devuelva 400. El ajuste necesario para ocasionar este cambio puede estar dentro de la configuración, al igual que el ajuste para devolver de nuevo 200 una vez completada la actualización.
 
-La versión del recurso de DSC de cChoco en la Galería de PowerShell no está lo actualizada con su origen. cChoco.zip del proyecto de origen de GitHub está actualizado. Utilice la técnica manual anterior del paso 3 para instalarlo.
-
 El código fuente completo de este ejemplo de uso se encuentra en [este proyecto de Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) en GitHub.
 
 ##Artículos relacionados##
@@ -187,4 +185,4 @@ El código fuente completo de este ejemplo de uso se encuentra en [este proyecto
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Incorporación de máquinas para administrarlas con DSC de Automatización de Azure](automation-dsc-onboarding.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

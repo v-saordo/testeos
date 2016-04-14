@@ -12,15 +12,13 @@
     ms.workload="na"
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
-    ms.topic="article"
-    ms.date="11/20/2015"
+    ms.topic="hero-article"
+    ms.date="02/04/2016"
     ms.author="yuaxu"/>
 
 #Creación de una aplicación de Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -56,4 +54,4 @@ Para completar este tutorial, necesitará lo siguiente:
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

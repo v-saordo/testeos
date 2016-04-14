@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
-# Conceptos de diseño de Azure AD Connect
+# Azure AD Connect: conceptos de diseño
 El propósito de este tema es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Se trata de una profundización en determinadas áreas, y estos conceptos se describen también brevemente en otros temas.
 
 ## sourceAnchor
@@ -43,7 +43,6 @@ El valor de atributo debe seguir las reglas siguientes:
 - No debe distinguir mayúsculas y minúsculas; evite valores que pueden variar según el caso
 - Debe asignarse cuando se crea el objeto.
 
-
 Si el atributo sourceAnchor seleccionado no es de tipo cadena, Azure AD Connect aplicará Base64Encode al valor de atributo para asegurarse de que no se muestre ningún carácter especial. Si usa otro servidor de federación distinto de ADFS, asegúrese de que también tenga la capacidad para aplicar Base64Encode al atributo.
 
 El atributo sourceAnchor distingue mayúsculas de minúsculas. El valor "JohnDoe" no es igual que "johndoe".
@@ -68,4 +67,4 @@ Por este motivo, se aplican las restricciones siguientes a Azure AD Connect:
 ## Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

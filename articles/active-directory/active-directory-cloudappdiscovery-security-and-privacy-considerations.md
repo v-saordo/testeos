@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 # Consideraciones de seguridad y privacidad de Cloud App Discovery
@@ -174,9 +174,10 @@ Con el fin de proteger los datos recopilados, de forma predeterminada, solo los 
 
 
 
-**Recursos adicionales**
+##Recursos adicionales
 
 
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

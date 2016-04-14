@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="01/12/2016" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
 
@@ -66,7 +66,7 @@ Cuando la aplicación web está en ejecución, querrá asegurarse de que está d
 ### Copias de seguridad
 
 - Establezca las [copias de seguridad automáticas](web-sites-backup.md) de la aplicación web. Obtenga más información sobre las copias de seguridad en [este vídeo](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Conozca las opciones para la [recuperación de bases de datos](../sql-database-business-continuity.md) en Base de datos SQL de Azure.
+- Conozca las opciones para la [recuperación de bases de datos](../sql-database/sql-database-business-continuity.md) en Base de datos SQL de Azure.
 
 ### Solución de problemas
 
@@ -87,8 +87,8 @@ Puede usar una [implementación de ensayo](web-sites-staged-publishing.md). Esta
 
 Si usa Visual Studio Team Services, puede configurar una implementación continua desde el control de código fuente:
 
-- [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Uso de Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Uso del control de versiones de Team Foundation (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
+- [Uso de Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -103,4 +103,4 @@ Si usa Visual Studio Team Services, puede configurar una implementación continu
 
   
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

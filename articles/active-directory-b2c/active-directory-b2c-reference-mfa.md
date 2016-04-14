@@ -16,41 +16,42 @@
 	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
-# Vista previa de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
+# Versión preliminar de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
 
-Azure Active Directory (AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para facilitarle la adición de una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones orientadas al consumidor. Y todo esto sin necesidad de escribir una sola línea de código. Actualmente se admiten llamadas de teléfono y mensajes de texto como opciones de comprobación. Si ya ha creado directivas de registro e inicio de sesión (como se describe en [este artículo]()), puede activar la autenticación multifactor tal como se muestra en las secciones siguientes.
+Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para que pueda agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones orientadas al consumidor. Y todo esto sin necesidad de escribir una sola línea de código. Actualmente se admite la comprobación mediante llamadas de teléfono y mensajes de texto. Aunque ya haya creado directivas de registro e inicio de sesión, puede habilitar Multi-Factor Authentication.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]También se puede activar Multi-Factor Authentication al crear directivas de suscripción e inicio de sesión, no solo mediante la edición de las directivas existentes.
+> [AZURE.NOTE]
+También se puede habilitar Multi-Factor Authentication al crear directivas de registro e inicio de sesión, no solo mediante la edición de las directivas existentes.
 
-Al usar esta característica, las aplicaciones pueden tratar escenarios como los siguientes, en los cuales:
+Esta característica ayuda a las aplicaciones a tratar escenarios como los siguientes:
 
-- No es necesaria la autenticación multifactor para tener acceso a una aplicación, pero sí lo es para acceder a otra. Por ejemplo, el consumidor puede iniciar sesión en una aplicación de seguros automáticamente con una cuenta local o social, pero debe comprobar el número de teléfono antes de obtener acceso a la aplicación principal de seguros registrada en el mismo directorio.
-- No es necesaria la autenticación multifactor para tener acceso a una aplicación en general, pero sí lo es para acceder a las partes confidenciales que contiene. Por ejemplo, el consumidor puede iniciar sesión en una aplicación de banca con una cuenta social o local y comprobar el saldo de las cuentas, pero debe confirmar el número de teléfono antes de intentar una transferencia bancaria.
+- No se requiere Multi-Factor Authentication para acceder a una aplicación, pero sí para acceder a otra. Por ejemplo, el consumidor puede iniciar sesión en una aplicación de seguros de automóvil con una cuenta local o social, pero debe comprobar el número de teléfono antes de acceder a la aplicación principal de seguros registrada en el mismo directorio.
+- No se requiere Multi-Factor Authentication para acceder a una aplicación en general, pero sí para acceder a las partes confidenciales que contiene. Por ejemplo, el consumidor puede iniciar sesión en una aplicación de banca con una cuenta social o local y comprobar el saldo de las cuentas, pero debe confirmar el número de teléfono antes de realizar una transferencia bancaria.
 
 ## Modificación de la directiva de registro para habilitar Multi-Factor Authentication
 
-1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de registro**.
-3. Abra la directiva de registro (por ejemplo, "B2C\_1\_SiUp") haciendo clic en ella.
+3. Haga clic en la directiva de registro (por ejemplo, "B2C\_1\_SiUp") para abrirla.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
-5. Haga clic en **Guardar** en la parte superior de la hoja. ¡Y ya está!
+5. Haga clic en **Guardar** en la parte superior de la hoja.
 
-Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Debería ver lo siguiente:
+Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Confirme lo siguiente:
 
-Se crea una cuenta de consumidor en su directorio antes de que se produzca el paso de autenticación multifactor. Durante el paso, se pide al consumidor que proporcione su número de teléfono y que lo compruebe. Si la comprobación es satisfactoria, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior. Incluso si el consumidor se cancela o se quita, se le puede pedir que compruebe de nuevo un número de teléfono durante el siguiente inicio de sesión (con la autenticación multifactor habilitada; vea la sección siguiente).
+Se crea una cuenta de consumidor en su directorio antes de que se produzca el paso de Multi-Factor Authentication. Durante el paso, se pide al consumidor que proporcione su número de teléfono y que lo compruebe. Si la comprobación es satisfactoria, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior. Incluso si el consumidor cancela o abandona, se le puede pedir que compruebe de nuevo un número de teléfono durante el siguiente inicio de sesión (con Multi-Factor Authentication habilitada).
 
 ## Modificación de la directiva de inicio de sesión para habilitar Multi-Factor Authentication
 
-1. [Siga estos pasos para desplazarse hasta la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Siga estos pasos para ir a la hoja de características B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de inicio de sesión**.
-3. Abra la directiva de inicio de sesión (por ejemplo, "B2C\_1\_SiIn") haciendo clic en ella. Haga clic en **Editar** en la parte superior de la hoja.
+3. Haga clic en la directiva de inicio de sesión (por ejemplo, "B2C\_1\_SiIn") para abrirla. Haga clic en **Editar** en la parte superior de la hoja.
 4. Haga clic en **Autenticación multifactor** y configure el **Estado** como **Activado**. Haga clic en **OK**.
-5. Haga clic en **Guardar** en la parte superior de la hoja. ¡Y ya está!
+5. Haga clic en **Guardar** en la parte superior de la hoja.
 
-Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Debería ver lo siguiente:
+Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la experiencia del consumidor. Confirme lo siguiente:
 
-Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono adjunto, se pide al consumidor que proporcione uno y que lo compruebe; tras una correcta comprobación, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior.
+Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono asociado, se le pide al consumidor que proporcione uno y que lo compruebe. Si la comprobación es correcta, el número de teléfono se asocia a la cuenta de consumidor para su uso posterior.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

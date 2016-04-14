@@ -12,19 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Aprendizaje del flujo de trabajo de Windows PowerShell
 
-Los runbooks de Automatización de Azure se implementan como flujos de trabajo de Windows PowerShell. Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo. Este artículo está destinado a usuarios que ya están familiarizados con PowerShell y en él se explican brevemente los conceptos que son necesarios si va a convertir un script de PowerShell a un flujo de trabajo de PowerShell para su uso en un runbook.xaxaax,dva,dva,dva,ñdva,ñdvad,ñsa
-
-
-
-dsdsdsdsd
-
-
-
+Los runbooks de Automatización de Azure se implementan como flujos de trabajo de Windows PowerShell. Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo. Este artículo está destinado a usuarios que ya están familiarizados con PowerShell y en él se explican brevemente los conceptos que son necesarios si va a convertir un script de PowerShell a un flujo de trabajo de PowerShell para su uso en un runbook.
 
 Un flujo de trabajo es una secuencia de pasos programados y conectados que realizan tareas de larga duración o requieren la coordinación de varios pasos en varios dispositivos o nodos administrados. Las ventajas de un flujo de trabajo en un script normal incluyen la capacidad de realizar una acción en varios dispositivos simultáneamente y la capacidad de recuperarse automáticamente de los errores. Un flujo de trabajo de Windows PowerShell es un script de Windows PowerShell que se aprovecha de Windows Workflow Foundation. Aunque el flujo de trabajo está escrito con sintaxis de Windows PowerShell y se inicia mediante Windows PowerShell, se procesa mediante Windows Workflow Foundation.
 
@@ -256,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/16/2016"
    ms.author="andkjell"/>
 
 # Referencia técnica del conector de LDAP genérico
@@ -38,7 +38,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 
 | Característica | Soporte técnico |
 | --- | --- |
-| Origen de datos conectado | El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC) </li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>Directorios destacados no compatibles: <li>Servicios de dominio de Microsoft Active Directory (AD DS) [Utilice el conector Active Directory integrado en su lugar]</li><li>Oracle Internet Directory (OID)</li> |
+| Origen de datos conectado | El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes: <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC) </li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Directorios destacados no compatibles:** <li>Servicios de dominio de Microsoft Active Directory (AD DS) [Utilice el conector Active Directory integrado en su lugar]</li><li>Oracle Internet Directory (OID)</li> |
 | Escenarios | <li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li> |
 | Operaciones |Se admiten las siguientes operaciones en todos los directorios LDAP: <li>Importación completa</li><li>Exportación</li>Las siguientes operaciones solo se admiten en directorios especificados:<li>Importación diferencial</li><li>Establecer contraseña, Cambiar contraseña</li> |
 | Esquema | <li>Se ha detectado un esquema en el esquema LDAP (RFC3673 y RFC4512/4.2)</li><li>Es compatible con clases estructurales, clases auxiliares y la clase de objetos extensibleObject (RFC4512/4.3)</li>
@@ -279,4 +279,4 @@ Para directorios con un registro de cambios diferencial basado en fecha y hora, 
 
 -	Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

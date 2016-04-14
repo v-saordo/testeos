@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="02/09/2016"
 	ms.author="cephalin"/>
 
 # Conexión a un servidor SQL local desde una aplicación web en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
 
 Conexiones híbridas puede conectar Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) con recursos locales que usan puerto TCP estático. Los recursos admitidos incluyen Microsoft SQL Server, MySQL, API web HTTP, Servicios móviles y la mayoría de servicios web personalizados.
 
-En este tutorial aprenderemos a crear un aplicación web del Servicio de aplicaciones en el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), a conectar la aplicación web a una base de datos de SQL Server local usando la nueva característica Conexión híbrida, a crear una aplicación ASP.NET simple que usará la conexión híbrida y a implementar la aplicación en la aplicación web del Servicio de aplicaciones. La aplicación web completada en Azure almacena credenciales de usuario en una base de datos de miembros de pertenencia local. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o ASP.NET.
+En este tutorial aprenderemos a crear un aplicación web del Servicio de aplicaciones en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), a conectar la aplicación web a una base de datos de SQL Server local usando la nueva característica Conexión híbrida, a crear una aplicación ASP.NET simple que usará la conexión híbrida y a implementar la aplicación en la aplicación web del Servicio de aplicaciones. La aplicación web completada en Azure almacena credenciales de usuario en una base de datos de miembros de pertenencia local. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o ASP.NET.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
@@ -63,7 +63,7 @@ Si ya tiene SQL Server instalado en una configuración y en un entorno que cumpl
 <a name="InstallSQL"></a>
 ## R: Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local ##
 
-En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP y crear una base de datos de forma que la aplicación web funcione con el entorno de vista previa de Azure.
+En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP y crear una base de datos de forma que la aplicación web funcione con el Portal de Azure.
 
 ### Instalación de SQL Server Express ###
 
@@ -118,7 +118,7 @@ La aplicación web de Visual Studio requiere una base de datos de pertenencia a 
 <a name="CreateSite"></a>
 ## B. Creación de una aplicación web en el Portal de Azure ##
 
-> [AZURE.NOTE]Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y continuar desde ahí.
+> [AZURE.NOTE] Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y continuar desde ahí.
 
 1. En el [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
 
@@ -192,7 +192,7 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, creará 
 
 En este paso editará la cadena de conexión que indica a la aplicación dónde buscar la base de datos de SQL Server Express local. La cadena de conexión es un archivo Web.config de la aplicación que contiene información de configuración para dicha aplicación.
 
-> [AZURE.NOTE]Para garantizar que la aplicación usa la base de datos creada en SQL Server Express y no la base de datos LocalDB predeterminada de Visual Studio, es importante que complete este paso antes de ejecutar el proyecto.
+> [AZURE.NOTE] Para garantizar que la aplicación usa la base de datos creada en SQL Server Express y no la base de datos LocalDB predeterminada de Visual Studio, es importante que complete este paso antes de ejecutar el proyecto.
 
 1. En el Explorador de soluciones, haga doble clic en el archivo Web.config.
 
@@ -302,7 +302,7 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 
 [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Channel 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+[Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 [Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
@@ -363,4 +363,4 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

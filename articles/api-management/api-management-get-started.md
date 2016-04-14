@@ -4,7 +4,7 @@
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/07/2015"
+	ms.date="03/04/2016"
 	ms.author="sdanie"/>
 
 # Administración de su primera API en Administración de API de Azure
@@ -59,7 +59,7 @@ El sistema consta de los siguientes componentes:
 
 ## <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+>[AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
 
 El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
 
@@ -73,13 +73,13 @@ Elija la **Suscripción** y la **Región** deseadas para la instancia de servici
 
 Escriba **Contoso Ltd.** en **Nombre de la organización** y especifique su dirección de correo electrónico en el campo **Correo electrónico del administrador**.
 
->[AZURE.NOTE]Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para más información, consulte [Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure][].
+>[AZURE.NOTE] Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para más información, consulte [Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure][].
 
 ![New API Management service][api-management-create-instance-step2]
 
 Las instancias de servicio de Administración de API están disponibles en tres niveles: Desarrollador, Estándar y Premium. De forma predeterminada, las nuevas instancias de servicio Administración de API se crean en el nivel de desarrollador. Para seleccionar el nivel Estándar o Premiun, active la casilla **Configuración avanzada** y seleccione el nivel deseado en la pantalla siguiente.
 
->[AZURE.NOTE]El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para obtener más información acerca de los niveles de Administración de API, consulte [Precios de Administración de API][].
+>[AZURE.NOTE] El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para obtener más información acerca de los niveles de Administración de API, consulte [Precios de Administración de API][].
 
 Haga clic en la casilla para crear su instancia de servicio.
 
@@ -93,7 +93,7 @@ Una API consta de un conjunto de operaciones que se pueden invocar desde una apl
 
 Las API se pueden crear (y las operaciones se pueden agregar) manualmente o se pueden importar. En este tutorial se importará una API para un servicio web de calculadora de ejemplo proporcionado por Microsoft y hospedado en Azure.
 
->[AZURE.NOTE]Para obtener instrucciones sobre la creación de una API y la incorporación manual de operaciones, consulte [Creación de API](api-management-howto-create-apis.md) e [Incorporación de operaciones a una API](api-management-howto-add-operations.md).
+>[AZURE.NOTE] Para obtener instrucciones sobre la creación de una API y la incorporación manual de operaciones, consulte [Creación de API](api-management-howto-create-apis.md) e [Incorporación de operaciones a una API](api-management-howto-add-operations.md).
 
 Las API se configuran desde el portal para editores, al que se accede mediante el Portal de Azure clásico. Para llegar al portal para editores, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
@@ -111,6 +111,8 @@ Siga los pasos siguientes para configurar la API de la calculadora:
 4. Haga clic en **Guardar** para importar la API.
 
 ![Add new API][api-management-import-new-api]
+
+>[AZURE.NOTE] El servicio **Administración de API** admite actualmente las versiones 1.2 y 2.0 del documento Swagger para la importación. Aunque la [especificación Swagger 2.0](http://swagger.io/specification) declara que las propiedades `host`, `basePath` y `schemes` son opcionales, el documento Swagger 2.0 **debe** contener esas propiedades; en caso contrario, no se importará.
 
 Una vez importada la API, se muestra la página de resumen de la API en el portal para editores.
 
@@ -163,7 +165,7 @@ La vista predeterminada del portal para editores es el **Panel**, que proporcion
 
 Mantenga el puntero encima del gráfico de **Basic Calculator** para ver las métricas específicas de uso de la API durante un período de tiempo determinado.
 
->[AZURE.NOTE]Si no ve ninguna línea en el gráfico, vuelva al portal para desarrolladores y haga algunas llamadas a la API, espere unos instantes y vuelva al panel
+>[AZURE.NOTE] Si no ve ninguna línea en el gráfico, vuelva al portal para desarrolladores y haga algunas llamadas a la API, espere unos instantes y vuelva al panel
 
 Haga clic en **Ver detalles** para ver la página de resumen de la API, incluida una versión más amplia de las métricas mostradas.
 
@@ -243,4 +245,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -22,7 +22,7 @@
 El Portal de Azure proporciona un tutorial interactivo para que pueda empezar a trabajar con Análisis de Data Lake. En este artículo se muestra cómo consultar el tutorial para analizar los registros de sitios web.
 
 
->[AZURE.NOTE]Si desea realizar el mismo tutorial con Visual Studio, consulte [Análisis de registros de sitios web mediante Análisis de Data Lake](data-lake-analytics-analyze-weblogs.md). Se agregarán al portal más tutoriales interactivos.
+>[AZURE.NOTE] Si desea realizar el mismo tutorial con Visual Studio, consulte [Análisis de registros de sitios web mediante Análisis de Data Lake](data-lake-analytics-analyze-weblogs.md). Se agregarán al portal más tutoriales interactivos.
 
 
 Para otros tutoriales, consulte:
@@ -42,7 +42,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos.
 
-Cada cuenta de Análisis de Data Lake depende de una cuenta del [Almacén de Azure Data Lake](data-lake-store-overview.md). Esta cuenta se conoce como la cuenta predeterminada de Almacén de Data Lake. Puede crear la cuenta del Almacén de Data Lake previamente o cuando se crea la cuenta de Análisis de Data Lake. En este tutorial, creará la cuenta del Almacén de Data Lake con la cuenta de Análisis.
+Cada cuenta de Análisis de Data Lake depende de una cuenta del [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md). Esta cuenta se conoce como la cuenta predeterminada de Almacén de Data Lake. Puede crear la cuenta del Almacén de Data Lake previamente o cuando se crea la cuenta de Análisis de Data Lake. En este tutorial, creará la cuenta del Almacén de Data Lake con la cuenta de Análisis.
 
 **Para crear una cuenta de Análisis de Data Lake**
 
@@ -88,4 +88,4 @@ Cada cuenta de Análisis de Data Lake depende de una cuenta del [Almacén de Azu
 - [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

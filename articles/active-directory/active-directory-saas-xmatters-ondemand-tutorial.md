@@ -1,5 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con xMatters OnDemand | Microsoft Azure" description="Aprenda cómo usar xMatters OnDemand con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Integración de Azure Active Directory con xMatters OnDemand | Microsoft Azure"
+    description="Aprenda cómo usar xMatters OnDemand con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
     authors="markusvi"  
     documentationCenter="na" 
@@ -83,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 4.  En la página **Configuración de inicio de sesión único en XMatters OnDemand**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado localmente como **c:\\XMatters OnDemand.cer**.
 
-    >[AZURE.IMPORTANT]Debe reenviar el certificado al equipo de soporte de xMatters. El equipo de soporte técnico de xMatters debe cargar el certificado para que se pueda finalizar la configuración del inicio de sesión único.
+    >[AZURE.IMPORTANT] Debe reenviar el certificado al equipo de soporte de xMatters. El equipo de soporte técnico de xMatters debe cargar el certificado para que se pueda finalizar la configuración del inicio de sesión único.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776794.png "Configurar inicio de sesión único")
 
@@ -130,7 +131,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en XMatters OnDemand,
     1.  Escriba el **UserID**, **Nombre**, **Apellido**, **Sitio** de una cuenta de AAD válida que quiera aprovisionar.
     2.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de XMatters OnDemand ofrecida por XMatters OnDemand para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de XMatters OnDemand ofrecida por XMatters OnDemand para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -150,4 +151,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

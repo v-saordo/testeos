@@ -8,13 +8,13 @@
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
-   ms.author="inhenk"/>
+   ms.date="02/11/2016"
+   ms.author="kgremban"/>
 
 # Privileged Identity Management de Azure: Activación y desactivación de un rol
 
@@ -31,13 +31,10 @@
 9. Haga clic en **Aceptar**. Ahora se activará el rol.
 10. Después de activar un rol, también puede desactivarlo haciendo clic en **Desactivar**. Además, se puede quitar el rol del usuario siguiendo los pasos de [Adición o eliminación de un rol de usuario](active-directory-privileged-identity-management-how-to-add-role-to-user.md).
 
-
-Para obtener más información sobre la configuración de activación de roles, consulte [Configuración de la activación de roles](active-directory-privileged-identity-management-how-to-configure-role-activation.md).
-
-Para obtener más información sobre alertas de seguridad específicas de la configuración de activación de roles, vea [Configuración de alertas de seguridad](active-directory-privileged-identity-management-how-to-configure-security-alerts).
+Para obtener más información sobre alertas de seguridad específicas de la configuración de activación de roles, vea [Configuración de alertas de seguridad](active-directory-privileged-identity-management-how-to-configure-security-alerts.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

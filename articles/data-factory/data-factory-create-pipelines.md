@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de canalizaciones" 
+	pageTitle="Canalizaciones y actividades en Data Factory de Azure | Microsoft Azure" 
 	description="Descripción de las canalizaciones de Factoría de datos de Azure y procedimientos para crearlas con el fin mover y transformar datos para generar información que puede usarse para obtener una idea clara" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="12/08/2015" 
+	ms.date="02/08/2016" 
 	ms.author="spelluru"/>
 
-# Descripción de canalizaciones y actividades
+# Canalizaciones y actividades en Data Factory de Azure
 Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. En este artículo se considera que ha visto los artículos [Información general](data-factory-introduction.md) y[Creación de conjuntos de datos](data-factory-create-datasets.md) antes.
 
 ## ¿Qué es una canalización?
@@ -25,7 +25,7 @@ Este artículo ayuda a comprender las canalizaciones y actividades en Factoría 
 ### ¿Qué es una actividad?
 Las actividades definen las acciones que se van a realizar en los datos. Cada actividad tiene cero o más [conjuntos de datos](data-factory-create-datasets.md) como entradas y genera uno o varios conjuntos de datos como salida. **Una actividad es una unidad de orquestación en Factoría de datos de Azure.**
 
-Por ejemplo, puede utilizar una actividad de copia para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una actividad de Hive que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia gama de actividades de [transformación de datos y análisis](data-factory-data-transformation-activities.md) y [movimiento de datos](data-factory-data-movement-activities.md). También puede crear una actividad personalizada de .NET para ejecutar su propio código.
+Por ejemplo, puede utilizar una actividad de copia para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una actividad de Hive que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia variedad de actividades de [movimiento de datos, análisis](data-factory-data-transformation-activities.md) y [transformación de datos](data-factory-data-movement-activities.md). También puede crear una actividad personalizada de .NET para ejecutar su propio código.
 
 Tenga en cuenta los dos conjuntos de datos siguientes:
 
@@ -224,18 +224,18 @@ En la tabla siguiente se describen las propiedades dentro de las definiciones de
 
 Etiqueta | Descripción | Obligatorio
 --- | ----------- | --------
-name | Nombre de la actividad o la canalización. Especifique un nombre que representa la acción que la actividad o la canalización está configurado para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe comenzar con una letra, un número o un carácter de subrayado (_)</li><li>No se permiten caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sí
+name | Nombre de la actividad o la canalización. Especifique un nombre que representa la acción que la actividad o la canalización está configurado para realizar<br/><ul><li>Número máximo de caracteres: 260</li><li>Debe comenzar con una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Sí
 description | Texto que describe para qué se usa la actividad o la canalización | Sí
 type | Especifica el tipo de la actividad. Consulte los artículos [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para diferentes tipos de actividades. | Sí
-inputs | Tablas de entrada usadas por la actividad<p>// una tabla de entrada<br/>"inputs":  [ { "name": "inputtable1" } ],</p><p>// dos tablas de entrada <br/>"inputs":  [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sí
-outputs | Tablas de salida usadas por la actividad.<p>// una tabla de salida<br/>"outputs":  [ { "name": “outputtable1” } ],</p><p>//dos tablas de salida<br/>"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sí
+inputs | Tablas de entrada usadas por la actividad<p>// una tabla de entrada<br/>"inputs": [ { "name": "inputtable1" } ],</p><p>// dos tablas de entrada <br/>"inputs": [ { "name": "inputtable1" }, { "name": "inputtable2" } ],</p> | Sí
+outputs | Tablas de salida usadas por la actividad.<p>// una tabla de salida<br/>"outputs": [ { "name": “outputtable1” } ],</p><p>//dos tablas de salida<br/>"outputs": [ { "name": “outputtable1” }, { "name": “outputtable2” } ],</p> | Sí
 linkedServiceName | Nombre del servicio vinculado usado por la actividad. <p>Una actividad puede requerir que especifique el servicio vinculado que se vincula al entorno de proceso necesario.</p>| Sí para Actividad de HDInsight y Actividad de puntuación por lotes de Aprendizaje automático de Azure<p>No para todos los demás</p>
 typeProperties | Las propiedades de la sección typeProperties dependen del tipo de la actividad. Consulte el artículo sobre cada actividad para obtener más información | No
 policy | Directivas que afectan al comportamiento de la actividad en tiempo de ejecución. Si no se especifica, se usan las directivas predeterminadas. Desplácese a continuación para obtener detalles | No
-start | Fecha y hora de inicio de la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. <p>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo.</p> | No<p>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.</p><p>Los tiempos de inicio y finalización pueden estar vacíos para crear una canalización, pero ambos deben tener valores para establecer un período activo para que se ejecute la canalización. El período activo de una canalización también puede establecerse mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod</p>
-End | Hora y fecha de finalización de la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: 2014-10-14T17:32:41Z <p>Si no se especifica, se calcula como "start + 48 horas". Para ejecutar la canalización de forma indefinida, especifique 9999-09-09 como el valor de la propiedad end.</p>| No <p>Si se especifica un valor para la propiedad start, hay que especificar un valor para la propiedad end.</p><p>Consulte las notas de la propiedad **start**.</p>
-isPaused | Si está establecido en true, la canalización no se ejecutará. Valor predeterminado = false. Puede usar esta propiedad para habilitar o deshabilitar. | No
-programador | La propiedad "scheduler" se usa para definir la programación deseada de la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability en un conjunto de datos](data-factory-create-datasets.md#Availability). | No |   
+start | Fecha y hora de inicio de la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. <p>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen con en este período activo.</p> | No<p>Si especifica un valor para la propiedad end, debe especificar el valor de la propiedad start.</p><p>Los tiempos de inicio y finalización pueden estar vacíos para crear una canalización, pero ambos deben tener valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecerlas mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod más adelante.</p>
+end | Hora y fecha de finalización de la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: 2014-10-14T17:32:41Z <p>Para ejecutar la canalización de forma indefinida, especifique 9999-09-09 como el valor de la propiedad end.</p>| No <p>Si especifica un valor para la propiedad start, debe especificar el valor para la propiedad end.</p><p>Consulte las notas de la propiedad **iniciar**.</p>
+isPaused | Si se establece en true, la canalización no se ejecutará. Valor predeterminado = false. Puede usar esta propiedad para habilitar o deshabilitar. | No
+programador | La propiedad "scheduler" se usa para definir la programación deseada de la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#Availability). | No | 
 
 ### Tipos de actividad
 Factoría de datos de Azure ofrece una amplia gama de actividades de [movimiento de datos](data-factory-data-movement-activities.md) y de [transformación de datos](data-factory-data-transformation-activities.md).
@@ -250,8 +250,39 @@ executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina
 retry | Integer<p>El valor máximo puede ser 10</p> | 3 | Número de reintentos antes de que el procesamiento de datos del segmento se marque como error. La ejecución de la actividad de un segmento de datos se vuelve a intentar hasta el número de reintentos especificado. El reintento se realiza tan pronto como sea posible después del error.
 timeout | TimeSpan | 00:00:00 | Tiempo de espera para la actividad. Ejemplo: 00:10:00 (implica un tiempo de espera 10 minutos)<p>Si no se especifica ningún valor o es 0, el tiempo de espera es infinito.</p><p>Si el tiempo de procesamiento de los datos en un segmento supera el valor de tiempo de espera, se cancela y el sistema vuelve a intentar el procesamiento. El número de reintentos depende de la propiedad retry. Cuando se excede el tiempo de espera, el estado será TimedOut.</p>
 delay | TimeSpan | 00:00:00 | Especifica el retraso antes de iniciar el procesamiento de los datos del segmento.<p>La ejecución de la actividad de un segmento de datos se inicia después de que transcurra el retraso más allá del tiempo de ejecución esperado.</p><p>Ejemplo: 00:10:00 (implica un retraso de 10 minutos)</p>
-longRetry | Integer<p>Valor máximo: 10</p> | 1 | El número de reintentos largos antes de que haya error en la ejecución de los segmentos.<p>Los intentos de longRetry se espacian de acuerdo con longRetryInterval. Por tanto, si necesita especificar un tiempo entre reintentos, utilice longRetry. Si se especifican Retry y longRetry, cada intento de longRetry incluirá el número de intentos de Retry y el número máximo de intentos será Retry * longRetry.</p><p>Por ejemplo, si tenemos lo siguiente en la directiva de la actividad:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Se supone que existe un solo segmento para ejecutar (el estado es PendingExecution) y la ejecución de la actividad no se puede realizar nunca. Inicialmente habría tres intentos consecutivos de ejecución. Después de cada intento, el estado del segmento sería Retry. Después de los 3 primeros intentos, el estado del segmento sería LongRetry.</p><p>Después de una hora (es decir, el valor de longRetryInteval), se produciría otro conjunto de 3 intentos consecutivos de ejecución. Después de eso, el estado del segmento sería Failed y ya no se realizarían más intentos. Por tanto, en total se realizaron 6 intentos.</p><p>Nota: si una ejecución se realiza correctamente, el estado del segmento sería Ready y no se realizaría ningún otro reintento.</p><p>longRetry puede usarse en situaciones donde llegan datos dependientes a horas no deterministas o el entorno general en el que se produce el procesamiento de datos es poco confiable. En esos casos es posible que realizar reintentos uno tras otro no ayude, mientras que hacerlo después de un intervalo de tiempo puede generar el resultado deseado.</p><p>Advertencia: no establezca valores altos para longRetry o longRetryInterval. Normalmente, los valores más altos implican otros problemas sistémicos que se eliminan con esto</p> 
+longRetry | Integer<p>Valor máximo: 10</p> | 1 | El número de reintentos largos antes de que falle la ejecución de los segmentos.<p>Los intentos de longRetry se espacian de acuerdo con longRetryInterval. Por tanto, si necesita especificar un tiempo entre reintentos, utilice longRetry. Si se especifican Retry y longRetry, cada intento de longRetry incluirá el número de intentos de Retry y el número máximo de intentos será Retry * longRetry.</p><p>Por ejemplo, si tenemos lo siguiente en la directiva de la actividad:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Se supone que existe un solo segmento para ejecutar (el estado es En espera) y la ejecución de la actividad no se puede realizar nunca. Inicialmente habría tres intentos consecutivos de ejecución. Después de cada intento, el estado del segmento sería Retry. Después de los 3 primeros intentos, el estado del segmento sería LongRetry.</p><p>Después de una hora (es decir, el valor de longRetryInteval), se produciría otro conjunto de 3 intentos consecutivos de ejecución. Después de eso, el estado del segmento sería Failed y ya no se realizarían más intentos. Por tanto, en total se realizaron 6 intentos.</p><p>Nota: si una ejecución se realiza correctamente, el estado del segmento sería Ready y no se realizaría ningún otro reintento.</p><p>longRetry puede usarse en situaciones donde llegan datos dependientes a horas no deterministas o el entorno general en el que se produce el procesamiento de datos es poco confiable. En esos casos es posible que realizar reintentos uno tras otro no ayude, mientras que hacerlo después de un intervalo de tiempo puede generar el resultado deseado.</p><p>Advertencia: no establezca valores altos para longRetry o longRetryInterval. Normalmente, los valores más altos implican otros problemas sistémicos que se eliminan con esto</p> 
 longRetryInterval | TimeSpan | 00:00:00 | El retraso entre reintentos largos 
+
+## Actividades en cadena
+Si tiene varias actividades en una canalización y no dependen unas de otras (la salida de una actividad no es la entrada de otra actividad), las actividades se pueden ejecutar en paralelo si los segmentos de datos de entrada para las actividades están listos.
+
+Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Las actividades pueden estar en la misma canalización o en canalizaciones diferentes. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
+
+Por ejemplo, considere el siguiente caso:
+ 
+1.	La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de **salida** **D2**.
+2.	La canalización P2 incluye la actividad A2 que requiere una **entrada**del conjunto de datos **D2** y genera el conjunto de datos de salida D3.
+ 
+En este escenario, la actividad A1 se ejecutará cuando los datos externos estén disponibles y se alcance la frecuencia de disponibilidad programada. La actividad A2 se ejecutará cuando estén disponibles los segmentos programados de D2 y se alcance la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecutará para ese segmento hasta que esté disponible.
+
+La Vista Diagrama tendría el aspecto siguiente:
+
+![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+
+La Vista Diagrama con ambas actividades en la misma canalización tendría el aspecto siguiente:
+
+![Encadenamiento de las actividades de la misma canalización](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+
+## Programación y ejecución
+Hasta ahora se ha descrito lo que son las canalizaciones y las actividades. También se echó un vistazo a cómo se definen y se vio con detalle las actividades en Factoría de datos de Azure. Ahora veremos cómo se ejecutan.
+
+Una canalización solo está activa entre su hora de inicio y de finalización. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa. De hecho, no se ejecuta la canalización. Se ejecutan las actividades de la canalización. No obstante, lo hacen en el contexto general de la canalización.
+
+Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure.
+
+### Procesamiento en paralelo de segmentos
+Establezca el valor de **simultaneidad** en la actividad de la definición de JSON en un valor mayor que 1, para que se procesen varios segmentos en paralelo con varias instancias de la actividad en tiempo de ejecución. Esto es realmente útil al procesar los segmentos de relleno de fondo del pasado.
+
 
 ## Creación y administración de una canalización
 Factoría de datos de Azure proporciona varios mecanismos para crear e implementar canalizaciones (que a su vez contienen una o varias actividades).
@@ -276,29 +307,29 @@ Factoría de datos de Azure proporciona varios mecanismos para crear e implement
 
 	**Nota:** durante la implementación, el servicio de Factoría de datos de Azure realiza algunas comprobaciones de validación para ayudar a solucionar algunos problemas comunes. Si se produce un error, se mostrará la información correspondiente. Realice las acciones correctivas y, a continuación, vuelva a implementar la canalización creada. Puede usar el editor para actualizar y eliminar una canalización.
 
+Consulte [Introducción a la Factoría de datos de Azure (Editor de la Factoría de datos)](data-factory-build-your-first-pipeline-using-editor.md), un tutorial completo para crear una factoría de datos con una canalización.
+
 ### Uso del complemento Visual Studio
-Puede usar Visual Studio para crear e implementar canalizaciones en Factoría de datos de Azure. Para obtener más información, consulte [Tutorial: Copia de datos de Almacenamiento de Azure en SQL de Azure (Visual Studio)](data-factory-get-started-using-vs.md).
+Puede usar Visual Studio para crear e implementar canalizaciones en Factoría de datos de Azure. Consulte [Introducción a la Factoría de datos de Azure (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md), un tutorial completo para crear una factoría de datos con una canalización.
+
 
 ### Uso de Azure PowerShell
 Puede usar Azure PowerShell para crear canalizaciones en Factoría de datos de Azure. Digamos que ha definido la canalización JSON en un archivo c:\\DPWikisample.json. Puede cargarlo en su instancia de Factoría de datos de Azure, tal como se muestra en el ejemplo siguiente.
 
 	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Para más información sobre este cmdlet, consulte el [cmdlet New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
+Consulte [Introducción a la Factoría de datos de Azure (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md), un tutorial completo para crear una factoría de datos con una canalización.
+
 
 ### Uso de la API de REST
 También puede crear e implementar la canalización mediante las API de REST. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información sobre esto, consulte [Creación o actualización de una canalización](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 ### Uso del SDK de .NET
-También puede crear e implementar la canalización mediante el SDK de .NET. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información sobre esto consulte [Creación, administración y supervisión de factorías de datos mediante programación](data-factory-create-data-factories-programmatically.md).
+También puede crear e implementar la canalización mediante el SDK de .NET. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información al respecto, vea [Creación, administración y supervisión de factorías de datos mediante programación](data-factory-create-data-factories-programmatically.md).
 
+### Uso de una plantilla de ARM (Azure Resource Manager)
+Puede crear e implementar una canalización mediante una plantilla de Azure Resource Manager (ARM). Para más información, consulte [Compilación de la primera canalización de Factoría de datos de Azure con Administrador de recursos de Azure](data-factory-build-your-first-pipeline-using-arm.md).
 
-## Programación y ejecución
-Hasta ahora se ha descrito lo que son las canalizaciones y las actividades. También se echó un vistazo a cómo se definen y se vio con detalle las actividades en Factoría de datos de Azure. Ahora veremos cómo se ejecutan.
-
-Una canalización solo está activa entre su hora de inicio y de finalización. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa.
-
-De hecho, no se ejecuta la canalización. Se ejecutan las actividades de la canalización. No obstante, lo hacen en el contexto general de la canalización. Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure.
 
 ## Administración y supervisión  
 Una vez implementada una canalización, puede administrar y supervisar la canalizaciones, segmentos y ejecuciones. Obtenga más información sobre este tema aquí: [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md).
@@ -335,4 +366,4 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

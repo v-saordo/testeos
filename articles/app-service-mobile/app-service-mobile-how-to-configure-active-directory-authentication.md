@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Configuración de la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones" 
-	description="Obtenga información acerca de cómo configurar la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones" 
-	authors="mattchenderson" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+<properties
+	pageTitle="Configuración de la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones"
+	description="Obtenga información acerca de cómo configurar la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones"
+	authors="mattchenderson"
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/20/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory
 
-[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación.
 
@@ -38,10 +36,10 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 16. Haga clic en **Aceptar** para registrar la aplicación en Azure Active Directory. Se creará un nuevo registro. Si, por el contrario, desea elegir un registro existente, haga clic en **Seleccionar una aplicación existente** y luego busque el nombre de un registro creado anteriormente en el inquilino. Haga clic en el registro para seleccionarlo y haga clic en **Aceptar**. A continuación, haga clic en **Aceptar** en la hoja de configuración de Azure Active Directory.
 
     ![][0]
-	
+
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca la opción **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
 17. Haga clic en **Guardar**.
 
@@ -69,8 +67,8 @@ También puede elegir proporcionar los valores de configuración manualmente. Es
 8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite la **URL de respuesta** en **Inicio de sesión único** para que sea la URL de la aplicación anexada a la ruta de acceso, _/.auth/login/aad/callback_. Por ejemplo: `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Asegúrese de que está utilizando el esquema HTTPS.
 
     ![][3]
-	
-	
+
+
 	> [AZURE.NOTE]
 	Si usa la puerta de enlace en lugar de la característica Autenticación/autorización del Servicio de aplicaciones, la URL de respuesta usará en su lugar la URL de la puerta de enlace con la ruta de acceso _/signin-aad_.
 
@@ -94,10 +92,10 @@ Si usa la puerta de enlace del Servicio de aplicaciones, omita esta sección y e
 15. Haga clic en **Azure Active Directory** y luego haga clic en **Avanzada** en **Modo de administración**. Pegue el valor de id. de cliente y URL del emisor que obtuvo anteriormente. y, a continuación, haga clic en **Aceptar**.
 
     ![][1]
-	
+
 	De forma predeterminada, el Servicio de aplicaciones ofrece autenticación pero no restringe el acceso autorizado al contenido del sitio y a las API. Debe autorizar a los usuarios en el código de la aplicación.
 
-17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca **Acción por realizar cuando no se autentique la solicitud** en **Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
+17. (Opcional) Para restringir el acceso al sitio solo a los usuarios autenticados mediante Azure Active Directory, establezca la opción **Acción necesaria cuando la solicitud no está autenticada** en **Iniciar sesión con Azure Active Directory**. Esto requiere que todas las solicitudes se autentiquen y que todas las solicitudes no autenticadas se redirijan a Azure Active Directory para la autenticación.
 
 17. Haga clic en **Guardar**.
 
@@ -145,4 +143,4 @@ Ahora ha configurado una aplicación de cliente nativo que puede acceder a la ap
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [método alternativo]: #advanced
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

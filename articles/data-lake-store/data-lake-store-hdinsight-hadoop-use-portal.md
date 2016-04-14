@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/20/2016"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Creación de un clúster de HDInsight con el Almacén de Data Lake mediante el Portal de Azure
@@ -29,14 +29,8 @@ Aprenda a usar el Portal de Azure para crear un clúster de HDInsight (Hadoop, H
 
 * **En clústeres de Storm (Windows y Linux)**, el Almacén de Data Lake se puede utilizar para escribir datos de una topología de Storm. Almacén de Data Lake también puede utilizarse para almacenar datos de referencia que luego puede leer una topología de Storm.
 
-* **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional.
+* **En clústeres HBase (Windows y Linux)**, el almacén de Data Lake puede usarse como almacenamiento predeterminado o almacenamiento adicional. La opción de crear clústeres de HBase con acceso al Almacén de Data Lake solo está disponible si usa las versiones 3.1 o 3.2 de HDI (para Windows) o la versión 3.2 de HDI (para Linux).
 
-
-En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. La configuración de HDInsight para trabajar con el Almacén de Data Lake mediante el Portal de Azure consta de los pasos siguientes:
-
-* Creación de un clúster de HDInsight con autenticación ante una entidad de servicio de Azure Active Directory
-* Configuración del acceso al Almacén de Data Lake con la misma entidad de servicio
-* Ejecución de un trabajo de prueba en el clúster
 
 ## Requisitos previos
 
@@ -44,9 +38,13 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Habilite su suscripción de Azure** para la versión de vista previa pública del almacén de Data Lake. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
+- **Una cuenta de Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Una vez que haya creado la cuenta, realice las siguientes tareas para cargar datos de ejemplo. Necesitará estos datos más adelante en el tutorial para ejecutar trabajos desde un clúster de HDInsight que accedan a datos en el Almacén de Data Lake. 
+
+	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
+	* [Cargue un archivo a su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
-## Creación de un clúster de HDInsight con autenticación ante una entidad de servicio de Azure Active Directory
+## Creación de un clúster de HDInsight con acceso al Almacén de Azure Data Lake
 
 En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén de Data Lake como almacenamiento adicional. En esta versión, para un clúster de Hadoop, el Almacén de Data Lake solo sirve como almacenamiento adicional para el clúster. El almacenamiento predeterminado seguirá siendo los blobs de almacenamiento de Azure (WASB). En primer lugar, crearemos la cuenta de almacenamiento y los contenedores de almacenamiento necesarios para el clúster.
 
@@ -60,71 +58,40 @@ En esta sección, se crea un clúster de Hadoop en HDInsight que usa el Almacén
 
 4. En la hoja **Identidad de AAD de clúster**, puede seleccionar una entidad de servicio existente o crear una nueva.
 	
-	* **Cree una nueva entidad de servicio**. En la hoja **Identidad de AAD de clúster**, haga clic en **Crear nuevo**. Haga clic en **Entidad de servicio** y después, en la hoja **Crear una entidad de servicio**, proporcione valores para crear una nueva entidad de servicio. En este paso, también se crean un certificado y una aplicación de Azure Active Directory. Haga clic en **Crear**.
+	* **Cree una nueva entidad de servicio**
+	
+		* En la hoja **Identidad de AAD del clúster**, haga clic en **Crear nuevo**y en **Entidad de servicio** y después, en la hoja **Crear entidad de servicio**, proporcione valores para crear una nueva entidad de servicio. En este paso, también se crean un certificado y una aplicación de Azure Active Directory. Haga clic en **Crear**.
 
-		![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Agregar entidad de servicio al clúster de HDInsight")
+			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Agregar entidad de servicio al clúster de HDInsight")
 
-		En la hoja **Identidad de AAD de clúster**, haga clic en **Seleccionar** para continuar con la entidad de servicio que se va a crear.
+		* En la hoja **Identidad de AAD de clúster**, haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y después haga clic en **Guardar permisos**.
 
-		![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Agregar entidad de servicio al clúster de HDInsight")
+			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Agregar entidad de servicio al clúster de HDInsight")
+
+		* En la hoja **Identidad de AAD de clúster**, haga clic en **Descargar certificado** para descargar el certificado asociado a la entidad de servicio creada. Esto es útil si desea usar la misma entidad de servicio en el futuro, cuando cree más clústeres de HDInsight. Haga clic en **Seleccionar**.
+
+			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.4.png "Agregar entidad de servicio al clúster de HDInsight")
 
 
-	* **Elija una entidad de servicio existente**. En la hoja **Identidad de AAD de clúster**, haga clic en **Usar existente**. Haga clic en **Entidad de servicio** y después, en la hoja **Seleccionar una entidad de servicio**, busque una entidad de servicio existente. Haga clic en un nombre de entidad de servicio y después en **Seleccionar**.
+	* **Elija una entidad de servicio existente**.
 
-		![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Agregar entidad de servicio al clúster de HDInsight")
+		* En la hoja **Identidad de AAD de clúster**, haga clic en **Usar existente** y en **Entidad de servicio**, y después, en la hoja **Seleccionar entidad de servicio**, busque una entidad de servicio existente. Haga clic en un nombre de entidad de servicio y después en **Seleccionar**.
 
-		En la hoja **Identidad de AAD de clúster**, cargue el certificado (.pfx) que creó antes y proporcione la contraseña que usó para crear el certificado. Haga clic en **Seleccionar**. Así se completa la configuración de Azure Active Directory para el clúster de HDInsight.
+			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Agregar entidad de servicio al clúster de HDInsight")
 
-		![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Agregar entidad de servicio al clúster de HDInsight")
+		* En la hoja **Identidad de AAD de clúster**, cargue el certificado (.pfx) asociado a la entidad de servicio que seleccionó y después proporcione la contraseña del certificado.
+		
+		* Haga clic en **Administrar acceso a ADLS**. En el panel, aparecen las cuentas de Almacén de Data Lake asociadas a la suscripción. Sin embargo, puede establecer los permisos solo para la cuenta que creó. Seleccione los permisos de lectura, escritura y ejecución para la cuenta que desea asociar con el clúster de HDInsight y después haga clic en **Guardar permisos**.
+
+			![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.existing.save.png "Agregar entidad de servicio al clúster de HDInsight")
+
+		* Haga clic en **Guardar permisos** y después en **Seleccionar**.
 
 6. Haga clic en **Seleccionar** en la hoja **Origen de datos** y continúe con el aprovisionamiento del clúster tal y como se describe en [Creación de clústeres de Hadoop en HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal).
 
 7. Una vez aprovisionado el clúster, puede comprobar que la entidad de servicio esté asociada con el clúster de HDInsight. Para hacerlo, en la hoja del clúster, haga clic en **Configuración** y en **Identidad de AAD de clúster**; debería ver la entidad de servicio asociada.
 
 	![Agregar entidad de servicio al clúster de HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Agregar entidad de servicio al clúster de HDInsight")
-
-## <a name="acl"></a>Configuración de la entidad de servicio para acceder al sistema de archivos del Almacén de Data Lake
-
-1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
-
-2. Si no tiene una cuenta de Almacén de Data Lake, créela. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md).
-
-	Si ya tiene una cuenta de Almacén de Data Lake, en el panel izquierdo, haga clic en **Examinar**, en **Almacén de Data Lake** y después en el nombre de cuenta a la que desea conceder acceso.
-
-	Realice las tareas siguientes en su cuenta de Almacén de Data Lake.
-
-	* [Cree una carpeta en el Almacén de Data Lake](data-lake-store-get-started-portal.md#createfolder).
-	* [Cargue un archivo a su Almacén de Data Lake](data-lake-store-get-started-portal.md#uploaddata). Si busca datos de ejemplo para cargar, puede obtener la carpeta **Ambulance Data** en el [repositorio Git de Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
-
-	Usará los archivos cargados más adelante al probar la cuenta de Almacén de Data Lake con el clúster de HDInsight.
-
-3. En la hoja del Almacén de Data Lake, haga clic en **Explorador de datos**.
-
-	![Explorador de datos](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.start.data.explorer.png "Explorador de datos")
-
-4. En la hoja **Explorador de datos**, haga clic en la raíz de su cuenta y después, en la hoja de la cuenta, haga clic en el icono **Acceso**.
-
-	![Establecer las ACL en el sistema de archivos de Data Lake](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.1.png "Establecer las ACL en el sistema de archivos de Data Lake")
-
-5. La hoja **Acceso** enumera el acceso estándar y el acceso personalizado ya asignados a la raíz. Haga clic en el icono **Agregar** para agregar las ACL de nivel personalizado e incluir la entidad de servicio que creó antes.
-
-	![Mostrar acceso estándar y personalizado](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.2.png "Mostrar acceso estándar y personalizado")
-
-6. Haga clic en el icono **Agregar** para abrir la hoja **Agregar acceso personalizado**. En esta hoja, haga clic en **Seleccionar usuario o grupo** y después, en la hoja **Seleccionar usuario o grupo**, busque la entidad de servicio que creó antes en Azure Active Directory. El nombre de la entidad de servicio creada antes es **HDIADL**. Haga clic en el nombre de la entidad de servicio y después en **Seleccionar**.
-
-	![Agregar un grupo](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.3.png "Agregar un grupo")
-
-7. Haga clic en **Seleccionar permisos**, seleccione los permisos que desea asignar a la entidad de servicio y después haga clic en **Aceptar**.
-
-	![Asignar permisos al grupo](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.4.png "Asignar permisos al grupo")
-
-8. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso**.
-
-	![Asignar permisos al grupo](./media/data-lake-store-hdinsight-hadoop-use-portal/adl.acl.5.png "Asignar permisos al grupo")
-
-7. Si es necesario, también puede modificar los permisos de acceso después de agregar la entidad de servicio. Active o desactive la casilla para cada tipo de permiso (lectura, escritura, ejecución) en función de si desea quitarlo o asignarlo. Haga clic en **Guardar** para guardar los cambios o en **Descartar** para deshacerlos.
-
-
 
 ## Ejecución de trabajos de prueba en el clúster de HDInsight para usar el Almacén de Azure Data Lake
 
@@ -136,9 +103,9 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 	![Inicie el panel del clúster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdiadlcluster1.png "Inicie el panel del clúster")
 
-	También puede navegar directamente a Ambari, para lo que debe dirigirse a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde **CLUSTERNAME** es el nombre del clúster de HDInsight).
+	También puede ir directamente a Ambari, para lo que debe dirigirse a https://CLUSTERNAME.azurehdinsight.net en un explorador web (donde **CLUSTERNAME** es el nombre del clúster de HDInsight).
 
-2. Abra la vista de Hive. Seleccione el conjunto de cuadrados en el menú de la página (junto al vínculo **Admin** y el botón de la derecha de la página) para enumerar las vistas disponibles. Seleccione la vista de **Hive**.
+2. Abra la vista de Hive. Seleccione el grupo de cuadrados en el menú de la página (junto al vínculo **Admin** y el botón de la derecha de la página) para mostrar las vistas disponibles. Seleccione la vista de **Hive**.
 
 	![Selección de vistas de Ambari](./media/data-lake-store-hdinsight-hadoop-use-portal/selecthiveview.png)
 
@@ -150,9 +117,9 @@ Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prue
 
 		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder'
 
-5. Haga clic en el botón **Ejecutar** de la parte inferior del **Editor de consultas** para iniciar la consulta. Debe aparecer la sección **Resultados del proceso de consulta** debajo del **Editor de consultas**, en la que se muestra información acerca del trabajo.
+5. Haga clic en el botón **Ejecutar** de la parte inferior del **Editor de consultas** para iniciar la consulta. Debe aparecer la sección **Resultados del proceso de consulta** bajo el **Editor de consultas** y mostrar información sobre el trabajo.
 
-6. Una vez que haya finalizado la consulta, la sección **Resultados del proceso de consulta** mostrará los resultados de la operación. La pestaña **Resultados** debe contener la información siguiente:
+6. Cuando haya finalizado la consulta, la sección **Resultados del proceso de consulta** mostrará los resultados de la operación. La pestaña **Resultados** debe contener la información siguiente:
 
 7. Ejecute la siguiente consulta para comprobar que se creó la tabla.
 
@@ -254,18 +221,10 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 	También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en el almacén de Data Lake y después usar `hdfs dfs -ls` para comprobar si los archivos se cargaron correctamente.
 
-## Consideraciones para aprovisionar un clúster de HBase que use el Almacén de Data Lake como almacenamiento predeterminado
-
-Para los clústeres de HBase, puede usar cuentas de Almacén de Data Lake como almacenamiento predeterminado. Si decide hacerlo, para aprovisionar un clúster correctamente, la entidad de servicio asociada con el clúster **debe** tener acceso a la cuenta del almacén de Data Lake. Puede asegurarse de esto de dos maneras:
-
-* **Si usa una entidad de servicio existente**, debe comprobar que la entidad de servicio se agregue a la ACL en el nivel raíz del sistema de archivos del almacén de Data Lake antes de iniciar el aprovisionamiento del clúster.
-* **Si opta por crear una nueva entidad de servicio** como parte del aprovisionamiento del clúster, en cuanto se inicie dicho proceso, debe agregar la entidad de servicio recién creada al nivel raíz del sistema de archivos del almacén de Data Lake. Si no lo hace, el clúster se aprovisionará, pero los servicios de HBase no se podrán iniciar. Para solucionar este problema, deberá agregar la entidad de servicio a la ACL de la cuenta de Almacén de Data Lake y después reiniciar los servicios de HBase mediante la interfaz de usuario de Web de Ambari.
-
-Para obtener instrucciones sobre cómo agregar una entidad de servicio a un sistema de archivos del almacén de Data Lake, consulte [Configuración de la entidad de servicio para acceder al sistema de archivos del almacén de Data Lake](#acl).
 
 ## Uso del Almacén de Data Lake en una topología de Storm
 
-El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para obtener instrucciones sobre cómo lograr este escenario, consulte [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md) (Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight).
+El Almacén de Data Lake se puede usar para escribir datos de una topología de Storm. Para instrucciones sobre cómo lograr este escenario, consulte [Uso del Almacén de Azure Data Lake con Apache Storm con HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
 ## Consulte también
 
@@ -274,4 +233,4 @@ El Almacén de Data Lake se puede usar para escribir datos de una topología de 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

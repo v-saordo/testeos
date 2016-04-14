@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/11/2015" 
+	ms.date="02/05/2016" 
 	ms.author="awills"/>
 
 # ¿Cómo ... en Application Insights?
@@ -36,7 +36,7 @@ Si quiere establecer una alerta en **Excepciones de servidor**, puede que tenga 
 ### Envío de excepciones por correo electrónico
 
 1. [Configurar supervisión de excepciones](app-insights-asp-net-exceptions.md)
-2. [Establecer una alerta](app-insights-alert.md) en la métrica de recuento de excepciones
+2. [Establecer una alerta](app-insights-alerts.md) en la métrica de recuento de excepciones
 
 
 ### Enviar un correo electrónico sobre un evento en mi aplicación
@@ -57,7 +57,7 @@ Dado que las alertas tienen dos estados, debe enviar un valor bajo cuando consid
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Cree un gráfico en el [Explorador de métricas](app-insights-metric-explorer.md) para ver la alarma:
+Cree un gráfico en el [Explorador de métricas](app-insights-metrics-explorer.md) para ver la alarma:
 
 ![](./media/app-insights-how-do-i/010-alarm.png)
 
@@ -201,6 +201,7 @@ Si desea obtener una lista de usuarios con datos como las páginas que ven o la 
 
 * En [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), deshabilite los módulos que no necesite, como el recopilador de contadores de rendimiento.
 * Use [Muestreo y filtrado](app-insights-api-filtering-sampling.md) en el SDK.
+* En las páginas web, limite el número de llamadas AJAX que se notifican para cada vista de página. En el fragmento de script después de `instrumentationKey:...`, inserte: `,maxAjaxCallsPerView:3` (o un número adecuado).
 * Si está usando [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calcule el agregado de los lotes de los valores de métricas antes de enviar el resultado. Hay una sobrecarga de TrackMetric() que se proporciona para eso.
 
 
@@ -240,4 +241,4 @@ Entre las métricas que se pueden mostrar en el Explorador de métricas se encue
 * En primer lugar, [agregue un nuevo gráfico](app-insights-metrics-explorer.md) y compruebe si el contador está en el conjunto básico que se ofrece.
 * Si no es así, [agregue el contador al conjunto recopilado por el módulo del contador de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

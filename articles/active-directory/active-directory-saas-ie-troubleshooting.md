@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Solución de problemas de la extensión del Panel de acceso para Internet Explorer | Microsoft Azure"
-   description="Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Solución de problemas de la extensión del Panel de acceso para Internet Explorer | Microsoft Azure"
+    description="Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/28/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 
@@ -103,6 +103,10 @@ Para desinstalar la extensión del Panel de acceso desde el equipo:
 
 Si encuentra problemas al desinstalar la extensión, también puede quitarla usando la herramienta [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Artículos relacionados
 
-<!---HONumber=Oct15_HO3-->
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+- [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)
+
+<!---HONumber=AcomDC_0211_2016-->

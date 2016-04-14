@@ -3,7 +3,7 @@
 	description="Referencia e información general conceptual de la característica de autenticación o autorización para Aplicaciones móviles de Azure"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # Autenticación y autorización en Aplicaciones móviles de Azure
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## ¿Qué es la autenticación o autorización del Servicio de aplicaciones?
 
@@ -52,7 +50,7 @@ Una vez que se ha configurado todo en el back-end, puede modificar su cliente pa
 - Permita que los usuarios inicien sesión en el SDK del cliente de Aplicaciones móviles con una sola línea de código.
 - Aproveche un SDK publicado por un proveedor de identidades determinado para establecer la identidad y después obtener acceso al Servicio de aplicaciones.
 
->[AZURE.TIP]La mayoría de las aplicaciones deben usar un SDK del proveedor para obtener una experiencia de inicio de sesión más nativa y aprovechar la compatibilidad de actualización y otras ventajas específicas del proveedor.
+>[AZURE.TIP] La mayoría de las aplicaciones deben usar un SDK del proveedor para obtener una experiencia de inicio de sesión más nativa y aprovechar la compatibilidad de actualización y otras ventajas específicas del proveedor.
 
 ### Funcionamiento de la autenticación sin un SDK del proveedor
 
@@ -106,4 +104,4 @@ Además encontrará datos adicionales sobre los flujos anteriores en la [informa
 [Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

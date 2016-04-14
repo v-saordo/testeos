@@ -12,21 +12,34 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="02/22/2016" 
 	ms.author="awills"/>
  
 # Exploración de registros de seguimiento de .NET en Application Insights  
 
 Si usa NLog, log4Net o System.Diagnostics.Trace para realizar el seguimiento de diagnósticos en la aplicación ASP.NET, sus registros se pueden enviar a [Visual Studio Application Insights][start], donde puede explorarlos y buscarlos. Los registros se combinarán con los otros informes de telemetría procedente de su aplicación, y así podrá identificar los seguimientos asociados con el mantenimiento de cada solicitud de usuario y correlacionarlos con otros eventos e informes de excepciones.
 
-> [AZURE.NOTE]¿Necesita el módulo de captura de registros? Es un adaptador útil para registradores de terceros, pero si aún no está usando NLog, log4Net o System.Diagnostics.Trace, considere la posibilidad de llamar directamente a [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace).
-
-Si aún no ha [configurado Application Insights para su proyecto][start], hágalo ahora. El proyecto debe tener el archivo `ApplicationInsights.config` y el paquete de NuGet `Microsoft.ApplicationInsights.Web`.
+> [AZURE.NOTE] ¿Necesita el módulo de captura de registros? Es un adaptador útil para registradores de terceros, pero si aún no está usando NLog, log4Net o System.Diagnostics.Trace, considere la posibilidad de llamar directamente a [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace).
 
 
-##  Instalación de un adaptador para el marco de registro
+## Instalación del registro en la aplicación
 
-Si usa un marco de registro, como log4Net, NLog o System.Diagnostics.Trace, puede instalar un adaptador que envíe estos registros a Application Insights junto con otros informes de telemetría.
+Instale el marco de registro elegido en su proyecto. Esto debería producir una entrada en app.config o web.config.
+
+> Debe agregar una entrada a web.config si usa System.Diagnostics.Trace.
+
+## Configuración de Application Insights para recopilar registros
+
+Si todavía no lo ha hecho, **[agregue Application Insights a su proyecto](app-insights-asp-net.md)**. Verá una opción para incluir el compilador de registros.
+
+O **configure Application Insights** haciendo clic con el botón derecho en el proyecto en el Explorador de soluciones. Seleccione las opciones para incluir el compilador de registros.
+
+*¿No aparece ningún menú de Application Insights ni una opción de compilador de registros?* Pruebe la [solución de problemas](#troubleshooting).
+
+
+## Instalación manual
+
+Utilice este método si el tipo de proyecto no es compatible con el programa de instalación de Application Insights (por ejemplo, un proyecto de escritorio de Windows).
 
 1. Si planea usar log4Net o NLog, instálelo en su proyecto. 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
@@ -41,7 +54,7 @@ Si usa un marco de registro, como log4Net, NLog o System.Diagnostics.Trace, pued
 
 El paquete de NuGet instala los ensamblados necesarios y también modifica el archivo web.config o app.config.
 
-#### Insertar llamadas de registro de diagnóstico
+## Insertar llamadas de registro de diagnóstico
 
 Si usa System.Diagnostics.Trace, una llamada típica sería:
 
@@ -66,6 +79,8 @@ Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el 
 
 ## Explorar los registros
 
+Ejecute la aplicación, ya sea en modo de depuración o mediante su implementación para que esté activa.
+
 En la hoja de información general de su aplicación del [portal de Application Insights][portal], elija [Buscar][diagnostic].
 
 ![En Application Insights, elija Buscar.](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
@@ -79,7 +94,7 @@ Por ejemplo, puede:
 * Encontrar otros informes de telemetría relacionados con la misma solicitud de usuario (es decir, con el mismo OperationId) 
 * Guardar la configuración de esta página como favorita
 
-> [AZURE.NOTE]**Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+> [AZURE.NOTE] **Muestreo.** Si la aplicación envía una gran cantidad de datos y usa el SDK de Application Insights para ASP.NET versión 2.0.0-beta3 o posterior, la característica de muestreo adaptativo puede operar y enviar solamente un porcentaje de los datos de telemetría. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
 
 ## Pasos siguientes
 
@@ -90,6 +105,22 @@ Por ejemplo, puede:
 
 
 ## Solución de problemas
+
+### ¿Cómo se puede hacer para Java?
+
+Utilice los [adaptadores de registro de Java](app-insights-java-trace-logs.md).
+
+### No aparece la opción de Application Insights en el menú contextual del proyecto
+
+* Compruebe si las herramientas de Application Insights están instaladas en este equipo de desarrollo. En el menú Herramientas de Visual Studio, en Extensiones y actualizaciones, busque Herramientas de Application Insights. Si no se encuentran en la pestaña Instalado, abra la pestaña En línea e instálelas.
+* Podría tratarse de un tipo de proyecto no admitido por las herramientas de Application Insights. Use la [instalación manual](#manual-installation).
+
+### No aparece la opción de adaptador en la herramienta de configuración
+
+* Debe instalar primero el marco de registro.
+* Si usa System.Diagnostics.Trace, asegúrese [de que lo ha configurado en `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* ¿Tiene la versión más reciente de las herramientas de Application Insights? En el menú **Herramientas** de Visual Studio, elija **Extensiones y actualizaciones** y abra la pestaña **Actualizaciones**. Si las herramientas de Application Insights se encuentran ahí, haga clic para actualizarlas.
+
 
 ### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 
@@ -129,4 +160,4 @@ Si la aplicación envía una gran cantidad de datos y usa el SDK de Application 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

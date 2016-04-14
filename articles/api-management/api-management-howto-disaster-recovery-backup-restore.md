@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/29/2016" 
 	ms.author="sdanie"/>
 
 # Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
@@ -24,11 +24,13 @@ Para poder recuperarse de problemas de disponibilidad que afecten a la región d
 
 Esta guía muestra cómo autenticar las solicitudes del Administrador de recursos de Azure y cómo realizar copias de seguridad y restauraciones de las instancias de servicio de administración de API.
 
->[AZURE.NOTE]El proceso de copia de seguridad y restauración de una instancia del servicio de administración de API para recuperación ante desastres también puede utilizarse para replicar las instancias de servicio de administración de API para escenarios como almacenamiento provisional.
+>[AZURE.NOTE] El proceso de copia de seguridad y restauración de una instancia del servicio de administración de API para recuperación ante desastres también puede utilizarse para replicar las instancias de servicio de administración de API para escenarios como almacenamiento provisional.
+>
+>Tenga en cuenta que cada copia de seguridad expira después de 7 días. Si intenta restaurar una copia de seguridad una vez transcurrido el período de expiración de 7 días, se producirá un error en la restauración con un mensaje `Cannot restore: backup expired`.
 
 ## Solicitudes de autenticación del Administrador de recursos de Azure
 
->[AZURE.IMPORTANT]La API de REST para copia de seguridad y restauración utiliza el Administrador de recursos de Azure y tiene un mecanismo de autenticación diferente que las API de REST para administrar las entidades de la administración de API. Los pasos de esta sección describen cómo autenticar las solicitudes del Administrador de recursos de Azure. Par obtener más información, consulte [Solicitudes de autenticación del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+>[AZURE.IMPORTANT] La API de REST para copia de seguridad y restauración utiliza el Administrador de recursos de Azure y tiene un mecanismo de autenticación diferente que las API de REST para administrar las entidades de la administración de API. Los pasos de esta sección describen cómo autenticar las solicitudes del Administrador de recursos de Azure. Par obtener más información, consulte [Solicitudes de autenticación del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Todas las tareas que se realizan en los recursos mediante el Administrador de recursos de Azure deben autenticarse con Azure Active Directory mediante los siguientes pasos.
 
@@ -38,7 +40,7 @@ Todas las tareas que se realizan en los recursos mediante el Administrador de re
 
 El primer paso es crear una aplicación de Azure Active Directory. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/) mediante la suscripción que contiene la instancia del servicio Administración de API y navegue hasta la pestaña **Aplicaciones** para su Azure Active Directory predeterminado.
 
->[AZURE.NOTE]Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Creación de una aplicación de Azure Active Directory][api-management-add-aad-application]
 
@@ -160,7 +162,7 @@ Establezca el valor del encabezado de solicitud `Content-Type` en `application/j
 
 La restauración es una operación de larga duración que puede tardar 30 minutos o más en completarse. Si la solicitud es correcta y el proceso de restauración se inicia, recibirá un código de estado de respuesta `202 Accepted` con el encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se realiza la restauración, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de restauración se ha completado correctamente.
 
->[AZURE.IMPORTANT]**La SKU** en el que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
+>[AZURE.IMPORTANT] **La SKU** en el que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
 >
 >Los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) con el proceso de restauración en curso **pueden sobrescribirse**.
 
@@ -189,4 +191,4 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

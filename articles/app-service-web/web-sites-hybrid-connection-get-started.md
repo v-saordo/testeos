@@ -13,17 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="02/03/2016" 
 	ms.author="cephalin"/>
 
 #Acceso a recursos locales mediante conexiones híbridas en el Servicio de aplicaciones de Azure
 
-Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cualquier recurso local que utilice un puerto TCP estático, como SQL Server, MySQL, API Web HTTP, Servicios móviles y la mayoría de los servicios web personalizados. En este artículo se muestra cómo crear una conexión híbrida entre una aplicación web del Servicio de aplicaciones y una base de datos de SQL Server local.
+Puede conectar una aplicación del Servicio de aplicaciones de Azure a cualquier recurso local que use un puerto TCP estático, como SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados. En este artículo se muestra cómo crear una conexión híbrida entre el Servicio de aplicaciones y una base de datos de SQL Server local.
 
 > [AZURE.NOTE] La parte Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> 
+> Este contenido también se aplica a Aplicaciones móviles en el Servicio de aplicaciones de Azure.
 
 ## Requisitos previos
 - Una suscripción de Azure. Para obtener una suscripción gratuita, consulte [Prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+ 
+	Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 - Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Se recomienda usar una instancia predeterminada en SQL Server porque usa el puerto estático 1433. Para obtener información sobre cómo instalar y configurar SQL Server Express para su uso con conexiones híbridas, consulte [Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -37,7 +41,7 @@ Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cua
 
 ## Creación de una aplicación web en el Portal de Azure ##
 
-> [AZURE.NOTE] Si ya ha creado una aplicación web en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde ahí.
+> [AZURE.NOTE] Si ya ha creado un back-end de aplicación web o aplicación móvil en el Portal de Azure que desea usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde allí.
 
 1. En la esquina superior izquierda del [Portal de Azure](https://portal.azure.com), haga clic en **Nuevo** > **Web y móvil** > **Aplicación web**.
 	
@@ -93,18 +97,18 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	![Haga clic en Aceptar][CreateBTScomplete]
 	
 6. Al finalizar el proceso, el área de notificaciones del portal le informa de que la conexión se ha creado correctamente.
+	<!-- TODO
 
-<!-- TODO
-
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
-
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification] -->
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+	
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. En la hoja de la aplicación web, el icono **Conexiones híbridas** ahora muestra que se creó una conexión híbrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
@@ -156,14 +160,64 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 
 Ahora que la infraestructura de conexión híbrida se ha completado, puede crear una aplicación híbrida que la utilice.
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]En las secciones siguientes se muestra cómo usar una conexión híbrida con un proyecto de back-end .NET de Aplicaciones móviles.
+
+## Configuración del proyecto de back-end .NET de la aplicación móvil para conectarse a la base de datos de SQL Server
+
+En Servicio de aplicaciones, un proyecto de back-end .NET de Aplicaciones móviles es simplemente una aplicación web de ASP.NET con un SDK de Aplicaciones móviles adicional instalado e inicializado. Para usar la aplicación web como un back-end de Aplicaciones móviles, debe [descargar e inicializar el SDK del back-end .NET de Aplicaciones móviles](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).
+
+Para Aplicaciones móviles, también necesita definir una cadena de conexión para la base de datos local y modificar el back-end para usar esta conexión.
+
+1. En el Explorador de soluciones de Visual Studio, abra el archivo Web.config para el back-end .NET de la aplicación móvil, busque la sección **connectionStrings** y agregue una nueva entrada de SqlClient similar a la siguiente, que apunta a la base de datos de SQL Server local:
+
+	    <add name="OnPremisesDBConnection"
+         connectionString="Data Source=OnPremisesServer,1433;
+         Initial Catalog=OnPremisesDB;
+         User ID=HybridConnectionLogin;
+         Password=<**secure_password**>;
+         MultipleActiveResultSets=True"
+         providerName="System.Data.SqlClient" />
+
+	No olvide reemplazar `<**secure_password**>` en esta cadena por la contraseña que creó para *HbyridConnectionLogin*.
+
+3. Haga clic en **Guardar** en Visual Studio para guardar el archivo Web.config.
+
+	> [AZURE.NOTE]Esta configuración de conexión se usa cuando se ejecuta en el equipo local. Cuando se ejecuta en Azure, esta configuración se reemplaza por la configuración de conexión definida en el portal.
+
+4. Expanda la carpeta **Modelos** y abra el archivo de modelo de datos que termina con *Context.cs*.
+
+6. Modifique el constructor de instancia **DbContext** para pasar el valor `OnPremisesDBConnection` al constructor **DbContext** base, de forma parecida al siguiente fragmento:
+
+        public class hybridService1Context : DbContext
+        {
+            public hybridService1Context()
+                : base("OnPremisesDBConnection")
+            {
+            }
+        }
+
+	El servicio usará ahora la nueva conexión a la base de datos de SQL Server.
+
+## Actualización del back-end de la aplicación móvil para usar la cadena de conexión local
+
+A continuación, deberá agregar una configuración de aplicación para esta cadena de conexión nueva para poder utilizarla desde Azure.
+
+1. En el [Portal de Azure](https://portal.azure.com) en el código de back-end de aplicación web de la aplicación móvil, haga clic en **Toda la configuración** y luego en **Configuración de la aplicación**.
+
+3. En la hoja **Configuración de aplicación web**, desplácese a **Cadenas de conexión** y agregue una nueva cadena de conexión de **SQL Server** denominada `OnPremisesDBConnection` con un valor como `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
+
+	Sustituya `<**secure_password**>` por la contraseña segura de su base de datos local.
+
+	![Cadena de conexión de la base de datos local](./media/web-sites-hybrid-connection-get-started/set-sql-server-database-connection.png)
+
+2. Presione **Guardar** para guardar la conexión híbrida y la cadena de conexión que acaba de crear.
+
+Llegados a este punto puede volver a publicar el proyecto de servidor y probar la nueva conexión con los clientes existentes de Aplicaciones móviles. Mediante la conexión híbrida, se realizarán operaciones de escritura y lectura de datos en la base de datos local.
 
 <a name="NextSteps"></a>
 ## Pasos siguientes ##
 
-- Para obtener información sobre cómo crear una aplicación web de ASP.NET que use una conexión híbrida, consulte [Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
-
-- Para obtener información sobre el uso de una conexión híbrida con un servicio móvil, consulte [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+- Para obtener información sobre cómo crear una aplicación web de ASP.NET que use una conexión híbrida, consulte [Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979). 
 
 ### Recursos adicionales
 
@@ -208,4 +262,4 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/12/2016"
+   ms.date="02/10/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de HDInsight y su incorporación a su aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 El conector HDInsight le permite crear un clúster de Hadoop en Azure y enviar trabajos de Hadoop diferentes como trabajos de Hive, Pig, MapReduce y MapReduce de streaming. El servicio de Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos. El núcleo de Hadoop proporciona almacenamiento de datos confiable con el sistema de archivos distribuido Hadoop (HDFS, Hadoop Distributed File System) y un sencillo modelo de programación MapReduce para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. Mediante el conector de HDInsight puede crear o eliminar un clúster, enviar un trabajo y esperar a que el trabajo finalice.
 
 Los conectores pueden utilizarse en aplicaciones lógicas para capturar, procesar o insertar datos como parte de un flujo. Puede agregar el conector de HDInsight a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -45,7 +47,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 ## Configuración del certificado (opcional) ##
 
-> [AZURE.NOTE]Este paso solo se necesita si desea realizar operaciones de administración (creación y eliminación de clústeres) en la aplicación lógica.
+> [AZURE.NOTE] Este paso solo se necesita si desea realizar operaciones de administración (creación y eliminación de clústeres) en la aplicación lógica.
 
 Vaya a la aplicación de API del conector de HDInsight que acaba de crear y observará que en el componente “Seguridad” aparece 0, lo que significa que no hay ningún certificado de administración cargado: ![][2]
 
@@ -58,7 +60,7 @@ Para cargar el certificado de administración en la aplicación de API:
 
 Cuando el certificado se ha cargado correctamente, se muestran los detalles de este: ![][3]
 
-> [AZURE.NOTE]Si desea cambiar el certificado, puede cargar otro para reemplazar el existente.
+> [AZURE.NOTE] Si desea cambiar el certificado, puede cargar otro para reemplazar el existente.
 
 ## Uso del conector en una aplicación lógica ##
 
@@ -87,7 +89,7 @@ Para probar el escenario, seleccione **Ejecutar ahora** para iniciar la aplicaci
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -107,4 +109,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.png
 [12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0224_2016-->

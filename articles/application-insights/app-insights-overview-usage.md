@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="11/24/2015"
+	ms.date="02/19/2016"
 	ms.author="awills"/>
 
 # Análisis de uso con Application Insights
@@ -25,7 +25,7 @@ Application Insights funciona para aplicaciones independientes (en iOS, Android 
 
 ## Agregar Application Insights a un proyecto
 
-Para empezar, obtenga una suscripción a [Microsoft Azure](https://azure.com). (Hay una prueba gratuita y, después del período de prueba, puede continuar con el nivel gratuito del servicio).
+Para comenzar, obtenga una cuenta gratuita con [Microsoft Azure](https://azure.com). (Después del período de evaluación, puede continuar con el nivel Gratis del servicio).
 
 En el [Portal de Azure](https://portal.azure.com), cree un nuevo recurso de Application Insights. Aquí es donde podrá ver datos de uso y rendimiento sobre la aplicación.
 
@@ -288,4 +288,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

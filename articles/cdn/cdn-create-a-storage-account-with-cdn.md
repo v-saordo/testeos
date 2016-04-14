@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de la red CDN | Microsoft Azure" 
-	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de la red CDN | Microsoft Azure"
+	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 
@@ -24,11 +24,11 @@ CDN puede habilitarse para almacenar el contenido de la caché en Almacenamiento
 
 ## Paso 1: Creación de una cuenta de almacenamiento
 
-Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio de almacenamiento de Azure: servicios BLOB, servicios Cola y servicios Tabla. Para más información, consulte [Introducción al Almacenamiento de Microsoft Azure](../storage-introduction.md).
+Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio de almacenamiento de Azure: servicios BLOB, servicios Cola y servicios Tabla. Para más información, consulte [Introducción al Almacenamiento de Microsoft Azure](../storage/storage-introduction.md).
 
 Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción correspondiente.
 
-> [AZURE.NOTE]Hay varios métodos que puede usar para crear una cuenta de almacenamiento, incluido el Portal de Azure y Powershell. Para este tutorial, usaremos el Portal de Azure.
+> [AZURE.NOTE] Hay varios métodos que puede usar para crear una cuenta de almacenamiento, incluido el Portal de Azure y Powershell. Para este tutorial, usaremos el Portal de Azure.
 
 **Para crear una cuenta de almacenamiento para una suscripción de Azure**
 
@@ -64,14 +64,14 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 
 Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión de CDN. Puede que quiera usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio.
 
-> [AZURE.TIP]Si ya tiene un perfil de red CDN que quiere utilizar para este tutorial, continúe con el [Paso 3](#step-3-create-a-new-cdn-endpoint).
+> [AZURE.TIP] Si ya tiene un perfil de red CDN que quiere utilizar para este tutorial, continúe con el [Paso 3](#step-3-create-a-new-cdn-endpoint).
 
 **Para crear un nuevo perfil de CDN**
 
 1. En el [Portal de administración de Azure](https://portal.azure.com), en la parte superior, haga clic en **Nuevo**. En la hoja **Nuevo**, seleccione **Medios + CDN** y, luego, **CDN**.
 
     Aparece la nueva hoja del perfil de CDN.
-    
+
     ![Nuevo perfil de CDN][new-cdn-profile]
 
 2. Escriba un nombre para su perfil de CDN.
@@ -93,18 +93,18 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN. Puede haberlo anclado al panel en el paso anterior. Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y luego haga clic en el perfil al que planea agregar el punto de conexión.
 
     Aparece la hoja del perfil de CDN.
-    
+
     ![Perfil de CDN][cdn-profile-settings]
-    
-2. Haga clic en el botón **Agregar punto de conexión**.
+
+2. Haga clic en el botón **Agregar extremo**.
 
     ![Botón Agregar punto de conexión][cdn-new-endpoint-button]
 
-    Aparecerá la hoja **Agregar un punto de conexión**.
-    
+    Aparecerá la hoja **Agregar un extremo**.
+
     ![Hoja Agregar punto de conexión][cdn-add-endpoint]
 
-3. Escriba un **Nombre** para este punto de conexión de CDN. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
+3. Escriba un **Nombre** para este punto de conexión de red de entrega de contenido. Este nombre se usará para obtener acceso a sus recursos almacenados en caché en el dominio `<EndpointName>.azureedge.net`.
 
 4. En la lista desplegable **Tipo de origen**, seleccione *Almacenamiento*.
 
@@ -112,7 +112,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
 6. Deje los valores predeterminados para la **Ruta de acceso de origen**, el **Encabezado de host de origen** y el **Puerto de origen/protocolo**. Debe especificar al menos un protocolo (HTTP o HTTPS).
 
-    > [AZURE.NOTE]Esta configuración habilita todos los contenedores visibles públicamente de la cuenta de almacenamiento para el almacenamiento en caché en la red CDN. Si quiere limitar el ámbito a un contenedor único, use **Ruta de acceso de origen**. Tenga en cuenta que el contenedor debe tener su visibilidad establecida en pública.
+    > [AZURE.NOTE] Esta configuración habilita todos los contenedores visibles públicamente de la cuenta de almacenamiento para el almacenamiento en caché en la red CDN. Si quiere limitar el ámbito a un contenedor único, use **Ruta de acceso de origen**. Tenga en cuenta que el contenedor debe tener su visibilidad establecida en pública.
 
 7. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
 
@@ -120,7 +120,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 
     ![Punto de conexión de CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
+    > [AZURE.NOTE] El punto de conexión no estará disponible inmediatamente para su uso. Se pueden tardar hasta 90 minutos en que el registro se propague a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 404 hasta que el contenido esté disponible a través de la red CDN.
 
 
 ## Paso 4: Acceso a su contenido de la red CDN
@@ -129,7 +129,7 @@ Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, 
 
 http://<*NombrePuntoConexión*>.azureedge.net/<*miContenedorPúblico*>/<*NombreDeBlob*>
 
-> [AZURE.NOTE]Una vez que haya habilitado el acceso de la red CDN a una cuenta de almacenamiento o servicio hospedado, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN. Si modifica un objeto que está almacenado en la memoria caché de la red CDN actualmente, el nuevo contenido no estará disponible a través de la red CDN hasta que la red CDN actualice su contenido al cumplir el período de vida del contenido almacenado en caché.
+> [AZURE.NOTE] Una vez que haya habilitado el acceso de la red CDN a una cuenta de almacenamiento o servicio hospedado, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN. Si modifica un objeto que está almacenado en la memoria caché de la red CDN actualmente, el nuevo contenido no estará disponible a través de la red CDN hasta que la red CDN actualice su contenido al cumplir el período de vida del contenido almacenado en caché.
 
 ## Paso 5: Eliminación de su contenido de la red CDN
 
@@ -154,4 +154,4 @@ Un objeto que ya está almacenado en la memoria caché de la red CDN permanecer�
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="chrande"/>
 
 # Actualización del Servicio móvil de Azure de Node.js existente a Servicio de aplicaciones
@@ -28,7 +28,7 @@ Cuando un back-end móvil se actualiza a Servicio de aplicaciones de Azure, acce
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Se recomienda [realizar una migración](app-service-mobile-migrating-from-mobile-services.md) antes de pasar por una actualización. De este modo, puede colocar las dos versiones de la aplicación en el mismo Plan del Servicio de aplicaciones y no incurrir en ningún coste adicional.
+>[AZURE.TIP] Se recomienda [realizar una migración](app-service-mobile-migrating-from-mobile-services.md) antes de pasar por una actualización. De este modo, puede colocar las dos versiones de la aplicación en el mismo Plan del Servicio de aplicaciones y no incurrir en ningún coste adicional.
 
 ### Mejoras en el SDK de servidor para Node.js de Aplicaciones móviles
 
@@ -48,7 +48,7 @@ La actualización al nuevo [SDK de Aplicaciones móviles](https://www.npmjs.com/
 
 A diferencia del SDK de Aplicaciones móviles para .NET, la actualización de un back-end de Node de Servicios móviles a Aplicaciones móviles no es tan simple como intercambiar paquetes. Ahora posee la pila de toda la aplicación, en lugar de controlarla Azure y, por tanto, tiene que crear una aplicación Express básica para hospedar el back-end móvil. En el caso de la tabla y los controladores de API, los conceptos son similares, pero ahora debe exportar objetos de tabla y las API de función han cambiado ligeramente. Este artículo le guiará a través de las estrategias básicas de la actualización, pero para poder migrar, conviene que lea los [procedimientos de back-end de Node](app-service-mobile-node-backend-how-to-use-server-sdk.md) antes de empezar.
 
->[AZURE.TIP]Lea y comprenda por completo el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
+>[AZURE.TIP] Lea y comprenda por completo el resto de este tema antes de iniciar una actualización. Tome nota de cualquier característica usada que se mencione a continuación.
 
 Los SDK de cliente de Servicios móviles **no** son compatibles con el nuevo SDK de servidor de Aplicaciones móviles. A fin de ofrecer continuidad del servicio para la aplicación, no debe publicar cambios en un sitio que actualmente presta servicio a clientes publicados. En su lugar, debe crear una aplicación móvil que actúe como duplicado. Puede colocar esta aplicación en el mismo Plan del Servicio de aplicaciones para evitar incurrir en costos financieros adicionales.
 
@@ -127,11 +127,11 @@ El servicio Aplicaciones móviles ofrece un nuevo [SDK de servidor de Aplicacion
 
 ### Configuración base
 
-El servidor cuenta con gran cantidad de opciones de configuración, pero incluye diversos valores predeterminados para que se sea fácil empezar a trabajar. Muchas de las opciones se configurarán automáticamente en el [Portal de Azure], mediante los menús de configuración **Datos**, **Autenticación/autorización** e **Inserción**. En el caso del desarrollo local, si desea usar datos, autenticación e inserción, puede que tenga que configurar el entorno de desarrollo local.
+El servidor cuenta con gran cantidad de opciones de configuración, pero incluye diversos valores predeterminados para que se sea fácil empezar a trabajar. Muchas de las opciones se configurarán automáticamente en el [Portal de Azure], a través los menús de configuración **Datos**, **Autenticación/autorización** e **Inserción**. En el caso del desarrollo local, si desea usar datos, autenticación e inserción, puede que tenga que configurar el entorno de desarrollo local.
 
 Puede definir la configuración del servidor mediante variables de entorno que se establecen a través de Configuración de aplicaciones en el back-end de aplicación móvil.
 
-Si desea personalizar aún más el SDK de Aplicaciones móviles, pase un [objeto de configuración](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) al inicializador o [cree un archivo denominado azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk/#howto-config-localdev) en la raíz del proyecto.
+Si desea personalizar aún más el SDK de Aplicaciones móviles, pase un [objeto de configuración](http://azure.github.io/azure-mobile-apps-node/global.html#configuration) al inicializador o [cree un archivo denominado azureMobile.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-config-localdev) en la raíz del proyecto.
 
 ### Trabajo con datos y tablas
 
@@ -288,4 +288,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0211_2016-->

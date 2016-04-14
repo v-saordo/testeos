@@ -3,8 +3,8 @@
    description="Averigüe cómo Copia de seguridad de Azure controla los datos cifrados con BitLocker o dmcrypt durante la copia de seguridad de máquinas virtuales de IaaS. Este artículo le prepara para las diferencias en las experiencias de copia de seguridad y restauración al trabajar con discos cifrados."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="markgalioto"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="11/27/2015"
-   ms.author="aashishr"/>
+   ms.author="markgal; jimpark"/>
 
 # Tratar con discos cifrados durante la copia de seguridad de máquina virtual
 
@@ -42,7 +42,7 @@ Hay muchos elementos de esta solución que se tienen que configurar y administra
 | Restauración de datos | Copia de seguridad de Azure | Use la Copia de seguridad de Azure para restaurar discos o una máquina virtual completa desde un punto de recuperación. Los datos no se descifran por la Copia de seguridad de Azure como parte de la operación de restauración.|
 | Descifrado | BitLocker o dmcrypt | Para leer datos de un disco de datos restaurada o una máquina virtual restaurada, el software necesita la clave desde el software de administración de claves. Sin la clave correcta, no se pueden descifrar los datos. |
 
-> [AZURE.IMPORTANT]La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
+> [AZURE.IMPORTANT]  La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
 
 ## CloudLink SecureVM
 
@@ -62,4 +62,4 @@ Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen c
 - [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

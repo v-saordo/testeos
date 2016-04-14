@@ -52,7 +52,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El número del elemento de telemetría.   
 
-    *Derivación:* si es null, count = 1.
+    *Derivación*: si es null, count = 1.
 
 **duration**
 
@@ -60,7 +60,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La duración del elemento de telemetría. Para la solicitud, se trata el tiempo de ejecución de la solicitud. 
 
-    *Valor predeterminado:* R1: para la vista, este campo es opcional.
+    *Valor predeterminado*: R1: para la vista, este campo es opcional
 
 **message**
 
@@ -354,7 +354,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El explorador del cliente 
 
-    *Valor predeterminado:* si es null, se establece según el procesamiento del agente de usuario. Consulte el apéndice para analizar el agente de usuario
+    *Valor predeterminado*: si es null, se establece basándose en el proceso del agente de usuario. Consulte el apéndice para analizar el agente de usuario
 
     *Ejemplos*<br/> Opera<br/>Mobile Safari<br/>Ovi Browser<br/>Chrome<br/>Firefox<br/>Internet Explorer
 
@@ -364,7 +364,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La versión del explorador del cliente 
 
-    *Valor predeterminado:* si es null, se establece según el procesamiento del agente de usuario. Consulte el apéndice para analizar el agente de usuario
+    *Valor predeterminado*: si es null, se establece basándose en el proceso del agente de usuario. Consulte el apéndice para analizar el agente de usuario
 
     *Ejemplos*<br/> Opera 12.17<br/>Mobile Safari 8.0<br/>Ovi Browser 5.5<br/>Chrome 37.0<br/>Firefox 21.0<br/>Internet Explorer 7.0
 
@@ -434,7 +434,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El alto de la pantalla de la aplicación en el hardware del cliente en el momento en que se registra el elemento de telemetría. Si no se proporciona explícitamente, se obtiene mediante una transformación del elemento de datos de resolución de pantalla. 
 
-    *Derivación:* analizado desde context.device.screenresolution si está presente
+    *Derivación:* analizado desde context.device.screenresolution si está presente.
 
     *Ejemplos*<br/> 360<br/>1280<br/>1920
 
@@ -475,11 +475,13 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     ipv4 context.location.clientip      
 * 
-    La dirección IPv4 del cliente con el formato xxx.xxx.xxx.xxx.   
+    La dirección IPv4 del cliente con el formato xxx.xxx.xxx.xxx.
+
+     El último octeto siempre se establece en 0 para solucionar problemas de privacidad.
 
     *Valor predeterminado:* si es null, se establece en la dirección IP HTTP capturada en el extremo de recopilación de datos
 
-    *Ejemplos*<br/> 0.123.63.143<br/>123.203.131.197
+    *Ejemplos*<br/> 186.123.63.0<br/>123.203.131.0
 
 **continent**
 
@@ -530,7 +532,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Si issynthetic=true, este elemento de datos representa el origen de los datos sintéticos. 
 
-    *Valor predeterminado:* si es null, el agente de usuario se inspecciona para orígenes sintéticos conocidos (agentes de búsqueda, etc.) y, en función de esto, se puede establecer el origen.
+    *Valor predeterminado*: si es null, el agente de usuario se inspecciona para orígenes sintéticos conocidos (webcrawlers, etc.) y en función de esto, se puede establecer el origen.
 
 **syntheticTransaction**
 
@@ -538,7 +540,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Indica que se generó el elemento de telemetría debido a pruebas sintéticas y actividad de usuario no real. 
 
-    *Valor predeterminado:* si es null, el agente de usuario se inspecciona con una lista de agentes sintéticos conocidos. Si se encuentra una coincidencia, el valor se establece en true.<br/>Si el agente de usuario es null, se establece en false
+    *Valor predeterminado:* si es null, el agente de usuario se inspecciona con una lista de agentes sintéticos conocidos. Si se encuentra una coincidencia, el valor se establece en true.<br/>Si el agente de usuario es null, se establece en false.
 
 **session.Id**
 
@@ -629,7 +631,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 
     *Derivación:* se estandariza en &lt;telemetryType.name&gt;.
 
-**remoteDependencyType**
+**type**
 
     string remotedependency.remotedependencytype      Max: 100
 * 
@@ -733,7 +735,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El primer evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en event.name
+    *Derivación*: procede de event.name
 
 **entryUrl**
 
@@ -761,7 +763,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El último evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* con origen en event.name
+    *Derivación*: procede de event.name
 
 **exitUrl**
 
@@ -961,7 +963,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El protocolo (HTTP, FTP, etc.) de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
 
     *Ejemplos*<br/> http<br/>https
 
@@ -971,7 +973,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de los nombres de los parámetros de consulta de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
+    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.queryParameters.value**
 
@@ -979,7 +981,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de valores de los parámetros de consulta analizados desde la dirección URL de referringData. 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 
 
@@ -989,4 +991,4 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

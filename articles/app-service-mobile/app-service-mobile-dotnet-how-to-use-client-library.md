@@ -8,22 +8,19 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="03/02/2016"
 	ms.author="glenga"/>
 
 # Uso del cliente administrado para Aplicaciones móviles de Azure
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##Información general 
+##Información general
 
 En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Aplicaciones móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md). En esta guía, nos centramos en el SDK administrado de cliente. Para más información sobre los SDK del lado servidor para aplicaciones móviles, vea [Trabajar con el SDK del back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) o [Cómo usar el SDK del back-end de Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -57,8 +54,7 @@ Para información sobre cómo crear tablas nuevas en el back-end de aplicaciones
 
 El código siguiente crea el objeto `MobileServiceClient` que se usa para tener acceso al back-end de la aplicación móvil.
 
-	MobileServiceClient client = new MobileServiceClient(
-		"MOBILE_APP_URL", "", "");
+	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
 En el código anterior, reemplace `MOBILE_APP_URL` por la dirección URL del back-end de la aplicación móvil, que se encuentra en la hoja de la aplicación móvil en el [Portal de Azure](https://portal.azure.com/).
 
@@ -189,8 +185,8 @@ Puede especificar qué conjunto de propiedades se incluirá en los resultados ag
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -261,7 +257,7 @@ El siguiente código muestra cómo actualizar una instancia existente con el mis
 
 	await todoTable.UpdateAsync(todoItem);
 
-Para insertar datos sin tipo, puede aprovechar Json.NET como sigue: 
+Para insertar datos sin tipo, puede aprovechar Json.NET como sigue:
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World");
@@ -329,7 +325,7 @@ Las plantillas serán de tipo JObject y pueden contener varias plantillas con el
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -481,7 +477,7 @@ Para finalizar, imagine que la tabla contiene muchos campos, pero solo desea que
 
 ## <a name="adal"></a>Autenticación de usuarios con la biblioteca de autenticación de Active Directory
 
-Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Esta opción es con frecuencia preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
+Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para iniciar la sesión de los usuarios en su aplicación con Azure Active Directory. Con frecuencia, esta opción es preferible al uso de los métodos `loginAsync()`, ya que proporciona una experiencia UX más nativa y permite personalizaciones adicionales.
 
 1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de la aplicación del Servicio de aplicaciones para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md). Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 
@@ -489,13 +485,13 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 
 3. Agregue el siguiente código a la aplicación, según la plataforma que utilice. En cada caso, realice las sustituciones siguientes:
 
-* Sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que ha aprovisionado la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
+* Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
 
-* Sustituya **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
+* Reemplace **INSERT-RESOURCE-ID-HERE** por el id. de cliente del back-end de la aplicación móvil. Puede obtenerlo en la pestaña **Avanzadas** en **Configuración de Azure Active Directory** en el portal.
 
-* Sustituya **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
+* Reemplace **INSERT-CLIENT-ID-HERE** por el id. de cliente que copió de la aplicación cliente nativa.
 
-* Sustituya **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
+* Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión _/.auth/login/done_ del sitio, mediante el esquema HTTPS. Este valor debería ser similar a \__https://contoso.azurewebsites.net/.auth/login/done_.
 
 El código necesario para cada plataforma es el siguiente:
 
@@ -586,7 +582,7 @@ El código necesario para cada plataforma es el siguiente:
 
 ## <a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
 
-En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push y determinados modos de autenticación. Para obtener este valor:
+En aplicaciones de Windows, se necesita un SID de paquete para habilitar las notificaciones push. Para obtener este valor:
 
 1. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de la aplicación de la Tienda Windows y luego haga clic en **Tienda** > **Asociar aplicación con la Tienda...**.
 2. En el asistente, haga clic en **Siguiente**, inicie sesión con su cuenta Microsoft, escriba un nombre para la aplicación en **Reserve un nuevo nombre de aplicación** y luego haga clic en **Reservar**.
@@ -679,9 +675,9 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 ####Single sign-in using Microsoft Account with the Live SDK
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](app-service-mobile-how-to-configure-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -809,7 +805,7 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.
@@ -848,7 +844,7 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 
 
 <!-- URLs. -->
-[Add authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
+[Add authentication to your app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
@@ -858,8 +854,6 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md/#Commands_to_manage_mobile_services
-[Optimistic Concurrency Tutorial]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
 [Skip]: http://msdn.microsoft.com/library/windowsazure/dn250573.aspx
@@ -869,4 +863,4 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

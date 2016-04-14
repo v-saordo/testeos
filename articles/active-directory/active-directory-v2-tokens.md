@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Referencia de los tokens de la versión 2.0 de Azure AD | Microsoft Azure"
-	description="Los tipos de tokens y notificaciones emitidos por el extremo de la versión 2.0"
+	description="Los tipos de tokens y notificaciones emitidos por el punto de conexión v2.0"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="02/20/2016"
 	ms.author="dastrock"/>
 
-# Referencia de los tokens de la versión 2.0
+# Referencia de los tokens de v2.0
 
 El extremo de la versión 2.0 emite varios tipos de tokens de seguridad en el procesamiento de cada [flujo de autenticación](active-directory-v2-flows.md). Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
 
 > [AZURE.NOTE]
-	Esta información se aplica a la vista previa pública de la versión 2.0 del modelo de aplicaciones. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 
 ## Tipos de tokens
 
@@ -51,11 +51,11 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Nombre | Notificación | Valor de ejemplo | Descripción |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | Público | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifica al destinatario previsto del token. En los id\_tokens, la audiencia es el Id. de aplicación de la aplicación, como se asigna a tu aplicación en el portal de registro de la aplicación. La aplicación tiene que validar este valor y rechazar el token si no coincide. |
-| Emisor | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token, así como el inquilino de Azure AD en el que se autenticó al usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión 2.0. También puede usar la parte guid de la notificación para restringir el conjunto de los inquilinos que tienen permiso para iniciar sesión en la aplicación. |
+| Emisor | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` | Identifica el servicio de token de seguridad (STS) que construye y devuelve el token, así como el inquilino de Azure AD en el que se autenticó al usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del extremo de la versión 2.0. También puede usar la parte GUID de la notificación para restringir el conjunto de los inquilinos que tienen permiso para iniciar sesión en la aplicación. El GUID que indica que el usuario es un usuario consumidor de la cuenta Microsoft es `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | Emitido a las | `iat` | `1452285331` | La hora en que se emitió el token, que se representa en tiempo de época. |
 | Fecha de expiración | `exp` | `1452289231` | La hora en que el token deja de ser válido, que se representa en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
 | No antes de | `nbf` | `1452285331` | Hora a la que el token pasa a ser válido, representada en tiempo de época. Normalmente es la misma que la hora de emisión. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |
-| Versión | `ver` | `2.0` | La versión del id\_token, tal como se define por Azure AD. Para la versión 2.0 del modelo de aplicaciones, el valor será `2.0`. |
+| Versión | `ver` | `2.0` | La versión del id\_token, tal como se define por Azure AD. Para el punto de conexión v2.0, el valor será `2.0`. |
 | Identificador de inquilino | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | Un guid que representa el inquilino de Azure AD de donde procede el usuario. Para las cuentas profesionales y educativas, el guid será el identificador del inquilino inmutable de la organización a la que pertenece el usuario. Para las cuentas personales, el valor será `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
 | Código Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El código hash se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Consulta la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
 | Hash de Token de acceso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | El hash de token de acceso se incluye en los id\_tokens solo cuando se emite el id\_token junto con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Consulta la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) para más información sobre cómo realizar esta validación. |
@@ -65,7 +65,6 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Nombre de usuario preferido | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | El nombre de usuario principal que se utiliza para representar al usuario en el extremo de la versión 2.0. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y puede cambiar a un usuario determinado con el tiempo. El ámbito `profile` es necesario para recibir esta notificación. |
 | Asunto | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar o volver a usar, por lo que se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando se usa el token para tener acceso a un recurso. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. |
 | ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | El Id. de objeto de la cuenta profesional o educativa del sistema de Azure AD. Esta notificación no se emitirá para cuentas personales de Microsoft. El ámbito `profile` es necesario para recibir esta notificación. |
-
 
 
 ## Tokens de acceso
@@ -88,7 +87,6 @@ Los tokens de actualización son, y siempre serán, totalmente opacos para tu ap
 
 Cuando canjeas un token de actualización por un nuevo token de acceso (y si se concedió el ámbito `offline_access` a la aplicación), recibirás un nuevo token de actualización en la respuesta del token. Tienes que guardar el token de actualización recién emitido reemplazando el utilizado en la solicitud. Esto garantizará que los tokens de actualización sigan siendo válidos mientras sea posible.
 
-
 ## Validación de los tokens
 
 En este momento, la única validación de tokens que deberían realizar tus aplicaciones es la validación de id\_tokens. Para validar un id\_token, la aplicación tiene que validar la firma del id\_token y las notificaciones del id\_token.
@@ -109,7 +107,7 @@ Los id\_tokens se firman con algoritmos de cifrado asimétrico estándar del sec
 }
 ```
 
-La notificación `alg` indica el algoritmo que se usó para firmar el token, mientras la notificación `kid` indica la clave pública concreta que se usó para firmar el token.
+La notificación `alg` indica el algoritmo que se usó para firmar el token, mientras que la notificación `kid` indica la clave pública concreta que se usó para firmar el token.
 
 En cualquier momento, el extremo de la versión 2.0 puede firmar un id\_token utilizando uno de un determinado conjunto de pares de claves pública y privada. El extremo de la versión 2.0 gira el posible conjunto de claves de forma periódica, por lo que tu aplicación debería estar redactada para manejar esos cambios de claves automáticamente. Una frecuencia razonable para comprobar las actualizaciones de las claves públicas usadas por el extremo de la versión 2.0 es aproximadamente 24 horas.
 
@@ -156,4 +154,4 @@ Las siguientes vigencias de tokens solo se ofrecen para tu conocimiento, ya que 
 | Códigos de autorización (cuentas profesionales o educativas) | 10 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. |
 | Códigos de autorización (cuentas personales) | 5 minutos | Los códigos de autorización son de corta duración a propósito y se deben canjear inmediatamente por access\_tokens y refresh\_tokens cuando se reciben. Los códigos de autorización emitidos en nombre de las cuentas personales también son de un solo uso. |
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

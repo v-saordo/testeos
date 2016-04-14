@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -116,7 +116,7 @@ Puede utilizar Mis aplicaciones para iOS en cualquier iPhone o iPad que tenga la
 
 
 
-> [AZURE.NOTE]Aquellas aplicaciones que admitan federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) pueden iniciar sesión de forma virtual desde cualquier explorador de cualquier dispositivo sin necesidad de instalar complementos o aplicaciones móviles. Tampoco necesitará usar la aplicación móvil Mis aplicaciones en su dispositivo móvil para utilizar el resto del panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/).
+> [AZURE.NOTE] Aquellas aplicaciones que admitan federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) pueden iniciar sesión de forma virtual desde cualquier explorador de cualquier dispositivo sin necesidad de instalar complementos o aplicaciones móviles. Tampoco necesitará usar la aplicación móvil Mis aplicaciones en su dispositivo móvil para utilizar el resto del panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/).
  
 
 
@@ -172,8 +172,12 @@ Algunas aplicaciones pueden requerir que los usuarios cambien su contraseña en 
 
 Al configurar un inicio de sesión único para una aplicación, el portal de administración de Azure proporciona una tercera opción, el "Inicio de sesión único existente". Esta opción permite al administrador crear un vínculo a una aplicación y colocarlo en el panel de acceso de los usuarios seleccionados. Por ejemplo, si hay una aplicación que está configurada para autenticar a los usuarios mediante Servicios de federación de Active Directory 2.0, el administrador puede utilizar la opción "Inicio de sesión único existente" para crear un vínculo a éste en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante Servicios de federación de Active Directory 2.0 o cualquier solución de inicio de sesión único existente que proporcione la aplicación.
 
+##Artículos relacionados
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
+- [Introducción al acceso a la aplicación Inicio de sesión único y administración con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Aprovisionamiento y desaprovisionamiento automático de usuarios para aplicaciones SaaS](active-directory-saas-app-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
@@ -181,4 +185,4 @@ Al configurar un inicio de sesión único para una aplicación, el portal de adm
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

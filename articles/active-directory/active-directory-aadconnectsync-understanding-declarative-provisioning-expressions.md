@@ -3,7 +3,7 @@
 	description="Explica las expresiones declarativas de aprovisionamiento."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="andkjell"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,19 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
 # Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
-
 Azure AD Connect Sync se basa en el aprovisionamiento declarativo presentado por primera vez en Forefront Identity Manager 2010 para permitirle implementar la lógica empresarial completa de integración de identidades sin necesidad de escribir código compilado.
 
 Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresiones que se usa en flujos de atributos. El lenguaje usado es un subconjunto de Microsoft® Visual Basic® para Aplicaciones. Este lenguaje se usa en Microsoft Office, y los usuarios con experiencia en VBScript también lo reconocerán. El lenguaje de expresiones de aprovisionamiento declarativo solo utiliza funciones y no es un lenguaje estructurado; no hay métodos ni instrucciones. Las funciones se anidarán en su lugar en el flujo de programa rápido.
 
 Para más información, vea [Referencia del lenguaje VBA para Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-Los atributos están fuertemente tipados. Una función que espera un atributo de cadena de valor único no aceptará varios valores o atributos para un tipo diferente. También distingue mayúsculas de minúsculas. Los nombres de función y los nombres de atributo deben tener la grafía correcta o se producirá un error
+Los atributos están fuertemente tipados. Una función solo aceptará los atributos del tipo correcto. También distingue mayúsculas de minúsculas. Los nombres de función y los nombres de atributo deben tener la grafía correcta o se producirá un error
 
 ## Identificadores y definiciones de idioma
 
@@ -65,7 +64,7 @@ El sistema proporciona el parámetro siguiente, que se usa para obtener el ident
 
 Un ejemplo que llenará el dominio del atributo de metaverso con el nombre netbios del dominio en el que se encuentra el usuario:
 
-`domain <- %Domain.Netbios%`
+`domain` <- `%Domain.Netbios%`
 
 ### Operadores
 
@@ -77,7 +76,7 @@ Pueden utilizarse los siguientes operadores:
 - **Lógico**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
-Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (*) no se evalúa antes que la resta (-). 2*(5+3) no es lo mismo que 2*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
+Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, la multiplicación (\*) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los corchetes () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
 
 ## Escenarios comunes
 
@@ -85,13 +84,13 @@ Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de
 
 Los atributos de cadena se establecen de forma predeterminada para que puedan indexarse y tengan una longitud máxima de 448 caracteres. Si está trabajando con atributos de cadena que podrían contener más, asegúrese de incluir lo siguiente en el flujo de atributos:
 
-`attributeName <- Left([attributeName],448)`
+`attributeName` <- `Left([attributeName],448)`
 
 ### Cambio de userPrincipalSuffix
 
-Los usuarios no siempre conocen el atributo userPrincipalName en Active Directory y puede no ser igual de adecuado que el identificador de inicio de sesión. El Asistente para la instalación de Azure AD Connect Sync permite la selección de un atributo diferente, por ejemplo, correo. Sin embargo, en algunos casos, debe calcularse el atributo. Por ejemplo, la empresa Contoso tiene dos directorios de Azure AD, uno para producción y otro para pruebas. Quieren que los usuarios de su inquilino de prueba solo cambien el sufijo del identificador de inicio de sesión.
+Los usuarios no siempre conocen el atributo userPrincipalName de Active Directory y podría no resultar adecuado como identificador de inicio de sesión. El Asistente para la instalación de Azure AD Connect Sync permite la selección de un atributo diferente, por ejemplo, correo. Sin embargo, en algunos casos, debe calcularse el atributo. Por ejemplo, la empresa Contoso tiene dos directorios de Azure AD, uno para producción y otro para pruebas. Quieren que los usuarios de su inquilino de prueba solo cambien el sufijo del identificador de inicio de sesión.
 
-`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 En esta expresión tomamos todo de la izquierda en el primer @-sign (Word) y se concatena con una cadena fija.
 
@@ -99,7 +98,7 @@ En esta expresión tomamos todo de la izquierda en el primer @-sign (Word) y se 
 
 Algunos atributos de Active Directory tienen varios valores en el esquema aunque parezca que tienen un valor en Usuarios y equipos de Active Directory. Un ejemplo es el atributo description.
 
-`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 En esta expresión, en caso de que el atributo tenga un valor, tomamos el primer elemento (Elemento) en el atributo, quitamos los espacios iniciales y finales (Recorte) y, a continuación, conservamos los primeros 448 caracteres (Izquierda) en la cadena.
 
@@ -111,7 +110,7 @@ Para las reglas de sincronización entrantes, debe usarse siempre la constante *
 
 Existen dos constantes distintas que utilizar par alas reglas de sincronización salientes: NULL e IgnoreThisFlow. Ambas indican que el flujo de atributos no tiene nada a lo que contribuir, pero la diferencia es lo que ocurre cuando ninguna otra regla tiene nada que aportar. Si hay un valor existente en el directorio conectado, se llevará a cabo una eliminación del valor NULL en el atributo quitándolo, mientras que IgnoreThisFlow conservará el valor existente.
 
-#### ImportedValue
+### ImportedValue
 
 La función ImportedValues es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes: ImportedValue(“proxyAddresses”).
 
@@ -119,7 +118,7 @@ Normalmente, un atributo usará el valor esperado durante la sincronización, in
 
 Encontrará un ejemplo de esto en la regla de sincronización lista para su aplicación en AD – User Common desde Exchange, donde en Hybrid Exchange el valor agregado por Exchange Online solo debe sincronizarse si se ha confirmado que el valor se ha exportado correctamente:
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
+`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
 Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md).
 
@@ -131,4 +130,4 @@ Para una lista completa de funciones, vea [Azure AD Connect Sync: referencia de 
 
 <!--Image references-->
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

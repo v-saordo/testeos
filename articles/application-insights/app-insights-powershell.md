@@ -19,7 +19,7 @@
 
 En este artículo se muestra cómo crear un recurso de [Application Insights](app-insights-overview.md) en Azure automáticamente. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md), [configurar alertas](app-insights-alerts.md) y crear otros recursos de Azure.
 
-La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](powershell-azure-resource-manager.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
+La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../powershell-azure-resource-manager.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 
 ## Instalación única
 
@@ -100,7 +100,7 @@ Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los 
 
 ## Parametrización de la plantilla
 
-Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](resource-group-authoring-templates.md), escriba expresiones mediante un [conjunto de funciones auxiliares](resource-group-template-functions.md).
+Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](../resource-group-authoring-templates.md), escriba expresiones mediante un [conjunto de funciones auxiliares](../resource-group-template-functions.md).
 
 No se puede parametrizar solo una parte de una cadena, así que use `concat()` para compilar las cadenas.
 
@@ -311,4 +311,13 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
 
 ```
 
-<!---HONumber=AcomDC_0128_2016-->
+## Consulte también
+
+Otros artículos de automatización:
+
+* [Script de PowerShell para crear un recurso de Application Insights](app-insights-powershell-script-create-resource.md): método rápido sin necesidad de plantilla.
+* [Uso de PowerShell para configurar alertas en Application Insights](app-insights-powershell-alerts.md)
+* [Envío de Azure Diagnostics a Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Creación de anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="02/09/2016"
 	ms.author="adrianhall"/>
 
 # Uso del SDK de Node.js de Aplicaciones móviles de Azure
@@ -21,8 +21,6 @@
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 En este artículo se ofrece información detallada y ejemplos sobre cómo trabajar con un back-end de Node.js en Aplicaciones móviles del Servicio de aplicaciones de Azure.
-
-> [AZURE.NOTE] Este SDK está en VERSIÓN PRELIMINAR. Por ello, se recomienda no usar este SDK en un entorno de producción. En los ejemplos de este documento se usa la versión v2.0.0-rc2 de [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introducción
 
@@ -76,6 +74,7 @@ Cada back-end de Node.js de aplicación móvil del Servicio de aplicaciones de A
 Esta aplicación crea una WebAPI sencilla optimizada para móviles con un único punto de conexión (`/tables/TodoItem`) que proporciona el acceso no autenticado a un almacén de datos SQL subyacente mediante un esquema dinámico. Es adecuado para los siguientes inicios rápidos de la biblioteca de cliente:
 
 - [Inicio rápido de cliente de Android]
+- [Inicio rápido de cliente de Apache Cordova]
 - [Inicio rápido de cliente de iOS]
 - [Inicio rápido de cliente de Windows]
 - [Inicio rápido de cliente de Xamarin.iOS]
@@ -121,7 +120,7 @@ Visual Studio 2015 requiere una extensión para desarrollar aplicaciones Node.js
         // Azure Mobile Apps Initialization
         var mobile = azureMobileApps();
         mobile.tables.add('TodoItem');
-        app.use('mobile');
+        app.use(mobile);
 
     Guarde el archivo .
 
@@ -135,7 +134,7 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 
 2. Siga los pasos de [Habilitación del repositorio de aplicaciones web](../app-service-web/web-sites-publish-source-control.md#Step4) a fin de habilitar el repositorio de Git para el sitio del back-end, y tome nota del nombre de usuario y de la contraseña de la implementación.
 
-3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git **.
+3. En la hoja para el back-end de la aplicación móvil, tome nota del valor de **URL de clonación de Git**.
 
 4.  Ejecute el comando `git clone` en una herramienta de línea de comandos compatible con Git mediante la URL de clonación de Git e introduzca la contraseña cuando sea necesario, como en el ejemplo siguiente:
 
@@ -329,7 +328,7 @@ A continuación se muestra un archivo de ejemplo _azureMobile.js_ que implementa
 
 Se recomienda que agregue _azureMobile.js_ al archivo _.gitignore_ (o a otro archivo de omisiones de control de código fuente) para evitar que las contraseñas se almacenen en la nube. Configure siempre los valores de producción en la configuración de la aplicación dentro del [Portal de Azure].
 
-### <a name="howto-appsettings"><a>Configuración de aplicaciones para configurar la aplicación móvil
+### <a name="howto-appsettings"></a>Configuración de aplicaciones para configurar la aplicación móvil
 
 La mayoría de las opciones de configuración del archivo _azureMobile.js_ tiene una configuración de aplicación equivalente en el [Portal de Azure]. Para configurar la aplicación en Configuración de aplicaciones, use la siguiente lista:
 
@@ -380,7 +379,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 7. En la hoja **Agregar conexión de datos**, haga clic en **Base de datos SQL - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor ** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **Inicio de sesión del administrador del servidor** y una **Contraseña** adecuados. Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
 	![Creación de una Base de datos SQL de Azure][6]
 
@@ -431,6 +430,67 @@ La propiedad de acceso puede tomar uno de tres valores
   - *disabled* indica que esta tabla está deshabilitada actualmente
 
 Si la propiedad de acceso no está definida, se permite el acceso no autenticado.
+
+### <a name="howto-tables-getidentity"></a>Uso de notificaciones de autenticación con las tablas
+
+Puede configurar un número de notificaciones que se solicitan cuando se configura la autenticación. Estas notificaciones no suelen estar disponibles a través del objeto `context.user`. Sin embargo, se pueden recuperar mediante el método `context.user.getIdentity()`. El método `getIdentity()` devuelve una promesa que se resuelve en un objeto. El objeto tiene como clave el método de autenticación (facebook, google, twitter, microsoftaccount o aad).
+
+Por ejemplo, si establece la autenticación mediante una cuenta Microsoft y solicita la notificación de direcciones de correo electrónico, puede agregar la dirección de correo electrónico al registro con la información siguiente:
+
+    var azureMobileApps = require('azure-mobile-apps');
+
+    // Create a new table definition
+    var table = azureMobileApps.table();
+
+    table.columns = {
+        "emailAddress": "string",
+        "text": "string",
+        "complete": "boolean"
+    };
+    table.dynamicSchema = false;
+    table.access = 'authenticated';
+
+    /**
+    * Limit the context query to those records with the authenticated user email address
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function queryContextForEmail(context) {
+        return context.user.getIdentity().then((data) => {
+            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+            return context.execute();
+        });
+    }
+
+    /**
+    * Adds the email address from the claims to the context item - used for
+    * insert operations
+    * @param {Context} context the operation context
+    * @returns {Promise} context execution Promise
+    */
+    function addEmailToContext(context) {
+        return context.user.getIdentity().then((data) => {
+            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+            return context.execute();
+        });
+    }
+
+    // Configure specific code when the client does a request
+    // READ - only return records belonging to the authenticated user
+    table.read(queryContextForEmail);
+
+    // CREATE - add or overwrite the userId based on the authenticated user
+    table.insert(addEmailToContext);
+
+    // UPDATE - only allow updating of record belong to the authenticated user
+    table.update(queryContextForEmail);
+
+    // DELETE - only allow deletion of records belong to the authenticated uer
+    table.delete(queryContextForEmail);
+
+    module.exports = table;
+
+Para ver qué notificaciones están disponibles, use un explorador web para ver el punto de conexión `/.auth/me` de su sitio.
 
 ### <a name="howto-tables-disabled"></a>Deshabilitación del acceso a operaciones de tabla específicas
 
@@ -563,7 +623,7 @@ Es probable que solo quiera habilitar la compatibilidad con Swagger en las edici
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-El punto de conexión de swagger se encontrará en http://\_yoursite\_.azurewebsites.net/swagger. Puede tener acceso a la interfaz de usuario de Swagger a través del punto de conexión `/swagger/ui`. Tenga en cuenta que si elige pedir autenticación en la aplicación entera, Swagger produce un error en el punto de conexión /. Para obtener mejores resultados, elija permitir que pasen las solicitudes no autenticadas en la configuración de autorización y autenticación del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access`.
+El punto de conexión de Swagger se ubicará en http://_yoursite_.azurewebsites.net/swagger. Puede acceder a la interfaz de usuario de Swagger a través del punto de conexión `/swagger/ui`. Tenga en cuenta que si elige pedir autenticación en la aplicación entera, Swagger produce un error en el punto de conexión /. Para obtener los mejores resultados, permita que pasen las solicitudes no autenticadas en la configuración de autenticación y autorización del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access`.
 
 También puede agregar la opción de Swagger a su archivo `azureMobile.js` si solo desea que haya compatibilidad con Swagger al desarrollar de forma local.
 
@@ -638,7 +698,7 @@ También puede especificar la autenticación en operaciones específicas:
 		get: function (req, res, next) {
 			var date = { currentTime: Date.now() };
 			res.status(200).type('application/json').send(date);
-		});
+		}
 	};
 	// The GET methods must be authenticated.
 	api.get.access = 'authenticated';
@@ -647,6 +707,64 @@ También puede especificar la autenticación en operaciones específicas:
 
 Debe usar el mismo token que se utiliza para el punto de conexión de tablas en las API personalizadas que requieren autenticación.
 
+### <a name="howto-customapi-auth"></a>Control de grandes cargas de archivos
+
+El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cuerpo](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío. Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
+
+	var express = require('express'),
+        bodyParser = require('body-parser'),
+		azureMobileApps = require('azure-mobile-apps');
+
+	var app = express(),
+		mobile = azureMobileApps();
+
+    // Set up large body content handling
+    app.use(bodyParser.json({ limit: '50mb' }));
+    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
+	// Import the Custom API
+	mobile.api.import('./api');
+
+	// Add the mobile API so it is accessible as a Web API
+	app.use(mobile);
+
+	// Start listening on HTTP
+	app.listen(process.env.PORT || 3000);
+
+Puede ajustar el límite de 50 MB que mostramos anteriormente. Tenga en cuenta que el archivo estará codificado en Base 64 antes de la transmisión, lo que aumentará el tamaño real de la carga.
+
+### <a name="howto-customapi-sql"></a>Ejecución de instrucciones SQL personalizadas
+
+El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a través del objeto de solicitud, lo que le permite ejecutar fácilmente instrucciones SQL parametrizadas para el proveedor de datos definido:
+
+    var api = {
+        get: function (request, response, next) {
+            // Check for parameters - if not there, pass on to a later API call
+            if (typeof request.params.completed === 'undefined')
+                return next();
+
+            // Define the query - anything that can be handled by the mssql
+            // driver is allowed.
+            var query = {
+                sql: 'UPDATE TodoItem SET complete=@completed',
+                parameters: [{
+                    completed: request.params.completed
+                }]
+            };
+
+            // Execute the query.  The context for Azure Mobile Apps is available through
+            // request.azureMobile - the data object contains the configured data provider.
+            request.azureMobile.data.execute(query)
+            .then(function (results) {
+                response.json(results);
+            });
+        }
+    };
+
+    api.get.access = 'authenticated';
+    module.exports = api;
+
+Se puede acceder a este punto de conexión mediante
 ## <a name="Debugging"></a>Depuración y solución de problemas
 
 El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js. Todas estas técnicas están disponibles.
@@ -710,6 +828,7 @@ En el editor, también puede ejecutar el código en el sitio.
 
 <!-- URLs -->
 [Inicio rápido de cliente de Android]: app-service-mobile-android-get-started.md
+[Inicio rápido de cliente de Apache Cordova]: app-service-mobile-cordova-get-started.md
 [Inicio rápido de cliente de iOS]: app-service-mobile-ios-get-started.md
 [Inicio rápido de cliente de Xamarin.iOS]: app-service-mobile-xamarin-ios-get-started.md
 [Inicio rápido de cliente de Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
@@ -727,7 +846,7 @@ En el editor, también puede ejecutar el código en el sitio.
 [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [Especificación de una versión de Node.js en una aplicación Azure]: ../nodejs-specify-node-version-azure-apps.md
-[Uso de módulos de Node]: ../nodejs-use-node-mobiles-azure-apps.md
+[Uso de módulos de Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
@@ -747,4 +866,4 @@ En el editor, también puede ejecutar el código en el sitio.
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0128_2016-->
+<!-----HONumber=AcomDC_0302_2016-->

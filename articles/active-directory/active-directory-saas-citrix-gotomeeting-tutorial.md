@@ -8,10 +8,11 @@
 
 <tags 
     ms.service="active-directory" 
-    ms.devlang="na" ms.topic="article" 
+    ms.devlang="na" 
+    ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/18/2015" 
+    ms.date="02/29/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Citrix GoToMeeting  
@@ -38,7 +39,7 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Citrix GoToMeeting:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700993.png "Active Directory")
 
@@ -90,17 +91,17 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
      6\.1. Seleccione **Manual**.
 
-     6\.2. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
+     6\.2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Dirección URL de la página de inicio de sesión** y péguelo en el cuadro de texto **Dirección URL de la página de inicio de sesión**.
 
-     6\.3. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Dirección URL de la página de cierre de sesión** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
+     6\.3. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Dirección URL de la página de cierre de sesión** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
 
-     6\.4. En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Id. de entidad ** y péguelo en el cuadro de texto **Id. de entidad de proveedor de identidades**.
+     6\.4. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en Citrix GoToMeeting**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Id. de entidad de proveedor de identidades**.
 
      6\.5. Para cargar el certificado descargado, haga clic en **Cargar certificado**.
 
      6\.6. Haga clic en **Guardar**.
 
-6.  En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
+6.  En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Configurar inicio de sesión único")
 
@@ -117,7 +118,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 ###Siga estos pasos para configurar el aprovisionamiento de usuario:
 
-1.  En el Portal de administración de Azure, en la página de integración de aplicaciones de **Citrix GoToMeeting**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo de **Configurar aprovisionamiento de usuarios**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **Citrix GoToMeeting**, haga clic en **Configurar aprovisionamiento de usuarios** para abrir el cuadro de diálogo **Configurar aprovisionamiento de usuarios**.
 
     ![Configuración de aprovisionamiento de usuario](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "Configuración de aprovisionamiento de usuario")
 
@@ -140,7 +141,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 ###Para asignar usuarios a Citrix GoToMeeting, lleve a cabo los siguientes pasos:
 
-1.  En el Portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de aplicaciones de **Citrix GoToMeeting**, haga clic en **Asignar usuarios**.
 
@@ -152,7 +153,7 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Ahora debería esperar 10 minutos y comprobar si la cuenta se ha sincronizado en Dropbox for Business.
 
-Como primer paso de verificación, puede comprobar el estado del aprovisionamiento; para ello, haga clic en el Panel en la D en la página de integración de aplicaciones de **Citrix GoToMeeting** en el Portal de administración de Azure.
+Como primer paso de verificación, puede comprobar el estado del aprovisionamiento. Para ello, haga clic en Panel en la página de integración de la aplicación **Citrix GoToMeeting**, en el Portal de Azure clásico.
 
 ![Panel](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769004.png "Panel")
 
@@ -164,4 +165,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 
 Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

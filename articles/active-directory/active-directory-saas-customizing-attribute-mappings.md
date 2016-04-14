@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="02/09/2016"
 	ms.author="markusvi"/>
 
 
@@ -26,7 +26,7 @@ Hay un conjunto preconfigurado de asignaciones de atributos entre los objetos de
 
 En el portal de Azure AD, puede tener acceso a esta característica; para ello, haga clic en Atributos en la barra de herramientas de una aplicación SaaS.
 
-> [AZURE.NOTE]El vínculo **Atributos** sólo está disponible si tiene habilitado el aprovisionamiento de usuarios para una aplicación SaaS.
+> [AZURE.NOTE] El vínculo **Atributos** sólo está disponible si tiene habilitado el aprovisionamiento de usuarios para una aplicación SaaS.
 
 
 ![Salesforce][1]
@@ -81,8 +81,16 @@ Además de estos cuatro tipos básicos de asignaciones de atributos, las asignac
 Microsoft Azure AD proporciona una implementación muy eficaz de un proceso de sincronización. En un entorno inicializado, sólo los objetos que requieren actualizaciones se procesan durante un ciclo de sincronización. Actualizar las asignaciones de atributos repercute en el rendimiento de un ciclo de sincronización. Esto se debe a que una actualización de la configuración de la asignación de atributos requiere que se vuelvan a evaluar todos los objetos administrados. Por este motivo, es un procedimiento recomendado mantener el número mínimo de cambios consecutivos de las asignaciones de atributos.
 
 
+##Artículos relacionados
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+- [Escritura de expresiones para asignaciones de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+- [Filtros de ámbito para el aprovisionamiento de usuario](active-directory-saas-scoping-filters.md)
+- [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
+- [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
@@ -90,4 +98,4 @@ Microsoft Azure AD proporciona una implementación muy eficaz de un proceso de s
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0211_2016-->

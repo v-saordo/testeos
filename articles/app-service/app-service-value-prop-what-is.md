@@ -13,7 +13,7 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
@@ -50,7 +50,7 @@ Servicios de aplicaciones le permite crear los siguientes tipos de aplicaciones 
 En cuanto servicio integrado único, el Servicio de aplicaciones facilita la creación de los tipos de aplicaciones anteriores en una única solución, lo que le permite crear fácilmente aplicaciones destinadas a web y clientes móviles usando el mismo back-end y realizando la integración con sistemas locales, así como con servicios conocidos, como Office 365 y salesforce.com.
 
 ### Planes del Servicio de aplicaciones
-Los planes de Servicios de aplicaciones representan un conjunto de características y capacidades que puede compartir mediante sus aplicaciones. Los planes de Servicio de aplicaciones son compatibles con algunos niveles de precios (por ejemplo, Gratis, Compartido, Básico y Estándar), donde cada uno de ellos tiene sus propias funcionalidades. Puede cambiar rápidamente el plan de Servicio de aplicaciones que se hospeda en la aplicación sin que exista tiempo de inactividad. [Obtenga más información acerca de los planes de Servicios de aplicaciones](../web-sites-web-hosting-plan-overview.md).
+Los planes de Servicios de aplicaciones representan un conjunto de características y capacidades que puede compartir mediante sus aplicaciones. Los planes de Servicio de aplicaciones son compatibles con algunos niveles de precios (por ejemplo, Gratis, Compartido, Básico y Estándar), donde cada uno de ellos tiene sus propias funcionalidades. Puede cambiar rápidamente el plan de Servicio de aplicaciones que se hospeda en la aplicación sin que exista tiempo de inactividad. [Obtenga más información acerca de los planes de Servicios de aplicaciones](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
 ##Introducción a Servicios de aplicaciones
 ¿Quiere probar? Póngase en marcha en cuestión de segundos.
@@ -60,4 +60,4 @@ Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 [Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

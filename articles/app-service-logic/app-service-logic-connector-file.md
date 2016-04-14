@@ -2,7 +2,7 @@
 	pageTitle="Uso del conector de archivos en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
 	description="Creación y configuración del conector de archivos o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="rajeshramabathiran"
-	manager="dwrede"
+	manager="erikre"
 	editor=""
 	services="app-service\logic"
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/10/2016"
 	ms.author="rajram"/>
 
 # Introducción al conector de archivos y su incorporación a su aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Conéctese a un sistema de archivos para cargar, descargar los archivos en un equipo host, etc. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos. Puede agregar el conector de archivos a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 El conector de archivos usa el Administrador de conexiones híbridas para la conectividad híbrida con el sistema de archivos host.
@@ -58,7 +60,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de archivo
 
 7. Cuando se han configurado, el desencadenador y la acción pueden utilizarse en el flujo. De forma similar, pueden configurarse también otras acciones.
 
-> [AZURE.NOTE]El desencadenador de archivo eliminará el archivo después de leerlo correctamente desde la carpeta.
+> [AZURE.NOTE] El desencadenador de archivo eliminará el archivo después de leerlo correctamente desde la carpeta.
 
 ## API de REST del conector de archivos ##
 Para usar el conector fuera de una lógica de aplicación, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector de archivos. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector: ![][7]
@@ -68,7 +70,7 @@ Los detalles de las API se pueden encontrar en [Definición de la API del conect
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -85,4 +87,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [Definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

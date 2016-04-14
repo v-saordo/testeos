@@ -15,12 +15,12 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="11/17/2015"
+      ms.date="02/25/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Guía de inicio rápido de la API Graph de Azure AD
 
-La API Graph de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para obtener más información sobre los escenarios de aplicaciones y las características de API Graph, consulte [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y [Los requisitos previos de la API Graph de Azure AD](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
+La API Graph de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar la API Graph para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, la API Graph se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para obtener más información acerca de los escenarios de aplicaciones y características de API Graph, consulte [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y [los requisitos previos de la API Graph de Azure AD](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
 
 > [AZURE.IMPORTANT] Esta función también está disponible mediante [Microsoft Graph](https://graph.microsoft.io/), una API unificada que incluye las API de otros servicios de Microsoft como Outlook, OneDrive, OneNote, Organizador y Office Graph, accesible con un único punto de conexión y un solo token de acceso.
 
@@ -31,7 +31,7 @@ En la API Graph, para tener acceso a los datos y objetos de los directorios (en 
 - **Raíz del servicio**: en la API Graph de Azure AD, la raíz del servicio es siempre https://graph.windows.net.
 - **Identificador de inquilino**: puede ser un nombre de dominio (registrado) comprobado, en el ejemplo anterior, contoso.com. También puede ser un Id. de objeto de inquilino o los alias "myorganiztion" o "me". Para más información, consulte [Información general de operaciones | Conceptos sobre la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
 - **Ruta de acceso a recursos**: esta sección de una dirección URL identifica el recurso con el que se va a interactuar (usuarios, grupos, un usuario concreto o un grupo determinado, etc.) En el ejemplo anterior, son los "grupos" de nivel superior a los que se dirige este conjunto de recursos También se puede dirigir una entidad concreta, como por ejemplo, “users/{objectId}” o “users/userPrincipalName”.
-- **Parámetros de consulta**:? separa la sección de ruta de acceso a recursos de la sección de parámetros de consulta. Todas las solicitudes de la API Graph requieren el parámetro de consulta “api-version”. La API Graph también admite las siguientes opciones de consulta de OData: **$filter**, **$orderby**, **$expand**, **$top**, y **$format**. Sin embargo, las siguientes opciones de consulta no se admiten actualmente: **$count**, **$inlinecount**, y **$skip**. Para más información, consulte [Consultas, filtros y opciones de paginación admitidos | Conceptos sobre la API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+- **Parámetros de consulta**:? separa la sección de ruta de acceso a recursos de la sección de parámetros de consulta. Todas las solicitudes de la API Graph requieren el parámetro de consulta “api-version”. La API Graph también admite las siguientes opciones de consulta de OData: **$filter**, **$orderby**, **$expand**, **$top**, y **$format**. Sin embargo, las siguientes opciones de consulta no se admiten actualmente: **$count**, **$inlinecount**, y **$skip**. Para obtener más información, consulte [Consultas admitidas, filtros y opciones de paginación en la API de gráficos de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## Versiones de la API Graph
 
@@ -62,7 +62,7 @@ El Explorador de gráficos se puede usar para que la API Graph de Azure AD consu
 
 > [AZURE.IMPORTANT] El Explorador de gráficos no admite la escritura ni la eliminación los datos de un directorio. Con el Explorador de gráficos solo se pueden realizar operaciones de lectura en el directorio de Azure AD.
 
-A continuación se muestra el resultado que vería si fuera al Explorador de gráficos, seleccionara Usar compañía de demostración y escribiera `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` para mostrar todos los usuarios del directorio de demostración:
+A continuación se muestra el resultado que vería si fuera al Explorador de gráficos, seleccionara Usar compañía de demostración de uso y escribiera `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.5` para mostrar todos los usuarios del directorio de demostración:
 
 ![Azure AD api graph explorador](./media/active-directory-graph-api-quickstart/screen_shot.jpg)
 
@@ -71,7 +71,7 @@ A continuación se muestra el resultado que vería si fuera al Explorador de gr�
 **Ejecutar una consulta**: para ejecutar una consulta, escríbala en el cuadro de texto de la solicitud y haga clic en **GET** o en la tecla **Entrar**. Los resultados se muestran en el cuadro de respuesta. Por ejemplo, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.5` enumerará todos los objetos de grupo del directorio de demostración.
 
 Tenga en cuenta las siguientes características y limitaciones del Explorador de gráficos:
-- la funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y luego haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
+- Funcionalidad Autocompletar en conjuntos de recursos. Para verla, haga clic en **Usar compañía de demostración** y, a continuación, haga clic en el cuadro de texto de la solicitud (donde aparece la dirección URL de la compañía). Puede seleccionar un conjunto de recursos en la lista desplegable.
 
 - Admite los alias de direccionamiento “me” y “myorganization”. Por ejemplo, puede usar `https://graph.windows.net/me?api-version=1.5` para devolver el objeto de usuario del usuario con sesión iniciada o `https://graph.windows.net/myorganization/users?api-version=1.5` para devolver todos los usuarios del directorio actual. Tenga en cuenta que el alias "me" devuelve un error de la compañía de demostración porque no hay ningún usuario con sesión iniciada que realice la solicitud.
 
@@ -124,6 +124,6 @@ Para más información sobre las entidades y los tipos de Azure AD expuestos por
 
 ## Pasos siguientes
 
-Obtenga más información sobre la [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Obtenga más información acerca de la [API Graph de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/22/2016"
 	ms.author="bradygaster"/>
 
 # Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure
@@ -195,14 +195,14 @@ En esta sección va a reemplazar la implementación del lado servidor del códig
             }
   
             @Override
-            public Response contactsGet()
+            public Response contactsGet(SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 return Response.ok().entity(list).build();
                 }
   
             @Override
-            public Response contactsGetById(Integer id)
+            public Response contactsGetById(Integer id, SecurityContext securityContext)
             throws NotFoundException {
                 ArrayList<Contact> list = loadContacts();
                 Contact ret = null;
@@ -262,7 +262,7 @@ En esta sección aprenderá a crear una nueva aplicación de API mediante el Por
 
 	![Configurar Java en la hoja de aplicaciones de API](media/app-service-api-java-api-app/set-up-java.png)
 
-1. Haga clic en el elemento de menú de configuración **Credenciales de implementación** y proporcione un nombre de usuario y una contraseña para usarlos para publicar archivos en la aplicación de API.
+1. Haga clic en el elemento **Credenciales de implementación** del menú de configuración y especifique el nombre de usuario y la contraseña que desee usar para publicar archivos en una aplicación de API.
 
 	![Configurar credenciales de implementación](media/app-service-api-java-api-app/deployment-credentials.png)
 
@@ -295,4 +295,4 @@ Para sacar más partido a este ejemplo, aprenda más sobre el [SDK de almacenami
 
 Para obtener más información sobre del uso de Java en Azure, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/02/2016"
    ms.author="joaoma"/>
 
 # Creación, inicio o eliminación de una puerta de enlace de aplicaciones
@@ -48,8 +48,7 @@ Los valores son:
 - **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
 - **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
 - **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
-
+- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto.
 
 
 ## Creación de una nueva puerta de enlace de aplicaciones
@@ -60,12 +59,12 @@ Para crear una Puerta de enlace de aplicaciones:
 2. Cree un archivo de configuración XML o un objeto de configuración.
 3. Confirme la configuración para el recurso de la Puerta de enlace de aplicaciones recién creado.
 
->[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la Puerta de enlace de aplicaciones, consulte el artículo [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell). Consulte también [Application gateway health monitoring overview](application-gateway-probe-overview.md) para más información.
+>[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la Puerta de enlace de aplicaciones, consulte el artículo [Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell](application-gateway-create-probe-classic-ps.md). Consulte también [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md) para más información.
 
 
 ### Creación de un recurso de puerta de enlace de aplicaciones
 
-Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
+Para crear la puerta de enlace, utilice el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
 En el ejemplo siguiente se crea una Puerta de enlace de aplicaciones nueva mediante una red virtual denominada "testvnet1" y una subred denominada "subnet-1".
 
@@ -82,7 +81,7 @@ En el ejemplo siguiente se crea una Puerta de enlace de aplicaciones nueva media
  *Description*, *InstanceCount* y *GatewaySize* son parámetros opcionales.
 
 
-Para validar que la puerta de enlace se creó, puede utilizar el cmdlet **Get-AzureApplicationGateway**.
+Para validar que se creó la puerta de enlace, puede utilizar el cmdlet **Get-AzureApplicationGateway**.
 
 
 
@@ -223,7 +222,7 @@ Después, establezca la Puerta de enlace de aplicaciones. Utilice el cmdlet **Se
 
 ## Configuración de la Puerta de enlace de aplicaciones con un objeto de configuración
 
-En el ejemplo siguiente, se muestra cómo configurar la Puerta de enlace de aplicaciones con objetos de configuración. Todos los elementos de configuración deben configurarse individualmente y, a continuación, se deben agregar a un objeto de configuración de la Puerta de enlace de aplicaciones. Después de crear el objeto de configuración, utilizará el comando **Set-AzureApplicationGateway** para confirmar la configuración del recurso de Puerta de enlace de aplicaciones creado anteriormente.
+En el ejemplo siguiente, se muestra cómo configurar la Puerta de enlace de aplicaciones con objetos de configuración. Todos los elementos de configuración deben configurarse individualmente y, a continuación, se deben agregar a un objeto de configuración de la Puerta de enlace de aplicaciones. Después de crear el objeto de configuración, utilizará el comando **Set-AzureApplicationGateway** para confirmar la configuración del recurso de la Puerta de enlace de aplicaciones creado anteriormente.
 
 >[AZURE.NOTE] Antes de asignar un valor a cada objeto de configuración, es preciso declarar el tipo de objeto que usa PowerShell para el almacenamiento. La primera línea para crear los elementos individuales define qué Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nombre de objeto) se utilizará.
 
@@ -322,7 +321,7 @@ Agregue la regla a la configuración.
 
 ### Paso 3
 
-Confirme el objeto de configuración en el recurso de la puerta de enlace de aplicaciones con el comando **Set-AzureApplicationGatewayConfig**.
+Confirme el objeto de configuración en el recurso de la Puerta de enlace de aplicaciones con el comando **Set-AzureApplicationGatewayConfig**.
 
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
@@ -382,7 +381,7 @@ El siguiente ejemplo muestra el cmdlet **Stop-AzureApplicationGateway** en la pr
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdlet **Remove-AzureApplicationGateway** para quitar el servicio.
+Cuando la puerta de enlace de aplicaciones esté en estado detenido, utilice el cmdlet **Remove-AzureApplicationGateway** para quitar el servicio.
 
 
 	Remove-AzureApplicationGateway AppGwTest
@@ -393,7 +392,7 @@ Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdl
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
-Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-AzureApplicationGateway**. Este paso no es necesario.
+Para comprobar que el servicio se ha quitado, se puede utilizar el cmdlet **Get-AzureApplicationGateway**. Este paso no es necesario.
 
 
 	Get-AzureApplicationGateway AppGwTest
@@ -414,4 +413,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

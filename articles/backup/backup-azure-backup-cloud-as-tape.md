@@ -6,10 +6,21 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="02/09/2016"
+   ms.author="jimpark;"/>
 
 # Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
-Los clientes de Copia de seguridad de Azure y System Center Data Protection Manager pueden: - realizar una copia de seguridad de los datos en las programaciones que se adaptan mejor a las necesidades de su organización; - retener los datos de copia de seguridad durante períodos más largos; - implicar a Azure como parte de sus necesidades de retención a largo plazo (en lugar de usar cintas).
+Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Protection Manager pueden:
+
+- Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
+- Conservar los datos de copia de seguridad durante períodos más largos.
+- Hacer a Azure partícipe de sus necesidades de retención a largo plazo (en lugar de la cinta).
 
 Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de la copia de seguridad de Azure (que está disponible [aquí](http://aka.ms/azurebackup_agent)). Los clientes de SCDPM deberán cambiar a UR5 antes de usar esta característica.
 
@@ -60,4 +71,4 @@ Para obtener más información sobre Copia de seguridad de Azure, vea
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="11/22/2015"
+	ms.date="02/04/2016"
     ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Información general
 
@@ -40,8 +38,8 @@ Para obtener más información acerca de la característica de sincronización s
 
 El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin Android] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción de lo que ya está incluido en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
-* Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `ToDoActivity.OnCreate()` ejecuta `ToDoActivity.InitLocalStoreAsync()`. Esto crea una nueva base de datos SQLite local mediante la clase `MobileServiceSQLiteStore` que proporciona el SDK del cliente de Aplicaciones móviles de Azure. 
- 
+* Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `ToDoActivity.OnCreate()` ejecuta `ToDoActivity.InitLocalStoreAsync()`. Esto crea una nueva base de datos SQLite local mediante la clase `MobileServiceSQLiteStore` que proporciona el SDK del cliente de Aplicaciones móviles de Azure.
+
 	El método `DefineTable` crea una tabla en el almacén local que coincide con los campos del tipo proporcionado, `ToDoItem` en este caso. El tipo no tiene que incluir todas las columnas que se encuentran en la base de datos remota. Es posible almacenar solo un subconjunto de columnas.
 
 		// ToDoActivity.cs
@@ -60,14 +58,14 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+            // To use a different conflict handler, pass a parameter to InitializeAsync.
 			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
 
 * El miembro `toDoTable` de `ToDoActivity` es del tipo `IMobileServiceSyncTable` en lugar de `IMobileServiceTable`. Esto dirige todas las operaciones de tabla de creación, lectura, actualización y eliminación (CRUD) a la base de datos del almacén local.
- 
+
 	Para decidir cuándo se deben integrar esos cambios en el back-end de la aplicación móvil de Azure, llame a `IMobileServiceSyncContext.PushAsync()` con el contexto de sincronización para la conexión de cliente. El contexto de sincronización ayuda a mantener las relaciones entre tablas mediante el seguimiento y la inserción de los cambios en todas las tablas modificadas por una aplicación cliente cuando se llama a `PushAsync`.
 
 	El código proporcionado llama a `ToDoActivity.SyncAsync()` para sincronizarse cada vez que se actualiza la lista todoitem o se agrega o completa un todoitem. De esta forma, se sincroniza con cada cambio que ejecuta una inserción en el contexto de sincronización y una extracción en la tabla de sincronización. Sin embargo, es importante tener en cuenta que si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes seguidas por el contexto, la operación de extracción primero activará de forma automática una inserción de contexto. Por eso, en estos casos (actualización y finalización de elementos), puede omitir la llamada explícita a `PushAsync`. Es redundante.
@@ -77,7 +75,6 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
 	-->	
 		// ToDoActivity.cs
-
         private async Task SyncAsync()
         {
 			try {
@@ -101,7 +98,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
 1. En la parte superior de `ToDoActivity.cs`, cambie la inicialización de `applicationURL` para que apunte a una dirección URL no válida:
 
-        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
+        const string applicationURL = @"https://your-service.azurewebsites.fail/";
 
 	Tenga en cuenta que, cuando la aplicación también usa autenticación, el inicio de sesión dará error. También puede mostrar el comportamiento sin conexión deshabilitando las redes Wi-Fi y móvil en el dispositivo o usar el modo avión.
 
@@ -132,7 +129,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
 
    En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 
-6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 
 ## Actualización de la aplicación cliente para volver a conectar el back-end móvil
@@ -177,4 +174,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_0211_2016-->

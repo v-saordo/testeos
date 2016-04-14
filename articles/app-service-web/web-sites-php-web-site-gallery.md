@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="11/13/2015"
+	ms.date="02/08/2016"
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure
 
-Este tutorial muestra cómo buscar una aplicación en Azure Marketplace e instalarla en una aplicación web del Servicio de aplicaciones. El tutorial usa un sitio de blog de WordPress como ejemplo, pero el proceso es similar para muchas otras aplicaciones de Marketplace.
+Este tutorial le muestra cómo implementar un blog de WordPress desde Azure Marketplace.
 
 Una vez terminado el tutorial, tendrá su propio sitio de blog de WordPress en marcha en la nube.
 
@@ -28,11 +28,14 @@ Aprenderá a realizar los siguientes procedimientos:
 
 * Cómo buscar una plantilla de aplicación en Azure Marketplace.
 * Cómo crear una aplicación web basada en la plantilla en el Servicio de aplicaciones de Azure.
-* Cómo configurar el Servicio de aplicaciones de Azure para la nueva aplicación web y la base de datos MySQL.
+* Cómo configurar el Servicio de aplicaciones de Azure para la nueva aplicación web y la base de datos.
 
 Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web se basan en una amplia variedad de marcos populares, como [PHP](/develop/nodejs/) en este ejemplo de WordPress, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/) y [Python](/develop/python/), por nombrar algunos. Para crear una aplicación web desde Azure Marketplace, el único software que necesita es el explorador que usa para el [Portal de Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+El sitio de WordPress que se implementa en este tutorial utiliza MySQL para la base de datos. Si en vez de esta desea utilizar la base de datos SQL como base de datos, consulte el [Proyecto Nami](http://projectnami.org/). El **Proyecto Nami** también está disponible a través de Marketplace.
+
+> [AZURE.NOTE]
+Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -44,7 +47,7 @@ Azure Marketplace pone a disposición del usuario una gran variedad de populares
 	
     ![Crear nuevo][5]
 	
-3. Busque **WordPress** y haga clic en el icono **WordPress**.
+3. Busque **WordPress** y haga clic en el icono **WordPress**. Si desea utilizar la base de datos SQL en lugar de MySQL, busque **Proyecto Nami**.
 
 	![WordPress desde la lista][7]
 	
@@ -123,4 +126,4 @@ Para obtener más información sobre cómo trabajar con las aplicaciones web del
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

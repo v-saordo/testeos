@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
@@ -49,12 +49,12 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 ## Requisitos de DNS y conectividad saliente ##
 Para que un Entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como a la Base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
 
-Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar" ubicado en la parte superior de la hoja de administración del Entorno del Servicio de aplicaciones en el [nuevo Portal de administración][NewPortal], el entorno recogerá la nueva configuración de DNS.
+Los Entornos del Servicio de aplicaciones también requieren una infraestructura DNS válida configurada para la red virtual. Si por algún motivo se cambia la configuración de DNS después de haber creado un entorno del Servicio de aplicaciones, los desarrolladores pueden forzar a un entorno del Servicio de aplicaciones para recoger la nueva configuración de DNS. Si se desencadena un reinicio gradual del entorno mediante el icono "Reiniciar", ubicado en la parte superior de la hoja de administración del entorno del Servicio de aplicaciones en el [Portal de Azure][NewPortal], el entorno seleccionará la nueva configuración de DNS.
 
 La siguiente lista detalla los requisitos de conectividad y DNS para un Entorno del Servicio de aplicaciones:
 
 -  Conectividad de red saliente a los puntos de conexión de Almacenamiento de Azure en todo el mundo. Esto incluye los puntos de conexión situados en la misma región que el Entorno del Servicio de aplicaciones, así como los puntos de conexión de almacenamiento ubicados en **otras** regiones de Azure. Los puntos de conexión de Almacenamiento de Azure se resuelven en los dominios DNS siguientes: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* y *file.core.windows.net*.  
--  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de la Base de datos SQL se resuelven el dominio siguiente: *database.windows.net*.
+-  Conectividad de red saliente a los puntos de conexión de Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Los puntos de conexión de Base de datos SQL se resuelven en el dominio siguiente: *database.windows.net*.
 -  Conectividad de la red saliente a los puntos de conexión del plano de administración de Azure (puntos de conexión ASM y ARM). Incluye conectividad saliente tanto a *management.core.windows.net* como a *management.azure.com*. 
 -  Conectividad de red saliente a *ocsp.msocsp.com*. Es necesario para admitir la funcionalidad SSL.
 -  La configuración de DNS para la red virtual debe ser capaz de resolver todos los puntos de conexión y dominios mencionados en los puntos anteriores. Si estos puntos de conexión no se pueden resolver, se producirá un error en los intentos de creación del entorno del Servicio de aplicaciones y los entornos del Servicio de aplicaciones existentes se marcarán como incorrectos.
@@ -95,7 +95,7 @@ Si se desea compatibilidad con FTP, las reglas siguientes pueden utilizarse como
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Nota:** El intervalo de puertos del canal de datos puede cambiar durante el período de vista previa).
+(**Nota:** puede cambiar el intervalo de puertos del canal de datos durante el período de vista previa).
 
 Si se usa la depuración remota con Visual Studio, las reglas siguientes muestran cómo conceder acceso. Puesto que cada versión usa un puerto diferente para la depuración remota, hay una regla distinta para cada versión compatible de Visual Studio. Al igual que ocurre con el acceso FTP, es posible que el tráfico de depuración remoto no fluya correctamente a través de un dispositivo de proxy o WAF tradicional. En su lugar, *SourceAddressPrefix* se puede establecer en el intervalo de direcciones IP de los equipos del desarrollador que ejecutan Visual Studio.
 
@@ -147,5 +147,6 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [NewPortal]: https://portal.azure.com
 
 <!-- IMAGES -->
+ 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

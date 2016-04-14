@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -31,26 +31,26 @@ De este modo se abre una nueva ventana con las pestañas siguientes. El tema des
 En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas.
 <table border="1">
     <tr>
-        <td><strong>Get the tools</strong></td>
+        <td><strong>Obtener las herramientas</strong></td>
 
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Descargue el SDK de los servicios de BizTalk para instalar las plantillas del proyecto de Visual Studio en su equipo de desarrollo local. Estas plantillas crean los <strong>Servicios de BizTalk</strong> (puente) y los proyecto de Visual Studio de <strong>BizTalk Service Artifacts</strong> (transformación) que se han implementado en su servicio de BizTalk.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Introducción al uso del SDK de los servicios de BizTalk de Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalación del SDK de los servicios de BizTalk de Azure</a> incluyen los pasos para empezar.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Crear acuerdos de socios comerciales</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Abre el Portal de los servicios de BizTalk de Azure hospedados en Azure, donde se agregan socios y se crean los acuerdos X12, AS2 y EDIFACT EDI.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuración de los componentes para la mensajería EDI en el portal de los servicios de BizTalk</a> incluye los pasos para empezar.
         </td>
     </tr>
 
 <tr>
-        <td><strong>Learn more about BizTalk Services</strong></td>
-        <td>Go to the <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">learning center</a> to learn more about Azure BizTalk Services.</td>
+        <td><strong>Más información acerca de los servicios de BizTalk</strong></td>
+        <td>Vaya al <a HREF="http://azure.microsoft.com/documentation/services/biztalk-services/">centro de aprendizaje</a> para obtener más información acerca de los Servicios de BizTalk de Azure.</td>
 </tr>
 </table>
 
@@ -236,14 +236,17 @@ También puede elegir los valores **Relativo** o **Absoluto** y el intervalo de 
 
 ##### Para eliminar o mostrar métricas en el gráfico:
 1. Seleccione la pestaña **Monitor**.
-2. Haga clic en **Agregar métricas** en la barra de tareas: ![Seleccione Agregar métricas][AddMetrics]
+2. Haga clic en **Agregar métricas** en la barra de tareas:
+![Seleccione Agregar métricas][AddMetrics]
 3. Compruebe las métricas de rendimiento que quiera mostrar.
 4. Seleccione la marca de verificación para volver a la pestaña **Monitor**.
 5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.  
 
-	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico: ![La métrica Uso de CPU está atenuada][GrayedMetric]
+	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico:  
+![La métrica Uso de CPU está atenuada][GrayedMetric]  
 
-	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico: ![La métrica Uso de CPU está habilitada][EnabledMetric]
+	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico:  
+![La métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Para agregar la métrica a lista otra vez, seleccione **Agregar métricas** en la barra de tareas, compruebe la métrica y seleccione la marca de verificación para volver a la pestaña **Monitor**. Seleccione el círculo gris para habilitar la métrica.
 
@@ -336,7 +339,7 @@ Las conexiones híbridas conectan una aplicación de Azure, como sitios web o Se
 
 Para crear conexiones híbridas en Sitios web de Azure, consulte [Conexión híbrida: conexión de un sitio web de Azure a un recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Para usar conexiones híbridas en Servicios móviles de Azure, consulte [Servicios móviles de Azure y conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Para usar conexiones híbridas en Servicios móviles de Azure, consulte [Servicios móviles de Azure y conexiones híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, consulte [Conexiones híbridas](integration-hybrid-connection-overview.md).
 
@@ -362,4 +365,4 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

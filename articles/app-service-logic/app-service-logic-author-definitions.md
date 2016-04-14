@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/17/2016"
 	ms.author="stepsic"/>
 	
 # Creación de definiciones de aplicación lógica
-En este tema se explica cómo usar definiciones de [aplicaciones lógicas de servicios de aplicaciones](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](../app-service-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+En este tema se explica cómo usar definiciones de [aplicaciones lógicas de servicios de aplicaciones](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](app-service-logic-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Varios pasos que se repiten en una lista
 
-Un patrón común es tener un paso que obtiene una lista de elementos y, a continuación, disponer de una serie de dos o más acciones que desea realizar en la lista:
+Un patrón común es tener un paso que obtiene una lista de elementos y después disponer de una serie de dos o más acciones que desea realizar para cada elemento de la lista:
 
 ![Repetir sobre listas](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
@@ -35,47 +35,49 @@ En este ejemplo hay 3 acciones:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "getArticles": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-            }
-        },
-        "readLinks": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem().link"
-            },
-            "repeat": "@body('getArticles').responseData.feed.entries"
-        },
-        "downloadLinks": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatOutputs().headers.location"
-            },
-            "conditions": [
-                {
-                    "expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
-                }
-            ],
-            "repeat": "@actions('readLinks').outputs.repeatItems"
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"getArticles": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+			}
+		},
+		"readLinks": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item().link"
+			},
+			"forEach": "@body('getArticles').responseData.feed.entries"
+		},
+		"downloadLinks": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item().outputs.headers.location"
+			},
+			"conditions": [{
+				"expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
+			}],
+			"forEach": "@actions('readLinks').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
-Como se explica en [Uso de las características de aplicaciones lógicas](app-service-logic-use-logic-app-features.md), itere por la primera lista usando la propiedad `repeat:` en la segunda acción. Sin embargo, para la tercera acción, debe seleccionar la propiedad `@actions('readLinks').outputs.repeatItems`, dado que la segunda se ejecuta para cada artículo.
+Como se explica en [Uso de las características de aplicaciones lógicas](app-service-logic-use-logic-app-features.md), itere por la primera lista usando la propiedad `forEach:` en la segunda acción. Sin embargo, para la tercera acción, debe seleccionar la propiedad `@actions('readLinks').outputs`, dado que la segunda se ejecuta para cada artículo.
 
-Dentro de la acción se pueden usar las funciones siguientes: [`repeatItem()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatItem), [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) o [`repeatBody()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatBody). En este ejemplo, quería obtener el encabezado `location`, por lo que usé la función [`repeatOutputs()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#repeatOutputs) para obtener los resultados de la ejecución de la acción de la segunda acción que ahora por la que estamos iterando actualmente.
+Dentro de la acción se puede usar la función [`item()`](https://msdn.microsoft.com/library/azure/dn948512.aspx#item). En este ejemplo, quería obtener el encabezado `location`, por lo que tuve que seguir con `@item().outputs.headers` para obtener los resultados de la ejecución de la segunda acción por la que estamos iterando actualmente.
 
 ## Asignación de elementos de una lista a una configuración diferente
 
@@ -83,54 +85,50 @@ A continuación, supongamos que queremos obtener contenido completamente diferen
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "specialCategories": {
-            "defaultValue": [
-                "science",
-                "google",
-                "microsoft",
-                "robots",
-                "NSA"
-            ],
-            "type": "Array"
-        },
-        "destinationMap": {
-            "defaultValue": {
-                "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/es-ES/default.aspx",
-                "google": "https://www.google.com",
-                "robots": "https://en.wikipedia.org/wiki/Robot",
-                "NSA": "https://www.nsa.gov/"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "getArticles": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
-            },
-            "conditions": []
-        },
-        "getSpecialPage": {
-            "repeat": "@body('getArticles').responseData.feed.entries",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('destinationMap')[first(intersection(repeatItem().categories, parameters('specialCategories')))]"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(length(intersection(repeatItem().categories, parameters('specialCategories'))), 0)"
-                }
-            ]
-        }
-    }
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"specialCategories": {
+			"defaultValue": ["science", "google", "microsoft", "robots", "NSA"],
+			"type": "Array"
+		},
+		"destinationMap": {
+			"defaultValue": {
+				"science": "http://www.nasa.gov",
+				"microsoft": "https://www.microsoft.com/es-ES/default.aspx",
+				"google": "https://www.google.com",
+				"robots": "https://en.wikipedia.org/wiki/Robot",
+				"NSA": "https://www.nsa.gov/"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"getArticles": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+			},
+			"conditions": []
+		},
+		"getSpecialPage": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@parameters('destinationMap')[first(intersection(item().categories, parameters('specialCategories')))]"
+			},
+			"conditions": [{
+				"expression": "@greater(length(intersection(item().categories, parameters('specialCategories'))), 0)"
+			}],
+			"forEach": "@body('getArticles').responseData.feed.entries"
+		}
+	}
 }
 ```
 
@@ -146,58 +144,58 @@ En la aplicación lógica principal:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "orders": {
-            "defaultValue": [
-                {
-                    "quantity": 10,
-                    "id": "myorder1"
-                },
-                {
-                    "quantity": 200,
-                    "id": "specialOrder"
-                },
-                {
-                    "quantity": 5,
-                    "id": "myOtherOrder"
-                }
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "iterateOverOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Workflow",
-            "inputs": {
-                "uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
-                "apiVersion": "2015-02-01-preview",
-                "trigger": {
-                    "name": "submitOrder",
-                    "outputs": {
-                        "body": "@repeatItem()"
-                    }
-                },
-                "authentication": {
-                    "type": "Basic",
-                    "username": "default",
-                    "password": "xxxxxxxxxxxxxx"
-                }
-            }
-        },
-        "sendInvoices": {
-            "repeat": "@outputs('iterateOverOrders').repeatItems",
-            "type": "Http",
-            "inputs": {
-                "uri": "http://www.example.com/?invoiceID=@{repeatOutputs().run.outputs.deliverTime.value}",
-                "method": "GET"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"orders": {
+			"defaultValue": [{
+				"quantity": 10,
+				"id": "myorder1"
+			}, {
+				"quantity": 200,
+				"id": "specialOrder"
+			}, {
+				"quantity": 5,
+				"id": "myOtherOrder"
+			}],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"iterateOverOrders": {
+			"type": "Workflow",
+			"inputs": {
+				"uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
+				"apiVersion": "2015-02-01-preview",
+				"trigger": {
+					"name": "submitOrder",
+					"outputs": {
+						"body": "@item()"
+					}
+				},
+				"authentication": {
+					"type": "Basic",
+					"username": "default",
+					"password": "xxxxxxxxxxxxxx"
+				}
+			},
+			"forEach": "@parameters('orders')"
+		},
+		"sendInvoices": {
+			"type": "Http",
+			"inputs": {
+				"uri": "http://www.example.com/?invoiceID=@{item().outputs.run.outputs.deliverTime.value}",
+				"method": "GET"
+			},
+			"forEach": "@outputs('iterateOverOrders')"
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -205,32 +203,36 @@ A continuación, en la aplicación lógica secundaria usará la función [`trigg
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "calulatePrice": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-            }
-        },
-        "calculateDeliveryTime": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-            }
-        }
-    },
-    "outputs": {
-        "deliverTime": {
-            "type": "String",
-            "value": "@outputs('calculateDeliveryTime').headers.etag"
-        }
-    }
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"calulatePrice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+			}
+		},
+		"calculateDeliveryTime": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
+			}
+		}
+	},
+	"outputs": {
+		"deliverTime": {
+			"type": "String",
+			"value": "@outputs('calculateDeliveryTime').headers.etag"
+		}
+	}
 }
 ```
 
@@ -245,45 +247,43 @@ Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataFeeds": {
-            "defaultValue": [
-                "https://www.microsoft.com/es-ES/default.aspx",
-                "https://gibberish.gibberish/"
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "repeat": "@parameters('dataFeeds')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem()"
-            }
-        },
-        "postToErrorMessageQueue": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?noteAnErrorFor=@{repeatItem().inputs.uri}"
-            },
-            "conditions": [
-                {
-                    "expression": "@equals(actions('readData').status, 'Failed')"
-                },
-                {
-                    "expression": "@equals(repeatItem().status, 'Failed')"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"dataFeeds": {
+			"defaultValue": ["https://www.microsoft.com/es-ES/default.aspx", "https://gibberish.gibberish/"],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item()"
+			},
+			"forEach": "@parameters('dataFeeds')"
+		},
+		"postToErrorMessageQueue": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?noteAnErrorFor=@{item().inputs.uri}"
+			},
+			"conditions": [{
+				"expression": "@equals(actions('readData').status, 'Failed')"
+			}, {
+				"expression": "@equals(item().status, 'Failed')"
+			}],
+			"forEach": "@actions('readData').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -293,53 +293,54 @@ Estoy utilizando dos condiciones porque en el primer paso estoy repetición de u
 
 Por último, dado que ahora se ha controlado el error, la ejecución ya no genera ningún **error**. Como puede ver aquí, esta ejecución es **correcta** a pesar de que antes generara errores, porque escribí este paso para solucionar este error.
 
-## Dos (o más) pasos que se ejecutan en paralelo
+## Dos pasos (o más) que se ejecutan en paralelo
 
-Para que varias acciones se ejecuten en paralelo, y no en secuencias, necesita quitar la condición `dependsOn` que vincula a ambas acciones. Cuando se quita la dependencia, se ejecutarán automáticamente las acciones en paralelo, a menos que necesiten datos entre sí.
+Para que varias acciones se ejecuten en paralelo y no en secuencias, necesita quitar la condición `dependsOn` que vincula ambas acciones. Cuando se quita la dependencia, se ejecutarán automáticamente las acciones en paralelo, a menos que necesiten datos entre sí.
 
 ![Bifurcaciones](./media/app-service-logic-author-definitions/branches.png)
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "dataFeeds": {
-            "defaultValue": [
-                "https://www.microsoft.com/es-ES/default.aspx",
-                "https://office.live.com/start/default.aspx"
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "repeat": "@parameters('dataFeeds')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@repeatItem()"
-            }
-        },
-        "branch1": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?branch1Logic=@{repeatItem().inputs.uri}"
-            }
-        },
-        "branch2": {
-            "repeat": "@actions('readData').outputs.repeatItems",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?branch2Logic=@{repeatItem().inputs.uri}"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"dataFeeds": {
+			"defaultValue": ["https://www.microsoft.com/es-ES/default.aspx", "https://office.live.com/start/default.aspx"],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@item()"
+			},
+			"forEach": "@parameters('dataFeeds')"
+		},
+		"branch1": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?branch1Logic=@{item().inputs.uri}"
+			},
+			"forEach": "@actions('readData').outputs"
+		},
+		"branch2": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?branch2Logic=@{item().inputs.uri}"
+			},
+			"forEach": "@actions('readData').outputs"
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -357,57 +358,55 @@ La estrategia en esta caso varía en función de si controla un elemento o una c
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "handleNormalOrders": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@lessOrEquals(parameters('order').quantity, 100)"
-                }
-            ]
-        },
-        "handleSpecialOrders": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(parameters('order').quantity, 100)"
-                }
-            ]
-        },
-        "submitInvoice": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
-            },
-            "conditions": [
-                {
-                    "expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"handleNormalOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
+			},
+			"conditions": [{
+				"expression": "@lessOrEquals(parameters('order').quantity, 100)"
+			}]
+		},
+		"handleSpecialOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
+			},
+			"conditions": [{
+				"expression": "@greater(parameters('order').quantity, 100)"
+			}]
+		},
+		"submitInvoice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
+			},
+			"conditions": [{
+				"expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
  
@@ -415,103 +414,101 @@ O bien, cuando las dos primeras bifurcaciones funcionan sobre una lista de pedid
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "orders": {
-            "defaultValue": [
-                {
-                    "quantity": 10,
-                    "id": "myorder1"
-                },
-                {
-                    "quantity": 200,
-                    "id": "specialOrder"
-                },
-                {
-                    "quantity": 5,
-                    "id": "myOtherOrder"
-                }
-            ],
-            "type": "Array"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "handleNormalOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderNormally=@{repeatItem().id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@lessOrEquals(repeatItem().quantity, 100)"
-                }
-            ]
-        },
-        "handleSpecialOrders": {
-            "repeat": "@parameters('orders')",
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?orderSpecially=@{repeatItem().id}"
-            },
-            "conditions": [
-                {
-                    "expression": "@greater(repeatItem().quantity, 100)"
-                }
-            ]
-        },
-        "submitInvoice": {
-            "repeat": "@union(actions('handleNormalOrders').outputs.repeatItems, actions('handleSpecialOrders').outputs.repeatItems)",
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/?invoice=@{repeatOutputs().headers.etag}"
-            },
-            "conditions": [
-                {
-                    "expression": "@equals(repeatItem().status, 'Succeeded')"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"orders": {
+			"defaultValue": [{
+				"quantity": 10,
+				"id": "myorder1"
+			}, {
+				"quantity": 200,
+				"id": "specialOrder"
+			}, {
+				"quantity": 5,
+				"id": "myOtherOrder"
+			}],
+			"type": "Array"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"handleNormalOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderNormally=@{item().id}"
+			},
+			"conditions": [{
+				"expression": "@lessOrEquals(item().quantity, 100)"
+			}],
+			"forEach": "@parameters('orders')"
+		},
+		"handleSpecialOrders": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?orderSpecially=@{item().id}"
+			},
+			"conditions": [{
+				"expression": "@greater(item().quantity, 100)"
+			}],
+			"forEach": "@parameters('orders')"
+		},
+		"submitInvoice": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/?invoice=@{item().outputs.headers.etag}"
+			},
+			"conditions": [{
+				"expression": "@equals(item().status, 'Succeeded')"
+			}],
+			"forEach": "@union(actions('handleNormalOrders').outputs, actions('handleSpecialOrders').outputs)"
+		}
+	},
+	"outputs": {}
 }
 ```
 ## Trabajo con cadenas
 
-Existen diversas funciones que pueden utilizarse para la cadena maniplate. Veamos un ejemplo donde tenemos una cadena que se va a pasar a un sistema, pero no estamos seguros de que la codificación de caracteres se controlará correctamente. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres.
+Existen diversas funciones que pueden usarse para manipular la cadena. Veamos un ejemplo donde tenemos una cadena que se va a pasar a un sistema, pero no estamos seguros de que la codificación de caracteres se controlará correctamente. Una opción consiste en codificar esta cadena con base64. Sin embargo, para evitar escapes en una dirección URL, vamos a reemplazar algunos caracteres.
 
 También queremos una subcadena del nombre del pedido, porque los cinco primeros caracteres no se usan.
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1",
-                "orderer": "NAME=Stèphén__Šīçiłianö"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1",
+				"orderer": "NAME=Stèphén__Šīçiłianö"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"order": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').orderer,5,sub(length(parameters('order').orderer), 5) )),'+','-') ,'/' ,'_' )}"
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -535,40 +532,42 @@ Las fechas puede ser útiles, especialmente cuando intenta extraer datos de un o
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "order": {
-            "defaultValue": {
-                "quantity": 10,
-                "id": "myorder1"
-            },
-            "type": "Object"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "order": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?id=@{parameters('order').id}"
-            }
-        },
-        "timingWarning": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-        	},
-            "conditions": [
-                {
-                    "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-                }
-            ]
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"order": {
+			"defaultValue": {
+				"quantity": 10,
+				"id": "myorder1"
+			},
+			"type": "Object"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"order": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?id=@{parameters('order').id}"
+			}
+		},
+		"timingWarning": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+			},
+			"conditions": [{
+				"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -582,31 +581,33 @@ Supongamos que tiene comportamientos diferentes que desea ejecutar en función d
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@triggerOutputs().uriToGet"
-            }
-        },
-        "extraStep": {
-            "type": "Http",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com/extraStep"
-            },
-            "conditions": [
-                {
-                    "expression": "@triggerOutputs().doMoreLogic"
-                }
-            ]
-        },  
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@triggerOutputs().uriToGet"
+			}
+		},
+		"extraStep": {
+			"type": "Http",
+			"inputs": {
+				"method": "POST",
+				"uri": "http://www.example.com/extraStep"
+			},
+			"conditions": [{
+				"expression": "@triggerOutputs().doMoreLogic"
+			}]
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -641,24 +642,28 @@ Puede empezar con una definición muy sencilla, como esta:
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "connection": {
-            "type": "string"
-        }
-    },
-    "triggers": {},
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('connection')"
-            }
-        }        
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"connection": {
+			"type": "string"
+		}
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "@parameters('connection')"
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
@@ -694,33 +699,35 @@ Es posible que tenga una API a la que está llamando y quiera esperar una respue
 
 ```
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "triggers": {},
-    "actions": {
-        "http0": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "http://mydomain/listfiles"
-            },
-            "until": {
-                "limit": {
-                    "timeout": "PT10M"
-                },
-                "conditions": [
-                    {
-                        "expression": "@greater(length(action().outputs.body),0)"
-                    }
-                ]
-            }
-        }
-    },
-    "outputs": {}
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"http0": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://mydomain/listfiles"
+			},
+			"until": {
+				"limit": {
+					"timeout": "PT10M"
+				},
+				"conditions": [{
+					"expression": "@greater(length(action().outputs.body),0)"
+				}]
+			}
+		}
+	},
+	"outputs": {}
 }
 ```
 
 Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

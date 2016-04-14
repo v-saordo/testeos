@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/18/2016"
 	ms.author="klam"/>
 
 # Uso de las plantillas de aplicaciones lógicas
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Las Plantillas de aplicaciones lógicas son un conjunto de aplicaciones lógicas preintegradas y selectas que le ayudarán a comenzar rápidamente la creación de sus propias aplicaciones de integración.
 
@@ -44,4 +46,4 @@ Las plantillas sencillas que se integran con los servicios de redes sociales com
 Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Los pasos detallados están en [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

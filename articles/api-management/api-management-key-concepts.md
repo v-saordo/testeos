@@ -4,7 +4,7 @@
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.topic="hero-article" 
+	ms.date="03/04/2016" 
 	ms.author="sdanie"/>
 
 #¿Qué es Administración de API?
@@ -26,7 +26,7 @@ Para usar Administración de API, los administradores crean API. Cada API consta
 
 En este tema se proporciona información general de los conceptos clave de Administración de API.
 
->[AZURE.NOTE]Para obtener más información, consulte las notas del producto en PDF [Administración de API basadas en la nube: aprovechamiento de la capacidad de las API](http://j.mp/ms-apim-whitepaper). Estas notas del producto introductorias sobre la administración de API por CITO Research cubren:
+>[AZURE.NOTE] Para obtener más información, consulte las notas del producto en PDF [Administración de API basadas en la nube: aprovechamiento de la capacidad de las API](http://j.mp/ms-apim-whitepaper). Estas notas del producto introductorias sobre la administración de API por CITO Research cubren:
 >
 > - Desafíos y requisitos comunes de API
 >     - Desacoplamiento de API y presentación de fachadas
@@ -114,4 +114,4 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0309_2016-->

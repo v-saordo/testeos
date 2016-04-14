@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Análisis de patrones de uso de la red CDN" 
-	description="Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Análisis de patrones de uso de la red CDN"
+	description="Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
-# Análisis de patrones de uso de la red CDN 
+# Análisis de patrones de uso de la red CDN
 
 Puede ver los patrones de uso de la red CDN mediante los siguientes informes:
 
@@ -25,7 +25,7 @@ Puede ver los patrones de uso de la red CDN mediante los siguientes informes:
 - Aciertos
 - Estados de la memoria caché
 - Frecuencia de aciertos de caché
-- Datos de IPV4/IPV6 transferidos 
+- Datos de IPV4/IPV6 transferidos
 
 ## Ancho de banda
 
@@ -33,8 +33,8 @@ El informe de ancho de banda consta de una tabla de datos y un gráfico que indi
 
 - Seleccione Todos los nodos perimetrales para ver el tráfico de todos los nodos o elija una región o un nodo específico en la lista desplegable.
 - Seleccione el intervalo de fechas para ver datos de hoy, esta semana o este mes, etc. o especifique fechas personalizadas y haga clic en "Ir" para asegurarse de que se actualiza la selección.
-- Para exportar y descargar los datos, haga clic en el icono de hoja de Excel situado junto a "Ir". 
- 
+- Para exportar y descargar los datos, haga clic en el icono de hoja de Excel situado junto a "Ir".
+
 El informe se actualiza cada 5 minutos.
 
 ![Informe Ancho de banda](./media/cdn-reports/cdn-bandwidth.png)
@@ -46,7 +46,7 @@ El informe consta de una tabla de datos y un gráfico que indica el uso del trá
 - Seleccione Todos los nodos perimetrales para ver el tráfico de todos los nodos o elija una región o un nodo específico en la lista desplegable.
 - Seleccione el intervalo de fechas para ver datos de hoy, esta semana o este mes, etc. o especifique fechas personalizadas y haga clic en "Ir" para asegurarse de que se actualiza la selección.
 - Para exportar y descargar los datos, haga clic en el icono de hoja de Excel situado junto a "Ir".
- 
+
 El informe se actualiza cada 5 minutos.
 
 ![Informe Datos transferidos](./media/cdn-reports/cdn-data-transferred.png)
@@ -54,7 +54,7 @@ El informe se actualiza cada 5 minutos.
 ## Aciertos (códigos de estado)
 
 Este informe describe la distribución de códigos de estado de la solicitud para su contenido. Todas las solicitudes de contenido generarán un código de estado HTTP. El código de estado describe cómo los POP perimetrales procesaron la solicitud. Por ejemplo, los códigos de estado 2xx indican que la solicitud se ha servido correctamente a un cliente, mientras que un código de estado 4xx indica que se produjo un error. Para obtener más detalles sobre el código de estado HTTP, consulte [códigos de estado](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).
- 
+
 - Seleccione el intervalo de fechas para ver datos de hoy, esta semana o este mes, etc. o especifique fechas personalizadas y haga clic en "Ir" para asegurarse de que se actualiza la selección.
 - Para exportar y descargar los datos, haga clic en el icono de hoja de Excel situado junto a "Ir".
 
@@ -66,10 +66,10 @@ Este informe describe la distribución de aciertos de caché y errores de caché
 
 ![Informe Estados de la memoria caché](./media/cdn-reports/cdn-cache-statuses.png)
 
-### Los principales estados de la memoria caché incluyen: 
+### Los principales estados de la memoria caché incluyen:
 
 - TCP\_HIT: servido desde el extremo. El objeto estaba en la memoria caché y no ha excedido su duración máxima.
-- TCP\_MISS: servido desde el origen. El objeto no estaba en la memoria caché y la respuesta se devolvió al origen. 
+- TCP\_MISS: servido desde el origen. El objeto no estaba en la memoria caché y la respuesta se devolvió al origen.
 - TCP\_EXPIRED \_MISS: servido desde el origen después de la revalidación con el origen. El objeto estaba en la memoria caché, pero ha excedido su duración máxima. Como resultado de una revalidación con el origen, el objeto de caché será reemplazado por una nueva respuesta desde el origen.
 - TCP\_EXPIRED \_HIT: servido desde el extremo después de la revalidación con el origen. El objeto estaba en la memoria caché, pero ha excedido su duración máxima. Como resultado de una revalidación con el servidor de origen, el objeto de caché no se ha modificado.
 
@@ -112,12 +112,12 @@ El informe proporciona los detalles siguientes:
 
 - El contenido solicitado se almacenó en caché en el POP más cercano al solicitante.
 - La solicitud se sirve directamente desde el extremo de la red.
-- La solicitud no requería revalidación con el servidor de origen. 
+- La solicitud no requería revalidación con el servidor de origen.
 
 El informe no incluye:
 
 - Solicitudes denegadas debido a las opciones de filtrado de país.
-- Solicitudes de recursos cuyos encabezados indican que no se deben almacenar en caché. Por ejemplo, los encabezados Cache-Control: private, Cache-Control: no-cache o Pragma: no-cache impedirán que un recurso se almacene en caché. 
+- Solicitudes de recursos cuyos encabezados indican que no se deben almacenar en caché. Por ejemplo, los encabezados Cache-Control: private, Cache-Control: no-cache o Pragma: no-cache impedirán que un recurso se almacene en caché.
 - Solicitudes de intervalo de bytes para contenido almacenado parcialmente en caché.
 
 La fórmula es: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
@@ -128,7 +128,7 @@ La fórmula es: (TCP\_ HIT/(TCP\_ HIT+TCP\_MISS))*100
 
 ![Informe Frecuencia de aciertos de caché](./media/cdn-reports/cdn-cache-hit-ratio.png)
 
-## Datos de IPV4/IPV6 transferidos 
+## Datos de IPV4/IPV6 transferidos
 
 Este informe muestra la distribución de uso de tráfico en IPV4 frente a IPV6.
 
@@ -142,4 +142,4 @@ Este informe muestra la distribución de uso de tráfico en IPV4 frente a IPV6.
 
 Los informes solo pueden generarse en los últimos 18 meses.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

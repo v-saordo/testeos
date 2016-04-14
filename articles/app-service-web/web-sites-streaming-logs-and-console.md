@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/14/2016" 
 	ms.author="byvinyal"/>
 
 #Registros de transmisión y la consola
 
 ### Registros de transmisión ###
 
-El Portal de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones web del Servicio de aplicaciones de Azure en tiempo real.
+El Portal de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones web del Servicio de aplicaciones en tiempo real.
 
 La configuración requiere algunos pasos sencillos:
 
@@ -53,28 +53,22 @@ console.log("My trace statement").
 `````````````````````````
 
 ### Habilitación y visualización de registros de transmisión ###
-
-![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [Portal](https://portal.azure.com), haga clic en el botón **Examinar (1)** situado en la barra de menús de la izquierda y luego en **Aplicaciones web (2)** para obtener la **lista (3)** de todas las aplicaciones web.
-
-Haga clic en el nombre de la aplicación web que quiere configurar para navegar hasta ella.
+![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [portal](https://portal.azure.com), vaya al sitio que para el que quiere habilitar esta característica.
   
-![][DiagnosticsLogs] A continuación, haga clic en **Configuración (1)** > **Registros de diagnóstico (2)** y **Active** el **Registro de la aplicación (Sistema de archivos)(3)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+![][DiagnosticsLogs] A continuación, haga clic en **(1) Configuración** > **(2) Registros de diagnóstico** y **(3) Active** el **Registro de la aplicación (Sistema de archivos)** o el **Registro de la aplicación (blob)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
 Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
 **Nota:** cuanto mayor sea el **nivel de gravedad**, más recursos del registro se consumen y más trazas se obtendrán. Asegúrese de que se establece en el nivel adecuado al usar esta característica para sitio de producción o de tráfico alto.
 
-![][StreamingLogsScreenshot] Para ver los registros de streaming desde el portal, haga clic en **Herramientas (1)** > **Secuencia de registro (2)**. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la ventana resultante prácticamente en tiempo real.
+![][StreamingLogsScreenshot] Para ver los registros de streaming desde el portal, haga clic en **(1) Herramientas** > **(2) Secuencia de registro**. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la **(3)** ventana resultante prácticamente en tiempo real.
 
 ## Consola ##
-
 El Portal de Azure proporciona acceso a la consola para el entorno de la aplicación web. Puede explorar el sistema de archivos de la aplicación web y ejecutar los scripts de cmd/powershell. Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.
 
-![][ConsoleScreenshot] Para ir a la consola, desplácese a una aplicación web tal como se describe en la sección anterior. Haga clic en **Herramientas** > **Consola** y la consola se abrirá.
+![][ConsoleScreenshot] Para ir a la consola, desplácese a una aplicación web tal como se describe en la sección anterior. Haga clic en **(1) Herramientas**>**(2) Consola** y **(3)** la consola se abrirá.
 
 Para familiarizarse con la consola, pruebe estos comandos básicos:
-
-
 
 `````````````````````````
 dir
@@ -84,12 +78,10 @@ dir
 cd
 `````````````````````````
 
-
-
 <!-- Images. -->
 [DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

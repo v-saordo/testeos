@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/08/2015"
+  ms.date="02/09/2016"
   ms.author="stevenpo"/>
 
 
@@ -68,7 +68,8 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 
 ## ¿Dónde puedo obtener más información?
 
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 - [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

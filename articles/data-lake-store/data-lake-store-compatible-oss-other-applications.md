@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="02/03/2016"
    ms.author="nitinme"/>
 
 # Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake
@@ -41,4 +41,4 @@ En este artículo se enumeran las aplicaciones Big Data de código abierto que f
 - [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0204_2016-->

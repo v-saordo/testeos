@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Análisis del rendimiento perimetral" 
-	description="Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Análisis del rendimiento perimetral"
+	description="Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure
@@ -21,7 +21,7 @@
 ## Información general
 El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN. Esta información puede usarse para generar estadísticas de tendencias que permiten obtener información sobre cómo los activos se almacenan en caché y se entregan a los clientes. A su vez, esto permite diseñar una estrategia sobre la forma de optimizar la entrega de contenido y determinar qué problemas se deben abordar para aprovechar mejor la red CDN. Como resultado, no solo podrá mejorar el rendimiento de la entrega de datos, sino que también podrá reducir los costos de la red CDN.
 
-> [AZURE.NOTE]El análisis de rendimiento perimetral es una característica del nivel Premium de la red CDN. Para una comparación de las características de los niveles Standard y Premium de la red CDN, consulte [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
+> [AZURE.NOTE] El análisis de rendimiento perimetral es una característica del nivel Premium de la red CDN. Para una comparación de las características de los niveles Standard y Premium de la red CDN, consulte [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
 >
 > Todos los informes usan la notación de hora UTC/GMT al especificar una fecha y hora.
 
@@ -29,7 +29,7 @@ El análisis del rendimiento perimetral proporciona información pormenorizada s
 
 Para poder generar los informes, el módulo Análisis del rendimiento perimetral tiene que recopilar datos de actividad de la red CDN. Este proceso de recopilación se produce una vez al día y se centra en la actividad que tuvo lugar a lo largo del día anterior. Esto quiere decir que las estadísticas de un informe representan una muestra de las estadísticas del día en el momento en el que se procesó, y no contienen necesariamente el conjunto completo de datos para el día actual. Es la función principal de estos informes evaluar el rendimiento. No deben usarse con fines de facturación o estadísticas numéricas exactas.
 
-> [AZURE.NOTE]Los datos sin procesar a partir de los que se generan los informes de Análisis del rendimiento perimetral están disponibles al menos durante 90 días.
+> [AZURE.NOTE] Los datos sin procesar a partir de los que se generan los informes de Análisis del rendimiento perimetral están disponibles al menos durante 90 días.
 
 ## Panel
 
@@ -46,11 +46,11 @@ Este panel consta de:
 1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
 
 	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	Se abre el portal de administración de la red CDN.
-	
+
 2. Mantenga el puntero sobre la pestaña **Análisis** y, después sobre el control flotante **Análisis del rendimiento perimetral**. Haga clic en **Panel**.
-	
+
 	Se muestra el panel de análisis de nodo perimetral.
 
 ### Gráfico
@@ -98,7 +98,7 @@ El propósito de estas métricas es proporcionar información sobre las siguient
 * Reducción de los costos operativos a través de la red CDN.
 * Reducción de gastos de red CDN mediante compresión y la eficiencia de la memoria caché.
 
-> [AZURE.NOTE]Los números del volumen de tráfico representan el tráfico que se usó en los cálculos de proporciones y porcentajes y puede mostrar solo una parte del tráfico total para los clientes de gran volumen.
+> [AZURE.NOTE] Los números del volumen de tráfico representan el tráfico que se usó en los cálculos de proporciones y porcentajes y puede mostrar solo una parte del tráfico total para los clientes de gran volumen.
 
 Campo | Descripción
 ------|------------
@@ -143,13 +143,13 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
 
 	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
-	
+
 	Se abre el portal de administración de la red CDN.
-	
+
 2. Mantenga el puntero sobre la pestaña **Análisis** y, después sobre el control flotante **Análisis del rendimiento perimetral**. Haga clic en **Objeto grande HTTP**.
-	
+
 	Se muestra la pantalla de informes de análisis de nodo perimetral.
-	
+
 Informe | Descripción
 -------|------------
 Daily Summary | Permite ver tendencias de tráfico diarias durante un período de tiempo especificado. Cada barra de este gráfico representa una fecha determinada. El tamaño de la barra indica el número total de aciertos de que se produjeron en esa fecha.
@@ -157,7 +157,7 @@ Hourly Summary | Permite ver tendencias de tráfico por horas durante un períod
 Protocolos | Muestra el desglose del tráfico entre los protocolos HTTP y HTTPS. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de protocolo.
 HTTP Methods | Le permite obtener una impresión rápida de cuáles son los métodos HTTP que se están usando para solicitar los datos. Normalmente, los métodos de solicitud HTTP más comunes son GET, HEAD y POST. Un gráfico de anillos indica el porcentaje de aciertos que se produjo para cada tipo de método de solicitud HTTP.
 URLs | Contiene un gráfico que muestra las 10 URL más solicitadas. Se muestra una barra para cada dirección URL. La altura de la barra indica cuántos aciertos generó la dirección URL en particular durante el período de tiempo que cubre el informe. Las estadísticas de las 100 direcciones URL más solicitadas se muestran directamente debajo de este gráfico.
-CNAMEs | Contiene un gráfico que muestra los 10 CNAME más usados para solicitar recursos durante el periodo de tiempo que abarca un informe. Las estadísticas de los 100 CNAME más solicitados se muestran directamente debajo de este gráfico. 
+CNAMEs | Contiene un gráfico que muestra los 10 CNAME más usados para solicitar recursos durante el periodo de tiempo que abarca un informe. Las estadísticas de los 100 CNAME más solicitados se muestran directamente debajo de este gráfico.
 Origins | Contiene un gráfico que muestra las 10 principales redes CDN o servidores de origen de cliente desde los que se solicitaron activos durante un período de tiempo especificado. Las estadísticas de las 100 redes CDN o servidores de origen de cliente más solicitados, se muestran directamente debajo de este gráfico. Los servidores de origen de cliente se identifican mediante el nombre definido en la opción de nombre de directorio.
 Geo POPs | Muestra la cantidad del tráfico que se enruta a través de un determinado punto de presencia (POP). La abreviatura de tres letras representa un POP en nuestra red CDN.
 Clientes | Contiene un gráfico que muestra los 10 principales clientes que solicitaron activos durante un período de tiempo especificado. Para los fines de este informe, todas las solicitudes que se originan en la misma dirección IP se consideran del mismo cliente. Las estadísticas de los 100 principales clientes se muestran directamente debajo de este gráfico. Este informe resulta útil para determinar los patrones de actividad de descarga para los clientes principales.
@@ -192,4 +192,4 @@ HTTP Response Codes | Proporciona un desglose de los códigos de estado HTTP (po
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

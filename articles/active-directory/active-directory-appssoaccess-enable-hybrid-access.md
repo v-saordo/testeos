@@ -3,6 +3,7 @@
 	description="Habilite el acceso a aplicaciones que se ejecutan dentro de su red privada desde fuera de la red mediante Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
+	keywords="acceso a la aplicación, Proxy de aplicación, acceso a híbrido"
 	authors="femila"
 	manager="stevenpo"
 	editor=""/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/10/2016"
 	ms.author="femila"/>
 
 # Habilitación del acceso híbrido con el proxy de aplicación
@@ -39,7 +40,8 @@ Solo existe un requisito para habilitar el acceso a una aplicación web: la apli
 7. La respuesta se envía a través del proxy de aplicación al usuario.
 
 ## Artículos relacionados
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 - [Habilitación del proxy de la aplicación de Azure AD](active-directory-application-proxy-enable.md#step-1-enable-application-proxy-in-azure-ad)
 - [Publicación de aplicaciones a través del proxy de aplicación de Azure AD](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

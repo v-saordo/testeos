@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/07/2015" 
+	ms.date="02/18/2016" 
 	ms.author="mandia"/>
 
 # Administración y supervisión de las aplicaciones de API y los conectores integrados
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Ha creado una aplicación de API integrada. ¿Y ahora qué?
 
@@ -40,7 +42,7 @@ Puede:
 - Use los botones **Iniciar** y **Detener** para controlar la aplicación de API.
 - Cuando se realizan actualizaciones de productos en los archivos subyacentes usados por la aplicación de API, puede hacer clic en **Actualizar** para obtener las versiones más recientes. Por ejemplo, si existe una corrección o una actualización de seguridad publicadas por Microsoft, al hacer clic en **Actualizar** se actualiza automáticamente la aplicación de API para incluir esta corrección. 
 - Seleccione **Plan de cambios** para actualizar o cambiar a una versión anterior en función del uso de datos de la aplicación de API. También puede usar esta característica para ver el uso de datos.
-- Al crear un conector que tiene tablas, como el conector SQL, tiene la opción de escribir un nombre de tabla al que conectarse. Automáticamente se crea un esquema basado en la tabla que está disponible al hacer clic en **Descargar esquemas**. Luego, puede usar este esquema descargado para crear una transformación o una asignación. 
+- Al crear un conector que tiene tablas, como el conector SQL, tiene la opción de escribir un nombre de tabla al que conectarse. Automáticamente se crea un esquema basado en la tabla que está disponible al hacer clic en**Descargar esquemas**. Luego, puede usar este esquema descargado para crear una transformación o una asignación. 
 
 ## Cambio de los valores de configuración del conector o de la aplicación de API que ha especificado
 
@@ -68,7 +70,7 @@ El Administrador de conexiones híbridas permite conectarse a un sistema local, 
 
 Consulte [Uso del Administrador de conexiones híbridas del Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
 
-> [AZURE.NOTE]El Administrador de conexiones híbridas solo es necesario si va a conectarse a un recurso local detrás del firewall. Si no se va a conectar a un sistema local, puede que el Administrador de conexiones híbridas no aparezca en la hoja del conector.
+> [AZURE.NOTE] El Administrador de conexiones híbridas solo es necesario si va a conectarse a un recurso local detrás del firewall. Si no se va a conectar a un sistema local, puede que el Administrador de conexiones híbridas no aparezca en la hoja del conector.
 
 ## Supervisión del rendimiento
 Las métricas de rendimiento son características integradas y se incluyen con cada aplicación de API que se crea. Estas métricas son específicas de la aplicación de API hospedada en Azure. Métricas de ejemplo:
@@ -94,7 +96,7 @@ Colaborador | Tiene acceso total a la experiencia de administración. No puede c
 Lector | Puede ver todos los recursos excepto los secretos.
 Administrador de acceso de usuario | Puede ver todos los recursos, crear y administrar roles y crear y administrar incidencias de soporte técnico.
 
-[Control de acceso basado en rol en el Portal de Microsoft Azure](role-based-access-control-configure.md)
+[Control de acceso basado en rol en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)
 
 Puede agregar usuarios de forma fácil y asignarles roles específicos para su aplicación de API. El portal muestra los usuarios que tienen acceso y su rol asignado:
 
@@ -105,26 +107,21 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 
 
 ## Más cosas buenas
-- Seleccione **Definición de API** para abrir el archivo de Swagger creado automáticamente para la aplicación de API específica.
+- Seleccione **Definición de API**para abrir el archivo de Swagger creado automáticamente para la aplicación de API específica.
 - Seleccione **Dependencias** para ver los archivos que necesita la aplicación de API. Por ejemplo, si usa el conector SAP, debe instalar algunos archivos adicionales en el Administrador de conexiones de híbridas local. Estas dependencias se muestran en la hoja Aplicación de API. 
 
-> [AZURE.IMPORTANT]Cuando abra las propiedades de la aplicación de API y mire en **Essentials**, verá los vínculos **Host** y **Puerta de enlace** que abren nuevas hojas:
+> [AZURE.IMPORTANT] Cuando abra las propiedades de la aplicación de API y mire en **Essentials**, verá los vínculos **Host** y **Puerta de enlace** que abren nuevas hojas:
 > 
 > ![][host]
 > 
-> Estas propiedades son específicas del sitio web que hospeda la aplicación de API. Cuando se usa una aplicación de API App o un conector integrados, la mayoría de estas propiedades no se aplican realmente y se recomienda que no las actualice. Si creó su propia aplicación de API en Visual Studio y la implementó en su suscripción a Azure, puede usar las hojas Host y Puerta de enlace. En [Administración de aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md) se proporciona más información sobre lo que puede hacer en estas hojas con su aplicación de API creada de forma personalizada. 
+> Estas propiedades son específicas del sitio web que hospeda la aplicación de API. Cuando se usa una aplicación de API App o un conector integrados, la mayoría de estas propiedades no se aplican realmente y se recomienda que no las actualice. Si creó su propia aplicación de API en Visual Studio y la implementó en su suscripción a Azure, puede usar las hojas Host y Puerta de enlace. En [Administración de aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md) se proporciona más información sobre lo que puede hacer en estas hojas con su aplicación de API creada de forma personalizada.
 
 
-
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic). Puede crear una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Más información.
 
-[Supervisión de las aplicaciones lógica](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Lista de aplicaciones de API y conectores del Servicio de aplicaciones](app-service-logic-connectors-list.md)<br/>
-[Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md)<br/>
-[Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
+[Supervisión de las aplicaciones lógica](app-service-logic-monitor-your-logic-apps.md)<br/> [Lista de aplicaciones de API y conectores del Servicio de aplicaciones](app-service-logic-connectors-list.md)<br/> [Control de acceso basado en roles en el Portal de Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/> [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -137,4 +134,4 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0224_2016-->

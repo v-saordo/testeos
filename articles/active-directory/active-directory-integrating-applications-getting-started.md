@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="10/16/2015"
+      ms.date="02/09/2016"
       ms.author="inhenk"/>
 
 # Guía de introducción a la integración de Azure Active Directory con las aplicaciones
@@ -87,4 +87,8 @@ Si va a crear una nueva aplicación y quiere ayudar a los desarrolladores a apro
 
 Si quiere agregar su aplicación personalizada a la Galería de aplicaciones de Azure, consulte ["Traiga su propia aplicación" con la configuración de SALM de autoservicio de Azure AD](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-<!---HONumber=AcomDC_0107_2016-->
+## Consulte también
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
+<!---HONumber=AcomDC_0211_2016-->

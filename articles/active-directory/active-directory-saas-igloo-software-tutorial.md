@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="prasannas"/>
+    manager="stevenpo"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="12/04/2015" 
+    ms.date="02/17/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Igloo Software
@@ -76,7 +76,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Inicio de sesión único de Microsoft Azure AD](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Inicio de sesión único de Microsoft Azure AD")
 
-3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Igloo Software**, escriba su dirección URL con el siguiente patrón "**https://company.igloocommunities.com/?signin*" y, a continuación, haga clic en **Siguiente**.
+3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión de Igloo Software**, escriba su dirección URL con el siguiente patrón "*https://company.igloocommunities.com/?signin*" y, a continuación, haga clic en **Siguiente**.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configurar dirección URL de la aplicación")
 
@@ -126,7 +126,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Creación de usuario al inicio de sesión](./media/active-directory-saas-igloo-software-tutorial/IC783972.png "Creación de usuario al inicio de sesión")
 
-    1.  En **User creation on Sign in** (Creación de usuario al inicio de sesión), seleccione **Create a new user in your site when they sign in** (Crear un nuevo usuario en el sitio al iniciar sesión).
+    1.  En **Creación de usuario al inicio de sesión** seleccione **Crear un nuevo usuario en el sitio cuando inicia sesión**.
     2.  En **Sign in Settings** (Configuración de inicio de sesión), seleccione **Use SAML button on "Sign in" screen** (Usar botón SAML en la pantalla "Iniciar sesión").
     3.  Haga clic en **Guardar**.
 
@@ -148,10 +148,10 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
     ![Asignar usuarios](./media/active-directory-saas-igloo-software-tutorial/IC783974.png "Asignar usuarios")
 
-3.  Seleccione su usuario de prueba, haga clic en **Asignar** y, luego, en **Sí** para confirmar la asignación.
+3.  Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
 
     ![Sí](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Sí")
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

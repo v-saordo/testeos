@@ -4,9 +4,9 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="TomArcher"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="11/18/2015"
-	ms.author="tarcher"/>
+	ms.date="02/03/2016"
+	ms.author="robmcm"/>
 
 # Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure
 
@@ -40,11 +40,11 @@ El archivo **IISNode.yml** puede usarse también para controlar si los errores d
 
 Después de que se habilita esta opción, IISNode devolverá los últimos 64 K de información que se enviaron a stderr en vez de un error descriptivo como "se produjo un error de servidor interno".
 
-> [AZURE.NOTE]Si bien devErrorsEnabled es útil para diagnosticar los problemas que se producen durante el desarrollo, su habilitación en un entorno de producción puede tener como resultado que se envíen errores de desarrollo a los usuarios finales.
+> [AZURE.NOTE] Si bien devErrorsEnabled es útil para diagnosticar los problemas que se producen durante el desarrollo, su habilitación en un entorno de producción puede tener como resultado que se envíen errores de desarrollo a los usuarios finales.
 
 Si el archivo **IISNode.yml** no existía ya en su aplicación, debe reiniciar la aplicación web después de publicar la aplicación actualizada. Si solamente va a cambiar la configuración de un archivo **IISNode.yml** existente que ya se publicó anteriormente, no es necesario reiniciar.
 
-> [AZURE.NOTE]Si aplicación web se creó usando las herramientas de línea de comandos de Azure o los cmdlets de Azure PowerShell, automáticamente se crea un archivo predeterminado **IISNode.yml**.
+> [AZURE.NOTE] Si aplicación web se creó usando las herramientas de línea de comandos de Azure o los cmdlets de Azure PowerShell, automáticamente se crea un archivo predeterminado **IISNode.yml**.
 
 Para reiniciar la aplicación web, selecciónela en el [Portal de Azure](https://portal.azure.com) y después haga clic en el botón **REINICIAR**:
 
@@ -54,7 +54,7 @@ Si las herramientas de línea de comandos de Azure están instaladas en su entor
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
+> [AZURE.NOTE] Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 <a id="viewlogs"></a>
 ## Acceso a los registros
@@ -69,7 +69,7 @@ Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. L
 
 Para tener acceso a la información de diagnóstico a través de FTP, visite el [Portal de Azure](https://portal.azure.com), seleccione su aplicación web y luego seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **FTP DIAGNOSTIC LOGS** y **FTPS DIAGNOSTIC LOGS** proporcionan acceso a los registros usando el protocolo FTP.
 
-> [AZURE.NOTE]Si no ha configurado antes el nombre de usuario y la contraseña de FTP o la implementación, puede hacerlo desde la página de administración **Inicio rápido** al seleccionar **Configurar las credenciales de implementación**.
+> [AZURE.NOTE] Si no ha configurado antes el nombre de usuario y la contraseña de FTP o la implementación, puede hacerlo desde la página de administración **Inicio rápido** al seleccionar **Configurar las credenciales de implementación**.
 
 La URL de FTP devuelta en el panel es para el directorio **LogFiles**, que contendrá los siguientes subdirectorios:
 
@@ -115,7 +115,7 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
@@ -126,4 +126,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

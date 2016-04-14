@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Estadísticas de tiempo real" 
-	description="Estadísticas en tiempo real en la CDN de Microsoft Azure Estadísticas en tiempo real proporciona datos en tiempo real sobre el rendimiento de la red CDN al entregar contenido a los clientes." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Estadísticas de tiempo real"
+	description="Estadísticas en tiempo real en la CDN de Microsoft Azure Estadísticas en tiempo real proporciona datos en tiempo real sobre el rendimiento de la red CDN al entregar contenido a los clientes."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016" 
 	ms.author="casoper"/>
 
 # Estadísticas en tiempo real en la CDN de Microsoft Azure
@@ -22,7 +22,7 @@
 
 En este documento se describe la funcionalidad de Estadísticas en tiempo real en la CDN de Microsoft Azure. Esta funcionalidad proporciona datos en tiempo real sobre el rendimiento de la red CDN al entregar contenido a los clientes.
 
-> [AZURE.NOTE]Estadísticas en tiempo real es una característica del nivel Premium de la CDN. Para una comparación de las características de los niveles Estándar y Premium de la CDN, vea [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
+> [AZURE.NOTE] Estadísticas en tiempo real es una característica del nivel Premium de la CDN. Para una comparación de las características de los niveles Estándar y Premium de la CDN, vea [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
 
 Los gráficos siguientes están disponibles al ver estadísticas en tiempo real para las plataformas basadas en HTTP:
 
@@ -31,25 +31,25 @@ Los gráficos siguientes están disponibles al ver estadísticas en tiempo real 
 * [Estados de la memoria caché](#cache-statuses)
 * [Conexiones](#connections)
 
-> [AZURE.NOTE]Cada uno de los gráficos anteriores muestra estadísticas en tiempo real para un determinado período de tiempo. Se abre una ventana deslizante de datos una vez transcurrido el tiempo especificado. Esto significa que los datos antiguos se quitarán del gráfico para dejar espacio a los nuevos datos. Se puede establecer el período de tiempo para esta ventana deslizante con la opción Intervalo de tiempo de los gráficos.
- 
+> [AZURE.NOTE] Cada uno de los gráficos anteriores muestra estadísticas en tiempo real para un determinado período de tiempo. Se abre una ventana deslizante de datos una vez transcurrido el tiempo especificado. Esto significa que los datos antiguos se quitarán del gráfico para dejar espacio a los nuevos datos. Se puede establecer el período de tiempo para esta ventana deslizante con la opción Intervalo de tiempo de los gráficos.
+
 ## Acceso a estadísticas en tiempo real
 
 1. En la hoja Perfil de CDN, haga clic en el botón **Administrar**.
 
 	![Botón Administrar en la hoja Perfil de CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
-	
+
 	Se abre el Portal de administración de CDN.
-	
+
 2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Estadísticas en tiempo real**. Haga clic en **Plataforma grande HTTP**.
-	
+
 	Se muestran las opciones de informe.
 
 ## Ancho de banda
 
 El gráfico de ancho de banda muestra la cantidad de ancho de banda que se usa en la plataforma actual durante un período de tiempo especificado. La parte sombreada del gráfico indica el uso de ancho de banda. La cantidad exacta del ancho de banda que se usa actualmente se muestra directamente debajo del gráfico de líneas.
 
-> [AZURE.NOTE]Las unidades empleadas para informar del uso ancho de banda son una de las siguientes: bits por segundo (b/s), Kilobits por segundo (Kbps), Megabits por segundo (Mb/s) o Gigabits por segundo (Gb/s).
+> [AZURE.NOTE] Las unidades empleadas para informar del uso ancho de banda son una de las siguientes: bits por segundo (b/s), Kilobits por segundo (Kbps), Megabits por segundo (Mb/s) o Gigabits por segundo (Gb/s).
 
 ## Códigos de estado
 
@@ -57,7 +57,7 @@ El gráfico de códigos de estado se compone de líneas codificadas por color qu
 
 Una lista de códigos de estado se muestra directamente sobre el gráfico. En esta lista se indica cada código de estado que se puede incluir en el gráfico de líneas y el número actual de repeticiones por segundo para ese código de estado. De forma predeterminada, se muestra una línea para cada uno de estos códigos de estado del gráfico. Pero se puede optar por supervisar solo los códigos de estado que tienen un significado especial para la configuración de la red CDN. Para ello, marque solo las opciones de código de estado que quiera y desactive las demás opciones. Cuando esté satisfecho con los códigos de estado que se mostrarán en el gráfico, debe hacer clic en Actualizar gráfico. Con esto se evita incluir los códigos de estado desactivados en el gráfico.
 
-> [AZURE.NOTE]La opción **Actualizar gráfico** borrará el gráfico. Después, solo se mostrarán los códigos de estado seleccionados.
+> [AZURE.NOTE] La opción **Actualizar gráfico** borrará el gráfico. Después, solo se mostrarán los códigos de estado seleccionados.
 
 A continuación se describe cada opción de código de estado.
 
@@ -75,7 +75,7 @@ Otros por segundo | Determina si en el gráfico se muestra el número total de r
 
 También puede ocultar temporalmente los datos registrados para un código de estado en particular. Puede hacerlo desde el área que queda directamente debajo del gráfico desactivando la opción de código de estado que quiera. El código de estado seleccionado se ocultará inmediatamente en el gráfico. Al marcar esa opción de código de estado volverá a mostrarse esa opción.
 
-> [AZURE.NOTE]Las opciones codificadas por colores que se muestran directamente debajo del gráfico solo afectan a lo que aparece en el gráfico. No afecta a si el gráfico realizará un seguimiento de ese código de estado.
+> [AZURE.NOTE] Las opciones codificadas por colores que se muestran directamente debajo del gráfico solo afectan a lo que aparece en el gráfico. No afecta a si el gráfico realizará un seguimiento de ese código de estado.
 
 ## Estados de la memoria caché
 
@@ -83,11 +83,11 @@ El gráfico de estados de la memoria caché se compone de líneas codificadas po
 
 Una lista de estados de la memoria caché se muestra directamente sobre el gráfico. En esta lista se indica cada estado de la memoria caché que se puede incluir en el gráfico de líneas y el número actual de repeticiones por segundo para dicho estado. De forma predeterminada, se muestra una línea para cada uno de estos estados de la memoria caché del gráfico. Pero se puede optar por supervisar solo los estados de la memoria caché que tienen un significado especial para la configuración de la red CDN. Para ello, marque solo las opciones de estado de la memoria caché que quiera y desactive las demás opciones. Cuando esté satisfecho con los estados de la memoria caché que se mostrarán en el gráfico, debe hacer clic en Actualizar gráfico. Con esto se evita incluir los códigos de estado desactivados en el gráfico.
 
-> [AZURE.NOTE]La opción **Actualizar gráfico** borrará el gráfico. Después, solo se mostrarán los estados de la memoria caché seleccionados.
+> [AZURE.NOTE] La opción **Actualizar gráfico** borrará el gráfico. Después, solo se mostrarán los estados de la memoria caché seleccionados.
 
 También puede ocultar temporalmente los datos registrados para un código de respuesta en particular. Puede hacerlo desde el área que queda directamente debajo del gráfico desactivando la opción de código de respuesta que quiera. El código de respuesta seleccionado se ocultará inmediatamente en el gráfico. Al marcar esa opción de código de respuesta volverá a mostrarse esa opción.
 
-> [AZURE.NOTE]Las opciones codificadas por colores que se muestran directamente debajo del gráfico solo afectan a lo que aparece en el gráfico. No afecta a si el gráfico realizará un seguimiento de ese código de estado.
+> [AZURE.NOTE] Las opciones codificadas por colores que se muestran directamente debajo del gráfico solo afectan a lo que aparece en el gráfico. No afecta a si el gráfico realizará un seguimiento de ese código de estado.
 
 ## Conexiones
 
@@ -99,4 +99,4 @@ Esta representación gráfica del promedio de conexiones por minuto permite ver 
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

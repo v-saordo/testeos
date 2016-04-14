@@ -2,6 +2,7 @@
    pageTitle="Vista previa de colaboración de Azure AD B2B: funcionamiento | Microsoft Azure"
    description="Describe la forma en que la colaboración de Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas."
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
-# Vista previa de colaboración de Azure Active Directory (Azure AD) B2B: funcionamiento
+# Vista previa de la colaboración B2B de Azure AD: funcionamiento
 La colaboración de Azure AD B2B se basa en un modelo de invitación y canje. Debe especificar las direcciones de correo electrónico de las partes con las que desea trabajar junto con las aplicaciones que deben usar. Azure AD les envía una invitación por correo electrónico que incluye un vínculo. El usuario del asociado debe seguir el vínculo y, cuando se le indique, debe iniciar sesión con su cuenta de Azure AD o bien suscribirse con una cuenta de Azure AD nueva.
 
 1. El administrador invita a los usuarios del asociado cargando un [archivo .csv estructurado](active-directory-b2b-references-csv-file-format.md) mediante el Portal de Azure.
@@ -41,5 +42,6 @@ Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básic
  - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
  - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
+ - [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

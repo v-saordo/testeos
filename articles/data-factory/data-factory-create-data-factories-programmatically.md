@@ -31,14 +31,14 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 ## Tutorial
 1. Con Visual Studio 2012 o 2013, cree una aplicación de consola .NET de C#.
 	<ol type="a">
-	<li>Inicie <b>Visual Studio 2012</b> r <b>Visual Studio 2013</b>.</li>
-	<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li> 
-	<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.</li> 
-	<li>Seleccione <b>Aplicación de consola</b> en la lista de tipos de proyecto de la derecha.</li>
-	<li>Escriba <b>DataFactoryAPITestApp</b> para el <b>nombre</b>.</li> 
-	<li>Seleccione <b>C:\ADFGetStarted</b> para la <b>ubicación</b>.</li>
-	<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
-</ol>
+		<li>Inicie <b>Visual Studio 2012</b> r <b>Visual Studio 2013</b>.</li>
+		<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li> 
+		<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.</li> 
+		<li>Seleccione <b>Aplicación de consola</b> en la lista de tipos de proyecto de la derecha.</li>
+		<li>Escriba <b>DataFactoryAPITestApp</b> para el <b>nombre</b>.</li> 
+		<li>Seleccione <b>C:\ADFGetStarted</b> para la <b>ubicación</b>.</li>
+		<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
+	</ol>
 2. Haga clic en <b>Herramientas</b>, seleccione <b>Administrador de paquetes de NuGet</b> y haga clic en <b>Consola del Administrador de paquetes</b>.
 3.	En la ventana <b>Consola del administrador de paquetes</b>, ejecute los siguientes comandos uno a uno.</b>. 
 
@@ -205,6 +205,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
 11. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor.
 
+La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información acerca de la actividad de copia.
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -261,7 +263,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
 	
 
-12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que le servirán para iniciar sesión en el Portal de Azure clásico.
+12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que le servirán para iniciar sesión en el Portal de Azure clásico. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -392,4 +394,4 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

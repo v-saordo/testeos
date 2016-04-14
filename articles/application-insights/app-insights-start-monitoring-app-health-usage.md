@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/04/2015"
+	ms.date="02/04/2016"
 	ms.author="awills"/>
 
 
@@ -133,9 +133,9 @@ Abra estos puertos para el tráfico de salida en el firewall del servidor:
 
 #### ¿Tiene problemas el servidor de compilación?
 
-Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
-> [AZURE.NOTE]Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
+> [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
 
 ## 5\. Agregar seguimiento de dependencias (y contadores de rendimiento de IIS)
@@ -269,4 +269,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

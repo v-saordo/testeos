@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/18/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de SAP y su incorporación a las aplicaciones lógicas
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 Conéctese a SAP local para RFC u obtener metadatos. Hay escenarios donde puede que necesite trabajar con SAP, que se instala localmente y detrás del firewall. El uso del conector de SAP en su flujo de trabajo le permitir conseguir distintos resultados. Ejemplos:
 
 1.	Exponer una parte de los datos que residen en SAP a través de un front-end de usuario móvil o web.
@@ -60,6 +62,8 @@ El conector SAP requiere conectividad híbrida para conectarse a *cualquier* ext
 3. Siga el proceso de instalación que se inicia y especifique la cadena de conexión principal cuando se le pida.
 4. Una vez que se completa el proceso de instalación, se muestra un cuadro de diálogo similar al siguiente: ![][3]
 
+Más información sobre la [integración con un servidor SAP local](app-service-logic-integrate-with-an-on-premise-sap-server.md).
+
 Ahora, cuando acceda de nuevo a la aplicación de API que ha creado, verá que el estado de la conexión híbrida se muestra como "conectado": ![][4]
 
 Nota: si desea cambiar a la cadena de conexión secundaria, solo tiene que volver a realizar la configuración híbrida y proporcionar la cadena de conexión secundaria en lugar de la cadena de conexión principal.
@@ -79,7 +83,7 @@ Complete la aplicación lógica para definir el proceso empresarial y, a continu
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -94,4 +98,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

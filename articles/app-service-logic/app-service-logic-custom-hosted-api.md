@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"	
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/23/2016"
 	ms.author="stepsic"/>
 	
 # Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas
@@ -22,28 +22,20 @@ Aunque Aplicaciones lógicas tiene un conjunto completo de más de 40 conectores
 
 ## Implementación de la aplicación web
 
-En primer lugar, necesitará implementar la API como aplicación web en Servicio de aplicaciones. En estas instrucciones, se explica la implementación básica: [Creación de una aplicación web ASP.NET en Servicio de aplicaciones de Azure](web-sites-dotnet-get-started.md).
+En primer lugar, necesitará implementar la API como aplicación web en Servicio de aplicaciones. En estas instrucciones, se explica la implementación básica: [Creación de una aplicación web ASP.NET en Servicio de aplicaciones de Azure](../app-service-web/web-sites-dotnet-get-started.md). Aunque puede llamar a cualquier API desde una aplicación lógica, para obtener la mejor experiencia le recomendamos que agregue metadatos de Swagger para integrarse fácilmente con acciones de aplicaciones lógicas. Puede encontrar más información sobre [cómo agregar Swagger](../app-service-api/app-service-api-dotnet-get-started.md/#use-swagger-metadata-and-ui).
 
-Asegúrese de obtener la **URL** de su aplicación web; aparece en **Aspectos básicos**, en la parte superior de la aplicación web.
+### Configuración de la API
+
+Para que el diseñador de aplicaciones lógicas analice su Swagger, es importante que habilite CORS y establezca las propiedades de definición de la API de su aplicación web. Es muy fácil establecerlas dentro del Portal de Azure. Solo tiene que abrir la hoja de configuración de la aplicación web y, en la sección de la API, establezca el campo "Definición de la API" como la dirección URL de su archivo swagger.json (que normalmente es https://{name}.azurewebsites.net/swagger/docs/v1)) y agregue una directiva CORS a "*" para permitir las solicitudes del diseñador de aplicaciones lógicas.
 
 ## Llamada a la API
 
-Empiece creando una nueva aplicación lógica en blanco. Una vez creada una aplicación lógica en blanco, haga clic en **Editar** o **Desencadenadores y acciones** y seleccione **Crear desde cero**.
+Cuando se encuentre dentro del portal de aplicaciones lógicas, si ha establecido CORS y las propiedades de Definición de la API, debería poder agregar fácilmente acciones de API personalizadas dentro de su flujo. En el diseñador, puede seleccionar si quiere examinar los sitios web de suscripción para enumerar los sitios web que tengan definida una dirección URL de Swagger. También puede usar la acción HTTP + Swagger para apuntar a Swagger y enumerar las acciones y las entradas disponibles. Por último, siempre puede crear una solicitud mediante la acción HTTP para llamar a cualquier API, incluso aquellas que no tengan ni expongan un documento de Swagger.
 
-En primer lugar, podría usar un desencadenador de periodicidad o hacer clic en **Ejecutar esta lógica manualmente**. A continuación, deberá realizar la llamada en sí a la API. Para ello, haga clic en la acción **HTTP** de color verde en el lado derecho.
+Si desea proteger su API, existen distintas formas de hacerlo:
 
-1. Elija un valor en **Método**; esto se definido en el código de la API.
-2. En la sección **URL**, pegue la dirección **URL** para la aplicación web implementada.
-3. Si necesita **Encabezados**, inclúyalos en formato JSON como esto: `{"Content-type" : "application/json", "Accept" : "application/json" }`
-4. Si la API es pública, puede dejar **Autenticación** en blanco. Si desea proteger las llamadas a la API, consulte las secciones siguientes.
-5. Por último, se incluye el **Cuerpo** de la pregunta que ha definido en la API.
-
-Haga clic en **Guardar** en la barra de comandos. Si hace clic en **Ejecutar ahora**, debería ver la llamada a la API y la respuesta en la lista de ejecuciones.
-
-Esto funciona bien si tiene una API pública. Pero si desea proteger su API, existen distintas formas de hacerlo:
-
-1. *No se requiere ningún cambio de código*: se puede usar Azure Active Directory para proteger su API sin necesidad de cambiar el código ni volver a implementarlo.
-2. Exija autenticación básica, autenticación de AAD o autenticación de certificado en el código de la API. 
+1. No se requiere ningún cambio de código; se puede usar Azure Active Directory para proteger su API sin necesidad de cambiar el código ni volver a implementarlo.
+1. Exija autenticación básica, autenticación de AAD o autenticación de certificado en el código de la API.
 
 ## Protección de las llamadas a la API sin cambios en el código 
 
@@ -118,7 +110,7 @@ Una vez que disponga del identificador de cliente y el de inquilino, incluya lo 
 ]
 ```
 
-Para ejecutar automáticamente una implementación conjunta de una aplicación web en blanco y una aplicación lógica que use AAD, haga clic en el siguiente botón: [![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+Para ejecutar automáticamente una implementación conjunta de una aplicación web en blanco y una aplicación lógica que usen AAD, haga clic en el siguiente botón: [![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 Para ver la plantilla completa, consulte la página sobre las [llamadas de aplicación lógica a una API personalizada hospedada en Servicio de aplicaciones y protegida mediante AAD](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-custom-api/azuredeploy.json).
 
@@ -130,9 +122,9 @@ En la sección **Autorización** de la acción **HTTP**: `{"tenant":"<<tenantId>
 | Elemento | Descripción |
 |---------|-------------|
 | type | Tipo de autenticación. En la autenticación ActiveDirectoryOAuth, el valor es ActiveDirectoryOAuth. |
-| tenant | Identificador de inquilino que se usa para identificar al inquilino de AD. |
+| tenant | Identificador de inquilino que se usa para identificar al inquilino de AD. |
 | audience | Obligatorio. El recurso al que se está conectando. |
-| clientID | Identificador de cliente para la aplicación de Azure AD. |
+| clientID | Identificador de cliente para la aplicación de Azure AD. |
 | secret | Obligatorio. Secreto del cliente que solicita el token. | 
 
 La plantilla anterior ya tiene esta configuración pero, si va a crear la aplicación lógica directamente, deberá incluir la sección de autorización completa.
@@ -141,7 +133,7 @@ La plantilla anterior ya tiene esta configuración pero, si va a crear la aplica
 
 ### Autenticación de certificado
 
-Puede usar certificados de cliente para validar las solicitudes entrantes a la aplicación web. Consulte [Configuración de la autenticación mutua de TLS para una aplicación web](app-service-web-configure-tls-mutual-auth.md) para ver cómo configurar su código.
+Puede usar certificados de cliente para validar las solicitudes entrantes a la aplicación web. Consulte [Configuración de la autenticación mutua de TLS para una aplicación web](../app-service-web/app-service-web-configure-tls-mutual-auth.md) para ver cómo configurar su código.
 
 En la sección *Autorización*, debe proporcionar: `{"type": "clientcertificate","password": "test","pfx": "long-pfx-key"}`.
 
@@ -169,8 +161,8 @@ De forma predeterminada, la autenticación de Azure Active Directory que se habi
 
 Por ejemplo, si desea limitar la API solamente a la aplicación lógica, puede extraer en el código el encabezado que contiene el JWT, comprobar quién efectuó la llamada y rechazar las solicitudes que no coincidan.
 
-Además, si desea implementarla totalmente en su propio código y no aprovechar la característica del Portal, lea este artículo: [Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure](web-sites-authentication-authorization.md).
+Además, si desea implementarla totalmente en su propio código y no aprovechar la característica del Portal, lea este artículo: [Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure](../app-service-web/web-sites-authentication-authorization.md).
 
 Necesita seguir los pasos anteriores para crear una identidad de aplicación para la aplicación lógica y usarla para llamar a la API.
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="02/10/2016"
    ms.author="curtand"/>
 
 #Administración del directorio para la suscripción de Office 365 en Azure
@@ -48,7 +48,8 @@ En este caso, los dos directorios son independientes entre sí.
 ##Para administrar dos directorios independientes
 Para que Michael Smith pueda administrar los dos directorios mientras está conectado a Azure como msmith@hotmail.com, debe llevar a cabo los siguientes pasos:
 
-> [AZURE.NOTE]Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción para **Usar directorio existente** no estará disponible porque una cuenta profesional o educativa solo se puede autenticar mediante su directorio particular (es decir, el directorio donde se almacena dicha cuenta, y que es propiedad de la empresa o la escuela).
+> [AZURE.NOTE]
+Estos pasos solo se pueden realizar cuando un usuario ha iniciado sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción para **Usar directorio existente** no estará disponible porque una cuenta profesional o educativa solo se puede autenticar mediante su directorio particular (es decir, el directorio donde se almacena dicha cuenta, y que es propiedad de la empresa o la escuela).
 
 1.	Inicie sesión en el Portal de Azure clásico como msmith@hotmail.com.
 2.	Haga clic en **Nuevo** > **Servicios de aplicaciones** > **Active Directory** > **Directorio** > **Creación personalizada**.
@@ -70,4 +71,4 @@ Ahora imaginemos que John Doe necesita iniciar sesión en el Portal de Azure cl�
 ##Pasos siguientes
 Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

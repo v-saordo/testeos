@@ -10,37 +10,39 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/18/2015" 
+    ms.date="02/09/2016" 
     ms.author="asmalser" />
 
 #Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory
 
-La Galería de aplicaciones de Azure Active Directory proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único en Azure Active Directory, tal como se describe en [este artículo]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/). Una vez que un especialista en TI o un integrador de sistemas de la organización haya encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en el Portal de administración de Azure para habilitar el inicio de sesión único.
+En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Esta característica se ha publicado en Technical Preview el 18 de noviembre de 2015 y se incluye en [Azure Active Directory Premium](active-directory-editions.md). Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md).
 
-Los clientes con licencias [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) tienen estas capacidades adicionales, que se pueden invocar desde la categoría **Personalizado** de la Galería de aplicaciones de Azure AD:
+La Galería de aplicaciones de Azure Active Directory proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único en Azure Active Directory, tal como se describe en [este artículo](active-directory-appssoaccess-whatis.md). Una vez que un especialista en TI o un integrador de sistemas de la organización haya encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en el Portal de administración de Azure para habilitar el inicio de sesión único.
 
-* Conexión autoservicio de cualquier aplicación que admita proveedores de identidades SAML 2.0
-* Conexión e autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use SSO basado en contraseña
-* Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/)
+Los clientes con licencias [Azure Active Directory Premium](active-directory-editions.md) también obtienen estas funcionalidades adicionales:
+
+* Integración de autoservicio de cualquier aplicación que admita proveedores de identidades SAML 2.0
+* Integración de autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use [SSO basado en contraseña](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Conexión autoservicio de las aplicaciones que usan el protocolo SCIM para el aprovisionamiento de usuarios ([se describe aquí](active-directory-scim-provisioning))
+* Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users)
 
 Aquí puede incluir no solo las aplicaciones SaaS que usa, pero que aún ha integrado en la Galería de aplicaciones de Azure AD, sino también las aplicaciones web de terceros que la organización ha implementado en los servidores que controla, ya sea en la nube o locales.
 
-Nota: Los desarrolladores de aplicaciones que busquen probar la compatibilidad entre su aplicación y esta función pueden hacerlo con una [evaluación gratuita de Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/), pero se recomienda adquirir una [licencia de derechos de uso interno](https://mspartner.microsoft.com/en/us/pages/membership/internal-use-software.aspx).
+Estas funcionalidades, también conocidas como *plantillas de integración de aplicaciones*, proporcionan puntos de conexión basados en estándares para aplicaciones que admiten SAML, SCIM o autenticación basada en formularios, e incluyen opciones y configuraciones flexibles para compatibilidad con un amplio número de aplicaciones.
 
-##Adición de una aplicación personalizada o que no figura en la lista 
+##Adición de una aplicación que no figura en la lista
 
-Para configurar una aplicación, inicie sesión en el Portal de administración de Azure con su cuenta de administrador de Azure Active Directory y vaya a la sección **Active Directory > [directorio] > Aplicaciones**, seleccione **Agregar**, y, a continuación, **Agregar una aplicación de la galería**.
+Para conectar una aplicación con una plantilla de integración de aplicaciones, inicie sesión en el Portal de administración de Azure con su cuenta de administrador de Azure Active Directory y vaya a la sección **Active Directory > [directorio] > Aplicaciones**, seleccione **Agregar** y, a continuación, **Agregar una aplicación de la galería**.
 
 ![][1]
 
-En la Galería de aplicaciones, se puede agregar una aplicación personalizada mediante la categoría **Personalizado** de la izquierda, o bien seleccionando el vínculo **Agregar una aplicación que no figura en la lista** que se muestra en los resultados de búsqueda si no se encontró la aplicación deseada. Después de escribir el nombre de la aplicación, puede configurar las opciones y el comportamiento de inicio de sesión único.
+En la Galería de aplicaciones, se puede agregar una aplicación que no figura en la lista mediante la categoría **Personalizado** de la izquierda, o bien seleccionando el vínculo **Agregar una aplicación que no figura en la lista** que se muestra en los resultados de búsqueda si no se encontró la aplicación deseada. Después de escribir el nombre de la aplicación, puede configurar las opciones y el comportamiento de inicio de sesión único.
 
 **Sugerencia rápida**: Como procedimiento recomendado, use la función de búsqueda para comprobar si la aplicación ya existe en la Galería de aplicaciones. Si se encuentra la aplicación y su descripción menciona "inicio de sesión único", la aplicación ya es compatible con un inicio de sesión único federado.
 
 ![][2]
 
-La adición de una aplicación personalizada supone una experiencia muy parecida a la disponible para las aplicaciones preintegradas. Para empezar, seleccione **Configurar inicio de sesión único**. La siguiente pantalla presenta las tres opciones siguientes para configurar el inicio de sesión único, que se describen en las secciones siguientes.
+La adición de una aplicación de esta forma supone una experiencia muy parecida a la disponible para las aplicaciones preintegradas. Para empezar, seleccione **Configurar inicio de sesión único**. La siguiente pantalla presenta las tres opciones siguientes para configurar el inicio de sesión único, que se describen en las secciones siguientes.
 
 ![][3]
 
@@ -105,9 +107,15 @@ Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Carg
 
 Seleccione esta opción si desea agregar un vínculo a una aplicación en el panel de acceso de Azure AD o en el Portal de Office 365 de la organización. Esto se puede usar para agregar vínculos a aplicaciones web personalizadas que actualmente utilizan los Servicios de federación de Azure Active Directory (u otro servicio de federación), en lugar de Azure AD para la autenticación. O bien, puede agregar vínculos profundos a páginas específicas de SharePoint o a otras páginas web que desee que aparezcan en los paneles de acceso de su usuario.
 
-Después de seleccionar **Siguiente**, se le solicitará que escriba la dirección URL de la aplicación con la que se va a establecer el vínculo. Una vez completada la operación, ya es posible asignar usuarios y grupos a la aplicación, lo que provoca que la aplicación aparezca en el [iniciador de aplicaciones de Office 365]( https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o en el [panel de acceso de Azure AD]( https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users/) de dichos usuarios.
+Después de seleccionar **Siguiente**, se le solicitará que escriba la dirección URL de la aplicación con la que se va a establecer el vínculo. Una vez completada la operación, ya es posible asignar usuarios y grupos a la aplicación, lo que provoca que la aplicación aparezca en el [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o en el [panel de acceso de Azure AD](active-directory-appssoaccess-whatis.md/#deploying-azure-ad-integrated-applications-to-users) de dichos usuarios.
 
 Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Cargar logotipo** en la pestaña **Configurar** de la aplicación.
+
+## Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md)
+- [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-custom-apps/customapp1.png
@@ -118,4 +126,4 @@ Nota: Para cargar un logotipo de icono de la aplicación, pulse el botón **Carg
 [6]: ./media/active-directory-saas-custom-apps/customapp6.png
 [7]: ./media/active-directory-saas-custom-apps/customapp7.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

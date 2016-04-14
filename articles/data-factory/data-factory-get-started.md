@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Uso de la actividad de copia en una canalización de la factoría de datos de Azure"
+	pageTitle="Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure"
 	description="En este tutorial se muestra cómo usar la actividad de copia en una canalización de la factoría de datos de Azure para copiar datos desde un Azure blob en una base de datos SQL de Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -12,18 +12,20 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015"
+	ms.topic="article" 
+	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
-# Tutorial: Copia de datos de un blob de Azure a SQL Azure
+# Tutorial: Copia de datos de Almacenamiento de blobs de Azure a Base de datos SQL de Azure
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Información general del tutorial](data-factory-get-started.md)
+- [Uso del Editor de Data Factory.](data-factory-get-started-using-editor.md)
+- [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Uso de Visual Studio](data-factory-get-started-using-vs.md)
 
-El tutorial de este artículo le ayuda a empezar a usar rápidamente el servicio de la factoría de datos de Azure. En este tutorial, creará una factoría de datos de Azure y creará una canalización en la factoría de datos para copiar datos desde un almacenamiento de blobs de Azure a una base de datos de SQL de Azure.
+En este tutorial, creará una factoría de datos de Azure y una canalización con una actividad de copia para copiar datos desde un almacenamiento de blobs de Azure a una base de datos de SQL de Azure.
+
+La actividad de copia realiza el movimiento de datos en Data Factory de Azure, y funciona con un servicio disponible de forma global que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información acerca de la actividad de copia.
 
 > [AZURE.NOTE] Para obtener información general detallada del servicio de la factoría de datos, vea el artículo [Introducción a la factoría de datos de Azure][data-factory-introduction].
 
@@ -98,7 +100,9 @@ Haga lo siguiente:
 - Haga clic en el vínculo [Uso del Editor de la Factoría de datos](data-factory-get-started-using-editor.md) en la parte superior para realizar el tutorial con el Editor de la Factoría de datos, que forma parte del Portal de Azure clásico.
 - Haga clic en el vínculo [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md) en la parte superior para realizar el tutorial con PowerShell de Azure.
 - Haga clic en el vínculo [Uso de Visual Studio](data-factory-get-started-using-vs.md) en la parte superior para realizar el tutorial con Visual Studio 2013.
- 
+
+## actividad de copia
+Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener información detallada sobre la actividad de copia en Data Factory de Azure.
 
 
 <!--Link references-->
@@ -111,4 +115,4 @@ Haga lo siguiente:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

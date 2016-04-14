@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/23/2016"
 	ms.author="billmath"/>
 
 
@@ -92,7 +92,7 @@ En esta tarea definirá las herramientas que se usarán para sincronizar los dat
 A lo largo de los años existieron varias herramientas de sincronización y se usaron en distintos escenarios. En la actualidad, Azure AD Connect es la herramienta preferida para todos los escenarios compatibles. AAD Sync y DirSync se siguen usando, e incluso puede que se encuentren en su entorno ahora.
 
 >[AZURE.NOTE]
-Para obtener la información más reciente acerca de las capacidades admitidas de cada herramienta, consulte el artículo [Comparación de las herramientas para la integración de directorios](active-directory-aadconnect-get-started-tools-comparison.md).
+Para obtener la información más reciente acerca de las capacidades admitidas de cada herramienta, consulte el artículo [Comparación de las herramientas para la integración de directorios](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### Topologías admitidas
 Al definir una estrategia de sincronización, es preciso determinar la topología que se usa. En función de la información que se determinó en el paso 2 se puede especificar qué topología es la adecuada. El bosque único, la única topología de Azure AD, es la más común y consta de un único bosque de Active Directory y una única instancia de Azure AD. Dicha topología se va a usar en la mayoría de los escenarios y es la que se espera que haya cuando se usa la instalación rápida de Azure AD Connect, como se muestra en la ilustración siguiente.
@@ -197,4 +197,4 @@ También debe asegurarse de que la opción de diseño de Multi-Factor Authentica
 ## Consulte también
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

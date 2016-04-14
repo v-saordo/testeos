@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/25/2016" 
 	ms.author="awills"/>
 
 # Muestreo, filtrado y preprocesamiento de la telemetría en el SDK de Application Insights
@@ -24,8 +24,6 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 Actualmente, estas características están disponibles para el SDK de ASP.NET.
 
 * El [muestreo](#sampling) reduce el volumen de la telemetría sin que ello influya en las estadísticas. Mantiene juntos los puntos de datos relacionados para que pueda navegar entre ellos a la hora de diagnosticar un problema. En el portal, se multiplican los recuentos totales para compensar el muestreo.
- * El muestreo de tipo fijo le permite determinar el porcentaje de eventos que se transmiten.
- * El muestreo adaptable (el predeterminado para el SDK de ASP.NET a partir de 2.0.0-beta3) ajusta automáticamente la frecuencia de muestreo según el volumen de los datos de telemetría. Puede establecer un volumen de destino.
 * El [filtrado](#filtering) permite seleccionar o modificar la telemetría en el SDK antes de enviarla al servidor. Por ejemplo, para reducir el volumen de la telemetría puede excluir las solicitudes de robots. Se trata de un enfoque más básico que el muestreo para reducir el tráfico. Permite ejercer más control sobre lo que se transmite, pero debe tener en cuenta que se verán afectadas las estadísticas: por ejemplo, si filtra todas las solicitudes correctas.
 * [Agregue propiedades](#add-properties) a cualquier telemetría enviada desde la aplicación, incluida la telemetría de los módulos estándar. Por ejemplo, puede agregar valores calculados o números de versión para filtrar los datos en el portal.
 * La [API del SDK](app-insights-api-custom-events-metrics.md) se usa para enviar métricas y eventos personalizados.
@@ -42,10 +40,15 @@ Antes de comenzar:
 
 El [muestreo](app-insights-sampling.md) es la forma recomendada de reducir el tráfico conservando estadísticas precisas. El filtro selecciona los elementos relacionados, para que pueda desplazarse entre los elementos de diagnóstico. Los recuentos de evento se ajustan en el explorador de métrica para compensar por los elementos filtrados.
 
-* Se recomienda el muestreo adaptable, ya que ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría de servidor ASP.NET.  
+* Se recomienda el muestreo adaptable, ya que ajusta automáticamente el porcentaje de muestreo para lograr un volumen específico de solicitudes. Actualmente solo está disponible para la telemetría de servidor ASP.NET. 
 * También está disponible el [muestreo de tasa fija](app-insights-sampling.md). Con él, se especifica un porcentaje de muestreo. Está disponible para el código de aplicación web ASP.NET y páginas web de JavaScript. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
+* El muestreo de ingesta funciona cuando se recibe la telemetría en el portal de Application Insights, por lo que se puede usar independientemente del SDK que se use. No reduce el tráfico de telemetría en la red, pero reduce el volumen que se procesa y se almacena en Application Insights. Solo cuenta en la cuota mensual la telemetría retenida. 
 
-### Para habilitar el muestreo
+### Para habilitar el muestreo de ingesta
+
+En la barra de configuración, abra la hoja Cuotas y precios. Haga clic en Muestreo y seleccione una relación de muestreo.
+
+### Para habilitar el muestreo adaptable
 
 **Actualice los paquetes de NuGet del proyecto** a la última versión *preliminar* de Application Insights: haga clic con el botón derecho en el proyecto en el Explorador de soluciones, elija Administrar paquetes de NuGet, active **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web.
 
@@ -80,7 +83,7 @@ Esta técnica le ofrece un control más directo sobre lo que se incluirá en la 
 
 Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo con el SDK. Toda la telemetría pasa por el procesador. Puede optar por no incluirlo en la transmisión o por agregar propiedades. Esto incluye la telemetría de los módulos estándar como el recopilador de solicitudes HTTP y el recopilador de dependencia, así como la telemetría que haya escrito. Por ejemplo, puede filtrar para dejar fuera la telemetría acerca de las solicitudes de robots o las llamadas de dependencia correctas.
 
-> [AZURE.WARNING]El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
+> [AZURE.WARNING] El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
 > 
 > En su lugar, puede efectuar un [muestreo](#sampling).
 
@@ -154,7 +157,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 
 Puede pasar valores de cadena desde el archivo .config proporcionando propiedades con nombre públicas en la clase.
 
-> [AZURE.WARNING]Tenga cuidado para que el nombre de tipo y los nombres de propiedad del archivo .config coincidan con los nombres de clase y propiedad del código. Si el archivo .config hace referencia a un tipo o propiedad que no existe, el SDK puede producir un error de forma silenciosa al enviar cualquier telemetría.
+> [AZURE.WARNING] Tenga cuidado para que el nombre de tipo y los nombres de propiedad del archivo .config coincidan con los nombres de clase y propiedad del código. Si el archivo .config hace referencia a un tipo o propiedad que no existe, el SDK puede producir un error de forma silenciosa al enviar cualquier telemetría.
 
  
 **Alternativamente,** se puede inicializar el filtro en el código. En una clase de inicialización adecuada (por ejemplo AppStart de Global.asax.cs) inserte el procesador en la cadena:
@@ -217,7 +220,7 @@ public void Process(ITelemetry item)
 
 Si solo desea diagnosticar las llamadas que son lentas, descarte las rápidas.
 
-> [AZURE.NOTE]Esto sesgará las estadísticas que se ve en el portal. El gráfico de dependencias será como si las llamadas de dependencia fuesen todos errores.
+> [AZURE.NOTE] Esto sesgará las estadísticas que se ve en el portal. El gráfico de dependencias será como si las llamadas de dependencia fuesen todos errores.
 
 ``` C#
 
@@ -358,7 +361,7 @@ Inserte un inicializador de telemetría inmediatamente después del código de i
     </script>
 ```
 
-Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md#lttelemetrytypegt).
 
 Puede agregar tantos inicializadores como desee.
 
@@ -404,4 +407,4 @@ Puede agregar tantos inicializadores como desee.
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Introducción al conector de SMTP y su incorporación a su aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de SMTP](../connectors/create-api-smtp.md).
+
 Conéctese a un servidor SMTP para enviar correos electrónicos, incluidos mensajes con datos adjuntos. La acción "Enviar correo electrónico" del conector de SMTP permite enviar correo electrónico a las direcciones de correo electrónico especificadas.
 
 Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo de trabajo. Puede agregar el conector de SMTP a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
@@ -54,7 +56,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 6. Seleccione **Crear**.
 
-> [AZURE.IMPORTANT]Algunos servidores SMTP pueden tener problemas con el funcionamiento de este conector (SendGrid y Gmail). Si desea enviar correo desde SendGrid, nuestro [repositorio de GitHub](https://github.com/logicappsio/SendGridAPI) tiene una API personalizada que interactuará directamente con las API de SendGrid.
+> [AZURE.IMPORTANT] Algunos servidores SMTP pueden tener problemas con el funcionamiento de este conector (SendGrid y Gmail). Si desea enviar correo desde SendGrid, nuestro [repositorio de GitHub](https://github.com/logicappsio/SendGridAPI) tiene una API personalizada que interactuará directamente con las API de SendGrid.
 
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
@@ -86,7 +88,7 @@ Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. S
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -100,4 +102,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

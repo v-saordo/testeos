@@ -1,10 +1,10 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Preguntas más frecuentes sobre la Solución de Copia de seguridad de Azure: agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre el servicio de Copia de seguridad de Azure."
+   description="Respuestas a las preguntas más frecuentes sobre agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la solución de Copia de seguridad de Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
 
@@ -13,8 +13,8 @@
    ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="01/26/2016"
+	 ms.topic="get-started-article"
+	 ms.date="01/28/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # P+F de servicio de Copia de seguridad de Azure
@@ -100,6 +100,10 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 - *.microsoftonline.com
 - *.windows.net
 
+**P21. ¿Puedo instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure cuya copia de seguridad ya la ha realizado el servicio Copia de seguridad de Azure mediante la extensión Vm?** <br/> R21. Totalmente. El servicio Copia de seguridad de Azure proporciona copia de seguridad del nivel de máquina virtual para las máquinas virtuales de Azure mediante la extensión VM y puede instalar el agente de Copia de seguridad de Azure en el SO invitado de Windows para proteger archivos y carpetas en un SO invitado.
+
+**P22. ¿Puedo instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure para realizar la copia de seguridad de los archivos y carpetas que hay en un almacenamiento temporal proporcionado por la máquina virtual de Azure?** <br/> R22. Puede instalar al agente de Copia de seguridad de Azure en el SO invitado de Windows y realizar la copia de seguridad de los archivos y carpetas del almacenamiento temporal. Sin embargo, tenga en cuenta que las copias de seguridad empezarán a provocar errores cuando se borren los datos del almacenamiento temporal. Además, durante la restauración solo podrá restaurar en un almacenamiento no temporal si se han eliminado los datos del almacenamiento temporal.
+
 
 ## Copia de seguridad y retención
 **P1. ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad?** <br/> R1. A partir de agosto de 2015, el tamaño máximo del origen de datos es el que se menciona a continuación para varios sistemas operativos
@@ -183,4 +187,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

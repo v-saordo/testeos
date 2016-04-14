@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo | Microsoft Azure"
-   description="Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal Mis aplicaciones."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo | Microsoft Azure"
+    description="Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal Mis aplicaciones."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="11/18/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
 
@@ -62,7 +62,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
 
 3. En el panel izquierdo de la ventana **Administración de directivas de grupo**, vea la jerarquía de unidad organizativa (OU) y determine en qué ámbito desea aplicar la directiva de grupo. Por ejemplo, puede decidir elegir una unidad organizativa pequeña para implementarla en unos cuantos usuarios para probarla o puede seleccionar una de nivel superior para implementarla en toda la organización.
 
-	> [AZURE.NOTE]Si desea crear o editar sus unidades organizativas (OU), vuelva al Administrador del servidor y vaya a **Herramientas** > **Usuarios y equipos de Active Directory**.
+	> [AZURE.NOTE] Si desea crear o editar sus unidades organizativas (OU), vuelva al Administrador del servidor y vaya a **Herramientas** > **Usuarios y equipos de Active Directory**.
 
 4. Una vez que haya seleccionado una unidad organizativa, haga clic con el botón derecho en ella y seleccione **Crear un GPO en este dominio y vincularlo aquí**.
 
@@ -90,7 +90,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
 
 4. Vaya a la carpeta compartida que contiene el paquete del instalador del [Paso 1: Crear el punto de distribución](#step-1-create-the-distribution-point), seleccione el archivo .msi y haga clic en **Abrir**.
 
-	> [AZURE.IMPORTANT]Si el recurso compartido se encuentra en este mismo servidor, compruebe que tiene acceso el archivo .msi a través de la ruta de archivo de red, en lugar de la ruta de archivo local.
+	> [AZURE.IMPORTANT] Si el recurso compartido se encuentra en este mismo servidor, compruebe que tiene acceso el archivo .msi a través de la ruta de archivo de red, en lugar de la ruta de archivo local.
 
 	![Seleccione el paquete de instalación de la carpeta compartida.](./media/active-directory-saas-ie-group-policy/select-package.png)
 
@@ -141,7 +141,7 @@ Si desea impedir que los usuarios vean este mensaje, a continuación, siga estos
 
 2. Busque el valor denominado **Activar la función Autocompletar para nombres de usuario y contraseñas en formularios**.
 
-	> [AZURE.NOTE]Es posible que las versiones anteriores de Active Directory muestren esta configuración del modo siguiente: **No permitir que autocompletar guarde las contraseñas**. La configuración de esa opción varía de la descrita en este tutorial.
+	> [AZURE.NOTE] Es posible que las versiones anteriores de Active Directory muestren esta configuración del modo siguiente: **No permitir que autocompletar guarde las contraseñas**. La configuración de esa opción varía de la descrita en este tutorial.
 
 	![No olvide buscar esto en Configuración de usuario.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
 
@@ -155,7 +155,7 @@ Si desea impedir que los usuarios vean este mensaje, a continuación, siga estos
 
 Los usuarios ya no podrán almacenar sus credenciales ni usar Autocompletar para tener acceso a las credenciales almacenadas previamente. Sin embargo, esta directiva permite a los usuarios seguir usando Autocompletar para otros tipos de campos de formulario, como campos de búsqueda.
 
-> [AZURE.WARNING]Si se habilita esta directiva después de que los usuarios hayan decidido almacenar algunas credenciales, esta directiva *no* borrará las credenciales que ya se han almacenado.
+> [AZURE.WARNING] Si se habilita esta directiva después de que los usuarios hayan decidido almacenar algunas credenciales, esta directiva *no* borrará las credenciales que ya se han almacenado.
 
 ##Paso 6: Prueba de la implementación
 
@@ -175,6 +175,10 @@ Siga estos pasos para comprobar si la implementación de la extensión se realiz
 
 	![Compruebe que la extensión de panel de acceso esté instalada y habilitada.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+## Artículos relacionados
 
-<!---HONumber=Nov15_HO4-->
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+- [Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+
+<!---HONumber=AcomDC_0211_2016-->

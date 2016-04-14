@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/17/2016"
 	ms.author="billmath"/>
 
 # Operaciones de Azure AD Connect Health
@@ -107,16 +107,16 @@ El permiso se concede si un usuario final tiene acceso al nivel de directorio o 
 #### Paso 1: Seleccionar el ámbito de acceso adecuado
 Para permitir a un usuario acceder al nivel de *todas las instancias de servicio* dentro de Azure AD Connect Health, abra la hoja principal en Azure AD Connect Health.<br>
 #### Paso 2: Agregar usuarios, grupos y asignar roles
-1. Haga clic en la parte "Usuarios" de la sección Configurar.<br> 
+1. Haga clic en la parte "Usuarios" de la sección Configurar.<br>
 ![Hoja principal de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Seleccione "Agregar".
-3. Seleccione "Rol" como "Propietario"<br>
- ![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
-4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar". 
+3. Seleccione "Rol" como "Propietario"<br> 
+![Agregar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Escriba el nombre o identificador del usuario o grupo de destino. Puede seleccionar uno o más usuarios o grupos al mismo tiempo. Haga clic en "Seleccionar".
 ![Seleccionar usuario de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Seleccione "Aceptar".<br>
 
-6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br> 
+6. Después de finalizar la asignación de roles, los usuarios y grupos aparecerán en la lista.<br>
 ![Lista de usuarios de RBAC de Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_user_list.png)
 
 Estos pasos permitirán a los usuarios y grupos enumerados el acceso según sus roles asignados.
@@ -144,5 +144,6 @@ Puede quitar un usuario o grupo agregado a la parte Control de acceso basado en 
 * [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 * [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Historial de versiones de Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

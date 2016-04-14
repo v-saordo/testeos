@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Preguntas más frecuentes sobre la administración de contraseñas
@@ -35,7 +35,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
  
  - **P: ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**
  
- > **R:** Sí, puede hacerlo con DirSync o PowerShell o a través el [Portal de administración de Azure](https://manage.windowsazure.com) o el portal de administración de Office. Obtenga más información acerca de esta característica en la entrada de blog Improved Privacy for Azure AD MFA and Password Reset Phone Numbers (Seguridad mejorada para Azure AD MFA y números de teléfono para el restablecimiento de contraseña) y en Vea cómo utiliza los datos el proceso de restablecimiento de contraseña.
+ > **R:** Sí, puede hacerlo con DirSync o PowerShell o a través del [Portal de administración de Azure](https://manage.windowsazure.com) o el portal de administración de Office. Obtenga más información acerca de esta característica en la entrada de blog Improved Privacy for Azure AD MFA and Password Reset Phone Numbers (Seguridad mejorada para Azure AD MFA y números de teléfono para el restablecimiento de contraseña) y en Vea cómo utiliza los datos el proceso de restablecimiento de contraseña.
  
  - **P: ¿Puedo sincronizar localmente los datos de las preguntas de seguridad?**
  
@@ -51,11 +51,11 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Puedo sincronizar o definir los campos Teléfono de autenticación, Correo electrónico de autenticación o Teléfono de autenticación alternativo en nombre de mis usuarios?**
  
- > **R:** No en este momento, pero tenemos considerado habilitar esta funcionalidad.
+ > **R:** No en este momento, pero estamos pensando en habilitar esta funcionalidad.
 
  - **P: ¿Cómo sabe el portal de registro cuáles son las opciones que debe mostrar a mis usuarios?**
  
- > **R:** El portal de Registro de restablecimiento de contraseña solo muestra las opciones que se habilitaron para los usuarios en la sección Directiva de restablecimiento de contraseña del usuario de la pestaña Configurar del directorio. Por ejemplo, esto significa que, si no habilita las preguntas de seguridad, los usuarios no podrán registrarse para obtener esa opción.
+ > **R:** El portal de Registro de restablecimiento de contraseña solo muestra las opciones que se habilitaron para los usuarios en la sección Políticas para restablecer la contraseña del usuario de la pestaña Configurar del directorio. Por ejemplo, esto significa que, si no habilita las preguntas de seguridad, los usuarios no podrán registrarse para obtener esa opción.
 
  - **P: ¿Cuándo se considera que un usuario está registrado?**
  
@@ -66,7 +66,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Cuánto tiempo debo esperar para recibir un correo electrónico, un SMS o una llamada telefónica para el restablecimiento de contraseña?**
  
- > **R:** Los correos electrónicos, los mensajes SMS y las llamadas telefónicas no debieran demorar más de un minuto; lo normal sería entre 5 y 20 minutos. Si no recibe la notificación en este período de tiempo, revise su carpeta de correo no deseado, que el número o el correo electrónico de contacto sea el que espera y que los datos de autenticación existentes en el directorio tengan el formato correcto. Para obtener más información acerca del formato de los números de teléfono y las direcciones de correo electrónico para usarlos con el restablecimiento de contraseña, consulte Vea cómo utiliza los datos el proceso de restablecimiento de contraseña.
+ > **R:** Los correos electrónicos, los mensajes SMS y las llamadas telefónicas no debieran demorar más de un minuto; lo normal sería entre 5 y 20 segundos. Si no recibe la notificación en este período de tiempo, revise su carpeta de correo no deseado, que el número o el correo electrónico de contacto sea el que espera y que los datos de autenticación existentes en el directorio tengan el formato correcto. Para obtener más información acerca del formato de los números de teléfono y las direcciones de correo electrónico para usarlos con el restablecimiento de contraseña, consulte Vea cómo utiliza los datos el proceso de restablecimiento de contraseña.
 
  - **P: ¿Qué idiomas admite el restablecimiento de contraseña?**
  
@@ -80,7 +80,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Cómo puedo informar a mis usuarios dónde deben ir para restablecer sus contraseñas?**
  
- > **R:** Puede enviar a los usuarios directamente a https://passwordreset.microsoftonline.com, o bien puede indicarles que hagan clic en el vínculo ¿No puede tener acceso a su cuenta? en cualquier página de inicio de sesión de identificador educativo o profesional. Puede publicar estos vínculos (o crear redireccionamientos de direcciones URL) en cualquier lugar al que sus usuarios puedan tener acceso fácilmente.
+ > **R:** Puede enviar a los usuarios directamente a https://passwordreset.microsoftonline.com, o bien puede indicarles que hagan clic en el vínculo ¿No puede acceder a su cuenta? en cualquier página de inicio de sesión de identificador educativo o profesional. Puede publicar estos vínculos (o crear redireccionamientos de direcciones URL) en cualquier lugar al que sus usuarios puedan tener acceso fácilmente.
 
  - **P: ¿Puedo usar esta página desde un dispositivo móvil?**
  
@@ -88,7 +88,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Se admite el desbloqueo de cuentas locales de Active Directory cuando los usuarios restablecen sus contraseñas?**
  
- > **R:** Sí. Cuando un usuario restablece su contraseña y Escritura diferida de contraseñas se implementó con todas las versiones de Azure AD Connect o con las versiones de Azure AD Sync 1.0.0485.0222 o posteriores, la cuenta de ese usuario se desbloqueará automáticamente cuando el usuario restablezca su contraseña.
+ > **R:** Sí. Cuando un usuario restablece su contraseña y Escritura diferida de contraseñas se ha implementado con todas las versiones de Azure AD Connect o con las versiones de Azure AD Sync 1.0.0485.0222 o posteriores, la cuenta de ese usuario se desbloqueará automáticamente cuando el usuario restablezca su contraseña.
 
  - **P: ¿Cómo puedo integrar directamente el restablecimiento de contraseña en la experiencia de inicio de sesión de escritorio de mi usuario?**
  
@@ -139,7 +139,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
  - **P: ¿Cuánto tiempo demoran en aparecer los datos en los informes de la administración de contraseñas?**
  
- > **R:** Los datos deben aparecer en los informes de la administración de contraseñas dentro de 5 y 10 minutos. En algunas instancias, es posible que demoren hasta una hora en aparecer.
+ > **R:** Los datos deben aparecer en los informes de la administración de contraseñas en un plazo de entre 5 y 10 minutos. En algunas instancias, es posible que demoren hasta una hora en aparecer.
 
  - **P: ¿Cómo puedo filtrar los informes de administración de contraseñas?**
  
@@ -166,23 +166,23 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 ## Escritura diferida de contraseñas
  - **P: ¿Cómo funciona en segundo plano la escritura diferida de contraseñas?**
  
- > **R:** Consulte [Funcionamiento de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) para obtener una explicación detallada de lo que ocurre cuando se habilita la Escritura diferida de contraseñas, además de cómo los datos fluyen por el sistema para volver al entorno local. Consulte [Modelo de seguridad de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la Escritura diferida de contraseñas para obtener información sobre cómo podemos asegurarnos de que la Escritura diferida de contraseñas es un servicio con un alto nivel de seguridad.
+ > **R:** Consulte [Funcionamiento de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) para obtener una explicación detallada de lo que ocurre cuando se habilita Escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local. Consulte [Modelo de seguridad de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la escritura diferida de contraseñas para obtener información sobre cómo podemos asegurarnos de que Escritura diferida de contraseñas sea un servicio con un alto nivel de seguridad.
 
  - **P: ¿Cuánto demora en funcionar la escritura diferida de contraseñas? ¿Existe un retraso en la sincronización, como ocurre con la sincronización de hash de contraseña?**
  
- > **R:** La escritura diferida de contraseñas es inmediata. Se trata de una canalización sincrónica que funciona radicalmente distinto a la sincronización de hash de contraseña. La escritura diferida de contraseñas permite que los usuarios obtengan comentarios en tiempo real sobre el éxito de su operación de cambio o restablecimiento de contraseña. El tiempo promedio para la escritura diferida correcta de una contraseña es de menos de 500 ms.
+ > **R:** El servicio de Escritura diferida de contraseñas es inmediato. Se trata de una canalización sincrónica que funciona radicalmente distinto a la sincronización de hash de contraseña. La escritura diferida de contraseñas permite que los usuarios obtengan comentarios en tiempo real sobre el éxito de su operación de cambio o restablecimiento de contraseña. El tiempo promedio para la escritura diferida correcta de una contraseña es de menos de 500 ms.
 
  - **P: ¿Para qué tipos de cuentas funciona la escritura diferida de contraseñas?**
  
- > **R:** La escritura diferida de contraseñas funciona para usuarios federados y usuarios con sincronización de hash de contraseña.
+ > **R:** Escritura diferida de contraseñas funciona para usuarios federados y usuarios con sincronización de hash de contraseña.
 
  - **P: ¿La escritura diferida de contraseñas aplica las directivas de contraseñas de mi dominio?**
  
- > **R:** Sí, la escritura diferida de contraseñas aplica la vigencia, el historial, la complejidad y los filtros de contraseñas, además de cualquier otra restricción que pueda aplicar sobre las contraseñas en su dominio local.
+ > **R:** Sí, Escritura diferida de contraseñas aplica la vigencia, el historial, la complejidad y los filtros de contraseñas, además de cualquier otra restricción que pueda aplicar sobre las contraseñas en su dominio local.
 
  - **P: ¿Es segura la escritura diferida de contraseñas? ¿Cómo puedo estar seguro de no ser víctima del ataque de un hacker?**
  
- > **R:** Sí, la escritura diferida de contraseñas es sumamente segura. Para obtener más información acerca de los 4 niveles de seguridad que implementa el servicio de Escritura diferida de contraseñas, consulte [Modelo de seguridad de la Escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la Escritura diferida de contraseñas.
+ > **R:** Sí, el servicio de Escritura diferida de contraseñas es sumamente seguro. Para obtener más información acerca de los cuatro niveles de seguridad que implementa el servicio de Escritura diferida de contraseñas, consulte [Modelo de seguridad de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model) en Funcionamiento de la escritura diferida de contraseñas.
 
 
 <br/> <br/> <br/>
@@ -203,4 +203,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

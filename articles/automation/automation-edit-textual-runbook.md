@@ -3,7 +3,7 @@
 	description="En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Automatización de Azure mediante el editor de texto."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="mgoedtel"
 	manager="stevenka"
 	editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/19/2016"
-	ms.author="bwren" />
+	ms.date="02/23/2016"
+	ms.author="magoedte;bwren" />
 
 # Edición de runbooks de texto en Automatización de Azure
 
@@ -25,7 +25,7 @@ Cada runbook de Automatización de Azure tiene dos versiones: una de borrador y 
 
 Para trabajar con [runbooks gráficos](automation-runbook-types.md#graphical-runbooks), consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
 
-## Para editar un runbook con el Portal de vista previa de Azure
+## Para editar un runbook con el Portal de Azure
 
 Use el siguiente procedimiento para abrir un runbook para su edición en el editor de texto.
 
@@ -144,4 +144,4 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
 - [Programaciones](automation-schedules.md)
 - [Variables](automation-variables.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

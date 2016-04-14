@@ -13,10 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="01/19/2016"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 # Codificador de archivos sin formato de BizTalk
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 Use el conector Codificador de archivos sin formato de BizTalk para interoperar entre datos de archivos sin formato (por ejemplo, un archivo Excel o CSV) y datos XML. En este sentido, puede convertir una instancia de archivo sin formato a XML y viceversa.
 
@@ -69,4 +71,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

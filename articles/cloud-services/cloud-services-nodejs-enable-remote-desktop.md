@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
-
 
 # Habilitación de Escritorio remoto en Azure
 
 Escritorio remoto le permite tener acceso al escritorio de una instancia de rol que se ejecuta en Azure. Puede usar una conexión a Escritorio remoto para configurar la máquina virtual o solucionar problemas con la aplicación.
 
-> [AZURE.NOTE]Este artículo se aplica a las aplicaciones Node.js hospedadas como un servicio de nube de Azure.
+> [AZURE.NOTE] Este artículo se aplica a las aplicaciones Node.js hospedadas como un servicio de nube de Azure.
 
 
 ## Requisitos previos
 
-- Instale y configure [Azure PowerShell](../install-configure-powershell.md).
+- Instale y configure [Azure PowerShell](../powershell-install-configure.md).
 - Implemente una aplicación Node.js en un servicio de nube de Azure Para obtener más información, consulte [Compilación e implementación de una aplicación Node.js en un servicio de nube de Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 
@@ -36,7 +35,7 @@ Para utilizar Escritorio remoto, necesita actualizar la definición y configurac
 
 Ejecute los siguientes pasos desde el equipo que contenga los archivos de origen de la aplicación.
 
-1. Ejecute **Azure PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**.)
+1. Ejecute **Windows PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Windows PowerShell**).
 
 2.  Navegue al directorio que contenga los archivos de configuración del servicio (.cscfg) y de definición del servicio (.csdef).
 
@@ -74,7 +73,9 @@ Después de publicar la definición del servicio de actualización, puede conect
 
     ![Indicador de seguridad de Windows][5]
 
-4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de acceso a la instancia. Escriba la contraseña creada en el [paso 1]\[paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
+4.  Haga clic en **Conectar** y, a continuación, aparecerá un indicador de seguridad para que escriba las credenciales de
+    acceso a la instancia. Escriba la contraseña creada en
+    el [paso 1]\[paso 1: configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell] y haga clic en **Aceptar**.
 
     ![indicador de nombre de usuario/contraseña][6]
 
@@ -106,14 +107,14 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png
-  [3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
-  [4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
-  [5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
-  [6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
-  [7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
+[3]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-service-instance.png
+[4]: ./media/cloud-services-nodejs-enable-remote-desktop/rdp-open.png
+[5]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-12.png
+[6]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-13.png
+[7]: ./media/cloud-services-nodejs-enable-remote-desktop/remote-desktop-14.png
   
-  [Acceso remoto a las instancias de rol de Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
-  [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Acceso remoto a las instancias de rol de Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

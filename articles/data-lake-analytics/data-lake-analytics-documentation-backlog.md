@@ -3,8 +3,8 @@
    description="Análisis de Data Lake es un servicio de cálculo de macrodatos de Azure que le permite usar datos para impulsar el negocio con los conocimientos adquiridos de los datos en la nube, independientemente de dónde se encuentren y de su tamaño. Análisis de Data Lake lo permite de la forma más sencilla, escalable y económica posible. Esta página es el trabajo pendiente para nuestros esfuerzos de documentación"
    documentationCenter="na"
    services="data-lake-analytics"
-   authors="mumian"
-   manager="paulettm"
+   authors="pablissima"
+   manager="pablissima"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/05/2015"
+   ms.date="02/10/2016"
    ms.author="mwinkle"/>
 
 # Trabajo pendiente de documentación de Análisis de Azure Data Lake
@@ -48,7 +48,7 @@ U-SQL | Opciones de autenticación de ADLS | 1 | Pending | [@ArindamC](https://g
 
 Ámbito |Tema. | location
 ------------- | ------------- | -------------- 
-Servicio | Coordinación de la implementación de Análisis de Data Lake con otros servicios de Azure mediante plantillas ARM | [ubicación](../data-lake-analytics-manage-use-powershell.md)
+Servicio | Coordinación de la implementación de Análisis de Data Lake con otros servicios de Azure mediante plantillas ARM | [ubicación](data-lake-analytics-manage-use-powershell.md)
 
 ## Cómo enviar comentarios al trabajo pendiente
 Existen varias formas de proporcionar comentarios en el trabajo pendiente:
@@ -57,4 +57,4 @@ Existen varias formas de proporcionar comentarios en el trabajo pendiente:
 * Enviar una solicitud de incorporación de cambios en este documento al [repositorio de contenido de Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Enviar un correo electrónico a [adlafeedback en microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

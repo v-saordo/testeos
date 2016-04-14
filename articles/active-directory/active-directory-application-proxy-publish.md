@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 
-> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Después de habilitar el Proxy de aplicación de Microsoft Azure Active Directory (AD), puede publicar las aplicaciones para que los usuarios de fuera de la red privada puedan tener acceso a ellas.
 
 Este artículo le guiará por los pasos para publicar aplicaciones que se ejecutan en la red local para las que desea habilitar el acceso remoto seguro desde fuera de la red.
 
-> [AZURE.NOTE]Para comprobar que el conector funciona correctamente, la primera aplicación que publique debe ser cualquier sitio accesible desde dentro de su red privada, para tener la seguridad de que los usuarios pueden tener acceso a él desde Internet, antes de publicar una aplicación real.
+> [AZURE.NOTE] Para comprobar que el conector funciona correctamente, la primera aplicación que publique debe ser cualquier sitio accesible desde dentro de su red privada, para tener la seguridad de que los usuarios pueden tener acceso a él desde Internet, antes de publicar una aplicación real.
 
 
 ## Publicación de una aplicación mediante el Asistente
@@ -65,7 +65,7 @@ Este artículo le guiará por los pasos para publicar aplicaciones que se ejecut
 
 3. Seleccione cada usuario o grupo que desea asignar a esta aplicación y haga clic en **Asignar**.
 
-> [AZURE.NOTE]Para las aplicaciones de Autenticación de Windows integrada, puede asignar solo a los usuarios y grupos que se sincronizan desde Active Directory local. A los usuarios que inicien sesión con una cuenta de Microsoft y a los invitados no se les pueden asignar aplicaciones publicadas con Proxy de aplicación de Azure Active Directory. Asegúrese de que los usuarios que asigne inician sesión con sus credenciales en el mismo dominio que la aplicación que está publicando.
+> [AZURE.NOTE] Para las aplicaciones de Autenticación de Windows integrada, puede asignar solo a los usuarios y grupos que se sincronizan desde Active Directory local. A los usuarios que inicien sesión con una cuenta de Microsoft y a los invitados no se les pueden asignar aplicaciones publicadas con Proxy de aplicación de Azure Active Directory. Asegúrese de que los usuarios que asigne inician sesión con sus credenciales en el mismo dominio que la aplicación que está publicando.
 
 
 ## Configuración avanzada
@@ -111,7 +111,7 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Recursos adicionales
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Sobre la delegación limitada de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-* [Sobre la delegación limitada de Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
-
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

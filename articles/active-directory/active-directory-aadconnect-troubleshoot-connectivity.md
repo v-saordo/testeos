@@ -13,34 +13,38 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="andkjell"/>
 
 # Solución de problemas de conectividad con Azure AD Connect
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
 
 ## Solución de problemas de conectividad en el asistente para la instalación
-Azure AD Connect depende de dos métodos de configuración diferentes para conectarse a Azure AD. El asistente para instalación y el motor de sincronización correspondiente requieren machine.config para configurarse correctamente ya que se trata de aplicaciones. NET. También hay una dependencia del asistente de inicio de sesión y requiere que se configure winhttp para funcionar correctamente.
+Azure AD Connect está utilizando autenticación moderna (mediante la biblioteca ADAL) para la autenticación. El Asistente para instalación y el motor de sincronización correspondiente requieren machine.config para configurarse correctamente ya que se trata de aplicaciones. NET.
 
 En este artículo mostraremos cómo Fabrikam se conecta a Azure AD a través de su servidor proxy. El servidor proxy se llama fabrikamproxy y está usando el puerto 8080.
 
 En primer lugar, debe asegurarse de que [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) está configurado correctamente. ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [AZURE.NOTE] En algunos blogs se indica que se deben realizar cambios en miiserver.exe.config. Sin embargo, este archivo se sobrescribe en cada actualización por lo que aunque funcione durante la instalación inicial, el sistema dejará de funcionar en la primera actualización. Por ese motivo, se recomienda actualizar el archivo machine.config en su lugar.
+> [AZURE.NOTE] En algunos blogs que no son de Microsoft se indica que se deben realizar cambios en miiserver.exe.config. Sin embargo, este archivo se sobrescribe en cada actualización por lo que aunque funcione durante la instalación inicial, el sistema dejará de funcionar en la primera actualización. Por ese motivo, se recomienda actualizar el archivo machine.config en su lugar.
 
-En segundo lugar, debemos asegurarnos de que winhttp está configurado. Esto puede hacerse con [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
-El servidor proxy también debe tener abiertas las direcciones URL necesarias. La lista oficial está documentada en [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+El servidor proxy también debe tener abiertas las direcciones URL necesarias. La lista oficial está documentada en direcciones [URL de Office 365 e intervalos de direcciones IP](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azure AD. Esta lista no incluye características opcionales, como la escritura diferida de contraseñas ni Azure AD Connect Health. Se documentan aquí para ayudar a solucionar problemas de la configuración inicial.
 
 | URL | Port | Descripción |
 | ---- | ---- | ---- |
 | mscrl.microsoft.com | HTTP/80 | Se usa para descargar listas CRL. |
-| **.verisign.com | HTTP/80 | Se usa para descargar listas CRL. | | *.windows.net | HTTPS/443 | Se usa para iniciar sesión en Azure AD. | | *.microsoftonline.com | HTTPS/443 | Se usa para configurar el directorio de Azure AD y los datos de importación y exportación. |
+| *.verisign.com | HTTP/80 | Se utiliza para descargar listas CRL. |
+| *.trust.com | HTTP/80 | Se utiliza para descargar listas CRL para MFA. |
+| *.windows.net | HTTPS/443 | Se utiliza para iniciar sesión en Azure AD. |
+| *.secure.aadcdn.microsoftonline-p.com | HTTPS/443 | Se utiliza para MFA. |
+| *.microsoftonline.com | HTTPS/443 | Se utiliza para configurar el directorio de Azure AD e importar y exportar datos. |
 
 ## Errores en el asistente
-El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectarse a Azure AD** que utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar** que está cambiando a la [cuenta de que ejecuta el servicio para el motor de sincronización](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Las configuraciones de proxy que realizamos son globales para el equipo por lo que si hay un problema, probablemente ya aparecerá en la página **Conectarse a Azure AD** del asistente.
+El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectarse a Azure AD** utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar** cambia a la [cuenta que está ejecutando el servicio para el motor de sincronización](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). Las configuraciones de proxy que realizamos son globales para el equipo por lo que si hay un problema, probablemente ya aparecerá en la página **Conectarse a Azure AD** del asistente.
 
 Estos son los errores más comunes que verá en el asistente para la instalación.
 
@@ -48,19 +52,17 @@ Estos son los errores más comunes que verá en el asistente para la instalació
 Este error aparecerá cuando el propio asistente no pueda ponerse en contacto con el proxy. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
 - Si ve esto, compruebe si la configuración de [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) es correcta.
-- Si es correcta, siga los pasos de [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del asistente.
+- Si es correcta, siga los pasos descritos en [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del Ayudante.
 
-### El Asistente para el inicio de sesión no se ha configurado correctamente
-Este error aparece cuando el Ayudante para el inicio de sesión no puede conectar con el servidor proxy o este no permite la solicitud. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+### No se puede alcanzar el punto de conexión de MFA
+Aparecerá este error si no se puede poner en contacto con el punto de conexión ****https://secure.aadcdn.microsoftonline-p.com** y el administrador global tiene MFA habilitado. ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomicrosoftonlinep.png)
 
-- Si ve esto, examine la configuración de proxy en [netsh](active-directory-aadconnect-prerequisites.md#connectivity) y compruebe si es correcta. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
-- Si es correcta, siga los pasos de [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del asistente.
+- Si ve esto, compruebe que el punto de conexión secure.aadcdn.microsoftonline-p.com se ha agregado al servidor proxy.
 
 ### No se puede comprobar la contraseña
-Si el asistente para la instalación conecta correctamente con Azure AD pero la contraseña no se puede comprobar, verá lo siguiente: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
+Si el Asistente para instalación conecta correctamente con Azure AD pero la contraseña no se puede comprobar, verá lo siguiente: ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- ¿La contraseña es temporal y se debe cambiar? ¿Es realmente la contraseña correcta? Intente iniciar sesión en https://login.microsoftonline.com (en un servidor distinto del servidor de Azure AD Connect) y compruebe que la cuenta se puede usar.
-- ¿Multi-Factor Authentication (MFA) está habilitado en el usuario? Si lo está, deshabilítelo.
+- ¿La contraseña es temporal y se debe cambiar? ¿Es realmente la contraseña correcta? Intente iniciar sesión en https://login.microsoftonline.com (en un equipo distinto del servidor de Azure AD Connect) y compruebe que la cuenta se puede utilizar.
 
 ### Comprobar la conectividad de proxy
 Para comprobar si el servidor de Azure AD Connect tiene conectividad real con el servidor proxy e Internet, usaremos PowerShell para ver si el servidor proxy permite solicitudes web o no. En un símbolo del sistema de PowerShell, ejecute `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Técnicamente, la primera llamada es a https://login.microsoftonline.com y esto funcionará también, pero el otro URI es más rápido en responder).
@@ -69,7 +71,7 @@ PowerShell usará la configuración de machine.config para ponerse en contacto c
 
 Si el servidor proxy está configurado correctamente, debería obtener un estado correcto: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
-Si recibe **No es posible conectar con el servidor remoto**, PowerShell está intentando realizar una llamada directa sin usar el servidor proxy o DNS no está configurado correctamente. Asegúrese de que **machine.config** está configurado correctamente. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
+Si recibe **No es posible conectar con el servidor remoto**, PowerShell está intentando realizar una llamada directa sin utilizar el servidor proxy o DNS no está configurado correctamente. Asegúrese de que el archivo **machine.config** está configurado correctamente. ![unabletoconnect](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequestunable.png)
 
 Si el proxy no está configurado correctamente, se producirá un error: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png) ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
@@ -124,4 +126,18 @@ Hora | URL
 11/1/2016 8:49 | connect://*bba900-anchor*.microsoftonline.com:443
 11/1/2016 8:49 | connect://*bba800-anchor*.microsoftonline.com:443
 
-<!---HONumber=AcomDC_0128_2016-->
+## Pasos para solucionar problemas de versiones anteriores.
+Con las versiones a partir del número de compilación 1.1.105.0 (publicado en febrero de 2016) se ha retirado el Ayudante para el inicio de sesión. Esta sección y la configuración no son ya necesarios, pero se conservan como referencia.
+
+Para que el Ayudante para el inicio de sesión funcione, debe configurarse winhttp. Esto puede hacerse con [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity). ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
+
+### El Asistente para el inicio de sesión no se ha configurado correctamente
+Este error aparece cuando el Ayudante para el inicio de sesión no puede conectar con el servidor proxy o este no permite la solicitud. ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
+
+- Si ve esto, examine la configuración de proxy en [netsh](active-directory-aadconnect-prerequisites.md#connectivity) y compruebe si es correcta. ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
+- Si es correcta, siga los pasos descritos en [Comprobar la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del Ayudante.
+
+## Pasos siguientes
+Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_0218_2016-->

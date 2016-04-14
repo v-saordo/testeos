@@ -10,7 +10,7 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
    ms.date="01/06/2016"
@@ -77,4 +77,4 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     - [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
     - [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

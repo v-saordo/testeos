@@ -109,15 +109,17 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
 *Log4J v2.0*
 
-    
-    <Appenders>
-      <ApplicationInsightsAppender name="aiAppender" />
-    </Appenders>
-    <Loggers>
-      <Root level="trace">
-        <AppenderRef ref="aiAppender"/>
-      </Root>
-    </Loggers>
+
+    <Configuration packages="com.microsoft.applicationinsights.Log4j">
+      <Appenders>
+        <ApplicationInsightsAppender name="aiAppender" />
+      </Appenders>
+      <Loggers>
+        <Root level="trace">
+          <AppenderRef ref="aiAppender"/>
+        </Root>
+      </Loggers>
+    </Configuration>
 
 
 *Log4J v1.2*
@@ -149,4 +151,4 @@ Ahora que ha configurado el proyecto para enviar el seguimiento a Application In
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

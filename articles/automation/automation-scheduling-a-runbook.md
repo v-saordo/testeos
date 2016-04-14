@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/01/2015"
+   ms.date="02/03/2016"
    ms.author="bwren" />
 
 # Programación de un runbook en Automatización de Azure
@@ -96,4 +96,4 @@ Los comandos de ejemplo siguientes muestran cómo deshabilitar una programación
 - [Recursos de programación en Automatización de Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

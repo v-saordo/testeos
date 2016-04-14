@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Implementación de la distribución de paquetes piloto (pruebas beta) en el Servicio de aplicaciones de Azure
 
@@ -32,7 +32,7 @@ En una implementación de distribución de paquetes piloto, no se trata solament
 En este tutorial, obtendrá información sobre cómo reunir los escenarios siguientes para probar su aplicación de Servicio de la aplicaciones en producción:
 
 - [Enrutar el tráfico de producción](app-service-web-test-in-production-get-start.md) a la aplicación beta
-- [Instrumentar la aplicación](app-insights-web-track-usage.md) para obtener métricas útiles
+- [Instrumentar la aplicación](../application-insights/app-insights-web-track-usage.md) para obtener métricas útiles
 - Implementar la aplicación beta y realizar un seguimiento de las métricas de aplicación de forma continua
 - Comparar las métricas entre la aplicación de producción y la aplicación beta para ver de qué forma los cambios de código se traducen en resultados
 
@@ -44,7 +44,7 @@ En este tutorial, obtendrá información sobre cómo reunir los escenarios sigui
 -	Shell de Git (instalado con [GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión
 -	Bits más recientes de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/v0.9.8-September2015/azure-powershell.0.9.8.msi)
 -	Conocimientos básicos de lo siguiente:
-	-	Implementación de plantillas del [Administrador de recursos de Azure](resource-group-overview.md) (consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implementación de plantillas del [Administrador de recursos de Azure](../resource-group-overview.md) (consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -174,7 +174,7 @@ Eso es todo.
 
 En esta sección, configurará las diferentes ranuras de implementación para enviar telemetría específica de cada ranura al mismo recurso de Application Insights. De este modo, puede comparar los datos de telemetría entre el tráfico de las diferentes ranuras (entornos de implementación) para ver rápidamente el efecto de los cambios que se realizaron en la aplicación. Al mismo tiempo, puede separar el tráfico de producción del resto para poder continuar supervisando la aplicación de producción, según sea necesario.
 
-Como está recopilando datos sobre el comportamiento del cliente, [agregará un inicializador de telemetría al código JavaScript](app-insights-api-custom-events-metrics.md#js-initializer) en index.cshtml. Si desea probar el rendimiento del servidor, por ejemplo, puede hacer algo similar en el código del servidor (consulte [API de Application Insights para eventos y métricas personalizados](app-insights-api-custom-events-metrics.md)).
+Como está recopilando datos sobre el comportamiento del cliente, [agregará un inicializador de telemetría al código JavaScript](../application-insights/app-insights-api-custom-events-metrics.md#js-initializer) en index.cshtml. Si desea probar el rendimiento del servidor, por ejemplo, puede hacer algo similar en el código del servidor (consulte [API de Application Insights para eventos y métricas personalizados](../application-insights/app-insights-api-custom-events-metrics.md)).
 
 1. En primer lugar, agregue el código entre los dos comentarios `//` a continuación en el código JavaScript que agregó antes a la etiqueta `<heading>`.
 
@@ -215,7 +215,7 @@ Como está recopilando datos sobre el comportamiento del cliente, [agregará un 
 
 5. Haga clic en el botón **Favoritos** para guardar la configuración actual del Explorador de métricas con un nombre del tipo **Eventos personalizados: producción**. Más adelante puede cambiar fácilmente entre esta vista y la vista de una ranura de implementación.
 
-    > [AZURE.TIP] Para realizar análisis aún más eficaces, considere la posibilidad de la [integración de los recursos de Application Insights con Power BI](app-insights-export-power-bi.md).
+    > [AZURE.TIP] Para realizar análisis aún más eficaces, considere la posibilidad de la [integración de los recursos de Application Insights con Power BI](../application-insights/app-insights-export-power-bi.md).
 
 ### Incorporación de etiquetas específicas de ranura a las métricas de la aplicación de servidor
 De nuevo, con el fin de tener una visión completa se configurará también la aplicación del lado del servidor. A diferencia de la aplicación de cliente que se instrumenta en JavaScript, las etiquetas específicas de ranura para la aplicación de servidor se instrumentan con código. NET.
@@ -369,10 +369,10 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 -   [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md)
 -   [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md)
 -	[Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md)
--	[Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
+-	[Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 -	[JSONLint: validador de JSON](http://jsonlint.com/)
 -	[Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
--	[Azure PowerShell](powershell-install-configure.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

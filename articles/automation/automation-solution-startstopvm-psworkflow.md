@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Solución Automatización de Azure - inicio y detención de máquinas virtuales
@@ -28,11 +28,11 @@ Esta solución Automatización de Azure incluye runbooks para iniciar y detener 
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-Es la versión de runbook del flujo de trabajo de PowerShell de esta solución. Está también disponible mediante [runbooks gráficos](automation-solutions-startstopvm-graphical.md).
+Es la versión de runbook del flujo de trabajo de PowerShell de esta solución. Está también disponible mediante [runbooks gráficos](automation-solution-startstopvm-graphical.md).
 
 ## Obtención de la solución
 
-Esta solución consta de dos runbooks de flujo de trabajo de PowerShell que se pueden descargar en los vínculos siguientes. Consulte la [versión gráfica](automation-solutions-startstopvm-graphical.md) de esta solución para obtener vínculos a los runbooks gráficos.
+Esta solución consta de dos runbooks de flujo de trabajo de PowerShell que se pueden descargar en los vínculos siguientes. Consulte la [versión gráfica](automation-solution-startstopvm-graphical.md) de esta solución para obtener vínculos a los runbooks gráficos.
 
 | Runbook | Vínculo | Escriba | Descripción |
 |:---|:---|:---|:---|
@@ -66,7 +66,7 @@ Los runbooks tienen los siguientes parámetros. Debe proporcionar valores para l
 | Parámetro | Escriba | Obligatorio | Descripción |
 |:---|:---|:---|:---|
 | ServiceName | cadena | No | Si se proporciona un valor, todas las máquinas virtuales con ese nombre de servicio se inician o se detienen. Si no se proporciona un valor, todas las máquinas virtuales clásicas de la suscripción de Azure se inician o se detienen. |
-| AzureSubscriptionIdAssetName | cadena | No | Contiene el nombre del [activo de variables](#installing-the-solution) que contiene el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
+| AzureSubscriptionIdAssetName | cadena | No | Contiene el nombre del [recurso de variables](#installing-the-solution) que contiene a su vez el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
 | AzureCredentialAssetName | cadena | No | Contiene el nombre del [activo de credenciales](#installing-the-solution) que contiene las credenciales que usará el runbook. Si no se especifica un valor, se usa *AzureCredential*. |
 
 ### Inicio de los runbooks
@@ -80,7 +80,7 @@ Los siguientes comandos de ejemplo usan Windows PowerShell para ejecutar **Start
 
 ### Salida
 
-Los runbooks le [enviarán un mensaje](automation-runbook-output-and-messages.md) para cada máquina virtual indicando si se ha enviado correctamente la instrucción de iniciar o detener. Puede buscar una cadena concreta en la salida para determinar el resultado para cada runbook. En la tabla siguiente se muestran las posibles cadenas de salida.
+Los runbooks [enviarán un mensaje](automation-runbook-output-and-messages.md) para cada máquina virtual indicando si se ha enviado correctamente la instrucción para iniciar o detener. Puede buscar una cadena concreta en la salida para determinar el resultado para cada runbook. En la tabla siguiente se muestran las posibles cadenas de salida.
 
 | Runbook | Condición | Message |
 |:---|:---|:---|
@@ -193,4 +193,4 @@ Las líneas siguientes recorren cada máquina virtual. Primero se comprueba el *
 - [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0204_2016-->

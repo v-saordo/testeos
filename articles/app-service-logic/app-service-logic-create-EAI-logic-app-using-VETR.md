@@ -10,14 +10,16 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="02/18/2016"
    ms.author="rajram"/>
 
 
 # Creación de una aplicación lógica de EAI con VETR
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
 
 La mayoría de los escenarios de Integración de aplicaciones empresariales (EAI) median datos entre un origen y un destino. Tales escenarios suelen tener un conjunto común de requisitos:
 
@@ -116,4 +118,4 @@ Algunos temas útiles:
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="erikre"/>
 
 # Creación de una aplicación web ASP.NET 5 en Visual Studio Code
@@ -22,7 +22,7 @@
 
 En este tutorial se muestra cómo se crea una aplicación web de ASP.NET 5 utilizando [Visual Studio Code (VS Code)](http://code.visualstudio.com//Docs/whyvscode) y cómo se implementa en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
-> [AZURE.NOTE]Aunque este artículo se refiere a las aplicaciones web, también se aplica a las aplicaciones de API y las aplicaciones móviles.
+> [AZURE.NOTE] Aunque este artículo se refiere a las aplicaciones web, también se aplica a las aplicaciones de API y las aplicaciones móviles.
 
 ASP.NET 5 es un rediseño significativo de ASP.NET. ASP.NET 5 es un nuevo marco de código abierto multiplataforma diseñado para crear modernas aplicaciones web basadas en la nube con .NET. Para obtener más información, consulte [Introducción a ASP.NET 5](http://docs.asp.net/en/latest/conceptual-overview/aspnet.html). Para obtener información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Introducción a aplicaciones web](app-service-web-overview.md).
 
@@ -55,7 +55,7 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 	![ubicación de dnvm](./media/web-sites-create-web-app-using-vscode/00-where-dnvm.png)
 
-3. Ahora que ya dispone de DNVM, tendrá que utilizarlo para descargar DNX para poder ejecutar las aplicaciones. Ejecute lo siguiente en el símbolo del sistema:
+3. Ahora que ya dispone de DNVM, tendrá que usarlo para descargar DNX para poder ejecutar las aplicaciones. Ejecute lo siguiente en el símbolo del sistema:
 
 		dnvm upgrade
 
@@ -71,19 +71,19 @@ Este tutorial está diseñado para ayudarle a comenzar a crear aplicaciones con 
 
 		dnvm use 1.0.0-update1 –p
 
-> [AZURE.NOTE]Para obtener instrucciones de instalación más detalladas para Windows, Linux y OS X, consulte [Instalación de ASP.NET 5 y DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
+> [AZURE.NOTE] Para obtener instrucciones de instalación más detalladas para Windows, Linux y OS X, consulte [Instalación de ASP.NET 5 y DNX](https://code.visualstudio.com/Docs/ASPnet5#_installing-aspnet-5-and-dnx).
 
 ## Creación de la aplicación web 
 
 En esta sección se explica cómo aplicar la técnica scaffolding a una nueva aplicación web ASP.NET. Use el administrador de paquetes para Node (npm) para instalar [Yeoman](http://yeoman.io/) (herramienta de scaffolding de aplicación: el equivalente de la operación de VS Code de Visual Studio **Archivo > Nuevo proyecto**), [Grunt](http://gruntjs.com/) (ejecutor de tareas de JavaScript), y [Bower](http://bower.io/) (administrador de paquetes del lado cliente).
 
-1. Abra un símbolo del sistema con derechos de administrador y navegue hasta la ubicación donde desea crear el proyecto de ASP.NET. Por ejemplo, cree un directorio *vscodeprojects* en la raíz de C:.
+1. Abra un símbolo del sistema con derechos de administrador y navegue hasta la ubicación donde desea crear el proyecto de ASP.NET. Por ejemplo, cree un directorio *vscodeprojects* directorio en la raíz de C:.
 
 2. En el símbolo del sistema para instalar Yeoman y las herramientas de soporte, escriba lo siguiente.
 
 		npm install -g yo grunt-cli generator-aspnet bower
 
-	> [AZURE.NOTE]Es posible que obtenga una advertencia para sugerir que la versión de npm está obsoleta. Esta advertencia no debe afectar a este tutorial.
+	> [AZURE.NOTE] Es posible que obtenga una advertencia para sugerir que la versión de npm está obsoleta. Esta advertencia no debe afectar a este tutorial.
 
 3. En el símbolo del sistema para crear la carpeta del proyecto y aplicar la técnica scaffolding a la aplicación, escriba lo siguiente.
 
@@ -115,7 +115,7 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 		dnx: Run Command
 
-	> [AZURE.NOTE]Si el servidor de Omnisharp no se está ejecutando actualmente, se iniciará. Vuelva a escribir el comando anterior.
+	> [AZURE.NOTE] Si el servidor de Omnisharp no se está ejecutando actualmente, se iniciará. Vuelva a escribir el comando anterior.
 
 	A continuación, seleccione el comando siguiente para ejecutar la aplicación web:
 		
@@ -123,7 +123,7 @@ Ahora que ha creado la aplicación web y ha recuperado todos los paquetes de NuG
 
 	Se mostrará la ventana de comandos que la aplicación ha iniciado. Si en la ventana de comandos no aparece este mensaje, compruebe la esquina inferior izquierda de VS Code para ver si hay errores en el proyecto.
 	
-	> [AZURE.NOTE]La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Puede ver los detalles relacionados con el comando **web** en el archivo *project.json*.
+	> [AZURE.NOTE] La emisión de un comando desde la **Paleta de comandos** requiere un carácter **>** al principio de la línea de comandos. Puede ver los detalles relacionados con el comando **web** en el archivo *project.json*.
 
 2. Abra un explorador y vaya a la dirección URL siguiente.
 
@@ -169,7 +169,7 @@ Git es un sistema de control de versión distribuida que puede utilizar para imp
 
 4. Seleccione la aplicación web que creó en este tutorial.
 
-5. En la hoja de la aplicación web, desplácese hacia abajo hasta la sección **Implementación** y haga clic en **Configurar implementación continua**.
+5. En la hoja de la aplicación web, haga clic en **Configuración** > **Implementación continua**.
 
 	![Host de la aplicación web de Azure](./media/web-sites-create-web-app-using-vscode/14-azure-deployment.png)
 
@@ -187,7 +187,7 @@ Git es un sistema de control de versión distribuida que puede utilizar para imp
 
 	* Haga clic en **Guardar**.
 
-9. En la hoja de la aplicación web, haga clic en **Configuración > Propiedades**. La URL del repositorio Git remoto en el que implementará se muestra en **Dirección URL de Git**.
+9. En la hoja de la aplicación web, haga clic en **Configuración > Propiedades**. La dirección URL del repositorio Git remoto en el que implementará se muestra en **DIRECCIÓN URL DE GIT**.
 
 10. Copie el valor **dirección URL de GIT** para su uso posterior en el tutorial.
 
@@ -241,7 +241,7 @@ En esta sección, creará un repositorio Git local e insertará desde ese reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicar directamente en el código de VS con la funcionalidad integrada de Git seleccionando la opción **Confirmar todo** seguida de la opción **Insertar**. Encontrará la opción **Insertar** en el menú desplegable junto a los botones **Confirmar todo** y **Actualizar**.
+> [AZURE.NOTE] Si realiza cambios en la aplicación, puede volver a publicar directamente en el código de VS con la funcionalidad integrada de Git seleccionando la opción **Confirmar todo** seguida de la opción **Insertar**. Encontrará la opción **Insertar** en el menú desplegable junto a los botones **Confirmar todo** y **Actualizar**.
 
 Si necesita para colaborar en un proyecto, considere la posibilidad de insertar en GitHub entre la inserción en Azure.
 
@@ -262,4 +262,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para más información sobre VS Code, vea el artículo [¿Por qué Visual Studio Code?](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

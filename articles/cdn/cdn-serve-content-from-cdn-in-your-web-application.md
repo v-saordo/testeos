@@ -151,8 +151,8 @@ En esta sección, ha aprendido a crear un extremo de red CDN, cargar contenido e
 
 Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md)), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
 
-4. En el menú **Inicio**, ejecute **Microsoft Azure PowerShell**.
-5. En la ventana de Azure PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
+4. Desde el menú **Inicio**, ejecute **Windows PowerShell**.
+5. En la ventana de PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
 6. Cuando haya descargado el archivo de configuración de publicación, ejecute lo siguiente: 
 
 		Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
@@ -252,11 +252,11 @@ Con [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft
 
 La integración de Servicio de aplicaciones de Azure o Servicios en la nube de Azure con la red CDN de Azure le ofrece las siguientes ventajas:
 
-- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](../web-sites-publish-source-control.md) de la aplicación web de Azure
+- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](../app-service-web/web-sites-publish-source-control.md) de la aplicación web de Azure
 - Actualización sencilla de los paquetes de NuGet servidos por CDN, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 
-Para ver tutoriales relacionados, consulte: - [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../cdn-websites-with-cdn.md) - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
+Para ver tutoriales relacionados, consulte: - [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../app-service-web/cdn-websites-with-cdn.md) - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 
 Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
 
@@ -267,10 +267,10 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 
 ## Más información ##
 - [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
-- [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../cdn-websites-with-cdn.md)
+- [Uso de la red CDN de Azure del Servicio de aplicaciones de Azure](../app-service-web/cdn-websites-with-cdn.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 - [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

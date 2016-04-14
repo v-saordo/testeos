@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="get-started-article"
-	ms.date="11/27/2015"
+	ms.date="02/25/2015"
 	ms.author="bradygaster"/>
 
 # Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Requisitos previos
-1. [Node.js](nodejs.org) que se ejecuta en la máquina de desarrollo (en este ejemplo se asume que tiene instalado Node.js versión 4.2.2)
+1. [Node.js](http://nodejs.org) que se ejecuta en la máquina de desarrollo (en este ejemplo se asume que tiene instalado Node.js versión 4.2.2)
 1. Cuenta [GitHub](https://github.com/)
 1. [Cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) de Microsoft Azure
 1. Git instalado en la estación de trabajo de desarrollo local
@@ -243,4 +243,4 @@ Ya ha creado e implementado correctamente su primera aplicación de API con Node
 
 Para basarse en este ejemplo, puede agregar código a los controladores para almacenar los datos en una base de datos o en el disco de la instancia de la aplicación de API. Ahora que ya conectó la implementación continua, el cambio de la funcionalidad de la aplicación de API y la su ampliación es tan fácil como cambiar en insertar de código en el repositorio de Git.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

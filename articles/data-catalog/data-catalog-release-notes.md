@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # Notas de la versión del Catálogo de datos de Azure
@@ -37,14 +37,6 @@ Para conectarse a orígenes de datos de Teradata, los usuarios deben tener insta
 
 A partir de esta fecha de lanzamiento de ADC, el [Controlador ODBC de Teradata para Windows (versión 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) más reciente será compatible con Office 2013, pero no con Office 2016.
 
-## Notas de la versión del 6 de noviembre de 2015 del Catálogo de datos de Azure
-
-### Es posible que los usuarios encuentren errores al iniciar la herramienta de registro del origen de datos
-
-Cuando se inicie la herramienta de registro de datos del **Catálogo de datos de Azure** desde el portal del **Catálogo de datos de Azure**, es posible que los usuarios que hayan instalado previamente una versión anterior de la herramienta reciban este mensaje: "No se puede iniciar la aplicación. Póngase en contacto con el proveedor de la aplicación".
-
-Los usuarios que reciban este mensaje deberán usar el panel de control de Windows para quitar la aplicación existente de "Catálogo de datos de Azure" y, a continuación, volver a ejecutar la herramienta desde el portal **Catálogo de datos de Azure**.
-
 ## Notas de la versión del 13 de julio de 2015 del Catálogo de datos de Azure
 
 ### Registro y conexión a Oracle Database
@@ -64,7 +56,7 @@ La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS)
 
 Al abrir recursos de datos en Microsoft Excel desde el portal **Catálogo de datos de Azure**, es posible que a los usuarios se les presente un cuadro de diálogo **Aviso de seguridad de Microsoft Excel**. Se trata del comportamiento estándar esperado y los usuarios pueden seleccionar **Habilitar** para continuar.
 
-Para obtener más información, vea [Habilitación o deshabilitación de alertas de seguridad sobre vínculos y archivos de sitios web sospechosos](https://support.office.com/es-ES/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obtener más información, vea [Habilitación o deshabilitación de alertas de seguridad sobre vínculos y archivos de sitios web sospechosos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Faltan las columnas BLOB y UDT en las vistas previas
 
@@ -80,7 +72,7 @@ Hay dos causas posibles para este comportamiento del problema:
 
 En algunas situaciones, es posible que este comportamiento incorrecto ocurra solamente cuando el usuario está en la red de la compañía o solo cuando el usuario se conecta desde fuera de la red de empresa. La directiva de autenticación global permite habilitar los métodos de autenticación de forma independiente para las conexiones de extranet y de intranet. Es posible que se produzcan errores de inicio de sesión si no está habilitada la autenticación de formularios para la red desde la que se conecta el usuario.
 
-Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/es-ES/library/dn486781.aspx).
+Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
 
 **Causa 2: configuración del proxy de red** Si la red corporativa usa un servidor proxy, es posible que la herramienta de registro no pueda conectarse a Azure Active Directory a través del proxy. Los usuarios pueden asegurarse de que la herramienta de registro se conecta mediante la edición del archivo de configuración de la herramienta, agregando esta sección al archivo:
 
@@ -96,4 +88,4 @@ Para obtener más información, vea [Configuración de directivas de autenticaci
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Solución de problemas de administración de contraseñas
@@ -372,11 +372,11 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>Implementamos un mecanismo de limitación automático para evitar que los usuarios intenten restablecer sus contraseñas demasiadas veces en un breve período de tiempo. Esto ocurre cuando:</p>
               <ol class="ordered">
                 <li>
-										Un usuario intenta validar un número de teléfono 5 veces en una hora.<br\><br\></li>
+										Un usuario intenta validar un número de teléfono 5 veces en una hora.&lt;br>&lt;br></li>
                 <li>
-										Un usuario intenta utilizar la puerta de preguntas de seguridad 5 veces en una hora.<br\><br\></li>
+										Un usuario intenta utilizar la puerta de preguntas de seguridad 5 veces en una hora.&lt;br>&lt;br></li>
                 <li>
-										Un usuario intenta restablecer la contraseña de la misma cuenta de usuario 5 veces en una hora.<br\><br\></li>
+										Un usuario intenta restablecer la contraseña de la misma cuenta de usuario 5 veces en una hora.&lt;br>&lt;br></li>
               </ol>
               <p>Para solucionar este problema, indique al usuario que espere 24 horas después del último intento, y el usuario podrá restablecer su contraseña.</p>
             </td>
@@ -468,11 +468,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Este error se produce en los dos casos siguientes:</p>
               <ul>
                 <li class="unordered">
-										Ha especificado una contraseña incorrecta para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
+										Ha especificado una contraseña incorrecta para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Ha tratado de usar un usuario federado para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
+										Ha tratado de usar un usuario federado para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.&lt;br>&lt;br></li>
               </ul>
               <p>Para corregir este error, asegúrese de que no está usando una cuenta federada para el administrador global que especificó al principio del proceso de instalación de Azure AD Connect y que la contraseña especificada es correcta.</p>
             </td>
@@ -499,11 +499,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Asegúrese de que el firewall permite las conexiones salientes para lo siguiente:</p>
               <ul>
                 <li class="unordered">
-										Todo el tráfico a través de TCP 443 (HTTPS)<br\><br\></li>
+										Todo el tráfico a través de TCP 443 (HTTPS)&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Conexiones salientes a <br\><br\></li>
+										Conexiones salientes a &lt;br>&lt;br></li>
               </ul>
               <p>
                 
@@ -557,11 +557,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Hay un problema conocido en la versión publicada de Azure AD Connect que se manifiesta en la siguiente situación:</p>
               <ol class="ordered">
                 <li>
-										Configura Azure AD Connect para abc.com inquilino (dominio comprobado) mediante credenciales. Esto crea el conector de AAD con el nombre "abc.com – AAD".<br\><br\></li>
+										Configura Azure AD Connect para abc.com inquilino (dominio comprobado) mediante credenciales. Esto crea el conector de AAD con el nombre "abc.com – AAD".&lt;br>&lt;br></li>
                 <li>
-										A continuación, cambie las credenciales de AAD para el conector (mediante la UI de sincronización anterior) (tenga en cuenta que se trata del mismo inquilino, pero con un nombre de dominio distinto). <br\><br\></li>
+										A continuación, cambie las credenciales de AAD para el conector (mediante la UI de sincronización anterior) (tenga en cuenta que se trata del mismo inquilino, pero con un nombre de dominio distinto). &lt;br>&lt;br></li>
                 <li>
-										Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El asistente creará el nombre del conector mediante las credenciales, como "abc.onmicrosoft.com – AAD", y pasará al cmdlet de escritura diferida de contraseñas. Esto generará un error porque no hay ningún conector creado con este nombre.<br\><br\></li>
+										Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El asistente creará el nombre del conector mediante las credenciales, como "abc.onmicrosoft.com – AAD", y pasará al cmdlet de escritura diferida de contraseñas. Esto generará un error porque no hay ningún conector creado con este nombre.&lt;br>&lt;br></li>
               </ol>
               <p>Esto se ha solucionado en nuestras compilaciones más recientes. Si tiene una compilación anterior, una solución alternativa es usar el cmdlet de PowerShell para habilitar o deshabilitar la característica. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="../active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
             </td>
@@ -684,19 +684,19 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio.</p>
               <ul>
                 <li class="unordered">
-										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
+										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
+										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
+										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
+										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.&lt;br>&lt;br></li>
               </ul>
             </td>
           </tr>
@@ -758,15 +758,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento indica que un usuario selecciona una contraseña y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.&lt;br>&lt;br></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -841,15 +841,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento indica que un usuario selecciona una contraseña y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.&lt;br>&lt;br></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -896,15 +896,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>El administrador ha seleccionado una contraseña en nombre de un usuario y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.&lt;br>&lt;br></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -1343,19 +1343,19 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio.</p>
               <ul>
                 <li class="unordered">
-										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
+										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
+										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
+										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.&lt;br>&lt;br></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
+										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.&lt;br>&lt;br></li>
               </ul>
             </td>
           </tr>
@@ -1481,7 +1481,7 @@ Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución d
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Personalizar**](active-directory-passwords-customize.md) : obtenga información sobre cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización.
@@ -1497,4 +1497,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

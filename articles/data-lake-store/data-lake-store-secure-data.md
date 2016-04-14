@@ -112,14 +112,14 @@ Al asignar usuarios o grupos de seguridad al sistema de archivos de Azure Data L
 	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.4.png "Asignar permisos al grupo")
 
 
-	>[AZURE.NOTE]Se necesita el permiso Ejecución para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
+	>[AZURE.NOTE] Se necesita el permiso Ejecución para la enumeración de directorios y, con frecuencia, cuando se proporciona acceso de solo lectura a los datos a un usuario o grupo.
 
 
 6. En la hoja **Agregar acceso personalizado**, haga clic en **Aceptar**. El grupo recién agregado, con los permisos asociados, se mostrará ahora en la hoja **Acceso**.
 
 	![Asignar permisos al grupo](./media/data-lake-store-secure-data/adl.acl.5.png "Asignar permisos al grupo")
 
-	> [AZURE.IMPORTANT]En la versión actual, solo puede tener 12 entradas en **Acceso personalizado**. Si desea agregar más de 12 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
+	> [AZURE.IMPORTANT] En la versión actual, solo puede tener 9 entradas en **Acceso personalizado**. Si desea agregar más de 9 usuarios, debe crear grupos de seguridad, agregar usuarios a los grupos de seguridad y proporcionar acceso a esos grupos de seguridad para la cuenta de Almacén de Data Lake.
 
 7. Si es necesario, también puede modificar los permisos de acceso después de agregar el grupo. Active o desactive la casilla para cada tipo de permiso (lectura, escritura, ejecución) en función de si desea quitarlo o asignarlo al grupo de seguridad. Haga clic en **Guardar** para guardar los cambios o en **Descartar** para deshacerlos.
 
@@ -165,4 +165,4 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos del Almacén
 - [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)
 - [Introducción al Almacén de Azure Data Lake mediante .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0218_2016-->

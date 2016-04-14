@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="02/10/2016" 
 	ms.author="awills"/>
 
 
@@ -36,6 +36,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
  * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
 * Java
  * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
+* JavaScript en páginas web: el [SDK de páginas web](app-insights-javascript.md) registra automáticamente las llamadas AJAX como dependencias.
 
 Puede escribir sus propias llamadas de SDK para supervisar otras dependencias que usan la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -111,7 +112,7 @@ Haga clic en esa fila para ver los eventos de solicitud individuales:
 
 Haga clic en cualquier instancia de ejecución prolongada para inspeccionarla con mayor profundidad.
 
-> [AZURE.NOTE]Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
+> [AZURE.NOTE] Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
 
 Desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
 
@@ -181,9 +182,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
@@ -191,8 +190,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0211_2016-->

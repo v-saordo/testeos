@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos de Teradata mediante Factoría de datos de Azure
@@ -34,7 +34,9 @@ Para que Data Management Gateway se conecte a la Base de datos Teradata, es prec
 
 ### Ejemplo: copia de datos de Teradata a un blob de Azure
 
-El ejemplo siguiente muestra:
+En este ejemplo, se muestra cómo copiar datos de una base de datos Teradata a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+ 
+El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
 2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -54,8 +56,6 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 	        "type": "OnPremisesTeradata",
 	        "typeProperties": {
 	            "server": "<server>",
-	            "database": "<database>",
-	            "schema": "<schema>",
 	            "authenticationType": "<authentication type>",
 	            "username": "<username>",
 	            "password": "<password>",
@@ -90,7 +90,6 @@ Si se establece "external": true y se especifica la directiva externalData, se i
 	        "type": "RelationalTable",
 	        "linkedServiceName": "OnPremTeradataLinkedService",
 	        "typeProperties": {
-	            "tableName": "MyTable"
 	        },
 	        "availability": {
 	            "frequency": "Hour",
@@ -226,8 +225,6 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type debe establecerse en **OnPremisesTeradata** | Sí
 server | Nombre del servidor de Teradata. | Sí
-database | Nombre de la base de datos Teradata. | Sí 
-schema | Nombre del esquema de la base de datos. | No
 authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. | Sí
 nombre de usuario | Especifique el nombre de usuario si usa la autenticación Basic o Windows. | No 
 contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No 
@@ -235,15 +232,12 @@ gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría 
 
 Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Teradata local.
 
-## Propiedades del tipo Base de datos Teradata
+## Propiedades del tipo de conjunto de datos de Teradata
 
-Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
+Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
-La sección typeProperties es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. La sección **typeProperties** del conjunto de datos de tipo **RelationalTable** (que incluye el conjunto de datos Teradata) tiene las propiedades siguientes.
+La sección **typeProperties** es diferente en cada tipo de conjunto de datos y proporciona información acerca de la ubicación de los datos en el almacén de datos. No hay ninguna propiedad de tipo compatible con el conjunto de datos de Teradata esta vez.
 
-Propiedad | Descripción | Obligatorio
--------- | ----------- | --------
-tableName | Nombre de la tabla en la instancia de Base de datos Teradata a la que hace referencia el servicio vinculado. | No (si se especifica **query** de **RelationalSource**) 
 
 ## Propiedades de tipo de actividad de copia de Teradata
 
@@ -255,7 +249,7 @@ En caso de la actividad de copia, si el origen es de tipo **RelationalSource** (
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-query | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. Por ejemplo: select * from MyTable. | No (si se especifica **tableName** de **dataset**)
+query | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. Por ejemplo: select * from MyTable. | Sí
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -314,4 +308,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

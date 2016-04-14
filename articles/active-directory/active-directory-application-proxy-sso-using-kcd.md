@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/07/2016"
+	ms.date="02/09/2016"
 	ms.author="kgremban"/>
 
 
 # Inicio de sesión único con el Proxy de aplicación
 
-> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 El inicio de sesión único es un elemento clave de Proxy de aplicación de Azure AD. Proporciona la mejor experiencia de usuario: un usuario inicia sesión en la nube, todas las validaciones de seguridad se realizan en la nube (autenticación previa) y después, cuando la solicitud se envía a la aplicación local, el conector de Proxy de aplicación suplanta al usuario de forma que la aplicación de back-end piensa que se trata de un usuario normal procedente de un dispositivo unido al dominio.
 
@@ -80,7 +80,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` puede ser la cuenta del equipo SPS o una cuenta de servicio con la que se ejecuta el grupo de aplicaciones SPS.
+>[AZURE.NOTE] `sharepointserviceaccount` puede ser la cuenta del equipo SPS o una cuenta de servicio con la que se ejecuta el grupo de aplicaciones SPS.
 
 
 ### Configuración del Portal de Azure clásico
@@ -90,7 +90,7 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación integrada de Windows**. ![Configuración avanzada de aplicaciones](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Escriba el **SPN de la aplicación interno** del servidor de aplicaciones. En este ejemplo, el SPN para nuestra aplicación publicada es http/lob.contoso.com.  
 
->[AZURE.IMPORTANT]Los UPN en Azure Active Directory deben ser idénticos a los UPN en su Active Directory local para que funcione la autenticación previa. Asegúrese de que su Azure AD se sincroniza con su AD local.
+>[AZURE.IMPORTANT] Los UPN en Azure Active Directory deben ser idénticos a los UPN en su Active Directory local para que funcione la autenticación previa. Asegúrese de que su Azure AD se sincroniza con su AD local.
 
 | | |
 | --- | --- |
@@ -160,9 +160,14 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 - [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
+## Recursos adicionales
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Registro en Azure como una organización](sign-up-organization.md)
+- [Identidad de Azure](fundamentals-identity.md)
+
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

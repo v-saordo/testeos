@@ -13,12 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure
 
-En este artículo se describe cómo puede usar la actividad de copia de la factoría de datos para mover datos al almacenamiento de datos SQL de Azure desde otro almacén de datos y desde otro almacén de datos a SQL de Azure. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se describe cómo puede usar la actividad de copia de Data Factory de Azure para mover datos desde Almacenamiento de datos SQL de Azure a otro almacén de datos y desde otro almacén de datos a Almacenamiento de datos SQL de Azure. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y los orígenes y receptores de datos admitidos para Almacenamiento de datos SQL.
+
+En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de datos SQL de Azure y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** desde cualquiera de los orígenes a cualquiera de los receptores indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.
+
+> [AZURE.NOTE] 
+Para obtener información general sobre el servicio Data Factory de Azure, vea [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md).
+> 
+> En este artículo se proporcionan ejemplos de JSON, pero no se incluyen instrucciones detalladas para crear una factoría de datos. Consulte [Tutorial: Copia de datos de un blob de Azure a Base de datos SQL de Azure](data-factory-get-started.md) para obtener un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Data Factory de Azure.
+
 
 ## Ejemplo: copia de datos del almacenamiento de datos SQL de Azure a un blob de Azure
 
@@ -193,7 +201,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
-> [AZURE.NOTE]En el ejemplo anterior, **sqlReaderQuery** se especifica para SqlDWSource. La actividad de copia ejecuta esta consulta en el origen de Almacenamiento de datos SQL de Azure para obtener los datos.
+> [AZURE.NOTE] En el ejemplo anterior, **sqlReaderQuery** se especifica para SqlDWSource. La actividad de copia ejecuta esta consulta en el origen de Almacenamiento de datos SQL de Azure para obtener los datos.
 >  
 > Como alternativa, puede indicar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 >  
@@ -373,7 +381,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 Consulte el artículo [Carga de datos con Factoría de datos de Azure](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) en la documentación de almacenamiento de datos SQL de Azure para ver un tutorial.
 
-## Propiedades del servicio vinculado del almacenamiento de datos SQL de Azure
+## Propiedades del servicio vinculado Almacenamiento de datos SQL de Azure
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado del almacenamiento de datos SQL de Azure.
 
@@ -384,7 +392,7 @@ type | La propiedad type debe establecerse en: **AzureSqlDW** | Sí
 
 Nota: tendrá que configurar [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Tendrá que configurar el servidor de base de datos para [permitir que los servicios de Azure tengan acceso al servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Además, si va a copiar datos al almacenamiento de datos SQL de Azure desde fuera de Azure, incluidos orígenes de datos locales con puerta de enlace de la factoría de datos, debe configurar el intervalo de direcciones IP adecuado para el equipo que envía datos al almacenamiento de datos SQL de Azure.
 
-## Propiedades de tipo de conjunto de datos del almacenamiento de datos SQL de Azure
+## Propiedades de tipo de conjunto de datos Almacenamiento de datos SQL de Azure
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
@@ -394,7 +402,7 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 | -------- | ----------- | -------- |
 | tableName | Nombre de la tabla en la base de datos del almacenamiento de datos SQL de Azure a la que hace referencia el servicio vinculado. | Sí |
 
-## Propiedades de tipo de actividad de copia del almacenamiento de datos SQL de Azure
+## Propiedades de tipo de actividad de copia de Almacenamiento de datos SQL de Azure
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
 
@@ -404,7 +412,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 ### SqlDWSource
 
-En caso de la actividad de copia, si el origen es de tipo **SqlDWSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
+En caso de la actividad de copia si el origen es de tipo **SqlDWSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | -------- | ----------- | -------------- | -------- |
@@ -471,9 +479,9 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-### Asignación de tipos para almacenamiento de datos SQL de Azure
+### Asignación de tipos para Almacenamiento de datos SQL de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de origen a tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -523,4 +531,4 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0218_2016-->

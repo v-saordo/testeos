@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/29/2016"
 	ms.author="jeedes"/>
 
 
@@ -93,7 +93,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
      a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en el sitio de QuickHelp (por ejemplo, *https://quickhelp.com/bsiazure/*)).
 
-     >[AZURE.NOTE] Póngase en contacto con el equipo de soporte de QuickHelp si no conoce el valor de la URL de inicio de sesión.
+     > [AZURE.NOTE] Póngase en contacto con el equipo de soporte de QuickHelp si no conoce el valor de la URL de inicio de sesión.
 
      b. Haga clic en **Siguiente**.
 
@@ -255,4 +255,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

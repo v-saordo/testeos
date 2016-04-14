@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/16/2016" 
 	ms.author="asteen"/>
 
 # Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
@@ -130,7 +130,7 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
 ## Comportamiento de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas. Puede configurar estas opciones en la sección **Directiva de restablecimiento de contraseña del usuario** en la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE]La cuenta de administrador que utilice debe tener asignada una licencia Premium de AAD para ver estos controles de directiva.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores. **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
+> [AZURE.NOTE] La cuenta de administrador que utilice debe tener asignada una licencia Premium de AAD para ver estos controles de directiva.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores. **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
 
 <table>
             <tbody><tr>
@@ -860,7 +860,7 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 ## Vínculos a la documentación de restablecimiento de la contraseña
 A continuación se muestran vínculos a todas las páginas de documentación de restablecimiento de contraseña de Azure AD:
 
-* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema.
+* [**Restablecimiento de la propia contraseña**](active-directory-passwords-update-your-own-password.md): obtenga información sobre cómo restablecer o cambiar su propia contraseña como usuario del sistema
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
 * [**Introducción**](active-directory-passwords-getting-started.md): obtenga información sobre cómo permitir a los usuarios restablecer y cambiar sus contraseñas en la nube o locales.
 * [**Prácticas recomendadas**](active-directory-passwords-best-practices.md): obtenga información sobre cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización.
@@ -872,4 +872,4 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0218_2016-->

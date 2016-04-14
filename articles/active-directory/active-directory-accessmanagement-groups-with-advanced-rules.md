@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="02/09/2016"
 	ms.author="curtand"/>
 
 
@@ -167,7 +167,7 @@ Ahora puede rellenar los miembros de un grupo en función del atributo de admini
 Para configurar un grupo como un grupo de “Administrador”
 --------------------------------------------------------------------------------
 1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**.
-2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {UserID\_of\_manager}*. Un ejemplo de una regla válida para informes directos 
+2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {UserID\_of\_manager}*. Un ejemplo de una regla válida para informes directos
 
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
@@ -183,8 +183,10 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

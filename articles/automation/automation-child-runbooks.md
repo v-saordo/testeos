@@ -3,7 +3,7 @@
    description="Describe los diferentes métodos para iniciar un runbook en la Automatización de Azure desde otro runbook y compartir información entre ellos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Runbooks secundarios en la Automatización de Azure
 
@@ -32,7 +32,7 @@ Los parámetros de un runbook secundario en línea pueden ser de cualquier tipo 
 
 ### Tipos de runbook
 
-No se puede usar un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) como un elemento secundario de un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) con la ejecución insertada. De igual forma, no puede usar un runbook de PowerShell como un elemento secundario con la ejecución insertada en un runbook de flujo de trabajo de PowerShell o icalrunbook gráfico. Los runbooks de PowerShell solo pueden usar otro PowerShell como elemento secundario. Los runbooks gráficos y de flujo de trabajo de PowerShell pueden usarse entre sí como runbooks secundarios.
+No se puede usar un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) o un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) como un elemento secundario de un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) con la ejecución insertada. De igual forma, no puede usar un runbook de PowerShell como un elemento secundario con la ejecución insertada en un runbook de flujo de trabajo de PowerShell o un runbook gráfico. Los runbooks de PowerShell solo pueden usar otro PowerShell como elemento secundario. Los runbooks gráficos y de flujo de trabajo de PowerShell pueden usarse entre sí como runbooks secundarios.
 
 Cuando se llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, solo tiene que usar el nombre del runbook. Cuando se llama a un runbook secundario de PowerShell, debe preceder su nombre con *.\* para especificar que el script se encuentra en el directorio local.
 
@@ -53,7 +53,7 @@ A continuación, se muestra el mismo ejemplo con un runbook de PowerShell como e
 
 Puede utilizar el cmdlet [Start-AzureAutomationRunbook](http://msdn.microsoft.com/library/dn690259.aspx) para iniciar un runbook tal como se describe en [Iniciar un runbook con Windows PowerShell](../automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell). Cuando se inicia un runbook secundario desde un cmdlet, el runbook primario se moverá a la siguiente línea tan pronto como se cree el trabajo para el runbook secundario. Si necesita recuperar alguna salida del runbook, deberá acceder al trabajo mediante [Get-AzureAutomationJobOutput](http://msdn.microsoft.com/library/dn690268.aspx).
 
-Si inició el trabajo de un runbook secundario con un cmdlet, este se ejecutará en un trabajo independiente al runbook primario. Como resultado, habrá más trabajos que cuando se invoca el script en línea, por lo que realizar un seguimiento será más difícil. Asimismo, el primario puede iniciar varios runbooks secundarios sin tener que esperar a que se complete cada uno de ellos. Para realizar este mismo tipo de ejecución en paralelo, al llamar a los runbooks secundarios en línea, el runbook primario necesitará usar la [palabra clave parallel](automation-powershell-workflow.md#parallel-processing).
+Si inició el trabajo de un runbook secundario con un cmdlet, este se ejecutará en un trabajo independiente al runbook primario. Como resultado, habrá más trabajos que cuando se invoca el runbook insertado, por lo que realizar un seguimiento será más difícil. Asimismo, el primario puede iniciar varios runbooks secundarios sin tener que esperar a que se complete cada uno de ellos. Para realizar este mismo tipo de ejecución en paralelo, al llamar a los runbooks secundarios en línea, el runbook primario necesitará usar la [palabra clave parallel](automation-powershell-workflow.md#parallel-processing).
 
 Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](automation-starting-a-runbook.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
 
@@ -62,7 +62,7 @@ Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan 
 En el ejemplo siguiente se inicia un runbook secundario con parámetros y, a continuación, se espera a que finalice. Una vez completado, el runbook primario recopila sus resultados desde el trabajo.
 
 	$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true} 
-	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test- ChildRunbook" –Parameters $params
+	$job = Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" –Parameters $params
 	
 	$doLoop = $true
 	While ($doLoop) {
@@ -94,4 +94,4 @@ En la siguiente tabla se resumen las diferencias entre los dos métodos para lla
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

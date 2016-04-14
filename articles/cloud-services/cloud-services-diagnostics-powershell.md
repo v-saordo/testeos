@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="02/09/2016" 
 	ms.author="saurabh"/>
 
 
@@ -23,43 +23,86 @@ Puede recopilar datos de diagnóstico como registros de aplicaciones, contadores
 
 ## Habilitar la extensión de diagnósticos como parte de la implementación de un servicio en la nube
 
-Este enfoque para el tipo de integración continua de escenarios en los que se puede habilitar la extensión de diagnósticos. Puede habilitar la extensión de diagnóstico como parte de la implementación del servicio en la nube pasando el parámetro *ExtensionConfiguration* al cmdlet [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx). El parámetro *ExtensionConfiguration* toma una matriz de configuraciones de diagnóstico que se pueden crear mediante el cmdlet [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx).
+Este enfoque es bueno para el tipo de integración continua de escenarios en los que se puede habilitar la extensión de diagnóstico como parte de la implementación del servicio en la nube. Al crear una nueva implementación del servicio en la nube, puede habilitar la extensión de diagnóstico si pasa el parámetro *ExtensionConfiguration* al cmdlet [New-AzureDeployment](https://msdn.microsoft.com/library/azure/mt589089.aspx). El parámetro *ExtensionConfiguration* toma una matriz de configuraciones de diagnóstico que se pueden crear mediante el cmdlet [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/library/azure/mt589168.aspx).
 
 En el ejemplo siguiente se muestra cómo habilitar el diagnóstico de un servicio en la nube con un WebRole y WorkerRole, cada uno con una configuración de diagnóstico diferente.
 
 	$service_name = "MyService"
 	$service_package = "CloudService.cspkg"
 	$service_config = "ServiceConfiguration.Cloud.cscfg"
-	$diagnostics_storagename = "myservicediagnostics"
 	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-	$primary_storagekey = (Get-AzureStorageKey -StorageAccountName "$diagnostics_storagename").Primary
-	$storage_context = New-AzureStorageContext -StorageAccountName $diagnostics_storagename -StorageAccountKey $primary_storagekey
-
-	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -Storage_context $storageContext -DiagnosticsConfigurationPath $webrole_diagconfigpath
-	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -StorageContext $storage_context -DiagnosticsConfigurationPath $workerrole_diagconfigpath
-	  
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
 	 
 	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration @($webrole_diagconfig,$workerrole_diagconfig) 
 
+Si el archivo de configuración de diagnóstico especifica un elemento StorageAccount con un nombre de cuenta de almacenamiento, el cmdlet New-AzureServiceDiagnosticsExtensionConfig usará automáticamente esa cuenta de almacenamiento. Para que esto funcione, la cuenta de almacenamiento debe estar en la misma suscripción que el servicio en la nube que se está implementando.
 
+A partir de Azure SDK 2.6, los archivos de configuración de extensión generados por la salida de destino de publicación de MSBuild incluirán el nombre de la cuenta de almacenamiento en función de la cadena de configuración de diagnóstico que se haya especificado en el archivo de configuración de servicio (.cscfg). El script siguiente muestra cómo analizar los archivos de configuración de extensión desde la salida de destino de publicación y cómo configurar la extensión de diagnóstico de cada rol al implementar el servicio en la nube.
+
+	$service_name = "MyService"
+	$service_package = "C:\build\output\CloudService.cspkg"
+	$service_config = "C:\build\output\ServiceConfiguration.Cloud.cscfg"
+	
+	#Find the Extensions path based on service configuration file
+	$extensionsSearchPath = Join-Path -Path (Split-Path -Parent $service_config) -ChildPath "Extensions"
+	
+	$diagnosticsExtensions = Get-ChildItem -Path $extensionsSearchPath -Filter "PaaSDiagnostics.*.PubConfig.xml"
+	$diagnosticsConfigurations = @()
+	foreach ($extPath in $diagnosticsExtensions)
+	{
+	#Find the RoleName based on file naming convention PaaSDiagnostics.<RoleName>.PubConfig.xml
+	$roleName = ""
+	$roles = $extPath -split ".",0,"simplematch"
+	if ($roles -is [system.array] -and $roles.Length -gt 1)
+	    {
+	    $roleName = $roles[1] 
+	    $x = 2
+	    while ($x -le $roles.Length)
+	        {
+	           if ($roles[$x] -ne "PubConfig")
+	            {
+	                $roleName = $roleName + "." + $roles[$x]
+	            }
+	            else
+	            {
+	                break
+	            }
+	            $x++
+	        }
+	    $fullExtPath = Join-Path -path $extensionsSearchPath -ChildPath $extPath
+	    $diagnosticsconfig = New-AzureServiceDiagnosticsExtensionConfig -Role $roleName -DiagnosticsConfigurationPath $fullExtPath
+	    $diagnosticsConfigurations += $diagnosticsconfig
+	    }
+	}
+	New-AzureDeployment -ServiceName $service_name -Slot Production -Package $service_package -Configuration $service_config -ExtensionConfiguration $diagnosticsConfigurations
+
+Visual Studio Online usa un enfoque similar para las implementaciones automatizadas de servicios en la nube con la extensión de diagnóstico. Consulte [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) para obtener un ejemplo completo.
+
+Si no se ha especificado el parámetro StorageAccount en la configuración de diagnóstico, es necesario pasar el parámetro StorageAccountName al cmdlet. Si el parámetro StorageAccountName no se especifica, el cmdlet siempre usará la cuenta de almacenamiento especificada en el parámetro y no la especificada en el archivo de configuración de diagnóstico.
+
+Si la cuenta de almacenamiento de diagnóstico está en una suscripción distinta que el servicio en la nube, es necesario pasar explícitamente los parámetros StorageAccountName y StorageAccountKey al cmdlet. El parámetro StorageAccountKey no es necesario cuando la cuenta de almacenamiento de diagnóstico está en la misma suscripción, ya que el cmdlet puede consultar automáticamente y establecer el valor de clave cuando se habilita la extensión de diagnóstico. Sin embargo, si la cuenta de almacenamiento de diagnóstico está en una suscripción diferente, es posible que el cmdlet no pueda obtener la clave automáticamente y que sea necesario especificar explícitamente la clave mediante el parámetro StorageAccountKey.
+
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
+ 
 
 ## Habilitar la extensión de diagnóstico en un servicio en la nube existente
 
-Puede usar el cmdlet [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx) para habilitar diagnósticos en un servicio en la nube que ya se está ejecutando.
+Puede usar el cmdlet [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589140.aspx) para habilitar o actualizar la configuración de diagnóstico en un servicio en la nube que ya se esté ejecutando.
 
 
 	$service_name = "MyService"
-	$diagnostics_storagename = "myservicediagnostics"
 	$webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
 	$workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-	$primary_storagekey = (Get-AzureStorageKey -StorageAccountName "$diagnostics_storagename").Primary
-	$storage_context = New-AzureStorageContext -StorageAccountName $diagnostics_storagename -StorageAccountKey $primary_storagekey
- 
-	Set-AzureServiceDiagnosticsExtension -StorageContext $storage_context -DiagnosticsConfigurationPath $webrole_diagconfigpath -ServiceName $service_name -Slot Production -Role "WebRole" 
-	Set-AzureServiceDiagnosticsExtension -StorageContext $storage_context -DiagnosticsConfigurationPath $workerrole_diagconfigpath -ServiceName $service_name -Slot Production -Role "WorkerRole"
- 
+
+	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath
+	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath
+	
+	Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagconfig,$workerrole_diagconfig) -ServiceName $service_name 
+	  
 
 ## Obtener la configuración actual de la extensión de diagnósticos
 Use el cmdlet [Get-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/library/azure/mt589204.aspx) para obtener la configuración actual de diagnósticos para un servicio en la nube.
@@ -84,4 +127,4 @@ Para quitar la extensión de diagnóstico de cada rol individual:
 - En el [Esquema de configuración de diagnósticos](https://msdn.microsoft.com/library/azure/dn782207.aspx) se explican las distintas opciones de configuración xml para la extensión de diagnósticos.
 - Para obtener información sobre cómo habilitar la extensión de diagnósticos para las máquinas virtuales, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Administrador de recursos de Azure](virtual-machines-extensions-diagnostics-windows-template.md)  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a Application Insights en un proyecto web de Java | Microsoft Azure"
-	description="Supervisión del rendimiento y del uso del sitio web de Java con Application Insights"
+	pageTitle="Análisis de aplicaciones web de Java con Application Insights | Microsoft Azure"
+	description="Supervisión del rendimiento y del uso de su sitio web de Java con Application Insights."
 	services="application-insights"
     documentationCenter="java"
 	authors="alancameronwills"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/24/2016"
+	ms.date="03/02/2016"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -52,7 +52,7 @@ Necesitará:
 
 *Elija la forma adecuada para su proyecto.*
 
-#### Si está creando un proyecto web dinámico en Eclipse...
+#### Si usa Eclipse para crear un proyecto web dinámico o de Maven...
 
 Utilice el [complemento de SDK de Application Insights para Java][eclipse].
 
@@ -80,7 +80,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 
 
-* *¿Errores de validación de suma de comprobación o de compilación?* Pruebe en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Errores de validación de suma de comprobación o de compilación?* Pruebe en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
 #### Si está usando Gradle...
@@ -98,7 +98,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
       // or applicationinsights-core for bare API
     }
 
-* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'1.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md).*
+* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'1.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para actualizar a un nuevo SDK*
  * Actualice las dependencias del proyecto.
 
@@ -118,7 +118,7 @@ Agregue manualmente el SDK:
 
 * *Para actualizar el SDK cuando publicamos cambios*
  * Descargue el [SDK más reciente de Application Insights para Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) y sustituya los antiguos.
- * Los cambios se describen en las [notas de la versión de SDK](app-insights-release-notes-java.md).
+ * Los cambios se describen en las [notas de la versión de SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 
 
@@ -398,4 +398,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

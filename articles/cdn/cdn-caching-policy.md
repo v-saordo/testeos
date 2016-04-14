@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/01/2016" 
 	ms.author="juliako"/>
 
 #Directiva de almacenamiento en caché de CDN en extensión de Servicios multimedia
@@ -43,4 +43,4 @@ Puede usar el Portal de administración de Azure o las API de Servicios multimed
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de almacenamiento de Azure y la anulación de este valor no está disponible.
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

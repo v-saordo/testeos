@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/26/2016" 
 	ms.author="stefsch"/>
 
 # Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
@@ -30,6 +30,8 @@ En el diagrama siguiente se ofrece información general sobre los distintos fluj
 ![Flujos de red generales][GeneralNetworkFlows]
 
 Un entorno del Servicio de aplicaciones puede comunicarse con una variedad de extremos privados del cliente. Por ejemplo, las aplicaciones que se ejecutan en el entorno del Servicio de aplicaciones pueden conectarse a servidores de base de datos que se ejecutan en máquinas virtuales de IaaS en la misma topología de red virtual.
+
+>[AZURE.IMPORTANT] Si examinamos el diagrama de red, los "Otros recursos de equipo" se implementan en una subred diferente de la del entorno del Servicio de aplicaciones. Al implementar recursos en la misma subred que el entorno del Servicio de aplicaciones (ASE), se bloqueará la conectividad del ASE a esos recursos (excepto para el enrutamiento específico dentro del entorno del Servicio de aplicaciones). Implemente en su lugar en una subred diferente (en la misma red virtual). A continuación, el entorno del Servicio de aplicaciones podrá conectarse. No se necesita ninguna configuración adicional.
 
 Los entornos del Servicio de aplicaciones también se comunican con la base de datos SQL y los recursos del Almacenamiento de Azure necesarios para administrar y operar un entorno del Servicio de aplicaciones. Algunos recursos de almacenamiento y SQL con los que se comunica un entorno del Servicio de aplicaciones se encuentran en la misma región que el entorno del Servicio de aplicaciones, mientras que otros se encuentran en regiones de Azure remotas. Como resultado, la conectividad saliente a Internet siempre es necesaria para que un entorno del Servicio de aplicaciones funcione correctamente.
 
@@ -87,4 +89,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -761,11 +761,11 @@ En este paso, creará una canalización con la actividad personalizada que creó
 
 	-   **AssemblyName** se establece en el nombre del archivo DLL, **MyDotNetActivity.dll**.
 
-	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente <espacioDeNombres>.<nombreDeClase> en el código.
+	-   **EntryPoint** se establece en establecido en **MyDotNetActivityNS.MyDotNetActivity**. Es básicamente \<espacioDeNombres\>.\<nombreDeClase\> en el código.
 
 	-   **PackageLinkedService** está establecido en **StorageLinkedService**, que apunta al almacenamiento de blobs que contiene el archivo ZIP de la actividad personalizada. Si usa diferentes cuentas de Almacenamiento de Azure para los archivos de entrada y salida y el archivo ZIP de actividad personalizada, tendrá que crear otro servicio vinculado de Almacenamiento de Azure. En este artículo, se da por supuesto que usa la misma cuenta de Almacenamiento de Azure.
 
-	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato <contenedorDelZIP>/<nombreDelZIP.zip>.
+	-   **PackageFile** se establece en **customactivitycontainer/MyDotNetActivity.zip**. Está en el formato \<contenedorDelZIP\>/\<nombreDelZIP.zip\>.
 
 	-   La actividad personalizada toma **InputDataset** como entrada y **OutputDataset** como salida.
 
@@ -929,4 +929,4 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 
     -   [Introducción a la biblioteca de Lote de Azure para .NET](../batch/batch-dotnet-get-started.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0128_2016-->

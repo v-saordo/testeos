@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/25/2015"
+   ms.date="02/29/2016"
    ms.author="robb" />
 
 # Creación y uso de contadores de rendimiento en una aplicación de Azure
@@ -21,10 +21,10 @@ En este artículo se describen las ventajas y el procedimiento para usar contado
 
 También puede recopilar y usar los contadores de rendimiento disponibles para Windows Server, IIS y ASP.NET para determinar el estado de los roles web, los roles de trabajo y Máquinas virtuales de Azure. Además, puede crear y usar contadores de rendimiento personalizados.
 
-Puede examinar los datos del contador de rendimiento;
-1) Directamente en el host de la aplicación con la herramienta Monitor de rendimiento, a la que se accede mediante Escritorio remoto;
-2) Con System Center Operations Manager mediante el módulo de administración de Azure;
-3) Con otras herramientas de supervisión que acceden a los datos de diagnóstico transferidos al almacenamiento de Azure. Consulte [Guardar y ver datos de diagnóstico en el almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para obtener más información.
+Puede examinar los datos del contador de rendimiento.
+1. Directamente en el host de la aplicación con la herramienta Monitor de rendimiento, a la que se accede mediante Escritorio remoto.
+2. Con System Center Operations Manager mediante el módulo de administración de Azure.
+3. Con otras herramientas de supervisión que acceden a los datos de diagnóstico transferidos al almacenamiento de Azure. Consulte [Guardar y ver datos de diagnóstico en el almacenamiento de Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx) para obtener más información.  
 
 Para obtener información sobre la supervisión del rendimiento de la aplicación en el [Portal de Azure clásico](http://manage.azure.com/), consulte [Supervisión de servicios en la nube](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
@@ -71,7 +71,7 @@ Azure proporciona un subconjunto de los contadores de rendimiento disponibles pa
 
 Azure admite la creación y la modificación de contadores de rendimiento personalizados para los roles web y de trabajo. Los contadores se pueden usar para seguir y supervisar el comportamiento específico de la aplicación. Puede crear y eliminar categorías y especificadores de contadores de rendimiento personalizados desde una tarea de inicio, un rol web o un rol de trabajo con permisos elevados.
 
->[AZURE.NOTE]El código que realiza cambios en los contadores de rendimiento personalizados debe poseer permisos elevados para ejecutarse. Si el código está en un rol web o de trabajo, el rol debe incluir la etiqueta <Runtime executionContext="elevated" /> en el archivo ServiceDefinition.csdef para inicializarse correctamente.
+>[AZURE.NOTE] El código que realiza cambios en los contadores de rendimiento personalizados debe poseer permisos elevados para ejecutarse. Si el código está en un rol web o de trabajo, el rol debe incluir la etiqueta <Runtime executionContext="elevated" /> en el archivo ServiceDefinition.csdef para inicializarse correctamente.
 
 Puede enviar datos de contadores de rendimiento personalizados al almacenamiento de Azure mediante el agente de diagnóstico.
 
@@ -83,7 +83,7 @@ Azure almacena en caché los datos de contadores de rendimiento junto con otra i
 
 Cada instancia de contador de rendimiento configurada se registra a una velocidad de muestreo especificada, y los datos muestreados se transfieren a la cuenta de almacenamiento, ya sea mediante una solicitud de transferencia programada o una solicitud de transferencia a petición. Se pueden programar transferencias automáticas una vez por minuto. Los datos de contadores de rendimiento transferidos por el agente de diagnóstico se almacenan en una tabla, WADPerformanceCountersTable, en la cuenta de almacenamiento. Se puede acceder a esta tabla y se puede consultar con métodos de API de Almacenamiento de Azure estándar. Consulte el [ejemplo PerformanceCounters de Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) para obtener un ejemplo de cómo consultar y mostrar datos de contadores de rendimiento desde la tabla WADPerformanceCountersTable.
 
->[AZURE.NOTE]Según la frecuencia de transferencia del agente de diagnóstico y la latencia de la cola, puede que los datos de contadores de rendimiento más recientes en la cuenta de almacenamiento sean obsoletos desde hace varios minutos.
+>[AZURE.NOTE] Según la frecuencia de transferencia del agente de diagnóstico y la latencia de la cola, puede que los datos de contadores de rendimiento más recientes en la cuenta de almacenamiento sean obsoletos desde hace varios minutos.
 
 ## Habilitación de contadores de rendimiento mediante el archivo de configuración de diagnóstico
 
@@ -144,7 +144,7 @@ Para mantener la información de diagnóstico en su cuenta de almacenamiento de 
 
 Para el SDK de Azure 2.5, se puede especificar la cuenta de almacenamiento en el archivo diagnostics.wadcfgx.
 
->[AZURE.NOTE]Estas instrucciones solo sirven para el SDK de Azure 2.4 y versiones anteriores. Para el SDK de Azure 2.5, se puede especificar la cuenta de almacenamiento en el archivo diagnostics.wadcfgx.
+>[AZURE.NOTE] Estas instrucciones solo sirven para el SDK de Azure 2.4 y versiones anteriores. Para el SDK de Azure 2.5, se puede especificar la cuenta de almacenamiento en el archivo diagnostics.wadcfgx.
 
 Para definir las cadenas de conexión:
 
@@ -179,7 +179,7 @@ Lleve a cabo los siguientes pasos para crear un contador de rendimiento personal
 2. Agregue el elemento Runtime al elemento WebRole o WorkerRole para permitir la ejecución con privilegios elevados:
 
     ```
-    <RuntimeexecutionContext="elevated"/>
+    <runtime executioncontext="elevated"/>
     ```
 3. Guarde el archivo .
 4. Abra el archivo de diagnóstico (diagnostics.wadcfg en SDK 2.4 y versiones anteriores o diagnostics.wadcfgx en SDK 2.5 y versiones posteriores) y agregue lo siguiente a DiagnosticMonitorConfiguration. 
@@ -318,11 +318,6 @@ Las entidades se asignan a objetos C# utilizando una clase personalizada derivad
 
 
 ## Pasos siguientes
+[Ver más artículos sobre Diagnósticos de Azure](../azure-diagnostics.md)
 
-Ahora que ha aprendido los aspectos básicos de la recopilación de contadores de rendimiento, siga estos vínculos para implementar escenarios de solución de problemas más complejos.
-
-[Prácticas recomendadas de solución de problemas para el desarrollo de aplicaciones para Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx)
-
-[Supervisión de servicios en la nube](./how-to-monitor-a-cloud-service.md)
-
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
@@ -24,12 +24,12 @@ Si ha [instrumentado la aplicación web de Java con Application Insights][java],
 
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
  * **Llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
- * **Redis** llamadas realizadas a través del cliente de Jedis. Si la llamada tarda más de 10 s, el agente capturará también los argumentos de la llamada.
- * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notificará el plan de consulta. 
+ * **Redis** llamadas realizadas a través del cliente de Jedis. Si la llamada tarda más de 10 s, el agente capturará también los argumentos de la llamada.
+ * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notificará el plan de consulta. 
 * **Excepciones detectadas:** datos sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** datos sobre el tiempo necesario para ejecutar métodos específicos.
 
-Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java].
+Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Application Insights para Java][java].
 
 ## Instalación del agente de Application Insights para Java
 
@@ -80,7 +80,7 @@ Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
-              signature="(Ljava/lang/String:I)V" />
+              signature="(Ljava/lang/String;I)V" />
         </Class>
         
       </Instrumentation>
@@ -122,4 +122,4 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/02/2016"
    ms.author="mbaldwin"/>
 
 # Integración con Azure Active Directory
@@ -30,7 +30,7 @@ Hay varias maneras de integrar la aplicación con Azure AD. Aprovechar muchos o 
 
 **Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD. Obtenga más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](active-directory-authentication-scenarios.md).
 
-**Simplifique el registro de la aplicación.** Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente. Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles. Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI. Obtenga más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../mobile-services-how-to-register-active-directory-authentication.md) .
+**Simplifique el registro de la aplicación.** Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente. Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles. Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI. Más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../mobile-services/mobile-services-how-to-register-active-directory-authentication.md).
 
 ### Búsqueda de usuarios, administración del el aprovisionamiento de usuarios y control del acceso a la aplicación
 
@@ -90,4 +90,4 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 [Inicio de sesión de usuario con Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

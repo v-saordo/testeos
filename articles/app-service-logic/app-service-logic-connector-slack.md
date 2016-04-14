@@ -2,7 +2,7 @@
 	pageTitle="Uso del conector de Slack en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
 	description="Creación y configuración del conector de Slack o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="rajeshramabathiran" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
+	ms.date="02/11/2016"
 	ms.author="rajram"/>
 
 # Introducción al conector de Slack y su incorporación a su aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de Slack](../connectors/create-api-slack.md).
+
 Conéctese a los canales de Slack y publique mensajes para su equipo. Los conectores pueden usarse en aplicaciones lógicas como parte de un "flujo de trabajo" para realizar diferentes tareas. El uso del conector de Slack en su flujo de trabajo, en combinación con otros conectores, puede permitirle conseguir diversos resultados. Por ejemplo, puede usar el [conector de Facebook](app-service-logic-connector-facebook.md) en el flujo de trabajo para publicar un mensaje en el canal de Slack.
 
 ## Acciones y desencadenadores
@@ -42,7 +44,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 ## Uso del conector como acción en la aplicación lógica
 
-> [AZURE.IMPORTANT]Los conectores y las aplicaciones lógicas siempre deben crearse en el mismo grupo de recursos.
+> [AZURE.IMPORTANT] Los conectores y las aplicaciones lógicas siempre deben crearse en el mismo grupo de recursos.
 
 Una vez creado el conector de Slack, puede agregarlo como acción a su aplicación lógica:
 
@@ -81,7 +83,7 @@ El conector de Slack dispone de API de REST para que pueda usar el conector fuer
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -99,4 +101,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

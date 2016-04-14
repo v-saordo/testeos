@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/23/2016"
 	ms.author="nicking"/>
 
 # Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones
@@ -92,7 +92,7 @@ Se iniciará de inmediato una copia de seguridad de la aplicación al recibir la
 }
 ```
 
->[AZURE.NOTE]Se pueden encontrar mensajes de error en la propiedad de registro de la respuesta HTTP.
+>[AZURE.NOTE] Se pueden encontrar mensajes de error en la propiedad de registro de la respuesta HTTP.
 
 <a name="schedule-automatic-backups"></a>
 ## Programación de copias de seguridad automáticas
@@ -225,9 +225,9 @@ En el cuerpo de la solicitud, envíe un objeto JSON que contiene la nueva direcc
 }
 ```
 
->[AZURE.NOTE]Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si desea ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior e incluya solo un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contendrá toda la información de la copia de seguridad, incluida su dirección URL de SAS.
+>[AZURE.NOTE] Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si desea ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior e incluya solo un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contendrá toda la información de la copia de seguridad, incluida su dirección URL de SAS.
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0224_2016-->

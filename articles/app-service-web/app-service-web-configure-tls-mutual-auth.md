@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="02/27/2016" 
 	ms.author="naziml"/>
 
 # Configuración de la autenticación mutua de TLS para una aplicación web
 
 ## Información general ##
 Puede restringir el acceso a la aplicación web de Azure habilitando para este diferentes tipos de autenticación. Una manera de hacerlo es autenticar con un certificado de cliente cuando la solicitud sea a través de TLS/SSL. Este mecanismo se denomina autenticación mutua de TLS o autenticación de certificado de cliente, y en este artículo se detalla cómo configurar la aplicación web para que use la autenticación de certificado de cliente.
+
+> **Nota:** Si accede a su sitio a través de HTTP y no de HTTPS, no recibirá ningún certificado de cliente. Por lo tanto, si la aplicación requiere certificados de cliente, no debe permitir las solicitudes a la aplicación mediante HTTP.
+
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -39,7 +42,7 @@ Asegúrese de cambiar el valor de "location" por aquel en el que se encuentra su
 
 
 ## Acceso al certificado de cliente desde la aplicación web ##
-Cuando la aplicación web esté configurada para usar la autenticación de certificado de cliente, el certificado de cliente estará disponible en la aplicación mediante un valor codificado en base64 en el encabezado de solicitud "X-ARR-ClientCert". La aplicación puede crear un certificado a partir de este valor y luego usarlo con fines de autenticación y autorización en la aplicación.
+Si está usando ASP.NET y configura la aplicación para usar la autenticación de certificado de cliente, el certificado estará disponible a través de la propiedad **HttpRequest.ClientCertificate**. Para otras pilas de aplicación, el certificado de cliente estará disponible en la aplicación mediante un valor codificado en base64 en el encabezado de solicitud "X-ARR-ClientCert". La aplicación puede crear un certificado a partir de este valor y luego usarlo con fines de autenticación y autorización en la aplicación.
 
 ## Consideraciones especiales sobre la validación de certificados ##
 El certificado de cliente que se envía a la aplicación no pasa ninguna validación de la plataforma de aplicaciones web de Azure. La validación de este certificado es la responsabilidad de la aplicación web. Este es el código de ASP.NET de ejemplo que valida las propiedades del certificado para la autenticación.
@@ -121,7 +124,7 @@ El certificado de cliente que se envía a la aplicación no pasa ninguna validac
                 if (certificate == null || !String.IsNullOrEmpty(errorString)) return false;
                 
                 // 1. Check time validity of certificate
-                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 && DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
+                if (DateTime.Compare(DateTime.Now, certificate.NotBefore) < 0 || DateTime.Compare(DateTime.Now, certificate.NotAfter) > 0) return false;
                 
                 // 2. Check subject name of certificate
                 bool foundSubject = false;
@@ -179,4 +182,4 @@ El certificado de cliente que se envía a la aplicación no pasa ninguna validac
         }
     }
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

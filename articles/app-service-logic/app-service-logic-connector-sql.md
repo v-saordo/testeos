@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/30/2015"
+   ms.date="02/11/2016"
    ms.author="sameerch"/>
 
 
 # Introducción al conector de Microsoft SQL y su incorporación a las aplicaciones lógicas
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview de SQL Azure, haga clic en [API de SQL Azure](../connectors/create-api-sqlazure.md).
+
 Conéctese a un servidor SQL Server o a una Base de datos SQL de Azure local para crear y cambiar información o datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de SQL en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
 
 - Exponer una parte de los datos que residen en la base de datos SQL a través de una aplicación móvil o web.
@@ -161,4 +163,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

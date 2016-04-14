@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -30,7 +30,7 @@ La siguiente tabla muestra los orígenes y umbrales de limitación:
 
 ||Descripción|Umbral bajo|Umbral alto|
 |---|---|---|---|
-|Memoria|% de la memoria total disponible del sistema/PageFileBytes. <p><p>PageFileBytes disponible total es aproximadamente el doble de la memoria RAM del sistema.|60 %|70 %|
+|Memoria|% de memoria total del sistema disponible/PageFileBytes. <p><p>La cantidad total disponible de PageFileBytes es de aproximadamente 2 veces la memoria RAM del sistema.|60%|70%|
 |Procesamiento de mensajes|Número de mensajes que se procesan simultáneamente|40 * número de núcleos|100 * número de núcleos|
 
 Cuando se alcanza un umbral alto, Servicios de BizTalk de Azure empieza a limitarse. La limitación se detiene cuando se alcanza el umbral bajo. Por ejemplo, el servicio está utilizando un 65 % de la memoria del sistema. En esta situación, el servicio no se limita. El servicio empieza a usar un 70 % de la memoria del sistema. En esta situación, el servicio se limita y sigue limitándose hasta que el servicio utiliza un 60 % de la memoria del sistema (umbral bajo).
@@ -72,4 +72,4 @@ una canalización extrae los mensajes desde un origen FTP externo. La instancia 
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

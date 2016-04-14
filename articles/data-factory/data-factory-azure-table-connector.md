@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Tabla de Azure mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos desde otro almacén de datos a Tabla de Azure y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+
+En los siguientes ejemplos, se muestra cómo copiar datos entre Almacenamiento de tablas de Azure y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+
 
 ## Ejemplo: copia de datos de una tabla de Azure a un blob de Azure
 
@@ -43,7 +46,7 @@ El ejemplo copia los datos que pertenecen a la partición predeterminada de una 
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 **Conjunto de datos de entrada de tabla de Azure:**
 
@@ -205,7 +208,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	  }
 	}
 
-Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Vea la sección [Servicios vinculados](#linked-services) para más información.
+Factoría de datos de Azure admite dos tipos de servicios vinculados de Almacenamiento de Azure: **AzureStorage** y **AzureStorageSas**. En el primer caso, especifique la cadena de conexión que incluye la clave de cuenta. En el segundo, especifique el Uri de firma de acceso compartido (SAS). Para más información, consulte la sección [Servicios vinculados](#linked-services).
 
 **Conjunto de datos de entrada de blob de Azure:**
 
@@ -359,6 +362,14 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 | -------- | ----------- | -------- |
 | tableName | Nombre de la tabla en la instancia de Base de datos de tablas de Azure a la que hace referencia el servicio vinculado. | Sí
 
+### Esquema de Data Factory
+En los almacenes de datos sin esquemas como Tabla de Azure, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
+
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+
+Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
+
 ## Propiedades de tipo de actividad de copia de tabla de Azure
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
@@ -369,7 +380,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | <p>Cadena de consulta de tabla de Azure. Vea los ejemplos siguientes. | No
+azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | <p>Cadena de consulta de Tabla de Azure. Vea los ejemplos siguientes. | No
 azureTableSourceIgnoreTableNotFound | Indica si se omite la excepción de la tabla inexistente. | TRUE<br/>FALSE | No |
 
 ### ejemplos de azureTableSourceQuery
@@ -515,4 +526,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

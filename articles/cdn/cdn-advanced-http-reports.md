@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="CDN - Informes de HTTP avanzados" 
-	description="Informes de HTTP avanzados en la red CDN de Microsoft Azure Estos informes proporcionan información detallada sobre la actividad de la red CDN." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="CDN - Informes de HTTP avanzados"
+	description="Informes de HTTP avanzados en la red CDN de Microsoft Azure Estos informes proporcionan información detallada sobre la actividad de la red CDN."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 # Informes de HTTP avanzados en la red CDN de Microsoft Azure
@@ -22,18 +22,18 @@
 
 En este documento se explican los informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
 
-> [AZURE.NOTE]Los informes de HTTP avanzados es una característica del nivel Premium de la red CDN. Para una comparación de las características de los niveles Standard y Premium de la red CDN, consulte [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
+> [AZURE.NOTE] Los informes de HTTP avanzados es una característica del nivel Premium de la red CDN. Para una comparación de las características de los niveles Standard y Premium de la red CDN, consulte [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md).
 
 ## Acceso a los informes de HTTP avanzados
 
 1. En la hoja de perfil de la red CDN, haga clic en el botón **Administrar**.
 
 	![Botón Administrar en la hoja Perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
-	
+
 	Se abre el portal de administración de la red CDN.
-	
+
 2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**. Haga clic en **Plataforma grande HTTP**.
-	
+
 	Se muestran las opciones de informe.
 
 ## Informes de geografía (basados en mapas)
@@ -52,7 +52,7 @@ World Map | Este informe permite ver la demanda en todo el mundo del contenido d
 United States Map | Este informe permite ver la demanda del contenido de la red CDN en Estados Unidos. Cada estado está codificado en colores en este mapa para indicar el porcentaje de visitas originados en esta región.
 Canada Map | Este informe permite ver la demanda del contenido de la red CDN en Canadá. Cada provincia está codificada en colores en este mapa para indicar el porcentaje de visitas originadas en esta región.
 Europe Map | Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región.
-Asia Pacific Map | Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. 
+Asia Pacific Map | Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región.
 
 ## Informes de geografía (gráficos de barras)
 
@@ -64,7 +64,7 @@ El lado izquierdo del gráfico (eje y) indica cuántas visitas se han producido 
 
 * Si mantiene el cursor sobre una barra, el nombre y el número total de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
 * La información sobre herramientas en el informe Top Cities identifica a la ciudad por su nombre, el estado o provincia y por la abreviatura del país.
-* Si no se pudo determinar la ciudad o región (es decir, el estado o provincia) desde el que se originó una solicitud, se indicará que son desconocidas. Si el país es desconocido, se muestran dos signos de interrogación (es decir, ??).
+* Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país es desconocido, se mostrarán dos signos de interrogación (es decir, ??).
 * Un informe puede incluir métricas para "Europa" o "Región de Asia y el Pacífico". Estos elementos no están diseñados para proporcionar información estadística sobre todas las direcciones IP de esas regiones. En su lugar, solo se aplican a las solicitudes que se originan de las direcciones IP que se distribuyen por Europa o por la región de Asia y el Pacífico, en lugar de por una determinada ciudad o país.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos para las 250 regiones principales. Consulte una descripción de cada una de estas métricas.
@@ -84,7 +84,7 @@ Tras generar este tipo de informe, un gráfico de barras proporcionará una indi
 
 El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la fecha especificada. Directamente debajo del gráfico (eje x), se muestra una etiqueta con la fecha (formato: AAA-MM-DD) para cada día incluido en el informe.
 
-> [AZURE.TIP]Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa fecha se mostrará como una información sobre herramientas.
+> [AZURE.TIP] Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa fecha se mostrará como una información sobre herramientas.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada día que cubre el informe.
 
@@ -96,7 +96,7 @@ Tras generar este tipo de informe, un gráfico de barras proporcionará una indi
 
 El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la hora especificada. Directamente debajo del gráfico (eje x), se muestra una etiqueta con la fecha/hora (formato: AAA-MM-DD) para cada hora incluida en el informe. La hora se notifica con formato de 24 horas y se especifica mediante el uso de la zona horaria UTC/GMT.
 
-> [AZURE.TIP]Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa hora se mostrará como una información sobre herramientas.
+> [AZURE.TIP] Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa hora se mostrará como una información sobre herramientas.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada hora que cubre el informe.
 
@@ -104,7 +104,7 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 
 El informe By File permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta de los activos más solicitados. Tras generar este tipo de informe, se generará un gráfico de barras con los 10 activos principales más solicitados durante el período de tiempo especificado.
 
-> [AZURE.NOTE]A efectos de este informe, las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso del número total de visitas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
+> [AZURE.NOTE] A efectos de este informe, las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso del número total de visitas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
 
 El lado izquierdo del gráfico (eje y) indica el número de solicitudes para cada activo durante el período de tiempo especificado. Directamente debajo del gráfico (eje x) se muestra una etiqueta con el nombre de archivo para cada uno de los 10 activos principales solicitados.
 
@@ -122,7 +122,7 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 
 El informe By File Type permite ver la cantidad de demanda y el tráfico generados por tipo de archivo. Tras generar este tipo de informe, un gráfico de anillos indicará el porcentaje de visitas generadas por los 10 tipos de archivos principales.
 
-> [AZURE.TIP]Si mantiene el cursor sobre un segmento del gráfico de anillos, el tipo de medio de Internet de ese tipo de archivo se mostrará como una información sobre herramientas.
+> [AZURE.TIP] Si mantiene el cursor sobre un segmento del gráfico de anillos, el tipo de medio de Internet de ese tipo de archivo se mostrará como una información sobre herramientas.
 
 Los datos usados para generar el gráfico de anillos pueden verse debajo de él. Allí encontrará la extensión del nombre de archivo, el tipo de medio de Internet, el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos para cada uno de los 250 tipos de archivos principales.
 
@@ -164,13 +164,13 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 
 El informe By Download permite analizar los patrones de descarga para el contenido más solicitado. La parte superior del informe contiene un gráfico de barras que compara las descargas intentadas con descargas completadas para los 10 activos principales solicitados. Cada barra está codificada en colores, según sea un intento de descarga (azul) o una descarga completada (verde).
 
-> [AZURE.NOTE]A efectos de este informe, las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso de todas las estadísticas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
+> [AZURE.NOTE] A efectos de este informe, las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso de todas las estadísticas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
 
 El lado izquierdo del gráfico (eje y) indica el nombre de archivo para cada uno de los 10 activos solicitados principales. Directamente debajo del gráfico (eje x) se muestran las etiquetas con el número total de descargas intentadas o completadas.
 
 Directamente debajo del gráfico de barras, se mostrará la información siguiente para los 250 activos solicitados principales: la ruta de acceso relativa (incluido el nombre de archivo), el número de veces que se descargó completamente, el número de veces que se solicitó y el porcentaje de solicitudes que dieron como resultado una descarga completa.
 
-> [AZURE.TIP]Un cliente HTTP (es decir, un explorador) no notificará a la red CDN cuando un activo se ha descargado completamente. Como resultado, tenemos que calcular si un activo se ha descargado completamente según los códigos de estado y las solicitudes de intervalo de bytes. Lo primero que buscamos al realizar este cálculo es si la solicitud produce un código de estado 200 OK. Si es así, nos centramos en las solicitudes de intervalo de bytes para asegurarnos de que cubren el activo completo. Por último, comparamos la cantidad de datos transferidos con el tamaño del activo solicitado. Si los datos transferidos son iguales o mayores que el tamaño de archivo y las solicitudes de intervalo de bytes son adecuadas para ese activo, la visita se contará como una descarga completa.
+> [AZURE.TIP] Un cliente HTTP (es decir, un explorador) no notificará a la red CDN cuando un activo se ha descargado completamente. Como resultado, tenemos que calcular si un activo se ha descargado completamente según los códigos de estado y las solicitudes de intervalo de bytes. Lo primero que buscamos al realizar este cálculo es si la solicitud produce un código de estado 200 OK. Si es así, nos centramos en las solicitudes de intervalo de bytes para asegurarnos de que cubren el activo completo. Por último, comparamos la cantidad de datos transferidos con el tamaño del activo solicitado. Si los datos transferidos son iguales o mayores que el tamaño de archivo y las solicitudes de intervalo de bytes son adecuadas para ese activo, la visita se contará como una descarga completa.
 >
 >Debido a la naturaleza interpretativa de este informe, hay que tener en cuenta los puntos siguientes que pueden alterar la coherencia y la precisión de este informe.
 >
@@ -181,7 +181,7 @@ Directamente debajo del gráfico de barras, se mostrará la información siguien
 
 El informe By 404 Errors permite identificar el tipo de contenido que genera el mayor número de códigos de estado 404 No encontrado. La parte superior del informe contiene un gráfico de barras para los 10 activos principales para los que se devolvió un código de estado 404 No encontrado. Este gráfico de barras compara el número total de solicitudes con las solicitudes que dieron como resultado un código de estado 404 No encontrado para esos activos. Cada barra está codificada en colores. Se usa una barra amarilla para indicar que la solicitud dio como resultado un código de estado 404 No encontrado. Se usa una barra roja para indicar el número total de solicitudes para el activo.
 
-> [AZURE.NOTE]A efectos de este informe, tenga en cuenta lo siguiente:
+> [AZURE.NOTE] A efectos de este informe, tenga en cuenta lo siguiente:
 >
 >* Una visita representa cualquier solicitud de un activo, con independencia del código de estado.
 >* Las direcciones URL de CNAME perimetrales se convierten en sus direcciones URL de la red CDN equivalentes. Esto permite un recuento preciso de todas las estadísticas asociadas a un activo, con independencia de la red CDN o de la dirección URL del CNAME perimetral que usó para solicitarlo.
@@ -196,4 +196,4 @@ Directamente debajo del gráfico de barras, se mostrará la información siguien
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

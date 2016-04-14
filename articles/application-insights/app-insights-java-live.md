@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="03/02/2016" 
 	ms.author="awills"/>
  
 # Application Insights para aplicaciones web de Java que ya están activas
@@ -23,7 +23,7 @@ Si tiene una aplicación web que se está ejecutando en el servidor de J2EE, pue
 
 Necesitará una suscripción a [Microsoft Azure](https://azure.com).
 
-> [AZURE.NOTE]El procedimiento en esta página agrega el SDK a la aplicación web en tiempo de ejecución. Esto es útil si no desea actualizar o volver a generar el código fuente. Pero si es posible, se recomienda [agregar el SDK al código fuente](app-insights-java-get-started.md) en su lugar. Que proporciona más opciones, como la escritura de código para realizar el seguimiento de actividad del usuario.
+> [AZURE.NOTE] El procedimiento en esta página agrega el SDK a la aplicación web en tiempo de ejecución. Esto es útil si no desea actualizar o volver a generar el código fuente. Pero si es posible, se recomienda [agregar el SDK al código fuente](app-insights-java-get-started.md) en su lugar. Que proporciona más opciones, como la escritura de código para realizar el seguimiento de actividad del usuario.
 
 ## 1\. Obtención de una clave de instrumentación de Application Insights
 
@@ -139,4 +139,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

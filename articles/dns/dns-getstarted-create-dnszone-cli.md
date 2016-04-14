@@ -13,11 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="02/09/2016"
    ms.author="joaoma"/>
 
 # Introducción a DNS de Azure con CLI
-
 
 
 > [AZURE.SELECTOR]
@@ -40,7 +39,7 @@ Instale la CLI de Azure. Puede instalar la CLI de Azure para Windows, Linux o MA
 	Azure network
 
 
->[AZURE.IMPORTANT]Los comandos DNS requieren la CLI de Azure versión 0.9.8 o superior. Escriba `azure -v` para comprobar qué versión de la CLI de Azure está instalada en su equipo.
+>[AZURE.IMPORTANT] Los comandos DNS requieren la CLI de Azure versión 0.9.8 o superior. Escriba `azure -v` para comprobar qué versión de la CLI de Azure está instalada en su equipo.
  
 ### Paso 2
 
@@ -90,7 +89,7 @@ Una zona DNS se crea con el comando `azure network dns zone create`. En el ejemp
     Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
->[AZURE.NOTE]En DNS de Azure, deben especificarse nombres de zona sin una terminación '.', por ejemplo, "contoso.com" en lugar de "contoso.com.".
+>[AZURE.NOTE] En DNS de Azure, deben especificarse nombres de zona sin una terminación '.', por ejemplo, "contoso.com" en lugar de "contoso.com.".
 
 
 Ya se ha creado la zona DNS en DNS de Azure. Al crear una zona DNS, también se crean los siguientes registros DNS:
@@ -140,7 +139,7 @@ En el ejemplo siguiente, al ejecutar el comando con el grupo de recursos "myreso
 	data:
 	info:    network dns-record-set show command OK
 
->[AZURE.NOTE]Los conjuntos de registros de la raíz (o la "cúspide") de una zona DNS usan "@" como el nombre del conjunto de registros.
+>[AZURE.NOTE] Los conjuntos de registros de la raíz (o la "cúspide") de una zona DNS usan "@" como el nombre del conjunto de registros.
 
 Tras haber creado la primera zona DNS, puede probarla con herramientas DNS, como nslookup, DIG o el **cmdlet Resolve-DnsName de PowerShell**. Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, deberá dirigir la consulta de DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando "azure network dns-record-set show" mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
 
@@ -170,7 +169,6 @@ En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los
 
 ## Pasos siguientes
 
+Después de crear una zona DNS, deberá crear [conjuntos de registros y registros](dns-getstarted-create-recordset-cli.md) para iniciar la resolución de nombres para el dominio de Internet.<BR> También puede aprender a [ administrar zonas DNS](dns-operations-dnszones-cli.md) y sus operaciones.<BR> Aprenda a [ administrar registros DNS](dns-operations-recordsets-cli.md) y [automatizar operaciones de Azure con el SDK de .NET](dns-sdk.md)<BR> [Referencia de la API de REST a DNS de Azure.](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-[Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-cli.md)<BR> [Administración de zonas DNS](dns-operations-dnszones-cli.md)<BR> [Administración de registros DNS](dns-operations-recordsets-cli.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

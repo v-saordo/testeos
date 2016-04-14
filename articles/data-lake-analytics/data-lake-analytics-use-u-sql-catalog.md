@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 # Uso del catálogo de U-SQL
@@ -55,7 +55,7 @@ Puede usar Data Lake Tools for Visual Studio para administrar el catálogo. Para
     - Para agregar un nuevo ensamblado, haga clic con el botón derecho en **Ensamblados** y, después, haga clic en **Registrar ensamblado**.
     - Para agregar un nuevo esquema, haga clic con el botón derecho en **Esquemas** y, después, haga clic en "Crear esquema**.
     - Para agregar una nueva tabla, haga clic con el botón derecho en **Tablas** y, después, haga clic en ""Crear tabla**.
-    - Para agregar una función con valores de tabla, consulte [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - Para agregar una función con valores de tabla nueva, consulte [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md) (Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake).
 
 
 ![Examen de catálogos de U-SQL de Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -68,10 +68,10 @@ Puede usar Data Lake Tools for Visual Studio para administrar el catálogo. Para
     - [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Introducción a Análisis de Data Lake mediante el SDK de .NET de Azure](data-lake-analytics-get-started-net-sdk.md)
     - [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-    - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+    - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
 
 - U-SQL y desarrollo
-    - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+    - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
     - [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)
     - [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analtyics-u-sql-user-defined-operators.md)
 
@@ -84,4 +84,4 @@ Puede usar Data Lake Tools for Visual Studio para administrar el catálogo. Para
     - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
     - [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos desde Oracle local mediante Factoría de datos de Azure 
@@ -29,8 +29,9 @@ Para que el servicio Factoría de datos de Azure pueda conectarse a la base de d
 > [AZURE.NOTE] Vea [Solución de problemas de puerta de enlace](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) para obtener sugerencias sobre solución de problemas de conexión o puerta de enlace.
 
 ## Ejemplo: copia de datos de Oracle a un blob de Azure
-
-El ejemplo siguiente muestra:
+En este ejemplo, se muestra cómo copiar datos de una base de datos Oracle local a un Almacenamiento de blobs de Azure. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+ 
+El ejemplo consta de las siguientes entidades de factoría de datos:
 
 1.	Un servicio vinculado de tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -206,6 +207,16 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
+
+Debe ajustar la cadena de consulta, según cómo se configuran las fechas en la base de datos de Oracle. Si aparece el siguiente mensaje de error:
+
+	Message=Operation failed in Oracle Database with the following error: 'ORA-01861: literal does not match format string'.,Source=,''Type=Oracle.DataAccess.Client.OracleException,Message=ORA-01861: literal does not match format string,Source=Oracle Data Provider for .NET,'.
+
+puede ser necesario cambiar la consulta, como se muestra a continuación (con la función to\_date):
+
+	"oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+
+
 ## Propiedades del servicio vinculado de Oracle
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Oracle.
@@ -217,7 +228,7 @@ connectionString | Especifique la información necesaria para conectarse a la in
 gatewayName | Nombre de la puerta de enlace que se usará para conectarse al servidor de Oracle local | Sí
 
 Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Oracle local.
-## Propiedades del tipo Base de datos de Oracle
+## Propiedades del tipo de conjunto de datos de Oracle
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (Oracle, blob de Azure, tabla de Azure, etc.).
  
@@ -246,7 +257,7 @@ Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL q
 
 ### Asignación de tipos para Oracle
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -301,4 +312,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

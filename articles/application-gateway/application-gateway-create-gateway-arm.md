@@ -22,9 +22,9 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 
 
 > [AZURE.SELECTOR]
-- [Azure Classic PowerShell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template ](application-gateway-create-gateway-arm-template.md)
+- [Pasos de Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
+- [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 
 
 <BR>
@@ -33,24 +33,24 @@ Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7
 Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones.
 
 
->[AZURE.IMPORTANT] Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este documento describe la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure Para utilizar la versión clásica, vaya a [Creación, inicio o eliminación de una Puerta de enlace de aplicaciones](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT] Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Antes de trabajar con los recursos de Azure asegúrese de que conoce los [modelos de implementación y las herramientas](../azure-classic-rm.md). Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este documento describe la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure Para utilizar la versión clásica, vaya a [Creación, inicio o eliminación de una puerta de enlace de aplicaciones](application-gateway-create-gateway.md).
 
 
 
 ## Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. La versión más reciente se puede descargar e instalar desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Creará una red virtual y subred para la Puerta de enlace de aplicaciones. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 3. Los servidores que configurará para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
 ## ¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
 
 
-- **Grupo de servidores back-end:** lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
-- **Configuración del grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
-- **Puerto front-end:** este puerto es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
-- **Agente de escucha:** tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL).
-- **Regla:** enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se dirigirá el tráfico cuando llega a un agente de escucha concreto. Actualmente, solo se admite la regla *básica*. La regla *básica* es la distribución de carga round robin.
+- **Grupo de servidores back-end:** la lista de direcciones IP de los servidores back-end. Las direcciones IP que se enumeran deben pertenecer a la subred de la red virtual o ser una IP/VIP pública.
+- **Configuración de grupo de servidores back-end:** cada grupo tiene una configuración en la que se incluye el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+- **Puerto front-end:** este es el puerto público que se abre en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+- **Escucha:** el agente de escucha tiene un puerto front-end, un protocolo (Http o Https, que distinguen mayúsculas de minúsculas) y el nombre de certificado SSL (si se configura la descarga de SSL).
+- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end, y define a qué grupo de servidores back-end se debe redireccionar el tráfico llegue a un agente de escucha concreto. 
 
 
 
@@ -71,32 +71,23 @@ Estos son los pasos necesarios para crear una puerta de enlace de aplicaciones:
 
 ## Creación de un grupo de recursos para el Administrador de recursos
 
-Asegúrese de que está usando la versión más reciente de Azure PowerShell. Hay más información disponible en [Uso de Azure PowerShell con Administrador de recursos de Azure](powershell-azure-resource-manager.md).
+Asegúrese de que está usando la versión más reciente de Azure PowerShell. Para más información, consulte [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
 ### Paso 1
+Inicio de sesión en Login-AzureRmAccount de Azure
 
-		Login-AzureRmAccount
-
-
-
+Se le solicitará que se autentique con sus credenciales.<BR>
 ### Paso 2
-
 Compruebe las suscripciones para la cuenta.
 
 		Get-AzureRmSubscription
 
-Se le solicitará que se autentique con sus credenciales.<BR>
-
 ### Paso 3
-
 Elija qué suscripción de Azure va a utilizar.<BR>
-
 
 		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
-
-### Paso 4
-
+### Paso 4
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
@@ -105,8 +96,7 @@ El Administrador de recursos de Azure requiere que todos los grupos de recursos 
 
 En el ejemplo anterior, creamos un grupo de recursos denominado "appgw-RG" y la ubicación "West US".
 
-
->[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la Puerta de enlace de aplicaciones, consulte el artículo [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md) (Creación de una puerta de enlace de aplicaciones con sondeos personalizados mediante PowerShell). Consulte también [Application gateway health monitoring overview](application-gateway-probe-overview.md) para más información.
+>[AZURE.NOTE] Si necesita configurar un sondeo personalizado para la puerta de enlace de aplicaciones, consulte [Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell](application-gateway-create-probe-ps.md). Para más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
 
 
 
@@ -168,12 +158,11 @@ Configure la opción de la puerta de enlace de aplicaciones "poolsetting01" para
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 
-### Paso 4
+### Paso 4
 
 Configure el puerto IP del front-end denominado "frontendport01" para el punto de conexión de la IP pública.
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-
 
 ### Paso 5
 
@@ -182,7 +171,7 @@ Cree la configuración de direcciones IP front-end denominada "fipconfig01" y as
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
 
-### Paso 6
+### Paso 6
 
 Cree el nombre del agente de escucha "listener01" y asocie el puerto front-end con la configuración de direcciones IP del front-end.
 
@@ -215,7 +204,7 @@ Para eliminar una Puerta de enlace de aplicaciones, siga estos pasos:
 
 1. Utilice el cmdlet **Stop-AzureRmApplicationGateway** para detener la puerta de enlace.
 2. Utilice el cmdlet **Remove-AzureRmApplicationGateway** para quitar la puerta de enlace.
-3. Compruebe que se ha quitado la puerta de enlace mediante el cmdlet **Get-AzureRmApplicationGateway**.
+3. Para comprobar que se ha quitado la puerta de enlace, use el cmdlet **Get-AzureRmApplicationGateway**.
 
 ### Paso 1
 
@@ -230,14 +219,14 @@ Utilice **Stop-AzureRmApplicationGateway** para detener la puerta de enlace de a
 	Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 
-Cuando la puerta de enlace de aplicaciones esté en estado detenido, use el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
+Cuando la puerta de enlace de aplicaciones se haya detenido, use el cmdlet **Remove-AzureRmApplicationGateway** para quitar el servicio.
 
 
 	Remove-AzureRmApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
 
 
 
->[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación de eliminación.
+>[AZURE.NOTE] Se puede usar el modificador **-force** para suprimir el mensaje de confirmación
 
 
 Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-AzureRmApplicationGateway**. Este paso no es necesario.
@@ -250,11 +239,11 @@ Para comprobar que el servicio se ha quitado, se puede usar el cmdlet **Get-Azur
 
 Si desea configurar la descarga de SSL, consulte [Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica](application-gateway-ssl.md).
 
-Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
+Si desea configurar una puerta de enlace de aplicaciones para usarla con un equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).
 
 Si desea obtener más información acerca de opciones de equilibrio de carga en general, vea:
 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

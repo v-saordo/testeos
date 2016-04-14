@@ -3,7 +3,7 @@
 	description="Detectar, registrar y realizar copias de seguridad de las máquinas virtuales con estos procedimientos de copia de seguridad de máquinas virtuales de Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="markgalioto"
 	manager="jwhit"
 	editor=""
 	keywords="copia de seguridad de máquinas virtuales; hacer copia de seguridad de máquinas virtuales; recuperación ante desastres y copia de seguridad; copia de seguridad de vm"/>
@@ -162,4 +162,4 @@ Si se encuentra con problemas mientras realiza la copia de seguridad de la máqu
 - [Administración y supervisión de las máquinas virtuales](backup-azure-manage-vms.md)
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

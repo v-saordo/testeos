@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="02/09/2016"
 	ms.author="asmalser"/>
 
 #Acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory
@@ -101,9 +101,12 @@ El icono **Configurar** solo se muestra si el administrador de TI ha configurado
 
 * **Los usuarios inician sesión automáticamente con una única cuenta que administro yo**: este caso es especial y es adecuado usarlo cuando es necesario conceder acceso a todos los usuarios asignados mediante una sola cuenta compartida. El caso más habitual para usarlo son las aplicaciones de redes sociales, donde una organización tiene una única cuenta de "compañía" y varios usuarios deben realizar actualizaciones en esa cuenta. También corresponde al caso de SSO con contraseña, en el que los [administradores administran las credenciales](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Sin embargo, después de seleccionar esta opción, se pedirá al aprobador que escriba el nombre de usuario y la contraseña para la única cuenta compartida. Una vez completado, todos los usuarios asignados iniciarán sesión con esta cuenta al hacer clic en la aplicación en sus paneles de acceso de Azure AD u Office 365.
 
+##Recursos adicionales
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/20/2015"
+   ms.date="02/03/2016"
    ms.author="derrickv"/>
 
 
@@ -34,4 +34,4 @@ Estas son las muestras de GitHub:
 
   Un ejemplo que muestra cómo utilizar la API de REST del Catálogo de datos para capturar activos desde el Catálogo de datos de Azure y serializarlos en un archivo. También muestra cómo tomar un conjunto de activos serializados como json e insertarlos en el catálogo. Admite la exportación de un subconjunto del catálogo mediante una consulta de búsqueda.
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0211_2016-->

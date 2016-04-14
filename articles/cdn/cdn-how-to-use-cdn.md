@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de la red CDN | Microsoft Azure" 
-	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="camsoper" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de la red CDN | Microsoft Azure"
+	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
+	services="cdn"
+	documentationCenter=".net"
+	authors="camsoper"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="01/20/2016" 
+<tags
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/25/2016"
 	ms.author="casoper"/>
 
 
@@ -27,20 +27,20 @@ Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los d
 - Distribución a gran escala para mejorar la administración de cargas instantáneas pesadas, por ejemplo, al comienzo de un acontecimiento como el lanzamiento de un producto.
 - Al distribuir solicitudes de usuarios y ofrecer contenido desde POP perimetrales globales, se envía menos tráfico al origen.
 
->[AZURE.TIP]La red de entrega de contenido de Azure permite distribuir contenido desde diversos orígenes. Los orígenes integrados dentro de Azure incluyen el Servicio de aplicaciones, los Servicios en la nube, el Almacenamiento de blobs y los Servicios multimedia. También puede definir un origen personalizado utilizando cualquier dirección web accesible públicamente.
+>[AZURE.TIP] La red de entrega de contenido de Azure permite distribuir contenido desde diversos orígenes. Los orígenes integrados dentro de Azure incluyen el Servicio de aplicaciones, los Servicios en la nube, el Almacenamiento de blobs y los Servicios multimedia. También puede definir un origen personalizado utilizando cualquier dirección web accesible públicamente.
 
 ##Habilitación de la red de entrega de contenido
 
 1. Cree un perfil de red de entrega de contenido con puntos de conexión que señalen al origen.
 
 	Un perfil de red de entrega de contenido es una colección de puntos de conexión de red de entrega de contenido. Cada perfil contiene uno o más de estos puntos de conexión. Después de crear un perfil de red de entrega de contenido, puede crear un nuevo punto de conexión de red de entrega de contenido con el origen que ha elegido.
-	
-	>[AZURE.NOTE]De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
+
+	>[AZURE.NOTE] De manera predeterminada, una sola suscripción de Azure está limitada a cuatro perfiles de red CDN. Cada perfil de red CDN está limitado a diez puntos de conexión de red CDN.
 	>
 	> Los precios de red de entrega de contenido se aplican en el nivel de perfil de red de entrega de contenido. Si quiere utilizar una combinación de características de red de entrega de contenido estándar y premium, necesitará varios perfiles de red de entrega de contenido.
-	
+
 	Si quiere un tutorial detallado sobre la creación de perfiles y puntos de conexión de red de entrega de contenido, consulte [Habilitación de la red de entrega de contenido para Azure](cdn-create-new-endpoint.md).
-	
+
 2. Configure la red de entrega de contenido.
 
 	Puede habilitar varias características para el punto de conexión de res de entrega de contenido, como [almacenamiento en caché de directivas](cdn-caching-policy.md), [almacenamiento en caché de cadenas de consulta](cdn-query-string.md), [motor de reglas](cdn-rules-engine.md), etc. Para más información, consulte el menú **Administrar** de la izquierda.
@@ -55,10 +55,12 @@ Una vez habilitada la red CDN en una cuenta de almacenamiento de Azure, cualquie
 
 Para obtener el máximo rendimiento, utilice la memoria caché perimetral de red CDN para entregar blobs con un tamaño inferior a 10 GB.
 
-Cuando habilite el acceso a la red de entrega de contenido para una cuenta el almacenamiento, el Portal de administración le proporcionará un nombre de dominio de red de entrega de contenido con el siguiente formato: `http://<identifier>.azureedge.net/` Este nombre de dominio puede usarse para obtener acceso a los blobs de un contenedor público. Por ejemplo, en un contenedor público llamado Música de una cuenta de almacenamiento denominada MiCuenta, los usuarios pueden obtener acceso a los blobs de ese contenedor mediante el uso de cualquiera de las dos direcciones URL siguientes:
+Cuando habilite el acceso a la red de entrega de contenido para una cuenta el almacenamiento, el Portal de administración le proporcionará un nombre de dominio de red de entrega de contenido con el siguiente formato: `http://<identifier>.azureedge.net/` Este nombre de dominio puede usarse para obtener acceso a los blobs de un contenedor público. Por ejemplo, en un contenedor público, los usuarios pueden obtener acceso a los blobs de ese contenedor mediante el uso de cualquiera de las dos direcciones URL siguientes:
 
-- **Dirección URL del servicio BLOB de Azure**: `http://myAccount.blob.core.windows.net/music/` 
-- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/music/` 
+- **Dirección URL del servicio BLOB de Azure**: `http://<account>.blob.core.windows.net/<container>/`
+- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/<container>/`
+
+> [AZURE.TIP] En el ejemplo anterior, hemos apuntado el punto de conexión de CDN a *toda* la cuenta de almacenamiento. En consecuencia, la dirección URL de la red CDN deberá incluir el contenedor en la dirección URL. Puede apuntar la dirección URL raíz de la red CDN a un contenedor específico mediante el parámetro **Ruta de acceso de origen**.
 
 ## Almacenamiento en caché de contenido de Sitios web Azure
 
@@ -66,9 +68,9 @@ Puede habilitar la red CDN desde sus sitios web para almacenar en caché su cont
 
 Cuando habilite el acceso a la red de entrega de contenido para un sitio web, el Portal de administración le proporcionará un nombre de dominio de red de entrega de contenido con el siguiente formato: `http://<identifier>.azureedge.net/`. Este nombre de dominio se puede usar para recuperar objetos desde un sitio web. Por ejemplo, dado un contenedor público llamado cdn y un archivo de imagen llamado music.png, los usuarios pueden obtener acceso al objeto usando una de las dos direcciones URL siguientes:
 
-- **Dirección URL del sitio web de azure**: `http://mySiteName.azurewebsites.net/cdn/music.png` 
+- **Dirección URL del sitio web de azure**: `http://mySiteName.azurewebsites.net/cdn/music.png`
 - **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/cdn/music.png`
- 
+
 ## Almacenamiento en caché de contenido de servicios en la nube de Azure
 
 Puede almacenar en caché objetos en la red CDN proporcionados por un servicio en la nube de Azure.
@@ -78,7 +80,7 @@ El almacenamiento en caché para servicios en la nube tiene las siguientes restr
 
 - La red CDN solamente se debe usar para almacenar en caché contenido estático.
 
-	>[AZURE.WARNING]El almacenamiento en caché de contenido totalmente dinámico o muy volátil puede afectar negativamente al rendimiento o provocar problemas de contenido, todo ello con mayor costo.
+	>[AZURE.WARNING] El almacenamiento en caché de contenido totalmente dinámico o muy volátil puede afectar negativamente al rendimiento o provocar problemas de contenido, todo ello con mayor costo.
 - En el servicio la nube se debe implementar en una implementación de producción.
 - El servicio en la nube debe proporcionar el objeto en el puerto 80 mediante HTTP.
 - El servicio en la nube debe colocar el contenido que se va a almacenar en caché o que se va a proporcionar en la carpeta /cdn en dicho servicio.
@@ -86,8 +88,8 @@ El almacenamiento en caché para servicios en la nube tiene las siguientes restr
 Cuando habilite el acceso a la red de entrega de contenido para un servicio en la nube, el Portal de administración le proporcionará un nombre de dominio de red de entrega de contenido con el siguiente formato: `http://<identifier>.azureedge.net/` Este nombre de dominio se puede usar para recuperar objetos desde un servicio en la nube. Por ejemplo, dado un servicio en la nube llamado myHostedService y una página web ASP.NET llamada music.aspx que proporciona contenido, los usuarios pueden obtener acceso al objeto usando una de las dos direcciones URL siguientes:
 
 
-- **Dirección URL del servicio en la nube de Azure**: `http://myHostedService.cloudapp.net/music.aspx` 
-- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **Dirección URL del servicio en la nube de Azure**: `http://myHostedService.cloudapp.net/music.aspx`
+- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Almacenamiento en caché de contenido de orígenes personalizados
 
@@ -97,14 +99,14 @@ El almacenamiento en caché de los orígenes personalizados tiene las siguientes
 
 - La red CDN solamente se debe usar para almacenar en caché contenido estático.
 
-	>[AZURE.WARNING]El almacenamiento en caché de contenido totalmente dinámico o muy volátil puede afectar negativamente al rendimiento o provocar problemas de contenido, todo ello con mayor costo.
+	>[AZURE.WARNING] El almacenamiento en caché de contenido totalmente dinámico o muy volátil puede afectar negativamente al rendimiento o provocar problemas de contenido, todo ello con mayor costo.
 - El contenido en el origen personalizado debe estar hospedado en un servidor con una dirección IP pública. Los nodos perimetrales de la red de entrega de contenido son incapaces de recuperar activos de los servidores de intranet situados detrás de un firewall.
 
 Cuando habilita el acceso a la red de entrega de contenido para una cuenta el almacenamiento, el Portal de Azure le proporciona un nombre de dominio de red de entrega de contenido con el siguiente formato: `http://<identifier>.azureedge.net/`. Este nombre de dominio se puede usar para recuperar objetos del origen personalizado. Por ejemplo, dado un sitio ubicado en www.contoso.com y una página web de ASP.NET llamada music.aspx que proporciona contenido, los usuarios pueden obtener acceso al objeto usando una de las dos direcciones URL siguientes:
 
 
-- **Dirección URL de origen personalizado**: `http://www.contoso.com/music.aspx` 
-- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/music.aspx` 
+- **Dirección URL de origen personalizado**: `http://www.contoso.com/music.aspx`
+- **Dirección URL de red CDN de Azure**: `http://<identifier>.azureedge.net/music.aspx`
 
 ## Almacenamiento en caché de contenido específico con cadenas de consulta
 
@@ -147,4 +149,4 @@ La red CDN de Microsoft Azure puede administrarse mediante programación con la 
 - [Depuración de un punto de conexión de red de entrega de contenido de Azure](cdn-purge-endpoint.md)
 - [La API de REST del proveedor de recursos de red CDN](https://msdn.microsoft.com/library/mt634456.aspx)
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0302_2016-->

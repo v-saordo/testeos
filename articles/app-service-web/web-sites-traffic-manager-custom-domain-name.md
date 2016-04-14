@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="02/04/2016" 
 	ms.author="robmcm"/>
 
 #Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico
@@ -34,7 +34,7 @@ En este artículo se ofrecen instrucciones generales para usar un nombre de domi
 <a name="bkmk_configurecname"></a>
 ## Incorporación de un registro DNS al dominio personalizado
 
-> [AZURE.NOTE]Si ha adquirido el dominio a través de Aplicaciones web del Servicio de aplicaciones de Azure, omita los pasos siguientes y consulte el paso final del artículo [Comprar dominio para Aplicaciones web](custom-dns-web-site-buydomains-web-app.md).
+> [AZURE.NOTE] Si ha adquirido el dominio a través de Aplicaciones web del Servicio de aplicaciones de Azure, omita los pasos siguientes y consulte el paso final del artículo [Comprar dominio para Aplicaciones web](custom-dns-web-site-buydomains-web-app.md).
 
 Para asociar su dominio personalizado con una aplicación web del Servicio de aplicaciones de Azure, debe agregar una nueva entrada en la tabla DNS para el dominio personalizado mediante las herramientas proporcionadas por el registrador de dominios al que ha adquirido su nombre de dominio. Siga estos pasos para ubicar y utilizar las herramientas DNS.
 
@@ -58,7 +58,5 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0211_2016-->

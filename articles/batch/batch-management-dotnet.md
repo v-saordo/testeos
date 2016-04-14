@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="11/10/2015"
-	ms.author="v-marsma"/>
+	ms.date="01/28/2016"
+	ms.author="marsma"/>
 
 # Administración de cuotas y cuentas de Lote de Azure con la biblioteca .NET de Administración de Lote
 
@@ -30,7 +30,7 @@ Puede reducir la sobrecarga de mantenimiento en las aplicaciones de Lote de Azur
 - **Compruebe las cuotas de la cuenta** y elimine las incertidumbres al determina los límites de cada cuenta de Lote. Al comprobar las cuotas de la cuenta antes de iniciar los trabajos, de crear grupos o de agregar los nodos de proceso, puede ajustar proactivamente dónde o cuándo se crean esos recursos de proceso. Puede determinar qué cuentas requieren un aumento de la cuota antes de asignarles recursos adicionales.
 - **Combine las características de otros servicios de Azure** para una experiencia completa de administración, para lo que debe sacar provecho a la vez de la biblioteca .NET de Administración de Lote, [Azure Active Directory][aad_about] y [Administrador de recursos de Azure][resman_overview] en la misma aplicación. Mediante el uso de estas características y sus API puede proporcionar una experiencia de autenticación sin fricciones, la capacidad para crear y eliminar grupos de recursos, y las funcionalidades que se han descrito anteriormente para una solución de administración de un extremo a otro.
 
-> [AZURE.NOTE]Aunque este artículo se centra en la administración de sus cuentas de Lote, claves y cuotas mediante programación, puede realizar muchas de estas actividades con el [Portal de Azure][azure_portal]. Consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md) y [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener más información.
+> [AZURE.NOTE] Aunque este artículo se centra en la administración de sus cuentas de Lote, claves y cuotas mediante programación, puede realizar muchas de estas actividades con el [Portal de Azure][azure_portal]. Consulte [Creación y administración de una cuenta de Lote de Azure en el Portal de Azure](batch-account-create-portal.md) y [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener más información.
 
 ## Creación y eliminación de cuentas de Lote
 
@@ -52,7 +52,7 @@ AccountResource account = getResponse.Resource;
 await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
-> [AZURE.NOTE]Las aplicaciones que usan la biblioteca .NET de Administración de Lote y su clase BatchManagementClient requieren acceso de **administrador de servicio** o **coadministrador** a la suscripción que posee la cuenta de Lote que se va a administrar. Para más información, consulte la sección "[Azure Active Directory](#aad)" a continuación y el código de ejemplo [AccountManagement][acct_mgmt_sample].
+> [AZURE.NOTE] Las aplicaciones que usan la biblioteca .NET de Administración de Lote y su clase BatchManagementClient requieren acceso de **administrador de servicio** o **coadministrador** a la suscripción que posee la cuenta de Lote que se va a administrar. Para más información, consulte la sección "[Azure Active Directory](#aad)" a continuación y el código de ejemplo [AccountManagement][acct_mgmt_sample].
 
 ## Recuperación y regeneración de claves de cuenta
 
@@ -71,7 +71,7 @@ BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts
 	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
 ```
 
-> [AZURE.TIP]Puede crear un flujo de trabajo de conexión simplificada para las aplicaciones de administración. En primer lugar, obtenga una clave de cuenta para la cuenta de Lote que desea administrar con [ListKeysAsync][net_list_keys]. Después, use esta clave al inicializar la clase [BatchSharedKeyCredentials][net_sharedkeycred] de la biblioteca de .NET de Lote, que se usa al inicializar [BatchClient][net_batch_client].
+> [AZURE.TIP] Puede crear un flujo de trabajo de conexión simplificada para las aplicaciones de administración. En primer lugar, obtenga una clave de cuenta para la cuenta de Lote que desea administrar con [ListKeysAsync][net_list_keys]. Después, use esta clave al inicializar la clase [BatchSharedKeyCredentials][net_sharedkeycred] de la biblioteca de .NET de Lote, que se usa al inicializar [BatchClient][net_batch_client].
 
 ## Comprobación de la suscripción de Azure y cuotas de la cuenta de Lote
 
@@ -119,7 +119,7 @@ Console.WriteLine("Pool quota: {0}", account.Properties.PoolQuota);
 Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.ActiveJobAndJobScheduleQuota);
 ```
 
-> [AZURE.IMPORTANT]Aunque existen cuotas predeterminadas para los servicios y las suscripciones de Azure, muchos de estos límites se pueden aumentar mediante una solicitud en el [Portal de Azure][azure_portal]. Por ejemplo, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener instrucciones sobre cómo aumentar las cuotas de la cuenta de Lote.
+> [AZURE.IMPORTANT] Aunque existen cuotas predeterminadas para los servicios y las suscripciones de Azure, muchos de estos límites se pueden aumentar mediante una solicitud en el [Portal de Azure][azure_portal]. Por ejemplo, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener instrucciones sobre cómo aumentar las cuotas de la cuenta de Lote.
 
 ## Biblioteca .NET de Administración de Lote, Azure AD y Administrador de recursos
 
@@ -139,12 +139,20 @@ Al crear cuentas de Lote con la biblioteca .NET de Administración de Lote, lo h
 
 Consulte el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] en GitHub para ver la biblioteca .NET de Administración de Lote en acción. Esta aplicación de consola muestra la creación y uso de [BatchManagementClient][net_mgmt_client] y [ResourceManagementClient][resman_client]. También muestra el uso de la [Biblioteca de autenticación de Active Directory][aad_adal] (ADAL) de Azure, que requiere ambos clientes.
 
-> [AZURE.IMPORTANT]Para ejecutar correctamente la aplicación de ejemplo, primero debe registrarla en Azure AD desde el Portal de Azure. Consulte "Adición de una aplicación" en [Integración de aplicaciones con Azure Active Directory][aad_integrate]. Luego siga los pasos de este artículo para registrar la aplicación de ejemplo en su propia cuenta.
+Para ejecutar correctamente la aplicación de ejemplo, primero debe registrarla en Azure AD desde el Portal de Azure. Consulte "Adición de una aplicación" en [Integración de aplicaciones con Azure Active Directory][aad_integrate]. Luego siga los pasos de este artículo para registrar la aplicación de ejemplo dentro del directorio predeterminado de su propia cuenta. Seleccione "Aplicación de cliente nativo" para el tipo de aplicación, y puede especificar cualquier URI válida (como `http://myaccountmanagementsample`) para el "URI de redirección"(no es necesario que sea un punto de conexión real).
 
-La aplicación de ejemplo muestra las siguientes operaciones:
+Después de agregar la aplicación, delegue el permiso de "Acceso de Administración de servicios de Azure como organización" a la aplicación *API de administración de servicios de Windows Azure* en los ajustes de configuración de la aplicación en el portal:
+
+![Permisos de la aplicación en el Portal de Azure][2]
+
+Una vez que haya agregado la aplicación como se describe anteriormente, actualice `Program.cs` en el proyecto de ejemplo [AccountManagment][acct_mgmt_sample] con el URI de redireccionamiento de la aplicación y el identificador de cliente. Puede encontrar estos valores en la pestaña "Configuración" de la aplicación:
+
+![Configuración de la aplicación en el Portal de Azure][3]
+
+La aplicación de ejemplo [AccountManagment][acct_mgmt_sample] muestra las siguientes operaciones:
 
 1. Adquiera un token de seguridad en Azure AD mediante [ADAL][aad_adal]. Si el usuario no ha iniciado sesión, se le pedirán sus credenciales de Azure.
-2. Con el token de seguridad obtenido en AAD, cree un [SubscriptionClient][resman_subclient] para consultar en Azure una lista de las suscripciones asociadas con la cuenta, lo que permite al usuario seleccionar una suscripción si se encuentran varias.
+2. Con el token de seguridad obtenido en Azure AD, cree un [SubscriptionClient][resman_subclient] para consultar en Azure una lista de las suscripciones asociadas con la cuenta. lo que permite al usuario seleccionar una suscripción si se encuentran varias.
 3. Cree un nuevo objeto de credenciales asociado con la suscripción seleccionada.
 4. Cree [ResourceManagementClient][resman_client] con las nuevas credenciales.
 5. Use [ResourceManagementClient][resman_client] para crear un nuevo grupo de recursos.
@@ -189,5 +197,7 @@ Antes de eliminar el grupo de recursos y la cuenta de Lote recién creados, pued
 [resman_overview]: ../resource-group-overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png
+[2]: ./media/batch-management-dotnet/portal-02.png
+[3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0204_2016-->

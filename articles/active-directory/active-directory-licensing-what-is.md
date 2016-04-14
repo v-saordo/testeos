@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="01/05/2016"
+    ms.date="02/01/2016"
     ms.author="curtand"/>
 
 # ¿Qué es la licencia de Microsoft Azure Active Directory?
@@ -43,7 +43,7 @@ En general, la información de suscripción de Azure AD se administra a través 
 
 > [AZURE.IMPORTANT] Azure AD Premium y Basic, así como las suscripciones de Enterprise Mobility Suite, se limitan a su inquilino/directorio aprovisionado. Las suscripciones no se pueden dividir entre directorios ni usarse para autorizar a los usuarios en otros directorios. Es posible mover una suscripción entre directorios, pero requiere el envío de una incidencia de soporte técnico o la cancelación y compra de nuevo en caso de compras directas.
 
-> [AZURE.IMPORTANT] Al adquirir Azure AD o Enterprise Mobility Suite a través del programa de licencias por volumen la activación de la suscripción se realizará automáticamente cuando el contrato incluya otros servicios de Microsoft Online Services, como por ejemplo, Office 365.
+> Al adquirir Azure AD o Enterprise Mobility Suite a través del programa de licencias por volumen la activación de la suscripción se realizará automáticamente cuando el contrato incluya otros servicios de Microsoft Online Services, como por ejemplo, Office 365.
 
 Las características de Azure AD de pago dividen el alcance del directorio. Los ejemplos incluyen: - Asignación basada en grupos a aplicaciones, que se habilita según la aplicación específica que está administrando. - Las capacidades de administración de grupo avanzadas y de autoservicio están disponibles según la configuración del directorio o dentro del grupo específico. - Los informes de seguridad premium se encuentran en la pestaña Informes. - La detección de aplicaciones en la nube aparece en el portal de Azure en Identidad.
 
@@ -130,7 +130,7 @@ Ahora ya está preparado para configurar y usar algunas características de Azur
 - [Administración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md)
 - [Estado de Azure AD Connect](active-directory-aadconnect-health.md)
 - [Asignación de grupo a aplicaciones](active-directory-manage-groups.md)
-- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Compra directa de licencias de Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

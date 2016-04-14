@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="01/09/2016"
+	ms.date="02/04/2016"
 	ms.author="robmcm"/>
 
 # Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure
@@ -39,7 +39,8 @@ La aplicación completa escribe una cadena corta "hello world" en el explorador.
 
 Para ver tutoriales y código de ejemplo con aplicaciones más complejas de Node.js, o para ver otros temas sobre cómo usar Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a Visual Studio](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
@@ -210,7 +211,7 @@ Node.js proporciona un abundante ecosistema de módulos que puede utilizar con s
 
 Si tiene problemas con la aplicación una vez implementada en Azure, consulte [Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure](web-sites-nodejs-debug.md) para obtener información acerca de cómo diagnosticar el problema.
 
-Este artículo usa el Portal de Azure para crear una aplicación web. También puede usar la [Interfaz de línea de comandos de Azure](../xplat-cli-install.md) o [Azure PowerShell](../install-configure-powershell.md) para realizar las mismas operaciones.
+Este artículo usa el Portal de Azure para crear una aplicación web. También puede usar la [Interfaz de línea de comandos de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md) para realizar las mismas operaciones.
 
 Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
@@ -224,4 +225,4 @@ Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure,
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0114_2016-->
+<!----HONumber=AcomDC_0211_2016-->

@@ -36,7 +36,7 @@ Asegúrese de que los siguientes productos y versiones están instalados para co
 
 Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que hospedará la aplicación de Socket.IO.
 
-1. Desde el **menú Inicio** o la **pantalla Inicio**, busque **PowerShell de Azure**. Finalmente, haga clic con el botón secundario en **PowerShell de Azure** y seleccione **Ejecutar como administrador**.
+1. En el **menú Inicio** o la **pantalla Inicio**, busque **Windows PowerShell**. Finalmente, haga clic con el botón derecho en **Windows PowerShell** y seleccione **Ejecutar como administrador**.
 
 	![Icono de Azure PowerShell][powershell-menu]
 
@@ -170,4 +170,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
   
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

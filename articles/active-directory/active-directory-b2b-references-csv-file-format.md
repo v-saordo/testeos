@@ -2,6 +2,7 @@
    pageTitle="Formato de archivo CSV para la vista previa de colaboración de Azure Active Directory B2B | Microsoft Azure"
    description="Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas."
    services="active-directory"
+   documentationCenter=""
    authors="viv-liu"
    manager="cliffdi"
    editor=""
@@ -13,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="02/09/2016"
    ms.author="viviali"/>
 
-# Formato de archivo CSV para la vista previa de colaboración de Azure Active Directory (Azure AD) B2B
+# Vista previa de la colaboración B2B de Azure AD: formato de archivo CSV
 
 La versión de vista previa de la colaboración de Azure AD B2B requiere un archivo CSV en el que se especifique la información del usuario del asociado. Dicho archivo CSV debe cargarse mediante el Portal de Azure AD. El archivo CSV debe incluir las siguientes etiquetas obligatorias, así como determinados campos opcionales según sea necesario. Modifique el archivo CSV de ejemplo (abajo) sin cambiar el texto de las etiquetas de la primera fila ni reordenar las columnas.
 
->[AZURE.NOTE]Las etiquetas de la primera fila (por ejemplo, Email, DisplayName, etc.) son necesarias para que el archivo CSV se analice correctamente. El nombre de las etiquetas debe coincidir exactamente con los campos que se especifican a continuación. Estas etiquetas identifican el contenido de las columnas. En el caso de los campos opcionales que no son obligatorios, las etiquetas se pueden eliminar del archivo CSV. La columna entera puede dejarse vacía.
+>[AZURE.NOTE] Las etiquetas de la primera fila (por ejemplo, Email, DisplayName, etc.) son necesarias para que el archivo CSV se analice correctamente. El nombre de las etiquetas debe coincidir exactamente con los campos que se especifican a continuación. Estas etiquetas identifican el contenido de las columnas. En el caso de los campos opcionales que no son obligatorios, las etiquetas se pueden eliminar del archivo CSV. La columna entera puede dejarse vacía.
 
 ## Campos obligatorios: <br/>
 **Email:** dirección de correo electrónico del usuario invitado. <br/> **DisplayName:** el nombre para mostrar del usuario invitado (normalmente, el nombre y los apellidos).<br/> **InviteContactUsUrl:** URL que se debe incluir en las invitaciones que se mandan por correo electrónico por si el usuario invitado quiere ponerse en contacto con su organización.<br/>
@@ -31,9 +32,9 @@ La versión de vista previa de la colaboración de Azure AD B2B requiere un arch
 ## Archivo CSV de ejemplo
 Este es un archivo CSV de ejemplo que puede modificar.
 
->[AZURE.NOTE]Copie y pegue esto en el Bloc de notas y guárdelo con una extensión de archivo .csv. A continuación, realice ediciones en Excel. Se estructurará en una tabla con las etiquetas en la primera fila.
+>[AZURE.NOTE] Copie y pegue esto en el Bloc de notas y guárdelo con una extensión de archivo .csv. A continuación, realice ediciones en Excel. Se estructurará en una tabla con las etiquetas en la primera fila.
 
->[AZURE.NOTE]Puede agregar más campos opcionales en Excel especificando la etiqueta y rellenando la columna situada debajo.
+>[AZURE.NOTE] Puede agregar más campos opcionales en Excel especificando la etiqueta y rellenando la columna situada debajo.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
@@ -51,5 +52,6 @@ Examine nuestros otros artículos sobre la colaboración de Azure B2B:
 - [Formato de token de usuario externo](active-directory-b2b-references-external-user-token-format.md)
 - [Cambios de atributo de objeto de usuario externo](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/16/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -426,6 +426,27 @@ Estos atributos se reescriben desde Azure AD en Active Directory local cuando se
 | msExchUserHoldPolicies| X| | | Retención por juicio: permite que los servicios en la nube determinen qué usuarios están bajo retención por juicio.|
 | proxyAddresses| X| X| X| Solo se inserta la dirección x500 de Exchange Online.|
 
+## Escritura diferida de dispositivos
+Los objetos de dispositivo se crean en Active Directory. Pueden ser dispositivos unidos a Azure AD o equipos unidos a un dominio de Windows 10.
+
+| Nombre del atributo| Dispositivo| Comentario |
+| --- | :-: | --- |
+| altSecurityIdentities | X| |
+| DisplayName | X| |
+| dn | X| |
+| msDS-CloudAnchor | X| |
+| msDS-DeviceID | X| |
+| msDS-DeviceObjectVersion | X| |
+| msDS-DeviceOSType | X| |
+| msDS-DeviceOSVersion | X| |
+| msDS-DevicePhysicalIDs | X| |
+| msDS-KeyCredentialLink | X| Solo con el esquema de Windows Server 2016 AD |
+| msDS-IsCompliant | X| |
+| msDS-IsEnabled | X| |
+| msDS-IsManaged | X| |
+| msDS-RegisteredOwner | X| |
+
+
 ## Notas sobre los atributos
 - Cuando se usa un identificador alternativo, el atributo local userPrincipalName se sincronizará con el atributo de Azure AD onPremisesUserPrincipalName. El atributo Alternate ID, por ejemplo, el correo, se sincronizará con el atributo de Azure AD userPrincipalName.
 
@@ -435,4 +456,4 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

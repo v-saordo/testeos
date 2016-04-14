@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/08/2016"
    ms.author="maroche"/>
 
 # ¿Qué es necesario para comenzar a usar el Catálogo de datos de Azure?
@@ -36,10 +36,10 @@ La directiva de autenticación global permite habilitar los métodos de autentic
 
  ![Directiva de autenticación global de Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/es-ES/library/dn486781.aspx).
+Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
 
 
 ## Suscripción de Azure
 Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, vea [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

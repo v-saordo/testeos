@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
-	ms.author="yochay"/>
+	ms.date="02/18/2016" 
+	ms.author="stefsch"/>
 
 # Información general
 
@@ -32,7 +32,23 @@ Los entornos del Servicios de aplicaciones están aislados para ejecutar únicam
 
 Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Las aplicaciones que se ejecutan en entornos de Servicio de aplicaciones pueden tener acceso a los recursos accesibles mediante conexiones VPN [de sitio a sitio][SiteToSite] y [Azure ExpressRoute][ExpressRoute].
 
+* [¿Qué es un entorno del Servicio de aplicaciones?](../app-service-web/app-service-app-service-environment-intro.md)
+* [Creación de un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
+* [Creación de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [Configuración de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
+* [Escalado de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+* [Arquitectura y seguridad de red](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
+
+## Procedimientos
+
 [AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
+
+
+## Vídeos
+[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+
+[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
@@ -43,4 +59,4 @@ Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de d
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

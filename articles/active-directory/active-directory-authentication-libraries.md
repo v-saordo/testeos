@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/17/2015"
+   ms.date="02/25/2016"
    ms.author="mbaldwin" />
 
 # Bibliotecas de autenticación de Azure Active Directory
@@ -28,7 +28,7 @@ ADAL está disponible en diversas plataformas.
 |OS X, iOS|Biblioteca de autenticación de Active Directory (ADAL) para Objective-C|Cliente|[ADAL para Objective-C (CocoaPods)](https://cocoapods.org/?q=adal%20io)|[ADAL para Objective-C (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|Ejemplo: [NativeClient-iOS (Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
 |Android|Biblioteca de autenticación de Active Directory (ADAL) para Android|Cliente|[ADAL para Android (repositorio central)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[ADAL para Android (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|Ejemplo: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
 |Node.js|Biblioteca de autenticación de Active Directory (ADAL) para Node.js|Cliente|[ADAL para Node.js (npm)](https://www.npmjs.com/package/adal-node)|[ADAL para Node.js (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|Ejemplo: [WebAPI-Nodejs (Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
-|Node.js|Middleware de autenticación de Windows Azure Active Directory Passport para Node|Cliente|[Azure Active Directory Passport para Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory para Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
+|Node.js|Middleware de autenticación Passport de Microsoft Azure Active Directory para Node|Cliente|[Azure Active Directory Passport para Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory para Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
 |Java|Biblioteca de autenticación de Active Directory (ADAL) para Java|Cliente|[ADAL para Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[ADAL para Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
 |.NET|Extensiones de protocolo de identidad de Microsoft .NET Framework 4.5|Server|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[Extensiones de modelo de identidad de Azure AD para .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
 |.NET|Controlador de token web JSON para Microsoft .Net Framework 4.5|Server|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[Extensiones de modelo de identidad de Azure AD para .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
@@ -63,4 +63,4 @@ En este escenario, un desarrollador tiene una aplicación en ejecución en un se
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0302_2016-->

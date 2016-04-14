@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/06/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 # Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
@@ -54,7 +54,8 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
  - En caso afirmativo, ¿se integra la solución actual con el sistema de administración de identidad híbrida que va a adoptar?
 - ¿Necesita aplicar su empresa acceso condicional a los usuarios que están en cuarentena? 
  
->[AZURE.NOTE]Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
+>[AZURE.NOTE]
+Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
 
 ## Pasos siguientes
 [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
@@ -62,4 +63,4 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 ## Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0218_2016-->

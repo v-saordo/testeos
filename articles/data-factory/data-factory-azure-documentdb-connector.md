@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="02/24/2016" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a DocumentDB de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+
+En los siguientes ejemplos, se muestra cómo copiar datos entre Azure DocumentDB y Almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Factoría de datos de Azure.
+
 
 ## Ejemplo: copia de datos de DocumentDB a un blob de Azure
 
@@ -376,6 +379,14 @@ Ejemplo:
 	  }
 	}
 
+### Esquema de Data Factory
+En los almacenes de datos sin esquemas como DocumentDB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
+
+1.	Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
+2.	Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
+
+Por lo tanto, para los orígenes de datos sin esquemas, lo mejor es especificar la estructura de los datos mediante la propiedad **structure**.
+
 ## Propiedades de tipo de actividad de copia de DocumentDB de Azure
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Propiedades como nombre, descripción, tablas de entrada y salida, varias directivas, etc. están disponibles para todos los tipos de actividades.
@@ -408,7 +419,7 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 
 	**Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo Id., la operación de copia genera un error.
  
-3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
+3. **Pregunta:** ¿Admite la factoría de datos el [intervalo o las particiones de datos basadas en hash]( https://azure.microsoft.com/documentation/articles/documentdb-partition-data/)?
 
 	**Respuesta:** No. 
 4. **Pregunta:** ¿Puedo especificar más de una colección de DocumentDB para una tabla?
@@ -416,4 +427,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
 	**Respuesta:** No. Solo se puede especificar una colección cada vez.
      
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=AcomDC_0302_2016-->

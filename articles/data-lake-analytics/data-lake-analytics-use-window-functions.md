@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="jgao"/>
 
 
@@ -35,9 +35,9 @@ Las funciones de ventana se dividen en las siguientes categorías:
 
 - Realice estos dos tutoriales:
 
-    - [Introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+    - [Introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
     - [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
-- Cree una cuenta de Análisis de Data Lake como se indica en la [introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-use-data-lake-tools.md).
+- Cree una cuenta de Análisis de Data Lake como se indica en la [introducción al uso de Azure Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Cree un proyecto de U-SQL de Visual Studio como se indica en [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 ## Conjuntos de datos de ejemplo
@@ -136,7 +136,7 @@ En la consulta siguiente, se usa una agregación para calcular el salario total 
             SUM(Salary) AS TotalSalary
         FROM @employees;
     
->[AZURE.NOTE]Para obtener instrucciones para probar y comprobar los resultados, consulte [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
+>[AZURE.NOTE] Para obtener instrucciones para probar y comprobar los resultados, consulte [Tutorial: Introducción al uso de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).
 
 El resultado es una sola fila y una sola columna. 165000 USD es la suma del valor de Salary de toda la tabla.
 
@@ -144,7 +144,7 @@ El resultado es una sola fila y una sola columna. 165000 USD es la suma del val
 |-----------
 |165000
 
->[AZURE.NOTE]Si desconoce las funciones de ventana, resulta útil recordar los números en los resultados.
+>[AZURE.NOTE] Si desconoce las funciones de ventana, resulta útil recordar los números en los resultados.
 
 La instrucción siguiente usa la cláusula GROUP BY para calcular el salario total para cada departamento:
 
@@ -243,7 +243,7 @@ La sintaxis es:
 
 Nota:
 
-- De forma predeterminada, las funciones de agregado, excepto COUNT, pasan por alto los valores nulos.
+- De forma predeterminada, las funciones de agregación, excepto COUNT, pasan por alto los valores nulos.
 - Cuando se especifican funciones de agregado junto con la cláusula OVER, no se permite la cláusula ORDER BY en la cláusula OVER.
 
 ### Uso de SUM
@@ -739,8 +739,8 @@ PERCENTILE\_DISC no interpola valores, por lo que la mediana de Web es 200, que 
 - [Uso de tutoriales interactivos de Análisis de Azure Data Lake](data-lake-analytics-use-interactive-tutorials.md)
 - [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake.](data-lake-analytics-u-sql-get-started.md)
-- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-use-portal.md)
-- [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-use-powershell.md)
+- [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
+- [Administración de Análisis de Azure Data Lake mediante Azure Powershell](data-lake-analytics-manage-use-powershell.md)
 - [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/10/2015"
+   ms.date="03/03/2016"
    ms.author="maroche"/>
 
 
@@ -48,7 +48,7 @@ Durante la vista previa del **Catálogo de datos de Azure**, se admiten los sigu
 ## Anotación de varios recursos
 Cuando se seleccionan varios recursos de datos en el portal del **Catálogo de datos de Azure**, los usuarios pueden anotar todos los recursos seleccionados en una sola operación. Las anotaciones se aplicarán a todos los recursos seleccionados, lo que facilita seleccionar y proporcionar una descripción y unos conjuntos de etiquetas y expertos coherentes para los recursos de datos relacionados.
 
-> [AZURE.NOTE]También se pueden proporcionar etiquetas y expertos al registrar recursos de datos mediante la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure**.
+> [AZURE.NOTE] También se pueden proporcionar etiquetas y expertos al registrar recursos de datos mediante la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure**.
 
 Cuando se seleccionan varias tablas y vistas, solo se mostrarán las columnas que tengan en común todos los recursos de datos seleccionados en el portal del **Catálogo de datos de Azure**. Esto permite que los usuarios proporcionen etiquetas y descripciones para todas las columnas con el mismo nombre de todos los recursos seleccionados.
 
@@ -58,4 +58,7 @@ Al igual que los metadatos extraídos del origen de datos durante el registro se
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se ha registrado un origen de datos, los usuarios pueden proporcionar anotaciones para facilitar la detección y comprensión dentro del portal del **Catálogo de datos de Azure**.
 
-<!---HONumber=Nov15_HO3-->
+## Consulte también
+- Consulte el tutorial [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
+
+<!---HONumber=AcomDC_0309_2016-->

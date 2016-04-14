@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud | Microsoft Azure" description="Aprenda cómo usar Zscaler ZSCloud con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
+    pageTitle="Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud | Microsoft Azure"
+    description="Aprenda cómo usar Zscaler ZSCloud con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -10,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 
 #Tutorial: Integración de Azure Active Directory con Zscaler ZSCloud
@@ -39,7 +40,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para ZScaler ZSCloud:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-zscloud-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +72,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **ZScaler ZSCloud**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **ZScaler ZSCloud**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800278.png "Configurar inicio de sesión único")
 
@@ -83,7 +84,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800280.png "Configurar dirección URL de la aplicación")
 
-    >[AZURE.NOTE]Para obtener el valor real para su entorno de su equipo de soporte de ZScaler ZSCloud si lo necesita.
+    >[AZURE.NOTE] Para obtener el valor real para su entorno de su equipo de soporte de ZScaler ZSCloud si lo necesita.
 
 4.  En la página **Configuración de inicio de sesión único en ZScaler ZSCloud**, para descargar el certificado, haga clic en **Descargar certificado** y luego guarde el archivo de certificado en el equipo.
 
@@ -110,7 +111,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Inicio de sesión único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800209.png "Inicio de sesión único")
 
-    1.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, copie el valor de la **URL de solicitud de autenticación** y luego péguelo en el cuadro de texto de la **dirección URL del portal de SAML a la que se envían los usuarios para autenticación**.
+    1.  En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, copie el valor de la **URL de solicitud de autenticación** y luego péguelo en el cuadro de texto de la **dirección URL del portal de SAML a la que se envían los usuarios para autenticación**.
     2.  En el cuadro de texto **Atributo que contiene el nombre de inicio de sesión**, escriba **NameID**.
     3.  Para cargar el certificado descargado, haga clic en **pem de Zscaler**.
     4.  Seleccione **Habilitar aprovisionamiento automático de SAML**.
@@ -122,7 +123,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en **Guardar**.
     2.  Haga clic en **Activar ahora**.
 
-11. En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa**.
+11. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en ZScaler ZSCloud**, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completa**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zscaler-zscloud-tutorial/IC800282.png "Configurar inicio de sesión único")
 
@@ -181,7 +182,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en ZScaler ZSCloud, d
     1.  Escriba el **Id. de usuario**, el **Nombre para mostrar del usuario**, la **Contraseña**, **Confirmar contraseña** y luego seleccione **Grupos** y el **Departamento** de una cuenta de AAD válida que quiera aprovisionar.
     2.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ZScaler ZSCloud ofrecida por ZScaler ZSCloud para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de ZScaler ZSCloud ofrecida por ZScaler ZSCloud para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -189,7 +190,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a ZScaler ZSCloud, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **ZScaler ZSCloud**, haga clic en **Asignar usuarios**.
 
@@ -201,4 +202,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

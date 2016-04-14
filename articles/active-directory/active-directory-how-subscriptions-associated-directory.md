@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2016"
+	ms.date="02/11/2016"
 	ms.author="curtand"/>
 
 # Asociación de las suscripciones de Azure con Azure Active Directory
@@ -34,7 +34,8 @@ Aunque Azure inicialmente permitía el acceso únicamente a los usuarios de cuen
 
 Por ejemplo, aquí un usuario con una cuenta Microsoft inicia sesión en el Portal de Azure clásico.
 
-> [AZURE.NOTE]Para iniciar sesión en el Portal de Azure clásico, msmith@hotmail.com debe tener una suscripción a Azure. La cuenta debe ser un administrador de servicios o un coadministrador de la suscripción.
+> [AZURE.NOTE]
+Para iniciar sesión en el Portal de Azure clásico, msmith@hotmail.com debe tener una suscripción a Azure. La cuenta debe ser un administrador de servicios o un coadministrador de la suscripción.
 
 ![][1]
 
@@ -104,19 +105,33 @@ Si se ha suscrito a Office 365 con una cuenta profesional o educativa y, a conti
 
 Para administrar ambos directorios en el Portal de Azure clásico, siga estos pasos.
 
-> [AZURE.NOTE]Solo se pueden completar estos pasos cuando un usuario inicie sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción **Usar directorio existente** no estará disponible porque se puede autenticar una cuenta profesional o educativamente únicamente mediante su directorio particular (es decir, el directorio donde se almacena la cuenta profesional o educativa, y cuyo propietario sea el trabajo o la escuela).
+> [AZURE.NOTE]
+Solo se pueden completar estos pasos cuando un usuario inicie sesión con una cuenta Microsoft. Si el usuario ha iniciado sesión con una cuenta profesional o educativa, la opción **Usar directorio existente** no estará disponible porque se puede autenticar una cuenta profesional o educativamente únicamente mediante su directorio particular (es decir, el directorio donde se almacena la cuenta profesional o educativa, y cuyo propietario sea el trabajo o la escuela).
 
 1. Inicie sesión en el Portal de Azure clásico con su cuenta Microsoft.
+
 2. Haga clic en **Nuevo** > **Servicios de aplicaciones** > **Active Directory** > **Directorio** > **Creación personalizada**.
+
 3. Haga clic en **Usar directorio existente** y active **y Estoy listo para cerrar la sesión ahora. ** y haga clic en la marca de verificación para completar la acción.
+
 4. Inicie sesión en el Portal de Azure clásico con una cuenta que tenga derechos de administrador global para el directorio profesional o educativo.
+
 5. Cuando se le pregunte **¿Usar el directorio de Contoso con Azure?**, haga clic en **Continuar**.
+
 6. Haga clic en **Cerrar sesión ahora**.
+
 7. Inicie sesión de nuevo en el Portal de Azure clásico con la cuenta Microsoft. Ambos directorios aparecerán en la extensión de Active Directory.
 
 
 ## Pasos siguientes
-[Inicio de sesión en Azure como una organización](sign-up-organization.md)
+
+- Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
+
+- Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
+
+- Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
+
+- [Registro en Azure como una organización](sign-up-organization.md)
 
 
 <!--Image references-->
@@ -124,4 +139,4 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes" 
-	description="Se explica cómo el nuevo Servicio de aplicaciones de Azure y sus características afectan a los servicios ya existentes de Azure." 
-	authors="yochayk" 
-	writer="yochayk" 
-	editor="yochayk" 
-	manager="nirma" 
-	services="app-service" 
+<properties
+	pageTitle="Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes"
+	description="Se explica cómo el nuevo Servicio de aplicaciones de Azure y sus características afectan a los servicios ya existentes de Azure."
+	authors="yochayk"
+	writer="yochayk"
+	editor="yochayk"
+	manager="nirma"
+	services="app-service"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/24/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/12/2016"
 	ms.author="yochayk"/>
 
 
@@ -24,7 +24,7 @@ En este artículo se describen las modificaciones de los servicios de Azure ya e
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Información general 
+## Información general
 
 El [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/) es un servicio en la nube nuevo y exclusivo que permite a los desarrolladores crear aplicaciones web y móviles destinadas a cualquier plataforma y dispositivo. Se trata de una solución integral diseñada para simplificar las funciones de codificación repetitivas, integrarse en sistemas Saas y empresariales y automatizar los procesos de negocio a la vez que cumplir sus necesidades de seguridad, confiabilidad y escalabilidad.
 
@@ -60,8 +60,8 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 <td align="left">Servicios móviles de Azure</td>
 <td align="left">Aplicaciones móviles</td>
 <td align="left"><p><li>Servicios móviles sigue estando disponible como servicio independiente con plena compatibilidad.</p>
-<p><li>Aplicaciones móviles es un nuevo tipo de aplicación del Servicio de aplicaciones que integra toda la funcionalidad de los Servicios móviles y mucho más. Se encuentra disponible como vista previa pública.</p>
-<p><li>Es fácil la [Migración de Servicios móviles a Aplicaciones móviles](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Dado que Aplicaciones móviles se encuentra aún en versión de vista previa, no se recomienda su uso para ejecutar aplicaciones de producción.</p>
+<p><li>Aplicaciones móviles es un tipo de aplicación del servicio de aplicaciones, que integra toda la funcionalidad de los servicios móviles y mucho más.</p>
+<p><li>Es fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar de Servicios móviles a Aplicaciones móviles</a>.</p>
 <p><li>Como parte del Servicio de aplicaciones, Aplicaciones móviles incluye nuevas capacidades además de Servicios móviles, como la integración con sistemas locales y SaaS, espacios de ensayo, trabajos web y opciones de escalado mejoradas, entre otras.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Más información sobre Aplicaciones móviles</a>.</p>
 </tr>
@@ -91,6 +91,5 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 </table>
 
 Para obtener más información, visite [Documentación del Servicio de aplicaciones](https://azure.microsoft.com/documentation/services/app-service/).
- 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

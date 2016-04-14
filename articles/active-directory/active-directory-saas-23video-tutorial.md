@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="02/17/2016"
 	ms.author="jeedes"/>
 
 
@@ -34,7 +34,7 @@ Para configurar la integración de Azure AD con 23 Video, necesita los siguiente
 - Una suscripción habilitada para inicio de sesión único en 23 Video
 
 
-> [AZURE.NOTE]Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+> [AZURE.NOTE] Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
 
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
@@ -59,7 +59,7 @@ Para configurar la integración de 23 Video en Azure AD, deberá agregar 23 Vide
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para abrir la vista de aplicaciones, haga clic en **Aplicaciones**, en el menú superior de la vista de directorio.<br><br> ![Aplicaciones][2]<br>
+3. Para abrir la vista de aplicaciones, en la vista de directorios, haga clic en **Aplicaciones** en el menú superior.<br><br> ![Aplicaciones][2]<br>
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **23 Video**.<br><br> ![Aplicaciones][5]<br>
@@ -92,7 +92,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
      a. En el cuadro de texto **URL de respuesta**, escriba la dirección URL que los usuarios usan para iniciar sesión en el sitio de 23 Video (p. ej.: **https://britta-simon.23Video.com/saml/login*)).
 
-     >[AZURE.NOTE]La integración de Active Directory mediante SAML 2.0 está disponible para todos los usuarios de 23 Video. Si necesita los metadatos relacionados, póngase en contacto con el soporte técnico en [support@23company.com](mailto:support@23company.com).
+     > [AZURE.NOTE] La integración de Active Directory mediante SAML 2.0 está disponible para todos los usuarios de 23 Video. Si necesita los metadatos relacionados, póngase en contacto con el soporte técnico en [support@23company.com](mailto:support@23company.com).
 
      b. Haga clic en **Siguiente**.
  
@@ -117,11 +117,11 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. En el **Portal de Azure clásico**, en el panel de navegación izquierdo, haga clic en **Active Directory**. <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) <br>
  
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
@@ -145,7 +145,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
  
-8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
+8. En la página de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
   
     a. Anote el valor del campo **Nueva contraseña**.
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 3. Haga clic en **Agregar un nuevo usuario**. <br><br>![Asignar usuario][401]<br>
 
-4. En la sección **Invitar a alguien a unirse a este sitio**, realice los siguientes pasos: <br><br>![Asignar usuario][402]<br>
+4. En la sección **Invite someone to join this site** (Invitar a alguien a unirse a este sitio), realice los siguientes pasos: <br><br>![Asignar usuario][402]<br>
 
     a. En el cuadro de texto **Direcciones de correo electrónico**, escriba la dirección de correo electrónico de Britta Simon en Azure AD.
 
@@ -228,4 +228,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

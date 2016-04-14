@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/28/2016" 
 	ms.author="awills"/>
  
 # Notas de la versión del SDK: Application Insights
@@ -20,12 +20,13 @@
 
 Se trata de notas de la versión detalladas e instrucciones de actualización de nuestros SDK:
 
-* [.NET](app-insights-release-notes-dotnet.md)
-* [Adaptadores de registro .NET](app-insights-release-notes-dotnet-logging.md)
+* [SDK de servidor web de ASP.NET](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
+* [SDK de .NET Core](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
+* [Adaptadores de registro .NET](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [Java](app-insights-release-notes-java.md)
+* [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Tienda Windows Phone C#|VB](app-insights-release-notes-windows.md)
 * [Tienda Windows Phone C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
@@ -34,4 +35,4 @@ Se trata de notas de la versión detalladas e instrucciones de actualización de
 
 Obtenga información también sobre nuestras [Actualizaciones del servicio](https://azure.microsoft.com/updates/?service=application-insights), donde se resumen mejoras importantes en el servicio Application Insights en su conjunto.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

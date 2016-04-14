@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/24/2015" 
+	ms.date="02/26/2016" 
 	ms.author="naziml"/>
 
 # Configuración de un firewall de aplicaciones web (WAF) para entornos del Servicio de aplicaciones
@@ -29,7 +29,7 @@ Para este documento, configuraremos nuestro entorno del Servicio de aplicaciones
 ![Arquitectura][Architecture]
 
 ## Configuración del entorno del Servicio de aplicaciones ##
-Para configurar un entorno del Servicio de aplicaciones, consulte [nuestra documentación](app-service-web-how-to-create-an-app-service-environment.md) sobre el tema. Después de crear un entorno del Servicio de aplicaciones, puede crear [aplicaciones web](app-service-web-overview.md), [aplicaciones de API](app-service-api-apps-why-best-platform.md) y [aplicaciones móviles](app-service-mobile-value-prop-preview.md) en este entorno, que se protegerán detrás del WAF que vamos a configurar en la sección siguiente.
+Para configurar un entorno del Servicio de aplicaciones, consulte [nuestra documentación](app-service-web-how-to-create-an-app-service-environment.md) sobre el tema. Después de crear un entorno del Servicio de aplicaciones, puede crear [aplicaciones web](app-service-web-overview.md), [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) y [aplicaciones móviles](../app-service-mobile/app-service-mobile-value-prop.md) en este entorno, que se protegerán detrás del WAF que vamos a configurar en la sección siguiente.
 
 ## Configuración del servicio en la nube Barracuda WAF ##
 Barracuda tiene un [artículo detallado](https://techlib.barracuda.com/WAF/AzureDeploy) sobre la implementación de su WAF en una máquina virtual en Azure. No obstante, habida cuenta de que queremos redundancia y no introducir un único punto de error, hay que implementar al menos dos máquinas virtuales de la instancia de WAF en el mismo servicio en la nube al seguir estas instrucciones.
@@ -66,7 +66,7 @@ Al hacer clic en la pestaña Servicios, le permitirá configurar el WAF para los
 > Nota: Dependiendo de cómo se configuran las aplicaciones y qué características se utilizan en el entorno del Servicio de aplicaciones, deberá reenviar el tráfico para los puertos TCP distintos del 80 y el 443, por ejemplo, si ha configurado SSL de IP para una aplicación web. Para obtener una lista de los puertos de red usados en entornos del Servicio de aplicaciones, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Configuración del Administrador de tráfico de Microsoft Azure (OPCIONAL) ##
-Si la aplicación se encuentra disponible en varias regiones, debe equilibrar la carga entre ellas detrás del [Administrador de tráfico de Azure](traffic-manager.md). Para ello, puede agregar un punto de conexión en el [Portal de Azure clásico](https://manage.azure.com) con el nombre del servicio en la nube de su WAF en el perfil del Administrador de tráfico, como se muestra en la imagen siguiente.
+Si la aplicación se encuentra disponible en varias regiones, debe equilibrar la carga entre ellas detrás del [Administrador de tráfico de Azure](../traffic-manager/traffic-manager-overview.md). Para ello, puede agregar un punto de conexión en el [Portal de Azure clásico](https://manage.azure.com) con el nombre del servicio en la nube de su WAF en el perfil del Administrador de tráfico, como se muestra en la imagen siguiente.
 
 ![Extremo del Administrador de tráfico][TrafficManagerEndpoint]
 
@@ -99,4 +99,4 @@ Reemplace SourceAddressPrefix con la dirección IP virtual (VIP) del servicio en
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

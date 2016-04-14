@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="02/26/2016"
 	ms.author="asmalser"/>
 
 #Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory
@@ -54,9 +54,13 @@ Por ejemplo, si necesita enviar el departamento al que pertenece el usuario en s
 
 Si no hay ningún valor almacenado para el atributo seleccionado para un usuario determinado, esa notificación no se emitirá en el token.
 
-**Nota:** **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten al sincronizar datos de usuario desde Active Directory local mediante la versión preliminar más reciente de la herramienta AAD Connect. Puede descargar la versión preliminar de la herramienta Connect en el siguiente vínculo:
+**Nota:** **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten al sincronizar datos de usuario desde Active Directory local mediante la [herramienta Azure AD Connect](active-directory-aadconnect.md).
 
-http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=53949
+## Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+- [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 	
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
@@ -64,4 +68,4 @@ http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=
 [3]: ./media/active-directory-saml-claims-customization/claimscustomization3.png
 [4]: ./media/active-directory-saml-claims-customization/claimscustomization4.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0302_2016-->

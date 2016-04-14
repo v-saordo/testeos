@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="02/22/2016" 
 	ms.author="ccompy"/>
 
 # Integración de su aplicación con una red virtual de Azure #
@@ -56,7 +56,7 @@ Le recordamos algunos aspectos que debe tener en cuenta antes de conectar su apl
 
 Puede conectarse a una red virtual nueva o existente. Si crea una nueva red, además de crearse la red virtual, se preconfigurará de forma automática una puerta de enlace de enrutamiento dinámico y se habilitará la VPN de punto a sitio.
 
->[AZURE.NOTE]Se puede tardar unos minutos en configurar una nueva integración con redes virtuales.
+>[AZURE.NOTE] Se puede tardar unos minutos en configurar una nueva integración con redes virtuales.
 
 Para habilitar Integración con redes virtuales, abra la configuración de la aplicación y después seleccione Redes. La interfaz de usuario que se abre ofrece tres opciones de redes. En esta guía, solo se va a tratar Integración con redes virtuales, aunque más adelante en este documento se explicarán Conexiones híbridas y Entornos del Servicio de aplicaciones.
 
@@ -87,7 +87,7 @@ Si desea crear una nueva red virtual, tenga en cuenta que actualmente solo podr�
 
 Tenga en cuenta que, si desea que esta red virtual se conecte a cualquiera de sus otras redes, no debe elegir un espacio de direcciones IP que se solape con esas redes.
 
->[AZURE.NOTE]La nueva red virtual puede tardar hasta 30 minutos en estar lista, incluidas las puertas de enlace operativas. La interfaz de usuario se actualizará cuando se complete.
+>[AZURE.NOTE] La nueva red virtual puede tardar hasta 30 minutos en estar lista, incluidas las puertas de enlace operativas. La interfaz de usuario se actualizará cuando se complete.
 
 ![][3]
 
@@ -156,7 +156,7 @@ Con respecto a las acciones, existen dos principales. La primera es la capacidad
 
 Una de las ventajas de la característica Integración con redes virtuales es que, si la red virtual está conectada a la red local con una VPN de sitio a sitio, las aplicaciones pueden acceder a los recursos locales desde su aplicación. Pero, para que esto funcione, puede que necesite actualizar la puerta de enlace de VPN local con las rutas de su intervalo de direcciones IP de punto a sitio. En la configuración inicial de la VPN de sitio a sitio, los scripts que se usan para configurarla deberían también configurar las rutas, incluida la VPN de punto a sitio. Si agrega la VPN de punto a sitio después de crear la VPN de sitio a sitio, deberá actualizar las rutas manualmente. El procedimiento variará según la puerta de enlace y no se describe aquí.
 
->[AZURE.NOTE]Aunque la característica Integración con redes virtuales funcionará con una VPN de sitio a sitio para acceder a los recursos locales, actualmente no funcionará con una VPN ExpressRoute para hacer lo mismo.
+>[AZURE.NOTE] Aunque la característica Integración con redes virtuales funcionará con una VPN de sitio a sitio para acceder a los recursos locales, actualmente no funcionará con una VPN ExpressRoute para hacer lo mismo.
 
 ##Detalles de precios##
 Hay algunos matices sobre los precios que se deben tener en cuenta al usar la característica Integración con redes virtuales. El uso de esta característica comporta tres cargos:
@@ -167,13 +167,13 @@ Hay algunos matices sobre los precios que se deben tener en cuenta al usar la ca
 
 Para que las aplicaciones puedan usar esta característica, deben pertenecer a un plan de servicio de aplicaciones Premium o Estándar. Puede ver más detalles sobre esos costos aquí: [Precios del Servicio de aplicaciones][ASPricing].
 
-Debido a la forma en que se controlan las VPN de punto a sitio, siempre tiene un cargo por los datos salientes a través de la conexión de Integración con redes virtuales, incluso si la red virtual está en el mismo centro de datos. Para ver cuáles son estos cargos, consulte lo siguiente: [Detalles de precios de Transferencias de datos][DataPricing].
+Debido a la forma en que se controlan las VPN de punto a sitio, siempre tiene un cargo por los datos salientes a través de la conexión de Integración con redes virtuales, incluso si la red virtual está en el mismo centro de datos. Para ver cuáles son estos cargos, consulte lo siguiente: [Detalles de precios de transferencia de datos][DataPricing].
 
 El último elemento es el costo de las puertas de enlace de red virtual. Si no necesita las puertas de enlace para algo diferente, como las VPN de sitio a sitio, va a pagar para que las puertas de enlace admitan la característica Integración con redes virtuales. Los detalles sobre esos costos están aquí: [Precios de Puerta de enlace de VPN][VNETPricing].
 
 ##Solución de problemas##
 
-El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Puede usar dos experiencias de consola. Una es la consola Kudu y la otra es la consola a la que se accede en el Portal de Azure. Para llegar a la consola Kudu, desde la aplicación, vaya a Herramientas -> Kudu. Esto equivale a ir a [nombreDeSitio].scm.azurewebsites.net. Cuando se abra, simplemente vaya a la pestaña de consola Debug (Depurar). Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola.
+El que una característica sea fácil de configurar no quiere decir que no presente problemas con el uso. Si encuentra problemas para acceder al punto de conexión que desee, existen varias utilidades que sirven para probar la conectividad desde la consola de la aplicación. Puede usar dos experiencias de consola. Una es la consola Kudu y la otra es la consola a la que se accede en el Portal de Azure. Para llegar a la consola Kudu desde la aplicación, vaya a Herramientas -> Kudu. Esto equivale a ir a [nombreDeSitio].scm.azurewebsites.net. Cuando se abra, simplemente vaya a la pestaña de consola Debug (Depurar). Para llegar a la consola hospedada en el Portal de Azure, desde su aplicación, vaya a Herramientas -> Consola.
 
 
 ####Herramientas####
@@ -225,7 +225,11 @@ Otros pasos de depuración son:
 ####Recursos locales####
 Si no puede acceder a los recursos locales, lo primero que debe comprobar es si puede llegar a un recurso de la red virtual. Si eso funciona, los siguientes pasos son bastante sencillos. Debe intentar conectarse a la aplicación local desde una máquina virtual de la red virtual. Puede usar telnet o una utilidad ping basada en TCP. Si la máquina virtual no puede acceder al recurso local, primero asegúrese de que funciona la conexión VPN de sitio a sitio. Si funciona, compruebe lo mismo que se indicó antes, así como el estado y la configuración de la puerta de enlace local.
 
-Ahora bien, si la máquina virtual hospedada en la red virtual puede acceder a su sistema local pero la aplicación no puede, es probable que el motivo sea uno de los siguientes: – Las rutas no están configuradas con los intervalos de direcciones IP de punto a sitio en la puerta de enlace local. – Los grupos de seguridad de la red están bloqueando el acceso del intervalo de direcciones IP de punto a sitio. – Los firewalls locales están bloqueando el tráfico procedente del intervalo de direcciones IP de punto a sitio. – Tiene una ruta definida por el usuario (UDR) en la red virtual que impide que el tráfico basado en la conectividad de punto a sitio llegue a su red local.
+Ahora bien, si la máquina virtual hospedada en la red virtual puede acceder a su sistema local pero la aplicación no puede, es probable que el motivo sea uno de los siguientes:
+- Las rutas no están configuradas con los intervalos IP de punto a sitio en la puerta de enlace local
+- Los grupos de seguridad de red están bloqueando el acceso del intervalo IP de punto a sitio
+- Los firewalls locales están bloqueando el tráfico procedente del intervalo IP de punto a sitio
+- Tiene una ruta definida por el usuario (UDR) en la red virtual que impide que el tráfico basado en la conectividad de punto a sitio llegue a su red local
 
 ## Conexiones híbridas y entornos del Servicio de aplicaciones##
 Existen tres características que permiten el acceso a los recursos hospedados en la red virtual. Son las siguientes:
@@ -265,4 +269,4 @@ Además de las diferencias funcionales, existen también diferencias de precio. 
 [VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
 [DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

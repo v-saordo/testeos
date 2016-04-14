@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Integración de NetSuite con Azure Active Directory | Microsoft Azure"
-   description="Aprenda cómo usar NetSuite con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
-   services="active-directory"
-   documentationCenter=""
-   authors="liviodlc"
-   manager="TerryLanfear"
-   editor=""/>
+    pageTitle="Tutorial: Integración de Azure Active Directory con NetSuite | Microsoft Azure"
+    description="Aprenda cómo usar NetSuite con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
+    services="active-directory"
+    documentationCenter=""
+    authors="liviodlc"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="10/20/2015"
-   ms.author="liviodlc"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="02/09/2016"
+    ms.author="liviodlc"/>
 
 #Tutorial: Integración de NetSuite con Azure Active Directory
 
@@ -42,7 +42,7 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 	![Haga clic en Agregar para agregar una nueva aplicación.][2]
 
-5. En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.
+5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
 
 	![Haga clic en Agregar una aplicación de la galería.][3]
 
@@ -64,7 +64,7 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 	![Selección del inicio de sesión único e Azure AD][7]
 
-	> [AZURE.NOTE]Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+	> [AZURE.NOTE] Para conocer más acerca de los diferentes opciones de inicio de sesión único, [haga clic aquí](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 3. En la página **Configurar las opciones de la aplicación**, en el campo **URL de respuesta**, escriba la dirección URL del inquilino de NetSuite con uno de los formatos siguientes:
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
@@ -168,7 +168,7 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 		![Vaya al Administrador de instalación][10]
 
-	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y luego haga clic en **Administrar usuarios**.
+	- En el menú de navegación izquierdo, seleccione **Usuarios/Roles** y, a continuación, haga clic en**Administrar usuarios**.
 
 		![Vaya a Administrar usuarios][25]
 
@@ -186,13 +186,13 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 ##Paso 3: Habilitación del aprovisionamiento automático de usuarios
 
-> [AZURE.NOTE]De forma predeterminada, los usuarios aprovisionados se agregarán a la subsidiaria raíz del entorno NetSuite.
+> [AZURE.NOTE] De forma predeterminada, los usuarios aprovisionados se agregarán a la subsidiaria raíz del entorno NetSuite.
 
 1. En Azure Active Directory, en la página de inicio rápido de NetSuite, haga clic en **Configurar aprovisionamiento de usuarios**.
 
 	![Configuración de aprovisionamiento de usuario][28]
 
-2. En el cuadro de diálogo que se abre, escriba las credenciales de administrador para NetSuite y luego haga clic en **Siguiente**.
+2. En el cuadro de diálogo que se abre, escriba las credenciales de administrador para NetSuite y, a continuación, haga clic en **Siguiente**.
 
 	![Escriba las credenciales de administrador de NetSuite.][29]
 
@@ -220,7 +220,10 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 4. Para probar la configuración de inicios de sesión únicos, abra el panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/), inicie sesión en la cuenta de prueba y haga clic en **NetSuite**.
 
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+##Artículos relacionados
+
+- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
 [0]: ./media/active-directory-saas-netsuite-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-netsuite-tutorial/applications-tab.png
@@ -256,4 +259,4 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

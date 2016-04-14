@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Escalado automático de nodos de ejecución en un grupo de Lote de Azure | Microsoft Azure"
 	description="Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo."
@@ -51,7 +50,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Las siguientes secciones de este artículo tratan de las distintas entidades que conformarán las fórmulas de escalado automático, incluidos variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
 
-> [AZURE.NOTE]Cada cuenta de Lote de Azure se limita a un número máximo de nodos de ejecución que puede utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite. Por lo tanto, no podría alcanzar el número de destino que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener información sobre la visualización y aumento de las cuotas de la cuenta.
+> [AZURE.NOTE] Cada cuenta de Lote de Azure se limita a un número máximo de nodos de ejecución que puede utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite. Por lo tanto, no podría alcanzar el número de destino que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener información sobre la visualización y aumento de las cuotas de la cuenta.
 
 ## <a name="variables"></a>Variables
 
@@ -153,7 +152,7 @@ Puede usar tanto variables definidas por el sistema como variables definidas por
   </tr>
 </table>
 
-> [AZURE.TIP]Las variables de solo lectura definidas por el sistema que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de muestra](#getsampledata) más adelante para obtener más información.
+> [AZURE.TIP] Las variables de solo lectura definidas por el sistema que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de muestra](#getsampledata) más adelante para obtener más información.
 
 ## Tipos
 
@@ -433,7 +432,7 @@ Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si 
 
 También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que las muestras del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de muestra concreto.
 
-> [AZURE.IMPORTANT]Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes." Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> [AZURE.IMPORTANT] Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes." Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
 
 ## Métricas
 
@@ -506,7 +505,7 @@ $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($Cur
 $TargetDedicated = min(400, $TotalNodes)
 ```
 
-> [AZURE.NOTE]Las fórmulas de escalado automática constan de variables, tipos, operaciones y funciones de la API de [REST de Azure Batch][rest_api]. Úselos en las cadenas de fórmula aunque trabaje con la biblioteca de [.NET de Lote][net_api].
+> [AZURE.NOTE] Las fórmulas de escalado automática constan de variables, tipos, operaciones y funciones de la API de [REST de Azure Batch][rest_api]. Úselos en las cadenas de fórmula aunque trabaje con la biblioteca de [.NET de Lote][net_api].
 
 ## Creación de un grupo con el escalado automático habilitado
 
@@ -516,7 +515,7 @@ Para habilitar el escalado automático al crear un grupo, use una de las técnic
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx): después de llamar a este método .NET para crear un grupo, establecerá las propiedades [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) y [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) del grupo para habilitar el escalado automático.
 - [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): los elementos enableAutoScale y autoScaleFormula se usan en esta solicitud de API de REST para configurar el escalado automático del grupo al crearlo.
 
-> [AZURE.IMPORTANT]Si crea un grupo con el escalado automático habilitado mediante una de las técnicas anteriores, el parámetro *targetDedicated* para el grupo **no** debe especificarse. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
+> [AZURE.IMPORTANT] Si crea un grupo con el escalado automático habilitado mediante una de las técnicas anteriores, el parámetro *targetDedicated* para el grupo **no** debe especificarse. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
 
 El fragmento de código siguiente muestra la creación de un grupo habilitado para escalado automático ([CloudPool][net_cloudpool]) mediante el uso de la biblioteca de [.NET de Lote][net_api]. La fórmula de escalado automático del grupo establece el número de nodos de destino en cinco los lunes y en uno todos los demás días de la semana. Además, el intervalo de escalado automático se establece en 30 minutos (consulte la sección [Intervalo de escalado automático](#interval) más adelante). En este y en otros fragmentos de código en C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
 
@@ -537,7 +536,7 @@ De forma predeterminada, el servicio Lote ajusta el tamaño de un grupo según s
 
 Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo fuera de este margen, el servicio Lote devolverá un error de solicitud incorrecta (400).
 
-> [AZURE.NOTE]Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
+> [AZURE.NOTE] Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
 
 ## Habilitación del escalado automático después de crear un grupo
 
@@ -546,7 +545,7 @@ Si ya configuró un grupo con un número específico de nodos de ejecución medi
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: este método .NET requiere el identificador de un grupo existente y la fórmula de escalado automático que se va a aplicar al grupo.
 - [Habilitación del escalado automático en un grupo][rest_enableautoscale]\: esta API de REST requiere el identificador del grupo existente en el URI y la fórmula de escalado automático en el cuerpo de la solicitud.
 
-> [AZURE.NOTE]Si se especificó un valor para el parámetro *targetDedicated* cuando se creó el grupo, se ignora cuando se evalúa la fórmula de escalado automático.
+> [AZURE.NOTE] Si se especificó un valor para el parámetro *targetDedicated* cuando se creó el grupo, se ignora cuando se evalúa la fórmula de escalado automático.
 
 Este fragmento de código muestra cómo habilitar el escalado automático mediante la biblioteca de [.NET de Lote][net_api]. Tenga en cuenta que tanto la habilitación como la actualización de la fórmula en un grupo existente usan el mismo método. Por lo tanto, esta técnica *actualizaría* la fórmula en el grupo especificado si el escalado automático ya se había habilitado. El fragmento de código asume que "mypool" es el identificador de un grupo existente ([CloudPool][net_cloudpool]).
 
@@ -565,7 +564,7 @@ Siempre es una buena práctica evaluar una fórmula antes de usarla en su aplica
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) o [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx): estos métodos .NET requieren el identificador de un grupo existente y la cadena que contiene la fórmula del escalado automático. Los resultados de la llamada aparecen en una instancia de la clase [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
 - [Evaluación de una fórmula de escalado automático](https://msdn.microsoft.com/library/azure/dn820183.aspx): en esta solicitud de API de REST, el identificador del grupo se especifica en el URI. La fórmula de escalado automático se especifica en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
-> [AZURE.NOTE]Para evaluar una fórmula de escalado automático, primero es preciso habilitar el escalado automático en el grupo con una fórmula válida.
+> [AZURE.NOTE] Para evaluar una fórmula de escalado automático, primero es preciso habilitar el escalado automático en el grupo con una fórmula válida.
 
 En este fragmento de código que usa la biblioteca de [.NET de Lote][net_api], se evalúa una fórmula antes de aplicarla al grupo ([CloudPool][net_cloudpool]).
 
@@ -729,4 +728,4 @@ La fórmula en el fragmento de código anterior:
 [rest_autoscaleinterval]: https://msdn.microsoft.com/es-ES/library/azure/dn820173.aspx
 [rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0218_2016-->

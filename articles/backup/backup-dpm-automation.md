@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
-
-
+	ms.date="01/28/2016"
+	ms.author="jimpark; aashishr; anuragm"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
+
 En este artículo se muestra cómo usar PowerShell para configurar la copia de seguridad de Azure en un servidor DPM y para administrar copias de seguridad y recuperaciones.
 
 ## Configuración del entorno de PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Para poder usar PowerShell para administrar las copias de seguridad de Data Protection Manager en Azure, deberá tener el entorno adecuado en PowerShell. Al principio de la sesión de PowerShell, asegúrese de ejecutar el siguiente comando para importar los módulos correctos y poder hacer referencia correctamente a los cmdlet de DPM:
 
 ```
@@ -41,7 +43,7 @@ Sample DPM scripts: Get-DPMSampleScript
 ## Instalación y registro
 Para empezar:
 
-1. [Descargue el PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la mínima versión necesaria es: 1.0.0)
+1. [Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0)
 2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
 ```
@@ -58,7 +60,7 @@ Las siguientes tareas de instalación y registro se pueden automatizar con Power
 
 ### Creación de un almacén de copia de seguridad
 
-> [AZURE.WARNING]La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
 Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
@@ -79,7 +81,7 @@ Para instalar el agente, ejecute el comando siguiente en una consola de PowerShe
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu*, se abrirá la ventana **Windows Update** al final de la instalación para comprobar si hay actualizaciones.
+Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu*, se abrirá la ventana de **Windows Update** al final de la instalación para comprobar si hay actualizaciones.
 
 El agente se mostrará en la lista de programas instalados. Para ver la lista de programas instalados, vaya a **Panel de Control** > **programas** > **programas y características**.
 
@@ -97,14 +99,14 @@ Las opciones disponibles incluyen:
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
 | /q | Instalación desatendida | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent |
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Participar en Microsoft Update | - |
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - |
+| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent | 
+| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch | 
+| /m | Participar en Microsoft Update | - | 
+| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
 | /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
-| /ph | Dirección de host del proxy | - |
-| /po | Número de puerto de host del proxy | - |
-| /pu | Nombre de usuario de host del proxy | - |
+| /ph | Dirección de host del proxy | - | 
+| /po | Número de puerto de host del proxy | - | 
+| /pu | Nombre de usuario de host del proxy | - | 
 | /pw | Contraseña del proxy | - |
 
 ### Registro con el servicio de Copia de seguridad de Azure
@@ -131,10 +133,10 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 Esto registrará el servidor DPM denominado "TestingServer" con Microsoft Azure Vault usando las credenciales del almacén especificadas.
 
-> [AZURE.IMPORTANT]No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> [AZURE.IMPORTANT] No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
 
 ### Opciones de configuración inicial
-Una vez que el servidor DPM se registra con el almacén de copia de seguridad de Azure, se iniciará con la configuración de suscripción predeterminada. Estas opciones de suscripción incluyen funciones de red, cifrado y el área de ensayo. Para empezar a cambiar la configuración de la suscripción, primero se debe obtener un identificador en la configuración (valor predeterminado) existente utilizando el cmdlet [DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
+Una vez que el servidor DPM se registra con el almacén de Copia de seguridad de Azure, se iniciará con la configuración de suscripción predeterminada. Estas opciones de suscripción incluyen funciones de red, cifrado y el área de ensayo. Para empezar a cambiar la configuración de la suscripción, primero se debe obtener un identificador en la configuración (valor predeterminado) existente utilizando el cmdlet [DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
@@ -180,7 +182,7 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT]Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> [AZURE.IMPORTANT] Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
 
 En este punto, debería haber realizado todos los cambios necesarios al objeto ```$setting```. Recuerde que debe confirmar los cambios.
 
@@ -331,4 +333,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 
 - Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0204_2016-->

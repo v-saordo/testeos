@@ -13,38 +13,74 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/08/2016"
+   ms.date="02/19/2016"
    ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
 
+## Novedades de la versión correspondiente a la semana del 19 de febrero de 2016
+
+En la semana del 19 de febrero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Una experiencia de selección de origen de datos recientemente replanteada en la herramienta de registro de origen de datos **Catálogo de datos de Azure**. La herramienta de registro de origen de datos se ha actualizado para facilitar a los usuarios la búsqueda y selección en los orígenes de datos compatibles con **catálogo de datos de Azure**.
+- Compatibilidad con diez idiomas adicionales en el portal **Catálogo de datos de Azure** y la herramienta de registro de origen de datos. Además del inglés, el **Catálogo de datos de Azure** ahora está disponible en alemán, español, francés, italiano, japonés, coreano, portugués (Brasil), ruso, chino simplificado y chino tradicional. La experiencia de usuario del **Catálogo de datos de Azure** se traducirá en función de las preferencias de idioma establecidas en Windows o en el explorador web del usuario.
+- Compatibilidad con la replicación geográfica de datos del **Catálogo de datos de Azure** para continuidad del negocio y recuperación ante desastres. Todo el contenido del **Catálogo de datos de Azure**, como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional a los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 800 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md). 
+
+
+## Novedades de la versión correspondiente a la semana del 5 de febrero de 2016
+
+En la semana del 5 de febrero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad para cambiar la suscripción de Azure del **Catálogo de datos de Azure**. Los administradores del **Catálogo de datos de Azure** pueden usar la página Configuración del portal del **Catálogo de datos de Azure** para seleccionar una suscripción de Azure diferente para la facturación.
+
+## Novedades de la versión correspondiente a la semana del 29 de enero de 2016
+
+En la semana del 29 de enero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad con el registro manual de orígenes de datos adicionales. Ahora los usuarios pueden usar "Crear entrada manual" en el portal del **Catálogo de datos de Azure**, o bien usar la API de REST del **Catálogo de datos de Azure** para registrar los siguientes orígenes de datos:
+   + OData: función, conjunto de entidades y contenedor de entidades
+   + HTTP: archivo, punto de conexión, informe y sitio
+   + Sistema de archivos: archivo
+   + SharePoint: lista
+   + FTP: archivo y directorio
+   + Salesforce.com: objeto
+   + DB2: tabla, vista y base de datos
+   + PostgreSQL: tabla, vista y base de datos
+- Compatibilidad con orígenes de datos de "Abrir en SQL Server Data Tools" para SQL Server (incluyendo Azure SQL DB y Almacenamiento de datos SQL de Azure).  
+
+> [AZURE.NOTE] "Abrir en SQL Server Data Tools" requiere Visual Studio 2013 con la Update 4 y las herramientas de SQL Server para instalarse. Para instalar la versión más reciente de SQL Server Data Tools, visite [Descarga de SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+
+## Novedades de la versión correspondiente a la semana del 22 de enero de 2016
+
+En la semana del 22 de enero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad con el registro y la detección de vistas y paquetes de SAP HANA. Los usuarios pueden registrar orígenes de datos de SAP HANA con la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure**, así como anotar y detectar los orígenes de datos de SAP HANA registrados con el portal del **Catálogo de datos de Azure**.
+
 ## Novedades de la versión correspondiente a la semana del 8 de enero de 2016
 
-A partir de la semana del 8 de enero de 2016, se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+En la semana del 8 de enero de 2016 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
-- La capacidad de anclar y desanclar activos de datos en el portal **Catálogo de datos de Azure**. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
-- Una página principal recientemente rediseñada en el portal **Catálogo de datos de Azure**. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
-- Soporte técnico para la configuración de usuario persistente en el portal del **Catálogo de datos de Azure**. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
-- El **Catálogo de datos de Azure** está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar el **Catálogo de datos de Azure** en las regiones de Europa del Norte y Sudeste Asiático, además del Este de EE. UU., Oeste de EE. UU., Europa occidental y Este de Australia. Para obtener más información, vea [Regiones de Azure](https://azure.microsoft.com/regions/).
+- La posibilidad de anclar y desanclar recursos de datos en el portal del **Catálogo de datos de Azure**. Los usuarios pueden elegir anclar activos de datos para que sea más sencillo volver a detectarlos y usarlos.
+- Página principal recientemente replanteada del portal del **Catálogo de datos de Azure**. La nueva página principal incluye información sobre la actividad de usuarios actual, incluidos activos publicados recientemente, activos anclados y búsquedas guardadas, así como información sobre la actividad en el catálogo en su totalidad.
+- Compatibilidad con la configuración de usuarios persistentes en el portal del **Catálogo de datos de Azure**. La configuración de la experiencia de usuario (incluidos la vista de cuadrícula o de icono, el número de resultados por página y el resultado de referencias activado o desactivado) se conserva entre sesiones de usuario.
+- El **Catálogo de datos de Azure** está ahora disponible en dos nuevas regiones de Azure. Los clientes pueden aprovisionar el **Catálogo de datos de Azure** en las regiones de Europa del Norte y Sudeste Asiático, además del este de EE. UU., el oeste de EE. UU., Europa Occidental y este de Australia. Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 ## Novedades de la versión correspondiente a la semana del 18 de diciembre de 2015
 
-Desde la semana del 18 de diciembre de 2015 se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+En la semana del 18 de diciembre de 2015 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con perfiles de datos para orígenes de datos de Almacenamiento de datos SQL de Azure. Al registrar las vistas y tablas de Almacenamiento de datos SQL de Azure, los usuarios pueden optar por incluir métricas de perfil de datos con los metadatos extraídos del origen de datos.
 - Compatibilidad para el registro y la detección de objetos de MySQL y bases de datos. Los usuarios pueden registrar orígenes de datos de MySQL mediante la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** y pueden anotar y detectar los orígenes de datos de MySQL registrados mediante el portal del **Catálogo de datos de Azure**.
 
 ## Novedades de la versión correspondiente a la semana del 4 de diciembre de 2015
 
-Desde la semana del 4 de diciembre de 2015 se agregaron las siguientes funcionalidades al Catálogo de datos de Azure:
+En la semana del 4 de diciembre de 2015 se agregaron las siguientes funcionalidades al **Catálogo de datos de Azure**:
 
 - Compatibilidad con SPNEGO y la autenticación de Windows para orígenes de datos de Teradata. Al registrar tablas y vistas de Teradata, los usuarios pueden optar por conectarse a Teradata mediante SPNEGO y Windows así como con LDAP y autenticación TD2.
 - Compatibilidad con orígenes de datos de Almacén de Azure Data Lake. Los usuarios ahora pueden registrar y detectar los orígenes de datos de Almacén de Azure Data Lake mediante el Catálogo de datos de Azure.
 - Compatibilidad para especificar manualmente la configuración de proxy de red en la herramienta de registro de orígenes de datos del Catálogo de datos de Azure. Los usuarios pueden seleccionar "Modifique la configuración del proxy" en la página de bienvenida de la herramienta y especificar el puerto y la dirección de proxy y el puerto que va a usar la herramienta.
-
-> [AZURE.NOTE] "Abrir en Power BI Desktop" requiere la instalación de una versión actual de Power BI Desktop. Si encuentra problemas o errores al usar esta característica, asegúrese de que tiene la versión más reciente de Power BI Desktop en [PowerBI.com](https://powerbi.com/).
 
 
 ## Novedades de la versión correspondiente a la semana del 20 de noviembre de 2015
@@ -174,4 +210,4 @@ A partir de la semana del 21 de agosto de 2015, se agregaron las siguientes func
 - Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

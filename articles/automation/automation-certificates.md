@@ -3,7 +3,7 @@
    description="Los certificados se pueden almacenar de manera segura en Automatización de Azure, de manera tal que los runbooks o configuraciones de DSC pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros. Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/27/2016"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Activos de certificados en Automatización de Azure
 
@@ -40,13 +40,13 @@ Las actividades de la tabla siguiente se usan para obtener acceso a los certific
 |:---|:---|
 |Get-AutomationCertificate|Obtiene un certificado para usarlo en un runbook o una configuración de DSC.|
 
->[AZURE.NOTE] Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, debido a que esto podría complicar la detección de las dependencias entre runbooks o configuraciones de DSC, y recursos de certificados en tiempo de diseño.
+>[AZURE.NOTE] Debe evitar el uso de variables en el parámetro –Name de GetAutomationCertificate, ya que esto podría complicar la detección de las dependencias entre runbooks o configuraciones de DSC, y activos de certificados en la etapa de diseño.
 
 ## Creación de un certificado nuevo
 
-Cuando crea un certificado nuevo, debe cargar un archivo cer o pfx a Automatización de Azure. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Automatización de Azure. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC.
+Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Automatización de Azure. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Automatización de Azure. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC.
 
-### Para crear un certificado nuevo con el portal de Azure
+### Para crear un certificado nuevo con el Portal de Azure clásico
 
 1. En la cuenta de Automatización, haga clic en **Recursos** en la parte superior de la ventana.
 1. En la parte inferior de la ventana, haga clic en **Agregar configuración**.
@@ -57,7 +57,7 @@ Cuando crea un certificado nuevo, debe cargar un archivo cer o pfx a Automatizac
 1. Haga clic en la marca de verificación para cargar el archivo de certificado y guarde el recurso de certificado nuevo.
 
 
-### Para crear un certificado nuevo con el Portal de vista previa de Azure
+### Para crear un certificado nuevo con el portal de Azure
 
 1. En la cuenta de Automatización, haga clic en la parte de **Recursos** para abrir la hoja **Recursos**.
 1. Haga clic en la parte de **Certificados** para abrir la hoja **Certificados**.
@@ -69,7 +69,7 @@ Cuando crea un certificado nuevo, debe cargar un archivo cer o pfx a Automatizac
 
 ### Para crear un certificado nuevo con Windows PowerShell
 
-Los siguientes comandos de ejemplo muestran cómo crear un certificado de automatización nuevo y lo marcan como exportable. Esta acción importa un archivo pfx exportable.
+Los siguientes comandos de ejemplo muestran cómo crear un certificado de automatización nuevo y lo marcan como exportable. Esta acción importa un archivo pfx ya existente.
 
 	$certName = 'MyCertificate'
 	$certPath = '.\MyCert.pfx'
@@ -92,13 +92,13 @@ El código de ejemplo siguiente muestra cómo agregar un certificado a un servic
 
 ### Ejemplo de runbook gráfico
 
-Para agregar un cmdlet **Get-AutomationCertificate** a un runbook gráfico, haga clic con el botón derecho en el certificado en el panel Biblioteca del editor gráfico y, a continuación, seleccione **Agregar a lienzo**.
+Para agregar **Get-AutomationCertificate** a un runbook gráfico, haga clic con el botón derecho en el certificado en el panel Biblioteca del editor gráfico y, a continuación, seleccione **Agregar a lienzo**.
 
 ![](media/automation-certificates/certificate-add-canvas.png)
 
 La imagen siguiente muestra un ejemplo de cómo usar un certificado en un runbook gráfico. Este es el mismo ejemplo anteriormente mostrado para agregar un certificado a un servicio en la nube desde un runbook textual.
 
-Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **actividad Send-TwilioSMS** que utiliza un objeto de conexión para autenticación con el servicio. Aquí se debe usar un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que un vínculo de secuencia devolvería una recopilación que contiene un objeto único que el parámetro Connection no espera.
+Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la actividad **Send-TwilioSMS** que utiliza un objeto de conexión para autenticación con el servicio. Aquí se tiene que usar un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que un vínculo de secuencia devolvería una recopilación que contiene un objeto único que el parámetro Connection no espera.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@ Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **ac
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

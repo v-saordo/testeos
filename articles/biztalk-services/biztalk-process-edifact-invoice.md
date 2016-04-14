@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="12/02/2015"
-   ms.author="Deonhe"/>
+   ms.date="02/29/2016"
+   ms.author="deonhe"/>
 
 # Tutorial: Procesamiento de facturas EDIFACT mediante los Servicios de BizTalk de Azure
 Puede usar el Portal de Servicios de BizTalk para configurar e implementar los contratos X12 y EDIFACT. En este tutorial, vemos cómo crear un contrato EDIFACT para intercambiar facturas entre socios comerciales. Este tutorial se centra en una solución empresarial integral que involucra a dos socios comerciales, Northwind y Contoso, que intercambian mensajes EDIFACT.
@@ -22,7 +22,7 @@ Puede usar el Portal de Servicios de BizTalk para configurar e implementar los c
 ## Ejemplo basado en este tutorial
 Este tutorial se ha escrito en torno a un ejemplo **Envío de facturas EDIFACT a través de los servicios de BizTalk**, que está disponible en la [Galería de código de MSDN](http://go.microsoft.com/fwlink/?LinkId=401005). Puede usar el ejemplo y seguir este tutorial para entender cómo se creó. O bien, puede usar este tutorial para crear su propia solución desde cero. Este tutorial está destinado al segundo enfoque, de modo que entienda cómo se compiló esta solución. Además, en la medida de lo posible, el tutorial es coherente con el ejemplo y usa los mismos nombres para los artefactos (por ejemplo, esquemas, transformaciones) que se usan en el ejemplo.
 
->[AZURE.NOTE]Dado que esta solución implica enviar un mensaje de un puente EAI a un puente EDI, se reutiliza el ejemplo de [BizTalk Services Bridge chaining sample](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
+>[AZURE.NOTE] Dado que esta solución implica enviar un mensaje de un puente EAI a un puente EDI, se reutiliza el ejemplo de [BizTalk Services Bridge chaining sample](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104).
 
 ## ¿Cómo funciona la solución?
 
@@ -40,13 +40,13 @@ Para lograr este escenario empresarial, Contoso usa las funciones que se incluye
 
 *   Después de recibir la factura, Northwind devuelve un mensaje CONTRL al puente de recepción EDI implementado como parte del contrato.
 
-> [AZURE.NOTE]Como alternativa, esta solución también demuestra cómo usar lotes para enviar facturas en lotes, en lugar de enviar cada factura por separado.
+> [AZURE.NOTE] Como alternativa, esta solución también demuestra cómo usar lotes para enviar facturas en lotes, en lugar de enviar cada factura por separado.
 
 Para completar el escenario, usamos colas de Bus de servicio para enviar la factura de Contoso a Northwind o para recibir la confirmación de Northwind. Estas colas se pueden crear con una aplicación cliente, que está disponible para descarga y se incluye en el paquete de ejemplo disponible como parte de este tutorial.
 
 ## Requisitos previos
 
-*   Debe tener un espacio de nombres de Bus de servicio. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx). Supongamos que ya tiene un espacio de nombres del Bus de servicio aprovisionado, llamado **edifactbts**.
+*   Debe tener un espacio de nombres de Bus de servicio. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres del Bus de servicio aprovisionado, llamado **edifactbts**.
 
 *   Debe tener una suscripción a Servicios de BizTalk. Para instrucciones, consulte [Creación de Servicios de BizTalk mediante el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=302280). En este tutorial, supongamos que tiene una suscripción a Servicios de BizTalk, llamada **contosowabs**.
 
@@ -113,7 +113,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
     3.  En la pestaña **Protocolo**, en la sección **Esquemas**, cargue el esquema **EFACT\_D93A\_INVOIC.xsd**. Este esquema está disponible con el paquete de ejemplo.
 
         ![][4]  
-    4.  En la pestaña **Transformación**, especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en [Paso 1: Creación de las colas de Bus de servicio](#BKMK_Queue).
+    4.  En la pestaña **Transformación**, especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Bus de servicio** (en este tema).
 
         ![][5]
 
@@ -129,7 +129,8 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
 
     4.  En la pestaña **Ruta**, cree un filtro para asegurarse de que solo las confirmaciones de Northwind se enruten a Contoso. En **Configuración de ruta**, haga clic en **Agregar** para crear el filtro de enrutamiento.
 
-        ![][6] 1. Proporcione valores para **Nombre de regla**, **Regla de ruta** y **Destino de ruta**, como se muestra en la imagen.
+        ![][6]
+        1.  Proporcione valores para **Nombre de regla**, **Regla de ruta** y **Destino de ruta**, como se muestra en la imagen.
 
         2.  Haga clic en **Guardar**.
 
@@ -173,7 +174,7 @@ El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma
 
 7.  En el Explorador de soluciones, expanda **MessageFlowItinerary.bcs** y haga doble clic en el archivo **EDIBridge.config**. Reemplace el contenido de **EDIBridge.config** por lo siguiente.
 
-    > [AZURE.NOTE]¿Por qué es necesario editar el archivo .config? El punto de conexión de servicio externo que agregamos al lienzo del diseñador de puentes representa los puentes EDI que implementamos antes. Los puentes EDI son puentes bidireccionales, con un lado de envío y otro de recepción. Sin embargo, el puente EAI que agregamos al diseñador de puentes es unidireccional. Por lo tanto, para controlar los distintos patrones de intercambio de mensajes de los dos puentes, usamos un comportamiento de puente personalizado e incluimos su configuración en el archivo .config. Además, el comportamiento personalizado también controla la autenticación en el punto de conexión del puente de envío EDI. Este comportamiento personalizado está disponible como un ejemplo independiente en [BizTalk Services Bridge chaining sample - EAI to EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Esta solución reutiliza el ejemplo.
+    > [AZURE.NOTE] ¿Por qué es necesario editar el archivo .config? El punto de conexión de servicio externo que agregamos al lienzo del diseñador de puentes representa los puentes EDI que implementamos antes. Los puentes EDI son puentes bidireccionales, con un lado de envío y otro de recepción. Sin embargo, el puente EAI que agregamos al diseñador de puentes es unidireccional. Por lo tanto, para controlar los distintos patrones de intercambio de mensajes de los dos puentes, usamos un comportamiento de puente personalizado e incluimos su configuración en el archivo .config. Además, el comportamiento personalizado también controla la autenticación en el punto de conexión del puente de envío EDI. Este comportamiento personalizado está disponible como un ejemplo independiente en [BizTalk Services Bridge chaining sample - EAI to EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Esta solución reutiliza el ejemplo.
     
     ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -312,4 +313,4 @@ El factor más importante al trabajar con lotes es la emisión real del lote, ta
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0302_2016-->

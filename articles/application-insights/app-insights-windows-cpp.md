@@ -56,7 +56,7 @@ La clave identifica al recurso y se instalará pronto en el SDK para dirigir los
 
 #### Para actualizar el SDK para versiones futuras
 
-Cuando se lanza un nuevo [SDK](app-insights-release-notes-windows-cpp.md):
+Cuando se lanza un nuevo [SDK](https://github.com/Microsoft/ApplicationInsights-CPP/releases):
 
 * En el Administrador de paquetes de NuGet, seleccione el SDK instalado y elija la acción de actualización.
 * Repita los pasos de instalación, usando el nuevo número de versión.
@@ -140,4 +140,4 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Creación de API, operaciones y productos en Administración de API de Azure
@@ -62,4 +62,4 @@ En Administración de API, un producto contiene una o varias API, así como una 
 [Importación de la definición de una API con operaciones]: api-management-howto-import-api.md
 [Creación y definición de configuraciones de productos avanzadas]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0204_2016-->

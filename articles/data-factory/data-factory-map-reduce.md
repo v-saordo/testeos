@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
@@ -103,7 +103,7 @@ La canalización de este ejemplo ejecuta el programa de asignación/reducción d
 ### Servicios vinculados
 En primer lugar, cree un servicio vinculado para vincular el almacenamiento de Azure usado por el clúster de HDInsight de Azure con la Factoría de datos de Azure. Si copia/pega el código siguiente, no olvide reemplazar el **nombre** y la **clave de la cuenta** por el nombre y la clave de su Almacenamiento de Azure.
 
-#### Servicio vinculado de almacenamiento
+#### Servicio vinculado de Almacenamiento de Azure
 
 	{
 	    "name": "StorageLinkedService",
@@ -220,4 +220,4 @@ linkedServiceName | hace referencia al servicio vinculado a HDInsight creado ant
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

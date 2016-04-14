@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/21/2016"
+	ms.date="02/10/2016"
 	ms.author="kgremban"/>
 
 # Control de acceso basado en roles de Azure
@@ -198,4 +198,4 @@ La propiedad **AssignableScopes** del rol personalizado prescribe quién puede v
 
 **¿Quién puede ver los roles personalizados que están disponibles para su asignación en un ámbito?** Los usuarios que pueden realizar la operación `Microsoft.Authorization/roleDefinition/read` en un ámbito, pueden ver los roles RBAC que están disponibles para su asignación en ese ámbito. Todos los roles integrados de RBAC de Azure permiten ver los roles que están disponibles para la asignación.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

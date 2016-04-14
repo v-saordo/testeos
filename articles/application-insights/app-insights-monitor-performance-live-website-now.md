@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/25/2015"
+	ms.date="03/01/2016"
 	ms.author="awills"/>
 
 
@@ -147,16 +147,14 @@ Deberá abrir algunos puertos de salida en el firewall del servidor para permiti
 
 + Telemetría; estos puertos son necesarios todo el tiempo:
  +	`dc.services.visualstudio.com:80`
- +	`f5.services.visualstudio.com:80`
  +	`dc.services.visualstudio.com:443`
- +	`f5.services.visualstudio.com:443`
- +	`dc.services.vsallin.net:443`
+ +	`dc.applicationinsights.microsoft.com`
 + Configuración; solo son necesarios cuando se realizan cambios:
  -	`management.core.windows.net:443`
  -	`management.azure.com:443`
  -	`login.windows.net:443`
  -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`secure.addcdn.microsoftonline-p.com:443`
  -	`auth.gfx.ms:443`
  -	`login.live.com:443`
 + Instalación:
@@ -196,6 +194,7 @@ En Windows 7, 8 y 8.1 del lado cliente, de nuevo con .NET Framework 4.0 y 4.5
 
 La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 
+
 ## <a name="next"></a>Pasos siguientes
 
 * [Cree pruebas web][availability] para asegurarse de que el sitio permanece activo.
@@ -220,4 +219,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!----HONumber=AcomDC_0302_2016-->

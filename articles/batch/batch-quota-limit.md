@@ -16,8 +16,6 @@
 	ms.date="01/26/2016"
 	ms.author="danlep"/>
 
-
-
 # Cuotas y límites del servicio de Lote de Azure
 
 En este artículo se describen los límites máximos y predeterminados de determinados recursos que puede usar con el servicio Lote de Azure. La mayoría de estos límites son cuotas que aplica Azure a sus suscripción o sus cuentas de Lote.
@@ -95,4 +93,4 @@ El servicio de soporte técnico de Azure se pondrá en contacto con usted. Compl
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

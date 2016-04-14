@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="02/05/2016"
 	ms.author="antonba"/>
 
 # Configuración de conexiones VPN en Administración de API de Azure
 
-La compatibilidad con VPN de Administración de API le permite conectar la puerta de enlace de Administración de API a una red virtual de Azure. Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
+La compatibilidad con VPN de Administración de API le permite conectar la puerta de enlace de Administración de API a una red virtual de Azure (clásica). Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
+
+>[AZURE.NOTE] Administración de API de Azure funciona con redes virtuales clásicas. Para información sobre la creación de una red virtual clásica, consulte [Creación de una red virtual (clásica) usando el Portal de Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Para obtener información sobre cómo conectar redes virtuales clásicas a redes virtuales ARM, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
 
@@ -67,4 +69,4 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0211_2016-->

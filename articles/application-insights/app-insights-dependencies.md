@@ -12,13 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="02/09/2016" 
 	ms.author="awills"/>
  
 # Diagnóstico de problemas con dependencias en Application Insights
 
 
-Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. En Application Insights para Visual Studio, puede ver fácilmente cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia.
+Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. O bien, en la secuencia de comandos de la página web, puede ser una llamada AJAX al servidor. En Application Insights para Visual Studio, puede ver fácilmente cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia.
 
 ## Dónde puede usarla
 
@@ -26,6 +26,7 @@ La supervisión de dependencia lista para su uso sin configuraciones adicionales
 
 * Servicios y aplicaciones web ASP.NET que se ejecutan en un servidor IIS o en Azure.
 * [Aplicaciones web de Java](app-insights-java-agent.md)
+* [Páginas web](https://azure.microsoft.com/blog/ajax-collection-in-application-insights/)
 
 Para otros tipos, como aplicaciones de dispositivo, puede escribir su propio monitor mediante la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
@@ -39,7 +40,7 @@ El monitor de dependencia listo para su uso sin configuraciones adicionales actu
 * Java
  * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
 * Páginas web
- * Llamadas AJAX
+ * [Llamadas AJAX](app-insights-javascript.md)
 
 De nuevo, puede escribir sus propias llamadas de SDK para supervisar otras dependencias.
 
@@ -52,10 +53,11 @@ Plataforma | Instalación
 Servidor IIS | [Monitor de estado](app-insights-monitor-performance-live-website-now.md)
 Aplicación web de Azure | [Extensión de Application Insights](../azure-portal/insights-perf-analytics.md)
 Servidor web de Java | [Aplicaciones web de Java](app-insights-java-agent.md)
+Páginas web | [Monitor de JavaScript](app-insights-javascript.md) (ninguna configuración adicional más allá de la supervisión de páginas web)
 
 El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
 
-## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia
+## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia en el servidor web
 
 Para evaluar el rendimiento de las solicitudes en el servidor:
 
@@ -74,7 +76,7 @@ Haga clic en esa fila para ver los eventos de solicitud individuales:
 
 Haga clic en cualquier instancia de ejecución prolongada para inspeccionarla con mayor profundidad.
 
-> [AZURE.NOTE]Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
+> [AZURE.NOTE] Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
 
 Desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
 
@@ -129,6 +131,12 @@ Por ejemplo, si compila el código con un ensamblado que no escribió usted mism
 
 Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la referencia a DependencyTrackingTelemetryModule en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-<!--Link references-->
 
-<!---HONumber=AcomDC_0121_2016-->
+## AJAX
+
+Ver [páginas web](app-insights-javascript.md).
+
+
+ 
+
+<!---HONumber=AcomDC_0211_2016-->

@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="01/19/2016"
+   ms.date="02/22/2016"
    ms.author="stepsic"/>
 
 #Aplicación de API de JavaScript
+
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas.
+
 La aplicación de API de JavaScript proporciona una manera sencilla de ejecutar expresiones sencillas de JavaScript *mientras se ejecuta la aplicación lógica*.
 
 ##¿Cuándo debe usar esta aplicación de API?
@@ -35,7 +38,7 @@ Para usar la aplicación de API de JavaScript, deberá crear primero una instanc
 ###Desencadenador
 Puede crear un desencadenador que el servicio de Aplicaciones lógicas sondee (en el intervalo que defina) y, si devuelve cualquier otro contenido, la aplicación lógica se ejecuta. De lo contrario, espera hasta el siguiente intervalo de sondeo para volver a comprobarlo.
 
-Las entradas para el desencadenador son: - **Expresión de JavaScript**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica; puede devolver algo diferente cuando sí desee que se ejecute. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica. - **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
+Las entradas para el desencadenador son: - **Expresión de JavaScript**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica, y puede devolver algo diferente cuando sí desee que se ejecute. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica. - **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
 Por ejemplo, podría disponer de un desencadenador simple que solo ejecute la aplicación lógica entre los 15 y los 30 minutos de cada hora:
 
@@ -91,4 +94,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Integración de Azure Active Directory con Zscaler | Microsoft Azure" 
     description="Aprenda cómo usar Zscaler con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="02/29/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Integración de Azure Active Directory con Zscaler
   
@@ -37,7 +37,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 ###Siga estos pasos para habilitar la integración de aplicaciones para Zscaler:
 
-1.  En el panel de navegación izquierdo del Portal de administración de Azure, haga clic en **Active Directory**.
+1.  En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-zscaler-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
-1.  En el portal de Azure AD, en la página de integración de aplicaciones de **Zscaler**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
+1.  En el Portal de Azure clásico, en la página de integración de la aplicación **Zscaler**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Habilitar el inicio de sesión único](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Habilitar el inicio de sesión único")
 
@@ -79,7 +79,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 3.  En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto de **dirección URL de inicio de sesión de Zscaler**, escriba su dirección URL de inicio de sesión que obtuvo de Zscaler y luego haga clic en **Siguiente**:
 
-    >[AZURE.NOTE]Póngase en contacto con el equipo de soporte técnico de Zscaler si no sabe qué dirección URL de inicio de sesión es.
+    >[AZURE.NOTE] Póngase en contacto con el equipo de soporte técnico de Zscaler si no sabe qué dirección URL de inicio de sesión es.
 
     ![Configurar dirección URL de la aplicación](./media/active-directory-saas-zscaler-tutorial/IC769231.png "Configurar dirección URL de la aplicación")
 
@@ -111,9 +111,9 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     ![Carga del certificado](./media/active-directory-saas-zscaler-tutorial/IC769489.png "Carga del certificado")
 
-    1.  En el cuadro de texto **Dirección URL del portal de SAML al que se envía a los usuarios para autenticación**, pegue el valor del campo **Dirección URL de la solicitud de autenticación** desde el portal de Azure.
+    1.  En el cuadro de texto **Dirección URL del portal de SAML al que se envían los usuarios para autenticación**, pegue el valor del campo **Dirección URL de la solicitud de autenticación** desde el Portal de Azure clásico.
     2.  En el cuadro de texto **Atributo que contiene el nombre de inicio de sesión**, escriba **NameID**.
-    3.  En el campo **Cargar certificado público de SSL**, cargue el certificado que ha descargado desde el portal de Azure.
+    3.  En el campo **Cargar certificado público de SSL**, cargue el certificado que ha descargado desde el Portal de Azure clásico.
     4.  Seleccione **Habilitar aprovisionamiento automático de SAML**.
 
 10. En la página del cuadro de diálogo **Configurar autenticación de usuario**, realice los pasos siguientes:
@@ -123,7 +123,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     1.  Haga clic en **Guardar**.
     2.  Haga clic en **Activar ahora**.
 
-11. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+11. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zscaler-tutorial/IC769491.png "Configurar inicio de sesión único")
 
@@ -182,7 +182,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zscaler, deben apr
     1.  Escriba el **Id. de usuario**, el **Nombre para mostrar del usuario**, la **Contraseña**, **Confirmar contraseña** y luego seleccione **Grupos** y el **Departamento** de una cuenta de AAD válida que quiera aprovisionar.
     2.  Haga clic en **Guardar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zscaler ofrecida por Zscaler para aprovisionar cuentas de usuario de AAD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Zscaler ofrecida por Zscaler para aprovisionar cuentas de usuario de AAD.
 
 ##Asignación de usuarios
   
@@ -190,7 +190,7 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 ###Para asignar usuarios a Zscaler, lleve a cabo los siguientes pasos:
 
-1.  En el portal de Azure AD, cree una cuenta de prueba.
+1.  En el Portal de Azure clásico, cree una cuenta de prueba.
 
 2.  En la página de integración de la aplicación **Zscaler**, haga clic en **Asignar usuarios**.
 
@@ -202,4 +202,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

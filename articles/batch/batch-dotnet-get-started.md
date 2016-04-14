@@ -28,9 +28,9 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 
 ### Cuentas
 
-- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, puede crear una cuenta de evaluación gratuita en cuestión de minutos en [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Cuenta de Azure**: si aún no dispone de una suscripción a Azure, puede [crear una cuenta de Azure gratuita][azure_free_account].
 - **Cuenta de Lote**: una vez que tenga una suscripción a Azure, [cree y administre de una cuenta de Lote de Azure](batch-account-create-portal.md).
-- **Cuenta de Almacenamiento**: consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
+- **Cuenta de Almacenamiento**: consulte la sección "Crear una cuenta de almacenamiento" en [Acerca de las cuentas de almacenamiento de Azure](./../storage/storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -82,7 +82,7 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-Las credenciales de las cuenta de Lote y de Almacenamiento se pueden encontrar en la hoja de cuentas de cada servicio en el [Portal de Azure][azure_portal]:
+Las credenciales de las cuenta de Lote y de Almacenamiento se pueden encontrar en la hoja de cuentas de cada servicio en el [Portal de Azure][azure_portal]\:
 
 ![Credenciales de Lote en el portal][9] ![Credenciales de Almacenamiento en el portal][10]<br/>
 
@@ -230,7 +230,7 @@ La aplicación de ejemplo DotNetTutorial no usa los tipos de tarea JobPreparatio
 
 Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte de una dirección URL, proporcionan acceso seguro a los contenedores y blobs de Almacenamiento de Azure. La aplicación DotNetTutorial utiliza direcciones URL de firma de acceso compartido de blobs y contenedores, y muestra cómo obtener estas cadenas de firma de acceso compartido en el servicio Almacenamiento.
 
-- **Firmas de acceso compartido de blobs**: la clase StartTask del grupo en DotNetTutorial usa firmas de acceso compartido de blobs al descargar los archivos binarios de la aplicación y los archivos de datos de entrada de Almacenamiento (consulte el paso 3 a continuación). El método `UploadFileToContainerAsync` de `Program.cs` de DotNetTutorial contiene el código que obtiene la firma de acceso compartido de cada blob. Para ello, llama a [CloudblobData.GetSharedAccessSignature][net_sas_blob].
+- **Firmas de acceso compartido de blobs**: la clase StartTask del grupo en DotNetTutorial usa firmas de acceso compartido de blobs al descargar los archivos binarios de la aplicación y los archivos de datos de entrada de Almacenamiento (consulte el paso 3 a continuación). El método `UploadFileToContainerAsync` de `Program.cs` de DotNetTutorial contiene el código que obtiene la firma de acceso compartido de cada blob. Para ello, se llama a [CloudBlob.GetSharedAccessSignature][net_sas_blob].
 
 - **Firmas de acceso compartido de contenedores**: cuando cada tarea finaliza su trabajo en el nodo de proceso, carga su archivo de salida en el contenedor *output* de Almacenamiento de Azure. Para ello, TaskApplication usa una firma de acceso compartido de contenedor que proporciona acceso de escritura al contenedor como parte de la ruta de acceso al cargar el archivo. La obtención de la firma de acceso compartido del contenedor se realiza de manera similar que cuando se obtiene la firma de acceso compartido de un blob. En DotNetTutorial, encontrará que el método auxiliar `GetContainerSasUrl` llama a [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] para hacerlo. En "Paso 6: Supervisar tareas", obtendrá más información acerca de la forma en que TaskApplication usa la firma de acceso compartido de un contenedor.
 
@@ -240,7 +240,7 @@ Las firmas de acceso compartido son cadenas que, cuando se incluyen como parte d
 
 ![Crear un grupo de Lote][3] <br/>
 
-Después de cargar los archivos de datos y de aplicación en la cuenta de Almacenamiento, *DotNetTutorial* inicia su interacción con el servicio Lote mediante la biblioteca .NET de Lote. Para ello, primero se crea una clase [BatchClient][net_batchclient]:
+Después de cargar los archivos de datos y de aplicación en la cuenta de Almacenamiento, *DotNetTutorial* inicia su interacción con el servicio Lote mediante la biblioteca .NET de Lote. Para ello, primero se crea una clase [BatchClient][net_batchclient]\:
 
 ```
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -341,7 +341,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"", inputFile.FilePath, outputContainerSasUrl);
+        string taskCommandLine = String.Format("cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 "{1}"", inputFile.FilePath, outputContainerSasUrl);
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
@@ -412,7 +412,7 @@ En el método `MonitorTasks` de `Program.cs` de DotNetTutorial, hay tres concept
 
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor] proporciona aplicaciones de .NET de Lote con utilidades auxiliares para la supervisión de los estados de la tarea. En `MonitorTasks`, *DotNetTutorial* espera hasta que todas las tareas alcanzan el estado [TaskState.Completed][net_taskstate] dentro de un límite de tiempo. Luego finaliza el trabajo.
 
-3. **TerminateJobAsync**: la finalización de un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o con JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial para hacerlo la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo especial de tarea, que se describe en [Tareas de preparación y la finalización de trabajos](batch-job-prep-release).
+3. **TerminateJobAsync**: la finalización de un trabajo con [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (o con JobOperations.TerminateJob de bloqueo) marcará el trabajo como completado. Esta operación es esencial para hacerlo la solución de Lote usa [JobReleaseTask][net_jobreltask]. Se trata de un tipo especial de tarea, que se describe en [Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure](batch-job-prep-release.md).
 
 A continuación se muestra el método `MonitorTasks` de `Program.cs` de *DotNetTutorial*:
 
@@ -626,6 +626,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 - Consulte una implementación diferente del procesamiento de la carga de trabajo de "las N palabras más usadas" con Lote en el ejemplo [TopNWords][github_topnwords].
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
@@ -680,4 +681,4 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Credenciales de Almacenamiento en el Portal"
 [11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Flujo de trabajo de solución de Lote (diagrama mínimo)"
 
-<!---HONumber=AcomDC_0204_2016-->
+<!---HONumber=AcomDC_0224_2016-->

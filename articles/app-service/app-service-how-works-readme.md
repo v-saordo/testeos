@@ -13,8 +13,8 @@
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2016" 
 	ms.author="yochay"/>
 
 # Cómo funciona Servicio de aplicaciones
@@ -39,4 +39,4 @@ Juntas, las funcionalidades de Servicio de aplicaciones permiten a los desarroll
 
 [AZURE.INCLUDE [app-service-blueprint-how-app-service-works](../../includes/app-service-blueprint-how-app-service-works.md)]
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

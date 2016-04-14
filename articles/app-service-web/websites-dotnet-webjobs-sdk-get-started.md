@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="12/14/2015"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="tdykstra"/>
 
 # Creación de un WebJob .NET en el Servicio de aplicaciones de Azure
@@ -73,12 +73,13 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
-2. Haga clic con el botón derecho en el nodo **Azure** y, después, haga clic en **Conectar con Microsoft Azure**.
+2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**. 
 ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
 
-5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, a continuación, haga clic en **Crear cuenta de almacenamiento**. ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Haga clic con el botón derecho en **Almacenamiento** en el nodo de Azure y, después, haga clic en **Crear cuenta de almacenamiento**.
+![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
 
@@ -145,17 +146,17 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 6. Abra el archivo *App.config* del proyecto ContosoAdsWebJob.
 
-	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Puede utilizar cuentas de almacenamiento independientes para los datos de aplicación y el registro, y usar [varias cuentas de almacenamiento para datos](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Para este tutorial, usará solamente una única cuenta de almacenamiento. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento. 
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Puede utilizar cuentas de almacenamiento independientes para los datos de aplicación y el registro, y usar [varias cuentas de almacenamiento para datos](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). Para este tutorial, usará solamente una única cuenta de almacenamiento. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento.
+  	<pre class="prettyprint">&lt;configuration>
+	&lt;connectionStrings>
+	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
+	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+	&lt;/connectionStrings>
+	    &lt;startup>
+	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	&lt;/startup>
+	&lt;/configuration></pre>
 
 	De forma predeterminada, el SDK de WebJobs busca cadenas de conexión llamadas AzureWebJobsStorage y AzureWebJobsDashboard. Como opción alternativa, puede [almacenar la cadena de conexión que desee y pasarla de forma explícita al objeto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -230,7 +231,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 	La dirección URL completa consistirá en lo que escriba más .azurewebsites.net (como se muestra junto al cuadro de texto **Nombre de la aplicación web**). Por ejemplo, si el nombre de la aplicación web es ContosoAds, la URL será ContosoAds.azurewebsites.net.
 
-7. En la lista desplegable [Plan de Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), elija **Crear nuevo plan de servicio de aplicaciones**. Escriba un nombre para el plan de Servicio de aplicaciones, como ContosoAdsPlan.
+7. En la lista desplegable [Plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), elija **Crear nuevo plan del Servicio de aplicaciones**. Escriba un nombre para el plan de Servicio de aplicaciones, como ContosoAdsPlan.
 
 8. En la lista desplegable [Grupo de recursos](../resource-group-overview.md), elija **Crear nuevo grupo de recursos**.
 
@@ -282,7 +283,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 	Puede omitir la advertencia acerca de que no se van a publicar bases de datos. Entity Framework Code First crea la base de datos, no es necesario publicarla.
 
-	En la ventana de vista previa se muestran los archivos binarios y de configuración del proyecto de WebJob que se copiarán en la carpeta *app\_data\\jobs\\continuous* de la aplicación web.
+	En la ventana de vista previa se muestran los archivos binarios y de configuración del proyecto WebJob que se copiarán en la carpeta *app\_data\\jobs\\continuous* de la aplicación web.
 
 	![Archivos de WebJobs en la ventana de vista previa](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -316,7 +317,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 10. En el **Explorador de servidores**, haga clic con el botón derecho en la aplicación web y, a continuación, haga clic en **Detener**.
 
-12. Una vez detenida la aplicación web, haga clic con el botón derecho nuevamente en la aplicación web y, a continuación, haga clic en **Iniciar**.
+12. Una vez detenida la aplicación web, haga clic con el botón derecho nuevamente en la aplicación web y, a continuación, haga clic en **Iniciar aplicación web**.
 
 	El WebJob se inicia automáticamente al publicar, pero se detiene cuando se realiza un cambio en la configuración. Para reiniciarlo, puede reiniciar la aplicación web o el WebJob en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Generalmente, se recomienda reiniciar la aplicación web después de cambiar la configuración.
 
@@ -352,7 +353,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 	El botón de **función de reproducción** de esta página sirve para que el marco de trabajo del SDK de WebJobs llame de nuevo a la función y le permite cambiar los datos que se pasan primero a la función.
 
->[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal clásico, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE] Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal clásico, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ## <a id="create"></a>Creación de la aplicación desde cero
 
@@ -484,7 +485,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
-> [AZURE.NOTE]Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
+> [AZURE.NOTE] Para obtener el código específico del SDK de WebJobs, consulte las secciones [Program.cs y Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -798,11 +799,11 @@ WebJobs se ejecutan en el contexto de una aplicación web y no se pueden escalar
 
 Si el tráfico varía en función de la hora o el día de la semana, y si el procesamiento de back-end que deba realizar puede esperar, es posible programar los WebJobs para que se ejecuten en horas de menos tráfico. Si la carga sigue siendo demasiado alta para esa solución, puede ejecutar el back-end como un WebJob en una aplicación web independiente dedicada para ese propósito. A continuación, puede escalar la aplicación web back-end con independencia de la aplicación web front-end.
 
-Para obtener más información, consulte [Escalado de Webjobs](websites-webjobs-resources.md#scale).
+Para obtener más información, consulte [Escalado de WebJobs](websites-webjobs-resources.md#scale).
 
 ### Evitar tiempos de inactividad por tiempo de espera agotado en aplicaciones web
 
-Para asegurarse de que sus WebJobs siempre estén siempre en ejecución en todas las instancias de la aplicación web, debe habilitar la característica [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
+Para asegurarse de que sus WebJobs siempre están en ejecución en todas las instancias de la aplicación web, debe habilitar la característica [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx).
 
 ### Uso del SDK de WebJobs fuera de WebJobs
 
@@ -816,4 +817,5 @@ Para obtener más información, consulte [Obtención de un panel para desarrollo
 
 Para obtener más información, consulte [Recursos de documentación de WebJobs de Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0302_2016-->
+

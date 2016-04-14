@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="giridharreddy"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="System Center Data Protection Manager, Data Protection Manager, copia de seguridad de DPM"/>
 
 <tags
 	ms.service="backup"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/12/2016"
 	ms.author="giridham;jimpark"/>
 
 # Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
@@ -70,7 +71,7 @@ Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos 
 - DPM puede realizar una copia de seguridad de la mayoría de las cargas de trabajo en Copia de seguridad de Azure. Para obtener una lista completa de compatibilidad, vea a continuación los elementos admitidos en Copia de seguridad de Azure.
 - Los datos almacenados en Copia de seguridad de Azure no se pueden recuperar con la opción "copiar en cinta".
 - Necesitará una cuenta de Azure con la característica Copia de seguridad de Azure habilitada. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Lea acerca de los [Precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
-- El uso de Copia de seguridad de Azure requiere la instalación de Azure Backup Agent en los servidores de los que desee realizar una copia de seguridad. Cada servidor debe tener al menos 2,5 GB de espacio de almacenamiento local disponible para la ubicación en caché, si bien lo recomendable son 15 GB.
+- El uso de Copia de seguridad de Azure requiere la instalación de Azure Backup Agent en los servidores de los que desee realizar una copia de seguridad. Cada servidor debe tener disponible como espacio de almacenamiento local al menos un 10 % del tamaño de los datos de los que se va a realizar la copia de seguridad. Por ejemplo, realizar una copia de seguridad de 100 GB de datos requiere un mínimo de 10 GB de espacio libre en la ubicación temporal. Aunque el mínimo sea el 10 %, se recomienda dejar libre un 15 % de espacio de almacenamiento local, que se utilizará para la ubicación de caché.
 - Los datos se almacenarán en el almacenamiento de almacén de Azure. No hay ningún límite en la cantidad de datos de los que puede realizar una copia de seguridad en el almacén de Copia de seguridad de Azure; sin embargo, el tamaño de un origen de datos (por ejemplo, una máquina virtual o una base de datos) no debe superar los 54.400 GB.
 
 Los siguientes tipos de archivo se admiten para la copia de seguridad en Azure:
@@ -92,4 +93,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE] A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0218_2016-->

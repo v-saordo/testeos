@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/12/2016"
 	ms.author="yuridio"/>
 
 #Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
@@ -26,7 +26,8 @@ El primer paso para proteger los datos es identificar quién puede tener acceso 
 
 Al planear la solución de identidad híbrida, debe comprender los requisitos de protección de datos de su negocio y las opciones de las que dispone que mejor pueden satisfacer esos requisitos.
  
->[AZURE.NOTE]Después de terminar de planear la seguridad de los datos, revise [Determinación de los requisitos de autenticación multifactor](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) para asegurarse de que las selecciones respecto a los requisitos de la autenticación multifactor no resultaron afectadas por las decisiones tomadas en esta sección.
+>[AZURE.NOTE]
+Después de terminar de planear la seguridad de los datos, revise [Determinación de los requisitos de autenticación multifactor](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) para asegurarse de que las selecciones respecto a los requisitos de la autenticación multifactor no resultaron afectadas por las decisiones tomadas en esta sección.
 
 ## Determinación de los requisitos de protección de datos
 En la era de la movilidad, el objetivo de la mayoría de las empresas es permitir a los usuarios ser productivos con sus dispositivos móviles, tanto de forma local como remota y, desde cualquier parte, con el fin de aumentar la productividad. Si bien este podría ser un objetivo común, las empresas que tienen tales requisitos también se sienten preocupadas respecto a la cantidad de amenazas que se deben mitigar a fin de proteger los datos de la empresa y mantener la privacidad de los usuarios. En este sentido, cada empresa puede tener requisitos diferentes; diferentes reglas de cumplimiento que variarán según la industria para la que trabaje la empresa y que conducirán a diferentes decisiones de diseño.
@@ -46,7 +47,7 @@ En el diagrama anterior, el componente de identidad será el primero en comproba
 3. Protección de datos en reposo en el entorno local.
 4. Protección de datos mientras están en reposo en la nube.
 
-Aunque la solución de identidad híbrida no ofrece directamente los controles técnicos que permiten al departamento de TI proteger los datos en cada una de esas fases, es necesario que la solución híbrida sea capaz de aprovechar los recursos de administración de identidades locales y en la nube con el fin de identificar al usuario antes de que se le conceda acceso a los datos. Al planear la solución de identidad híbrida, asegúrese de que puede responder a las siguientes preguntas según los requisitos de su organización:
+Aunque la solución de identidad híbrida no ofrece directamente los controles técnicos que permiten al departamento de TI proteger los datos en cada una de esas fases, es necesario que la solución de identidad híbrida sea capaz de aprovechar los recursos de administración de identidades locales y en la nube con el fin de identificar al usuario antes de que se le conceda acceso a los datos. Al planear la solución de identidad híbrida, asegúrese de que puede responder a las siguientes preguntas según los requisitos de su organización:
 
 ## Protección de datos en reposo
 Con independencia de dónde se encuentren los datos en reposo (dispositivo, nube o local), es importante realizar una evaluación para comprender las necesidades de la organización al respecto. En este área, asegúrese de plantearse las siguientes cuestiones:
@@ -70,13 +71,14 @@ Las normas, las leyes y los requisitos de cumplimiento normativo variarán segú
 - ¿Cumple la solución de identidad híbrida los requisitos normativos de su empresa?
 - ¿Integra la solución de identidad híbrida funcionalidades que permiten a su empresa satisfacer los requisitos de cumplimiento normativo? 
  
->[AZURE.NOTE]Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
+>[AZURE.NOTE]
+Asegúrese de anotar cada respuesta y de que comprende las razones que se esconden detrás. En la sección [Definición de la estrategia de protección de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) se recorren las opciones disponibles y las ventajas y desventajas de cada una. Las respuestas que obtenga partir de estas preguntas le servirán para seleccionar la opción que mejor se adapte a sus necesidades empresariales.
 
 ## Pasos siguientes
  [Determinación de los requisitos de administración de contenido](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 
 ## Otras referencias
-[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0218_2016-->

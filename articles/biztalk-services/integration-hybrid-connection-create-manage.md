@@ -4,8 +4,8 @@
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
-	manager="dwrede" 
-	editor="cgronlun"/>
+	manager="erikre" 
+	editor=""/>
 
 <tags 
 	ms.service="biztalk-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="02/29/2016" 
 	ms.author="mandia"/>
 
 
@@ -33,7 +33,7 @@ En este tema se muestran estos pasos.
 
 Una conexión híbrida se puede crear en el Portal de Azure mediante Aplicaciones web **o** servicios de BizTalk.
 
-**Para crear conexiones híbridas mediante Aplicaciones web**, consulte [Conexión de Aplicaciones web de Azure a un recurso local](../web-sites-hybrid-connection-get-started.md).
+**Para crear conexiones híbridas mediante Aplicaciones web**, consulte [Conexión de Aplicaciones web de Azure a un recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 **Para crear conexiones híbridas en servicios de BizTalk**:
 
@@ -48,7 +48,7 @@ Una conexión híbrida se puede crear en el Portal de Azure mediante Aplicacione
 	Propiedad | Descripción
 --- | ---
 Nombre | El nombre de la conexión híbrida debe ser único y no puede ser el mismo que el servicio de BizTalk. Puede escribir cualquier nombre pero sea concreto con su finalidad. Algunos ejemplos son:<br/><br/>Payroll*SQLServer*<br/>SupplyList*SharepointServer*<br/>Customers*OracleServer*
-Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Los ejemplos incluyen:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
+Nombre de host | Escriba el nombre de host completo, solo el nombre de host o la dirección IPv4 del recurso local. Entre los ejemplos se incluyen:<br/><br/>mySQLServer<br/>*mySQLServer*.*Domain*.corp.*yourCompany*.com<br/>*myHTTPSharePointServer*<br/>*myHTTPSharePointServer*.*yourCompany*.com<br/>10.100.10.10
 Port | Escriba el número de puerto del recurso local. Por ejemplo, si utiliza Aplicaciones web, escriba los puertos 80 o 443. Si utiliza SQL Server, escriba el puerto 1433.
 
 5. Seleccione la marca de verificación para completar la configuración.
@@ -61,9 +61,9 @@ Port | Escriba el número de puerto del recurso local. Por ejemplo, si utiliza A
 
 ## <a name="LinkWebSite"></a>Para vincular Aplicaciones web de Azure o Aplicaciones móviles de Azure
 
-Para vincular las Aplicaciones web de Azure a una conexión híbrida existente, seleccione **usar una conexión híbrida existente** en la hoja Conexiones híbridas. Consulte [Conexión de Aplicaciones web de Azure a un recurso local](../web-sites-hybrid-connection-get-started.md).
+Para vincular las Aplicaciones web de Azure a una conexión híbrida existente, seleccione **usar una conexión híbrida existente** en la hoja Conexiones híbridas. Consulte [Conexión de Aplicaciones web de Azure a un recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
-Para vincular las Aplicaciones móviles de Azure a una conexión híbrida existente, seleccione **agregar una conexión híbrida** al cambiar o crear un Servicio móvil. Consulte [Servicios móviles de Azure y conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
+Para vincular las Aplicaciones móviles de Azure a una conexión híbrida existente, seleccione **agregar una conexión híbrida** al cambiar o crear un Servicio móvil. Consulte [Servicios móviles de Azure y conexiones híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 
 ## <a name="InstallHCM"></a>Instalación del Administrador de conexiones híbridas en un entorno local
@@ -85,7 +85,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 3. On the on-premises resource, install the Hybrid Connection Manager from the MSI file. 
 4. Using Windows PowerShell, type: 
 > Add-HybridConnection -ConnectionString “*Your On-Premises Connection String that you copied*” 
--->
+--> 
 
 #### Información adicional
 - Las conexiones híbridas admiten recursos locales instalados en los siguientes sistemas operativos:
@@ -119,7 +119,9 @@ Para administrar las conexiones híbridas, puede:
 
 	**Administrar conexión** muestra las cadenas de conexión de aplicación y local. Puede copiar las cadenas de conexión o regenerar la clave de acceso usada en la cadena de conexión.
 
-	**Si selecciona Regenerar**, se cambia la clave de acceso compartido que se usa en la cadena de conexión. Haga lo siguiente: en el Portal de Azure clásico, seleccione **Sincronizar claves** en la aplicación de Azure. Vuelva a ejecutar la **Instalación local**. Al volver a ejecutar la configuración local, el recurso local se configura automáticamente para usar la cadena de conexión principal actualizada.
+	**Si selecciona Regenerar**, se cambia la clave de acceso compartido que se usa en la cadena de conexión. Haga lo siguiente:
+	- En el Portal de Azure clásico, seleccione **Sincronizar claves** en la aplicación de Azure.
+	- Vuelva a ejecutar la **Instalación local**. Al volver a ejecutar la configuración local, el recurso local se configura automáticamente para usar la cadena de conexión principal actualizada.
 
 
 #### Uso de la directiva de grupo para controlar los recursos locales utilizados por una conexión híbrida
@@ -138,7 +140,7 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 
 ## Pasos siguientes
 
-[Conexión de Aplicaciones web de Azure a un recurso local](../web-sites-hybrid-connection-get-started.md) [Conexión a un servidor SQL Server local desde Aplicaciones web de Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servicios móviles de Azure y conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Introducción a las conexiones híbridas](integration-hybrid-connection-overview.md)
+[Conexión de Aplicaciones web de Azure a un recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md) [Conexión a un servidor SQL Server local desde Aplicaciones web de Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Servicios móviles de Azure y conexiones híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Introducción a las conexiones híbridas](integration-hybrid-connection-overview.md)
 
 
 ## Otras referencias
@@ -150,4 +152,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

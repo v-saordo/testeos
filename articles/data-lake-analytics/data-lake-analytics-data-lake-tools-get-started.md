@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/07/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio
@@ -52,7 +52,7 @@ U-SQL es un lenguaje muy escalable y altamente extensible para preparar, transfo
 1. Abra Visual Studio.
 2. En el menú **Ver**, haga clic en **Explorador de servidores** para abrir el Explorador de servidores. O bien, presione **[CTRL] + [ALT] + S**.
 3. Haga clic con el botón derecho en **Azure**, haga clic en "Conectar a la suscripción de Microsoft Azure" y luego siga las instrucciones.
-4. En el **Explorador de servidores**, expanda **Azure** y después **Análisis de Data Lake**. Verá una lista de las cuentas de Análisis de Data Lake, si las hay. No se pueden crear cuentas de Análisis de Data Lake desde Visual Studio. Para crear una cuenta, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md) o [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics--get-started-powershell.md).
+4. En el **Explorador de servidores**, expanda **Azure** y después **Análisis de Data Lake**. Verá una lista de las cuentas de Análisis de Data Lake, si las hay. No se pueden crear cuentas de Análisis de Data Lake desde Visual Studio. Para crear una cuenta, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md) o [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Carga de archivos de datos de origen
 
@@ -101,7 +101,11 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
                     ClickedUrls     string
             FROM "/Samples/Data/SearchLog.tsv"
             USING Extractors.Tsv();
-        
+
+		@res =
+		    SELECT *
+		    FROM @searchlog;        
+
         OUTPUT @searchlog   
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
@@ -118,7 +122,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
+    >[AZURE.NOTE] Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
 
 	Tenga en cuenta las siguientes características:
 
@@ -281,7 +285,7 @@ Para ver más temas de desarrollo:
 - [Analizar weblogs mediante Análisis de Data Lake](data-lake-analytics-analyze-weblogs.md)
 - [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-- [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analytics-u-sql-user-defined-operators.md)
+- [Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
 ##Ejemplo de PowerShell Appx-A para preparar el tutorial
 
@@ -355,4 +359,4 @@ El siguiente script de PowerShell prepara una cuenta de Análisis de Azure Data 
     Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
     #endregion
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0218_2016-->

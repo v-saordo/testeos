@@ -125,7 +125,6 @@ Los inconvenientes de la implementación mediante un IDE son los siguientes:
 ###<a name="webmatrix"></a>Implementación directa desde WebMatrix
 
 * [Creación e implementación de un sitio web Node.js en Azure con WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Creación e implementación de una aplicación web PHP-MySQL con WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git integrado e implementación en Azure.](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
 
 ## <a name="onprem"></a>Implementación desde un sistema de control de código fuente local
@@ -157,7 +156,7 @@ Otros inconvenientes de la implementación mediante TFS son los siguientes:
 
 ###<a name="tfs"></a>Implementación continua mediante TFS
 
-* [Entrega continua para servicios en la nube en Azure](../cloud-services-dotnet-continuous-delivery.md). Este documento es para un servicio en la nube de Azure, pero parte del contenido también es relevante para aplicaciones web.
+* [Entrega continua para servicios en la nube en Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). Este documento es para un servicio en la nube de Azure, pero parte del contenido también es relevante para aplicaciones web.
 
 ###<a name="gitmercurial"></a>Implementación desde un repositorio de Git o Mercurial local
 
@@ -195,8 +194,8 @@ Las ventajas adicionales de la implementación mediante Visual Studio Team Servi
 
 ###<a name="vsts"></a>Implementación continua con Visual Studio Team Services
 
-- [Entrega continua a Azure mediante Visual Studio Team Services y TFVC](../cloud-services-continuous-delivery-use-vso.md). Tutorial paso a paso que muestra cómo configurar la entrega continua desde Visual Studio Team Services a una aplicación web, mediante TFVC. 
-- [Entrega continua a Azure con Visual Studio Team Services y Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
+- [Entrega continua a Azure mediante Visual Studio Team Services y TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Tutorial paso a paso que muestra cómo configurar la entrega continua desde Visual Studio Team Services a una aplicación web, mediante TFVC. 
+- [Entrega continua a Azure con Visual Studio Team Services y Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Similar al tutorial anterior, pero usa Git en lugar de TFVC.
 
 ###<a name="cloudgitmercurial"></a>Implementación desde un repositorio de Git o Mercurial basado en la nube
 
@@ -284,4 +283,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

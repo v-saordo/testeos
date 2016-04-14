@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/29/2015" 
+	ms.date="02/09/2016" 
 	ms.author="mahender"/>
 
 # Actualización del Servicio móvil de .NET existente a Servicio de aplicaciones
@@ -74,7 +74,7 @@ Las aplicaciones móviles ofrecen un nuevo [SDK de servidor de aplicaciones móv
 
 En este punto, tendrá un proyecto que ya no hace referencia a los SDK de Servicios móviles.
 
-A continuación, agregará referencias al SDK de aplicaciones móviles. Para esta actualización, la mayoría de los desarrolladores prefieren descargar e instalar el paquete `Micrsoft.Azure.Mobile.Server.Quickstart` ya que, de esta manera, se extrae el conjunto necesario completo.
+A continuación, agregará referencias al SDK de aplicaciones móviles. Para esta actualización, la mayoría de los desarrolladores prefieren descargar e instalar el paquete `Microsoft.Azure.Mobile.Server.Quickstart` ya que, de esta manera, se extrae el conjunto necesario completo.
 
 Habrá algunos errores del compilador resultantes de las diferencias entre los SDK, pero son fáciles de resolver y se tratan en el resto de esta sección.
 
@@ -277,4 +277,4 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [precios del Servicio de aplicaciones]: https://azure.microsoft.com/es-ES/pricing/details/app-service/
 [Información general del SDK de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

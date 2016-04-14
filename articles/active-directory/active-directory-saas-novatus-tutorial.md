@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Para configurar la integración de Novatus en Azure AD, será preciso que agregu
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Novatus**.<br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_01.png)<br>
-7. En el panel de resultados, seleccione **Novatus** y luego haga clic en **Completar** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Novatus** y luego haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Novatus con un usuario de prueba llamado "Britta Simon".
@@ -94,7 +94,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 3. En la página del cuadro de diálogo **Configurar las opciones de la aplicación**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_04.png) <br>
 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Novatus con el siguiente patrón: **“https://sso.novatuscontracts.com/companyname”**. Cuando se hace referencia a un nombre genérico que **companyname** necesita que se reemplace por un nombre real.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que utilizan los usuarios para iniciar sesión en la aplicación Novatus con el siguiente patrón: **“https://sso.novatuscontracts.com/nombreDeCompañía”**. Cuando se hace referencia a un nombre genérico que **nombreDeCompañía** necesita que se reemplace por un nombre real.
 
 
 4. En la página **Configurar inicio de sesión único en Novatus**, siga estos pasos: <br><br>![Configurar inicio de sesión único](./media/active-directory-saas-novatus-tutorial/tutorial_novatus_05.png) <br>
@@ -213,4 +213,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -298,11 +298,11 @@ Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y 
 -	[Funciones de la plantilla del Administrador de recursos de Azure](../resource-group-template-functions.md)
 -	[Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
 -	[Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
--	[Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-group-deploy-debug.md)
+-	[Solución de problemas de implementaciones de grupo de recursos en Azure](../virtual-machines/resource-group-deploy-debug.md)
 
 
 
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

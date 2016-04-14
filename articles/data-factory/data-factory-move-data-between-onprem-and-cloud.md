@@ -39,48 +39,97 @@ La puerta de enlace de datos proporciona las siguientes capacidades:
 6.	Debe **usar la puerta de enlace, incluso cuando use ExpressRoute**. 
 7.	Debe tratar el origen de datos como un origen de datos local (que está detrás de un firewall) incluso si usa **ExpressRoute** y **usar la puerta de enlace** para establecer la conectividad entre el servicio y el origen de datos. 
 
-## Instalación de la puerta de enlace: requisitos previos
+## Instalación de Data Management Gateway
+
+### Instalación de la puerta de enlace: requisitos previos
 1.	Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 2.	La **configuración** recomendada del equipo de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
 3.	Si el equipo host está en hibernación, la puerta de enlace no podrá responder a las solicitudes de datos. Por tanto, configure un **plan de energía** adecuado en el equipo antes de instalar la puerta de enlace. La instalación de la puerta de enlace emite un mensaje si el equipo está configurado para la hibernación.
 
 Puesto que las ejecuciones de la actividad de copia suceden con una frecuencia determinada, el uso de recursos (CPU, memoria) en el equipo también sigue el mismo patrón con las horas pico y los tiempos de inactividad. El uso de recursos también depende en gran medida de la cantidad de datos que se mueven. Cuando hay varios trabajos de copia en curso, observará que el uso de los recursos aumenta durante las horas pico. Aunque arriba se muestra la configuración mínima, siempre es mejor tener una configuración con más recursos que la configuración mínima descrita, en función de la carga específica para el movimiento de datos.
 
-## Instalación
-Data Management Gateway puede instalarse mediante la descarga de un paquete de instalación MSI desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). El MSI también puede usarse para actualizar el Data Management Gateway existente a la versión más reciente, con toda la configuración conservada. Para encontrar el vínculo al paquete MSI en el Portal de Azure, siga el tutorial paso a paso que aparece a continuación.
+### Instalación
+Se puede instalar Data Management Gateway con la descarga de un paquete de instalación MSI desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). El MSI también puede usarse para actualizar el Data Management Gateway existente a la versión más reciente, con toda la configuración conservada. Para encontrar el vínculo al paquete MSI en el Portal de Azure, siga el tutorial paso a paso que aparece a continuación.
 
 
 ### Procedimientos recomendados de instalación:
 1.	Configurar el plan de energía en el equipo host para la puerta de enlace, de forma que el equipo no hiberne. Si el equipo host está en hibernación, la puerta de enlace no podrá responder a las solicitudes de datos.
 2.	Se debe hacer una copia de seguridad del certificado asociado a la puerta de enlace.
 
+## Actualización de Data Management Gateway
+De forma predeterminada, Data Management Gateway se actualiza automáticamente cuando hay disponible una versión más reciente de la puerta de enlace. La puerta de enlace no se actualiza hasta que se completan todas las tareas programadas y deja de procesar tareas hasta que se complete la operación de actualización. Si se produce un error en la actualización, la puerta de enlace se revierte a la versión anterior.
+
+Verá la hora de actualización programada en el portal en la hoja de propiedades de la puerta de enlace, en la página principal del Administrador de configuración de Data Management Gateway y en el mensaje de notificación de la bandeja del sistema. Tiene la opción de instalar la actualización inmediatamente o de esperar a que la puerta de enlace se actualice automáticamente a la hora programada. Por ejemplo, la captura de pantalla siguiente muestra el mensaje de notificación que aparece en el Administrador de configuración de Data Management Gateway junto con el botón de actualización en el que se hace clic para instalarla inmediatamente.
+
+![Actualización en el Administrador de configuración de Data Management Gateway](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-config-manager.png)
+
+El mensaje de notificación en la bandeja del sistema tiene el siguiente aspecto:
+
+![Mensaje de la bandeja del sistema](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-tray-message.png)
+
+Verá el estado de la operación de actualización (manual o automática) en la bandeja del sistema. La próxima vez que abra el Administrador de configuración de Data Management Gateway verá un mensaje en la barra de notificación que indica que se ha actualizado la puerta de enlace, junto con un vínculo al [tema con las novedades](data-factory-gateway-release-notes.md).
+
+La pestaña Actualizar del Administrador de configuración de Data Management Gateway muestra la programación de actualización, así como la última vez que se instaló o actualizó la puerta de enlace. Si la actualización automática está deshabilitada, se muestra un mensaje al respecto, pero no podrá habilitar la característica en la pestaña, sino que tendrá que usar para ello el cmdlet.
+  
+
+## Iconos y notificaciones de la bandeja del sistema
+En la siguiente imagen, se muestran algunos de los iconos de la bandeja que verá.
+
+![Iconos de la bandeja del sistema](./media/data-factory-move-data-between-onprem-and-cloud/gateway-tray-icons.png)
+
+Si mueve el cursor sobre el mensaje de notificación o el icono en la bandeja del sistema, verá detalles sobre el estado de la puerta de enlace o de la operación de actualización en una ventana emergente.
+
+## Para habilitar o deshabilitar la característica de actualización automática
+Se puede habilitar o deshabilitar la característica de actualización automática de la forma siguiente:
+
+1. Inicie Windows PowerShell en el equipo de la puerta de enlace. 
+2. Cambie a la carpeta C:\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript.
+3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
+
+		.\GatewayAutoUpdateToggle.ps1  -off
+
+4. Para volver a activarla:
+	
+		.\GatewayAutoUpdateToggle.ps1  -on  
+
 ## Consideraciones de puertos y seguridad
+Existen dos firewalls que debe tener en cuenta: el **firewall corporativo** que se ejecuta en el enrutador central de la organización y **Firewall de Windows**, configurado como demonio en el equipo local donde está instalada la puerta de enlace.
 
-### Consideraciones generales
-Hay dos firewalls que debe tener en cuenta: **firewall corporativo** que se ejecuta en el enrutador central de la organización y **Firewall de Windows** configurado como un demonio en el equipo local donde está instalada la puerta de enlace. Si usa un firewall de terceros en lugar del Firewall de Windows, utilice las recomendaciones siguientes como referencia y para configurar los puertos de forma adecuada. Si se está aprovechando un servidor proxy en la organización, consulte también la sección [Consideraciones acerca del servidor proxy](#proxy-server-considerations). Estas son algunas consideraciones generales:
+![Firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
-**Antes de configurar la puerta de enlace:**
+### Conexión de la puerta de enlace con servicios en la nube
+Para mantener la conectividad de la puerta de enlace con Factoría de datos de Azure y otros servicios en la nube, debe asegurarse de que la regla de salida para los puertos **TCP** **80** y **443** esté configurada. Además, cuenta con la opción de habilitar los puertos del **9350** al **9354**, usados por el Bus de servicio de Microsoft Azure para establecer una conexión entre Factoría de datos de Azure y Data Management Gateway. Esto puede mejorar el rendimiento de la comunicación entre ellos.
 
-- Para el **firewall corporativo y el Firewall de Windows**, debe asegurarse de que la regla de salida de los puertos **TCP** **80** y **443** está habilitada y, opcionalmente, de los puertos **9350** a **9354**. Bus de servicio de Microsoft Azure los usa para establecer la conexión entre Factoría de datos de Azure y Data Management Gateway. Abrir los puertos del 9350 al 9354 no es obligatorio, pero si los abre, se puede mejorar el rendimiento de la comunicación entre Factoría de datos de Azure y Data Management Gateway.
+En el firewall corporativo, debe configurar los siguientes dominios y puertos de salida:
 
-**Durante la configuración de puerta de enlace:**
+| Nombres de dominio | Puertos | Descripción |
+| ------ | --------- | ------------ |
+| **.servicebus.windows.net | 443, 80 | Escuchas en Retransmisión de bus de servicio a través de TCP (requiere 443 para adquirir el token de Control de acceso) |
+| *.servicebus.windows.net | 9350-9354 | Retransmisión de bus de servicio opcional a través de TCP |
+| *.core.windows.net | 443 | HTTPS |
+| *.clouddatahub.net | 443 | HTTPS |
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS |
 
-- De forma predeterminada, la instalación de Data Management Gateway abre el puerto de entrada **8050** en el **Firewall de Windows local** de la máquina de la puerta de enlace. El puerto se usará en la aplicación **Establecer credenciales** para retransmitir las credenciales a la puerta de enlace al configurar un servicio vinculado local en el Portal de Azure (vea los detalles más adelante en este artículo); no será accesible desde Internet, por lo que no es necesario abrirlo en el firewall corporativo.
-- Si no desea que la instalación de puerta de enlace abra el puerto 8050 en el Firewall de Windows para la máquina de la puerta de enlace, puede usar el siguiente comando para instalar la puerta de enlace sin configurar el firewall.
+En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de salida. De lo contrario, puede configurar los puertos y dominios según corresponda en el equipo de la puerta de enlace.
 
-		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+### Configuración de credenciales
+Se usará el puerto de entrada **8050** en la aplicación **Configuración de credenciales** para retransmitir las credenciales a la puerta de enlace cuando configure un servicio vinculado local en el Portal de Azure (detalles más adelante en este artículo). Durante la instalación de la puerta de enlace, la instalación de Data Management Gateway lo abre de forma predeterminada en el equipo de la puerta de enlace.
+ 
+Si se usa un firewall de terceros, puede abrir manualmente el puerto 8050. Si se presenta un problema de firewall durante la instalación de la puerta de enlace, puede intentar usar el comando siguiente para instalarla sin configurar el firewall.
 
-Si no está abierto el puerto de entrada 8050 en la máquina de la puerta de enlace, para configurar un servicio vinculado local, debe usar otros mecanismos que no sea usar la aplicación **Establecer credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Vea la sección [Configuración de credenciales y seguridad](#setting-credentials-and-security) como establecer las credenciales de almacén de datos.
+	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
+Si decide no abrir el puerto 8050 en el equipo de la puerta de enlace, para configurar un servicio vinculado local, debe usar mecanismos diferentes de la aplicación **Configuración de credenciales** para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el cmdlet de PowerShell [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx). Consulte en la sección [Configuración de credenciales y seguridad](#setting-credentials-and-security) cómo configurar las credenciales del almacén de datos.
 
 **Para copiar datos de un almacén de datos de origen a un almacén de datos receptor:**
 
 Debe asegurarse de que las reglas de firewall se habilitan correctamente en el firewall corporativo, en el Firewall de Windows en la máquina de puerta de enlace y en el mismo almacén de datos. Esto permite que la puerta de enlace se conecte tanto al origen como al receptor correctamente. Debe habilitar las reglas de cada almacén de datos que está implicado en la operación de copia.
 
-Por ejemplo, para copiar desde **un almacén de datos local a un receptor de Base de datos SQL de Azure o un receptor de Almacenamiento de datos SQL de Azure**, necesita permitir la comunicación **TCP** saliente en el puerto **1433** tanto para el Firewall de Windows y el firewall corporativo, y debe configurar los ajustes del firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de puerta de enlace a la lista de direcciones IP permitidas.
+Por ejemplo, para copiar de **un almacén de datos local a un receptor de Base de datos SQL de Azure o un receptor de Almacenamiento de datos SQL de Azure**, necesita permitir la comunicación **TCP** saliente en el puerto **1433** tanto para el Firewall de Windows como para el firewall corporativo, y debe establecer la configuración del firewall del servidor SQL de Azure para agregar la dirección IP del equipo de la puerta de enlace a la lista de direcciones IP permitidas.
 
 ### Consideraciones acerca del servidor proxy
-De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede configurar adicionalmente los **ajustes del servidor proxy**, tal como se muestra a continuación, para asegurarse de que la puerta de enlace es capaz de conectarse a Factoría de datos de Azure:
+De forma predeterminada, Data Management Gateway aprovechará la configuración de proxy de Internet Explorer y usará credenciales predeterminadas para tener acceso a él. Si no se adapta a sus necesidades, puede establecer la **configuración del servidor proxy**, tal como se muestra a continuación, para asegurarse de que la puerta de enlace se pueda conectar a Factoría de datos de Azure:
 
 1.	Después de instalar Data Management Gateway, en Explorador de archivos, haga una copia de “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config” para hacer una copia de seguridad del archivo original.
 2.	Inicie Notepad.exe como administrador y abra el archivo de texto “C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\diahost.exe.config”. Encontrará la etiqueta predeterminada para system.net de la forma siguiente:
@@ -97,13 +146,13 @@ De forma predeterminada, Data Management Gateway aprovechará la configuración 
 			      </defaultProxy>
 			</system.net>
 
-	Se permiten propiedades adicionales dentro de la etiqueta proxy para especificar la configuración requerida, como scriptLocation. Consulte [proxy (Elemento, Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
+	Se permiten propiedades adicionales dentro de la etiqueta proxy para especificar la configuración requerida, como scriptLocation. Consulte [<proxy> (Elemento, Configuración de red)](https://msdn.microsoft.com/library/sa91de1e.aspx) para ver la sintaxis.
 
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
 
-3. Guarde el archivo de configuración en la ubicación original; a continuación, reinicie el servicio Data Management Gateway para aplicar los cambios. Para ello vaya a **Iniciar** > **Services.msc** o en el **Administrador de configuración de Data Management Gateway** > haga clic en el botón **Detener servicio** y finalmente haga clic en **Iniciar servicio**. Si el servicio no se inicia, probablemente sea debido a que se ha agregado una sintaxis de etiqueta XML incorrecta en el archivo de configuración de aplicación que se ha modificado.
+3. Guarde el archivo de configuración en la ubicación original; a continuación, reinicie el servicio Data Management Gateway para aplicar los cambios. Para hacerlo, vaya a **Inicio** > **Services.msc** o, en el **Administrador de configuración de Data Management Gateway**, haga clic en el botón **Detener servicio** y finalmente haga clic en **Iniciar servicio**. Si el servicio no se inicia, probablemente sea debido a que se ha agregado una sintaxis de etiqueta XML incorrecta en el archivo de configuración de aplicación que se ha modificado.
 
-Además de los puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su empresa. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure desde el [ Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Además de los puntos anteriores, también tiene que asegurarse de que Microsoft Azure se encuentra en la lista blanca de su empresa. Se puede descargar una lista de direcciones IP válidas de Microsoft Azure en el [ Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 Si se producen errores como los siguientes, es probable que sea debido a una configuración incorrecta del servidor proxy o del firewall, que impide que Data Management Gateway se conecte a Factoría de datos de Azure para autenticarse a sí mismo. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.
@@ -115,12 +164,12 @@ Si se producen errores como los siguientes, es probable que sea debido a una con
 
 
 - Puede obtener más información en los registros de la puerta de enlace de los registros de eventos de Windows. Puede encontrarlos mediante el **Visor de eventos** de Windows en **Registros de aplicaciones y servicios** > **Data Management Gateway**. Cuando soluciones problemas relacionados con la puerta de enlace consulte los eventos de error en el Visor de eventos.
-- Si la puerta de enlace deja de funcionar después de **cambiar el certificado**, reinicie (detenga e inicie) el **Servicio Data Management Gateway** mediante la herramienta Administrador de configuración de Microsoft Data Management Gateway o el applet Servicios del panel de control. Si todavía ve un error, puede que tenga que dar permisos explícitos para el usuario del servicio de Data Management Gateway para que tenga acceso al certificado en el Administrador de certificados (certmgr.msc). La cuenta de usuario predeterminada para el servicio es: **NT Service\\DIAHostService**. 
-- Si ve errores relacionados con el controlador o la conexión del almacén de datos, inicie **Administrador de configuración de Data Management Gateway** en la máquina de la puerta de enlace, cambie a la pestaña **Diagnóstico**, seleccione o especifique los valores adecuados en los campos del grupo **Probar la conexión a un origen de datos local con esta puerta de enlace** y haga clic en **Probar conexión** para ver si se puede conectar al origen de datos local desde la máquina de la puerta de enlace con la información de conexión y las credenciales. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.  
+- Si la puerta de enlace deja de funcionar después de **haber cambiado el certificado**, reinicie (detenga e inicie) el **Servicio Data Management Gateway** mediante la herramienta Administrador de configuración de Microsoft Data Management Gateway o el applet del panel de control Servicios. Si todavía ve un error, puede que tenga que dar permisos explícitos para el usuario del servicio de Data Management Gateway para que tenga acceso al certificado en el Administrador de certificados (certmgr.msc). La cuenta de usuario predeterminada para el servicio es: **NT Service\\DIAHostService**. 
+- Si ve errores relacionados con el controlador o la conexión del almacén de datos, inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace, cambie a la pestaña **Diagnóstico**, seleccione o especifique los valores adecuados en los campos del grupo **Probar la conexión a un origen de datos local con esta puerta de enlace** y haga clic en **Probar conexión** para ver si se puede conectar al origen de datos local desde el equipo de la puerta de enlace con la información de conexión y las credenciales. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.  
 
 	![Probar conexión](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
-## Mediante la puerta de enlace de datos: tutorial paso a paso
+## Tutorial: Uso de Data Management Gateway 
 En este tutorial se crea una factoría de datos con una canalización que mueve los datos de una base de datos de SQL Server local a un blob de Azure.
 
 ### Paso 1: Creación de una factoría de datos de Azure
@@ -152,7 +201,7 @@ En este paso, use el Portal de Azure para crear una instancia de Factoría de da
 
 	![Página principal de Factoría de datos](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
-### Paso 2: Creación de una puerta de enlace de administración de datos
+### Paso 2: Creación de una instancia de Data Management Gateway
 5. En la hoja **FACTORÍA DE DATOS**, haga clic en la ventana **Crear e implementar** para iniciar el **Editor** para la factoría de datos.
 
 	![Mosaico Crear e implementar](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
@@ -168,9 +217,9 @@ En este paso, use el Portal de Azure para crear una instancia de Factoría de da
 	> [AZURE.NOTE] 
 	Utilice Internet Explorer o un explorador web compatible con Microsoft ClickOnce.
 	> 
-	> Si usa Chrome, vaya a la [tienda web de Chrome](https://chrome.google.com/webstore/), busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
+	> Si usa Chrome, vaya a la [Chrome Web Store](https://chrome.google.com/webstore/), busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 	>  
-	> Debe hacer lo mismo para Firefox (complemento de instalación). Haga clic en el botón **Menú Abrir** de la barra de herramientas (**tres líneas horizontales** en la esquina superior derecha), haga clic en **Complementos**, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
+	> Debe hacer lo mismo para Firefox (complemento de instalación). Haga clic en el botón **Abrir menú** de la barra de herramientas (**tres líneas horizontales** en la esquina superior derecha), haga clic en **Complementos**, busque la palabra clave "ClickOnce", elija una de las extensiones de ClickOnce e instálela.
 
 	![Puerta de enlace: hoja Configurar](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
@@ -503,7 +552,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 
 	![Explorador de almacenamiento de Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## Movimiento de la puerta de enlace móvil desde una máquina a otra
+## Movimiento de la puerta de enlace de un equipo a otro
 En esta sección se proporcionan pasos para mover el cliente de puerta de enlace de un equipo a otro equipo.
 
 2. En el portal, vaya a la **página principal de Factoría de datos** y haga clic en el icono **Servicios vinculados**. 
@@ -559,10 +608,10 @@ También puede crear un servicio vinculado de SQL Server mediante la hoja de Ser
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
 	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 
-	1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
-	2. Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
-	3. Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 
-	4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
+	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 
+	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para el valor **NOMBRE DE USUARIO**. 
+	3.	Escriba la contraseña para el usuario para el valor **CONTRASEÑA**. 
+	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo.  
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
 6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
@@ -581,7 +630,7 @@ Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cm
 Hay otro enfoque para establecer las credenciales mediante el Editor de la Factoría de datos. Si crea un servicio vinculado de SQL Server mediante el editor y escribe las credenciales en texto sin formato, las credenciales se cifran mediante un certificado que posee el servicio Factoría de datos, NO el certificado que la puerta de enlace está configurada para usar. Aunque este enfoque puede resultar un poco más rápido, en algunos casos es menos seguro. Por lo tanto, se recomienda seguir este enfoque solo para fines de desarrollo y pruebas.
 
 
-## Creación y registro de una puerta de enlace con Azure PowerShell 
+## Creación y registro de Data Management Gateway mediante Azure PowerShell 
 En esta sección se explica cómo crear y registrar una puerta de enlace usando cmdlets de Azure PowerShell.
 
 1. Inicie **Azure PowerShell** en modo de administrador. 
@@ -648,4 +697,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 5.	La puerta de enlace descifra las credenciales con el mismo certificado y, a continuación, se conecta al almacén de datos local con el tipo de autenticación adecuado.
 6.	La puerta de enlace copia datos desde el almacén local a un almacenamiento en la nube o desde un almacenamiento en la nube a un almacén de datos local según cómo esté configurada la actividad de copia en la canalización de datos. Nota: Para este paso, la puerta de enlace se comunica directamente con el servicio de almacenamiento basado en la nube (Blob de Azure, SQL de Azure, etc.) a través del canal seguro (HTTPS).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

@@ -56,6 +56,8 @@ No. Las pertenencias a grupos en dominios ofrecidos por Servicios de dominio de 
 #### ¿Puedo extender el esquema del dominio proporcionado por Servicios de dominio de Azure AD?
 No. Microsoft administra el esquema del dominio administrado. No se admiten extensiones de esquema en los Servicios de dominio de Azure AD.
 
+### ¿Puedo modificar los registros DNS proporcionados por Servicios de dominio de Azure AD?
+Sí. Los usuarios que forman parte del grupo administrativo (es decir, "Administradores de controladores de dominio de AAD") tienen permisos de administración de DNS para modificar los registros DNS.
 
 ### Facturación y disponibilidad
 
@@ -74,4 +76,4 @@ Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obte
 #### ¿Cuándo está disponible Servicios de dominio de Azure AD con carácter general?
 Actualmente no podemos compartir escalas de tiempo sobre cuándo estará disponible el servicio con carácter general.
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

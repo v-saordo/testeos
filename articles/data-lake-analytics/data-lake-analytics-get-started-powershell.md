@@ -45,7 +45,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Para crear una cuenta de Análisis de Data Lake, debe especificar lo siguiente:
 
-- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.  
+- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](../resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.  
 
 	Para enumerar los grupos de recursos para la suscripción:
     
@@ -68,7 +68,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Pa
 	        -Name "<Your Data Lake account name>" `
 	        -Location "<Azure Data Center>"  # For example, "East US 2"
 
-	> [AZURE.NOTE]El nombre de cuenta de Data Lake solo debe contener letras minúsculas y números.
+	> [AZURE.NOTE] El nombre de cuenta de Data Lake solo debe contener letras minúsculas y números.
 
 
 
@@ -135,9 +135,9 @@ El siguiente script de PowerShell muestra cómo obtener el nombre predeterminado
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]El Portal de Azure proporciona una interfaz de usuario para copiar los archivos de datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake. Para obtener instrucciones, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE] El Portal de Azure proporciona una interfaz de usuario para copiar los archivos de datos de ejemplo en la cuenta predeterminada de Almacén de Data Lake. Para obtener instrucciones, consulte [Introducción a Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure. Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de Azure PowerShell con Almacenamiento de Azure](storage-powershell-guide-full.md).
+Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure. Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md).
 
 ##Envío de trabajos de Análisis de Data Lake
 
@@ -174,7 +174,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
+    >[AZURE.NOTE] Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
     
 	
 **Para enviar el trabajo**
@@ -217,4 +217,4 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

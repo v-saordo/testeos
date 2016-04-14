@@ -16,8 +16,13 @@
 	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
+
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
-El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
+> [AZURE.SELECTOR]
+- [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
+- [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
+
+El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
 
 En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones. También se ofrece información sobre cómo crear alertas y recibir notificaciones cuando se produzcan errores.
 
@@ -270,15 +275,13 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 
 ### Uso de Azure PowerShell
 
-Puede volver a ejecutar errores mediante el cmdlet 'Set-AzureDataFactorySliceStatus'.
+Puede volver a ejecutar errores mediante el cmdlet Set-AzureRmDataFactorySliceStatus. Consulte el tema [Set-AzureDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
-	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+**Ejemplo:** En el caso siguiente, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la Data Factory de Azure "WikiADF".
 
-**Ejemplo:** En el caso siguiente se establece el estado de todos los segmentos de la tabla 'DAWikiAggregatedData' en 'PendingExecution' en la factoría de datos de Azure 'WikiADF'.
+**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las tablas dependientes (en canales de subida) que se usan como tablas de entrada para las actividades de la canalización se establecen en "En espera". Otro valor posible para este parámetro es "Individual".
 
-**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las tablas dependientes (ascendentes) que se usan como tablas de entrada para las actividades de la canalización se establecen en "PendingExecution". Otro valor posible para este parámetro es "Individual".
-
-	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Creación de alertas
@@ -292,6 +295,8 @@ Los eventos de Azure proporcionan información útil sobre lo que sucede en los 
 - Cuando se crea o se elimina un clúster de HDInsight a petición.
 
 Puede crear alertas sobre estos eventos del usuario y configurarlas para enviar notificaciones por correo electrónico al administrador y a los coadministradores de la suscripción. Además, puede especificar direcciones de correo electrónico adicionales de los usuarios que necesiten recibir notificaciones por correo electrónico cuando se cumplan las condiciones. Esto resulta muy útil si se quiere recibir una notificación cuando se produzcan errores y no se desea supervisar continuamente la factoría de datos.
+
+> [AZURE.NOTE] El portal no muestra alertas en eventos esta vez. Use la [aplicación de administración y supervisión](data-factory-monitor-manage-app.md) para consultar todas las alertas.
 
 #### Especificación de una definición de alerta:
 Para especificar una definición de alerta, cree un archivo JSON que describa las operaciones sobre las que desea recibir alertas. En el ejemplo siguiente, la alerta enviará una notificación por correo electrónico para la operación RunFinished. Para ser más específicos, se envía una notificación por correo electrónico cuando se ha completado una ejecución en la Factoría de datos y se ha producido un error (estado = FailedExecution).
@@ -567,6 +572,15 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Outputs           
 
 
-También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alerta. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
+También puede usar el cmdlet **Add-AlertRule** para implementar una regla de alertas. Consulte el tema [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) para obtener información detallada y ejemplos.
 
-<!---HONumber=AcomDC_0128_2016-->
+## Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferentes
+Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de la factoría de datos.
+
+![Mover factoría de datos](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+
+Junto con la factoría de datos, también puede mover todos los recursos relacionados (como alertas asociadas a la factoría de datos).
+
+![Cuadro de diálogo Mover recursos](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+
+<!---HONumber=AcomDC_0224_2016-->

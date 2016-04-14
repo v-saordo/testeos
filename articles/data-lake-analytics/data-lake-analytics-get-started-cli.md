@@ -10,10 +10,10 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/02/2015"
+   ms.date="02/10/2016"
    ms.author="jgao"/>
 
 # Tutorial: Introducción a Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
@@ -39,7 +39,7 @@ En este tutorial, desarrollará un trabajo que lee un archivo de valores separad
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **CLI de Azure** Consulte [Instalación y configuración de la CLI de Azure](xplat-cli.md).
+- **CLI de Azure** Consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md).
 	- Descargue e instale la **versión preliminar** de las [herramientas de la CLI de Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases) para completar esta demostración.
 - **Autenticación**, mediante el comando siguiente:
 
@@ -53,7 +53,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Para crear una cuenta de Análisis de Data Lake, debe especificar lo siguiente:
 
-- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.  
+- **Grupo de recursos de Azure**: se debe crear una cuenta de Análisis de Data Lake dentro de un grupo de recursos de Azure. El [Administrador de recursos de Azure](../resource-group-overview.md) permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada.  
 
 	Para enumerar los grupos de recursos para la suscripción:
     
@@ -75,7 +75,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Pa
 
 		azure datalake store account create "<Data Lake Store Account Name>" "<Azure Location>" "<Resource Group Name>"
 
-	> [AZURE.NOTE]El nombre de cuenta de Data Lake solo debe contener letras minúsculas y números.
+	> [AZURE.NOTE] El nombre de cuenta de Data Lake solo debe contener letras minúsculas y números.
 
 
 
@@ -88,7 +88,7 @@ Debe tener una cuenta de Análisis de Data Lake para poder ejecutar trabajos. Pa
 
 ![Cuenta de Análisis de Data Lake](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
-> [AZURE.NOTE]El nombre de cuenta de Análisis de Data Lake solo debe contener letras minúsculas y números.
+> [AZURE.NOTE] El nombre de cuenta de Análisis de Data Lake solo debe contener letras minúsculas y números.
 
 
 ## Carga de datos en el Almacén Data Lake
@@ -102,7 +102,7 @@ Para cargar archivos con la CLI, use el siguiente comando:
   	azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
   	azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
-Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure. Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](storage-azure-cli.md).
+Análisis de Data Lake también puede acceder al almacenamiento de blobs de Azure. Para cargar datos al almacenamiento de blobs de Azure, consulte [Uso de la CLI de Azure con Almacenamiento de Azure](../storage/storage-azure-cli.md).
 
 ## Envío de trabajos de Análisis de Data Lake
 
@@ -139,7 +139,7 @@ Los trabajos de Análisis de Data Lake se escriben en el lenguaje U-SQL. Para ob
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-    >[AZURE.NOTE]Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
+    >[AZURE.NOTE] Los contenedores de blobs de Azure con permisos de acceso de contenedores públicos o blobs públicos no se admiten actualmente.
 
 	
 **Para enviar el trabajo**
@@ -169,4 +169,4 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 - Para las tareas de administración, consulte [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md).
 - Para obtener información general sobre Análisis de Data Lake, consulte [Información general sobre Análisis de Azure Data Lake](data-lake-analytics-overview.md).
 
-<!---HONumber=AcomDC_0114_2016-->
+<!---HONumber=AcomDC_0302_2016-->

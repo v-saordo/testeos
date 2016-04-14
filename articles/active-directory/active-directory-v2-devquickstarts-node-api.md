@@ -1,5 +1,5 @@
 <properties
-	pageTitle="API web Node.js del modelo de aplicación v2.0 | Microsoft Azure"
+	pageTitle="API web de NodeJS de Azure AD v2.0 | Microsoft Azure"
 	description="Cómo crear una API web NodeJS que acepte tokens tanto de la cuenta Microsoft personal de un usuario como de sus cuentas profesionales o educativas."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,36 +13,31 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="02/20/2016"
 	ms.author="brandwe"/>
 
-# Vista previa del modelo de aplicaciones v2.0: Protección de una API web mediante node.js
+# Protección de una API web mediante node.js
 
 > [AZURE.NOTE]
-Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 
-Con el modelo de aplicaciones v2.0, puede proteger una API web mediante tokens de acceso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), lo que permite a los usuarios que tengan una cuenta Microsoft personal y cuentas profesionales o educativas el acceso seguro a su API web.
+Con el punto de conexión v2.0 de Azure Active Directory, puede proteger una API web mediante tokens de acceso [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), lo que permite a los usuarios que tengan una cuenta Microsoft personal y cuentas profesionales o educativas el acceso seguro a su API web.
 
 **Passport** es middleware de autenticación para Node.js. Muy flexible y modular, Passport puede pasar discretamente a cualquier aplicación web basada en Express o Restify. Un conjunto completo de estrategias admite la autenticación mediante un nombre de usuario y contraseña, Facebook, Twitter y mucho más. Hemos desarrollado una estrategia para Microsoft Azure Active Directory. Instalaremos este módulo y, a continuación, agregaremos el complemento `passport-azure-ad` de Microsoft Azure Active Directory.
 
-Para llevar a cabo esta tarea, deberá hacer lo siguiente:
-
-1. Registrar una aplicación con Azure AD
-2. Configurar la aplicación para que use el complemento passport-azure-ad de Passport.
-3. Configurar una aplicación cliente para llamar a la API web Lista de tareas pendientes
-
-El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Para continuar, puede [descargar el esqueleto de la aplicación como .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) o clonarlo:
+## Descargar
+El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) o clonar el esqueleto:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
 
-## 1. Registrar una aplicación
-Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
+## 1\. Registrar una aplicación
+Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
-- Agregar la plataforma **Móvil** a la aplicación.
+- Agregar la plataforma **Móvil** a la aplicación.
 - Copiar el **URI de redirección** desde el portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -57,7 +52,7 @@ Para usar correctamente este ejemplo, debe disponer de una instalación en funci
 
 Instale MongoDB desde [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE]En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost.
+> [AZURE.NOTE] En este tutorial se asume que usa la instalación predeterminada y los extremos de servidor de MongoDB, que en el momento de escribir este artículo es: mongodb://localhost.
 
 ## Paso 4: Instalación de los módulos Restify en su API web
 
@@ -79,9 +74,9 @@ Este comando instala Restify.
 
 Cuando se usa npm en algunos sistemas operativos, es posible recibir un error Error: EPERM, chmod '/ usr/local/bin/..' y que se solicite ejecutar la cuenta como administrador. Si esto ocurre, utilice el comando sudo para ejecutar npm en un nivel de privilegio más elevado.
 
-#### ¿Ha recibido un error relacionado con DTRACE?
+#### ¿Ha recibido un error relacionado con DTrace?
 
-Es posible que vea algo parecido a esto al instalar Restify: 
+Es posible que vea algo parecido a esto al instalar Restify:
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -126,7 +121,7 @@ El resultado de este comando debe ser similar al siguiente:
 	├── verror@1.3.6 (extsprintf@1.0.2)
 	├── csv@0.3.6
 	├── http-signature@0.10.0 (assert-plus@0.1.2, asn1@0.1.11, ctype@0.5.2)
-	└── bunyan@0.22.0 (mv@0.0.5)
+	└── bunyan@0.22.0(mv@0.0.5)
 
 
 ## 5: instalar Passport.js en su API web
@@ -149,7 +144,7 @@ El resultado del comando debe ser similar al siguiente:
 
 A continuación, agregaremos la estrategia OAuth usando passport-azuread, un conjunto de estrategias que se conectan a Azure Active Directory con Passport. Usaremos esta estrategia para los tokens de portador en este ejemplo de API de REST.
 
-> [AZURE.NOTE]Aunque OAuth2 proporciona un marco de trabajo en el que se puede emitir cualquier tipo de token conocido, solo ciertos tipos de token gozan de uso generalizado. Para la protección de extremos, que han resultado ser tokens portadores. Los tokens portadores son el tipo de token más emitido de OAuth2 y muchas implementaciones asumen que son el único tipo de token emitido.
+> [AZURE.NOTE] Aunque OAuth2 proporciona un marco de trabajo en el que se puede emitir cualquier tipo de token conocido, solo ciertos tipos de token gozan de uso generalizado. Para la protección de extremos, que han resultado ser tokens portadores. Los tokens portadores son el tipo de token más emitido de OAuth2 y muchas implementaciones asumen que son el único tipo de token emitido.
 
 Desde la línea de comandos, cambie al directorio azuread.
 
@@ -192,7 +187,7 @@ Desde la línea de comandos, cambie los directorios por la carpeta **azuread** s
 `cd azuread`
 
 
-Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node_modules:
+Escriba los comandos siguientes para instalar los módulos siguientes en su directorio node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -650,13 +645,12 @@ En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
 
 A continuación, cambie al directorio y empiece el curvado...
 
-`$ cd azuread`
-`$ node server.js`
+`$ cd azuread` `$ node server.js`
 
 `$ curl -isS http://127.0.0.1:8080 | json`
 
 ```Shell
-HTTP/1.1 200 OK
+HTTP/1.1 2.0OK
 Connection: close
 Content-Type: application/json
 Content-Length: 171
@@ -770,7 +764,7 @@ Passport usa un patrón similar para todas sus estrategias (Twitter, Facebook, e
 > [AZURE.IMPORTANT]
 El código anterior toma cualquier usuario que se autentique en el servidor. Esto se conoce como registro automático. En los servidores de producción, no debería permitir que acceda cualquier usuario sin que antes pase por el proceso de registro que decida. Este suele ser el patrón que se observa en las aplicaciones de consumidor que permiten registrarse con Facebook, pero que luego piden que se rellene información adicional. Si no se tratara de un programa de línea de comandos, podríamos haber extraído el correo electrónico del objeto de token que se devuelve y, a continuación, haber pedido al usuario que rellenara la información adicional. Puesto que se trata de un servidor de prueba, simplemente los agregaremos a la base de datos en memoria.
 
-### 2. Por último, proteja algunos extremos
+### 2\. Por último, proteja algunos extremos
 
 Protege extremos mediante la especificación de la llamada passport.authenticate() con el protocolo que desea usar.
 
@@ -852,12 +846,10 @@ Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se p
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
+Ahora puede pasar a temas más avanzados. Es posible que desee probar:
 
-[Proteger una aplicación web con el modelo de aplicaciones v2.0 en Node.js >>](active-directory-v2-devquickstarts-node-web.md)
+[Proteger una aplicación web de Node.js con el punto de conexión v2.0 >>](active-directory-v2-devquickstarts-node-web.md)
 
-Para obtener recursos adicionales, consulte:
-- [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) 
-- [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Para obtener recursos adicionales, consulte: - [La guía para desarrolladores de v2.0 >>](active-directory-appmodel-v2-overview.md) - [La etiqueta "azure-active-directory" de StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0224_2016-->

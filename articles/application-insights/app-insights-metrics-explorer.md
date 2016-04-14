@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="03/01/2016" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -83,7 +83,7 @@ Cada punto de datos en el gráfico es un agregado de los valores de datos recibi
 
 Se agregan métricas diferentes de distintas maneras:
 
- * **Suma** agrega los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
+ * **Suma**: suma los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
  * **Media** divide la suma por el número de puntos de datos recibidos durante el intervalo.
  * Los recuentos **únicos** se usan para los recuentos de usuarios y cuentas. Durante el intervalo de muestreo, o durante el período del gráfico, la ilustración muestra el recuento de usuarios diferentes que se ven en ese momento.
 
@@ -139,7 +139,7 @@ Observe los recuentos de eventos junto a cada valor de propiedad. Al seleccionar
 
 ¿Quiere filtrar telemetría en una categoría de su propia elección? Por ejemplo, quizás divida los usuarios en distintas categorías y quiera segmentar los datos por estas categorías.
 
-[Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por diferentes módulos de SDK.
+[Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por distintos módulos SDK.
 
 ## Supresión de bots y de tráfico de prueba web
 
@@ -194,11 +194,11 @@ Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tie
 
 ### Exportación continua
 
-Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la función de [exportación continua](app-insights-export-telemetry.md).
+Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la función [Exportación continua](app-insights-export-telemetry.md).
 
 ### Power BI
 
-Si quiere obtener vistas aún más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Pasos siguientes
 
@@ -214,4 +214,4 @@ Si quiere obtener vistas aún más sofisticadas de los datos, puede [exportarlos
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0302_2016-->

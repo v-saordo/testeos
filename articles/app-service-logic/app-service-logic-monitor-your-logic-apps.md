@@ -2,7 +2,7 @@
 	pageTitle="Supervisar sus aplicaciones lógicas en el Servicio de aplicaciones de Azure | Microsoft Azure" 
 	description="Visualización de lo que han hecho las aplicaciones lógicas" 
 	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="02/29/2016"
 	ms.author="stepsic"/>
 
 # Supervisión de las aplicaciones lógicas
 
-Después de crear una aplicación lógica (pasos en [Crear una aplicación lógica](app-service-logic-create-a-logic-app.md)), puede ver el historial completo de su ejecución en el Portal de Azure. Para ver el historial, seleccione **Examinar**, **Web + móvil** y **Aplicaciones lógicas**. Aparecerá una lista con todas las aplicaciones lógicas incluidas en la suscripción. Las aplicaciones lógicas se pueden **habilitar** o **deshabilitar**. Las aplicaciones lógicas **habilitadas** indican que los desencadenadores ejecutan su aplicación lógica en respuesta a los efectos desencadenantes. Las aplicaciones lógicas **deshabilitadas** no se ejecutan en respuesta a eventos.
+Después de [crear una aplicación lógica](app-service-logic-create-a-logic-app.md), podrá ver el historial completo de su ejecución en el Portal de Azure. Para ver el historial, seleccione **Examinar** y **Aplicaciones lógicas**. Aparecerá una lista con todas las aplicaciones lógicas incluidas en la suscripción. Puede seleccionar cualquier aplicación lógica y **habilitarla** o **deshabilitarla**. Las aplicaciones lógicas **habilitadas** indican que los desencadenadores ejecutan su aplicación lógica en respuesta a los efectos desencadenantes. Las aplicaciones lógicas **deshabilitadas** no se ejecutan en respuesta a eventos.
 
 ![Información general](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 En la hoja de la aplicación lógica, hay dos secciones importantes:
 
-- **Resumen**: indica el estado más reciente y permite editar la aplicación lógica.
+- **Resumen**: muestra el estado más reciente y permite editar la aplicación lógica.
 - **Todas las ejecuciones**: muestra una lista de las ejecuciones que ha tenido esta aplicación lógica.
 
 ## Ver las ejecuciones de la aplicación
@@ -33,7 +33,7 @@ En la hoja de la aplicación lógica, hay dos secciones importantes:
 
 Esta lista de ejecuciones muestra los campos **Hora de inicio**, **Identificador de ejecuciones** (puede usar este valor para hacer llamadas a la API de REST) y **Duración** de las ejecución concreta. Seleccione cualquier fila para ver detalles sobre esa ejecución.
 
-La hoja de detalles muestra un gráfico con la hora de la ejecución y la secuencia de todas las acciones de la ejecución. A continuación aparece la lista completa de todas las acciones ejecutadas:
+La hoja de detalles muestra un gráfico con la hora de la ejecución y la secuencia de todas las acciones de la ejecución. La siguiente es la lista completa de todas las acciones ejecutadas:
 
 ![Ejecuciones y acciones](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
@@ -53,7 +53,7 @@ Tenga en cuenta que para los desencadenadores de *inserción*, *no* ve las veces
 
 ## Habilitar el control de versiones
 
-Existe una capacidad adicional que actualmente no es posible en la interfaz de usuario (lo será pronto), pero que está disponible con la [API de REST](http://go.microsoft.com/fwlink/p/?LinkID=525617&clcid=0x409). Al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hace referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
+Existe una funcionalidad adicional que actualmente no es posible en la interfaz de usuario (lo será pronto), pero que está disponible con la [API de REST](https://msdn.microsoft.com/library/azure/mt643788.aspx). Al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hace referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0302_2016-->

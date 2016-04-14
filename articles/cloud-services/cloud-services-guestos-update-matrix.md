@@ -13,24 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/18/2016"
+   ms.date="02/22/2016"
    ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Servicios en la nube. Esta información le ayudará a planear su ruta de actualización antes de que se deshabilite un SO invitado.
 
-> [AZURE.IMPORTANT]Esta página se aplica a los roles web y de trabajo de Servicios en la nube, que se ejecutan en un sistema operativo invitado. No se aplica a las máquinas virtuales de IaaS. Si configura los roles para utilizar actualizaciones automáticas del SO invitado como se describe en [Configuración de actualización del SO invitado de Azure][], no es fundamental que lea esta página.
+> [AZURE.IMPORTANT] Esta página se aplica a los roles web y de trabajo de Servicios en la nube, que se ejecutan en un sistema operativo invitado. No se aplica a las máquinas virtuales de IaaS. Si configura los roles para utilizar actualizaciones automáticas del SO invitado como se describe en [Configuración de actualización del SO invitado de Azure][], no es fundamental que lea esta página.
 
 <!-- -->
 <br />
 
-> [AZURE.TIP]Suscríbase a la [Fuente RSS de actualización del SO invitado][rss] para recibir la notificación más puntual en todos los cambios del sistema operativo invitado. Los cambios mencionados en la fuente se integrarán en esta página cada semana aproximadamente.
+> [AZURE.TIP] Suscríbase a la [Fuente RSS de actualización del SO invitado][rss] para recibir la notificación más puntual en todos los cambios del sistema operativo invitado. Los cambios mencionados en la fuente se integrarán en esta página cada semana aproximadamente.
 
 
 
 ## Actualizaciones de noticias
 
-###### **18 de enero de 2015**
+###### **22 de febrero de 2016**
+La implementación del SO invitado de febrero comienza el 22 de febrero de 2016 y está previsto que se publique el 9 de marzo de 2016.
+
+###### **18 de enero de 2016**
 La implementación del SO invitado de enero comienza el 18 de enero de 2016 y está previsto que se publique el 12 de febrero de 2016.
 
 ###### **4 de enero de 2016**
@@ -153,7 +156,7 @@ Esta sección enumera las versiones del SO invitado compatibles actualmente. Las
 
 Microsoft es compatible con al menos dos versiones recientes de cada familia del SO invitado admitida. Puede mover la fecha de deshabilitación de una versión de SO invitado existente a una fecha posterior para asegurarse de que al menos dos versiones lanzadas estén habilitadas para la implementación.
 
-> [AZURE.WARNING]La retirada de la familia 1 del SO invitado comenzó el 1 de junio de 2013 y está programada para finalizar pronto. No cree nuevas instalaciones y actualice las antiguas con esta familia del SO invitado. Para obtener más información, consulte [Información de retirada de la familia 1 del SO invitado][fam1retire]
+> [AZURE.WARNING] La retirada de la familia 1 del SO invitado comenzó el 1 de junio de 2013 y está programada para finalizar pronto. No cree nuevas instalaciones y actualice las antiguas con esta familia del SO invitado. Para obtener más información, consulte [Información de retirada de la familia 1 del SO invitado][fam1retire]
 
 
 ### Explicación de la familia, la versión y el lanzamiento del SO invitado
@@ -182,10 +185,11 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.28 | WA-GUEST-OS-4.28\_201601-01 | Proyectado para el 12 de febrero de 2016 | Se actualizará cuando se publique la versión 4.30 | TBD |
+| 4\.29 | WA-GUEST-OS-4.29\_201602-01 | Previsto el 9 de marzo de 2016 | Se actualizará cuando se lance la versión 4.31 | TBD |
+| 4\.28 | WA-GUEST-OS-4.28\_201601-01 | 12 de febrero de 2016 | Se actualizará cuando se publique la versión 4.30 | TBD |
 | 4\.27 | WA-GUEST-OS-4.27\_201512-01 | 12 de enero de 2016 | Se actualizará cuando se publique la versión 4.29 | TBD |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 de enero de 2016 | Se actualizará cuando se publique la versión 4.28 | TBD |
-| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 4.28 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | 4 de enero de 2016 | 12 de marzo de 2016| TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | 10 de diciembre de 2015 | 12 de marzo de 2016| TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -213,10 +217,11 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.35 | WA-GUEST-OS-3.35\_201601-01 | Proyectado para el 12 de febrero de 2016 | Se actualizará cuando se publique la versión 3.37 | TBD |
+| 3\.36 | WA-GUEST-OS-3.36\_201602-01 | Previsto el 9 de marzo de 2016 | Se actualizará cuando se lance la versión 3.38 | TBD |
+| 3\.35 | WA-GUEST-OS-3.35\_201601-01 | 12 de febrero de 2016 | Se actualizará cuando se publique la versión 3.37 | TBD |
 | 3\.34 | WA-GUEST-OS-3.34\_201512-01 | 12 de enero de 2016 | Se actualizará cuando se publique la versión 3.36 | TBD |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 de enero de 2016 | Se actualizará cuando se lance la versión 3.35 | TBD |
-| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se lance la versión 3.35 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | 4 de enero de 2016 | 12 de marzo de 2016| TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | 10 de diciembre de 2015 | 12 de marzo de 2016| TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -245,10 +250,11 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.48 | WA-GUEST-OS-2.48\_201602-01 | Previsto el 9 de marzo de 2016 | Se actualizará cuando se lance la versión 2.50 | TBD |
 | 2\.47 | WA-GUEST-OS-2.47\_201601-01 | 12 de febrero de 2016 | Se actualizará cuando se publique la versión 2.49 | TBD |
 | 2\.46 | WA-GUEST-OS-2.46\_201512-01 | 12 de enero de 2016 | Se actualizará cuando se publique la versión 2.48 | TBD |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 de enero de 2016 | Se actualizará cuando se publique la versión 2.47 | TBD |
-| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 de diciembre de 2015 | Se actualizará cuando se publique la versión 2.47 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | 4 de enero de 2016 | 12 de marzo de 2016| TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | 10 de diciembre de 2015 | 12 de marzo de 2016| TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 de noviembre de 2015 | 12 de febrero de 2016 | TBD |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1 de octubre de 2015 | 10 de enero de 2016 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 de septiembre de 2015 | 6 de diciembre de 2015 | TBD |
@@ -287,7 +293,7 @@ La lista de revisiones que se incluyen con cada lanzamiento del SO invitado mens
 
 Esta tabla muestra qué familia del SO invitado es compatible con las versiones del SDK de Azure. Para obtener información más allá de esta tabla, vea [Información de compatibilidad y retirada del SDK de Azure para .NET y API][retire policy sdk]. La información de esta lista reemplaza a la siguiente información.
 
-> [AZURE.IMPORTANT]Para asegurarse de que el servicio funciona según lo previsto, debe implementarlo en la versión del SO invitado que sea compatible con la versión del SDK de Azure usada para desarrollar el servicio. Si no lo hace, el servicio implementado puede mostrar errores en la nube que no eran evidentes en el entorno de desarrollo.
+> [AZURE.IMPORTANT] Para asegurarse de que el servicio funciona según lo previsto, debe implementarlo en la versión del SO invitado que sea compatible con la versión del SDK de Azure usada para desarrollar el servicio. Si no lo hace, el servicio implementado puede mostrar errores en la nube que no eran evidentes en el entorno de desarrollo.
 
 | Familia del SO invitado | Versiones del SDK admitidas |
 | --------------- | ---------------------- |
@@ -414,4 +420,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0224_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/13/2015"
+   ms.date="02/09/2016"
    ms.author="bwren" />
 
 # Tipos de runbooks de Automatización de Azure
@@ -108,4 +108,4 @@ Se deben tener en cuenta las siguientes consideraciones adicionales al determina
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 - [Creación o importación de un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0211_2016-->

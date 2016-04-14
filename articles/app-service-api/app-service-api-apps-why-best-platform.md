@@ -58,4 +58,3 @@ Para ver una lista de problemas conocidos con aplicaciones de API, vea [la entra
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
 <!---HONumber=AcomDC_0114_2016-->
-<!---PAY MOOOOOOOOOOORE PAY MOOOOOOOOOORE-->

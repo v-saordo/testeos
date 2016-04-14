@@ -12,21 +12,24 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
+# Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-get-started.md)
-- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
-- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
-- [Using Visual Studio](data-factory-get-started-using-vs.md)
+- [Información general del tutorial](data-factory-get-started.md)
+- [Uso del Editor de Data Factory](data-factory-get-started-using-editor.md).
+- [Uso de Visual Studio](data-factory-get-started-using-vs.md)
+- [Uso de PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
-El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de Azure][azure-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial copia los datos del blob de Azure a una base de datos SQL de Azure.
+El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de Azure][azure-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial usa una actividad de copia para copiar los datos de un blob de Azure a una base de datos SQL de Azure.
 
-> [AZURE.IMPORTANT]Revise el artículo [Información general del tutorial](data-factory-get-started.md) y realice los pasos de requisitos previos antes de completar este tutorial.
+La actividad de copia realiza el movimiento de datos en Data Factory de Azure y la actividad funciona con un servicio disponible generalmente que puede copiar datos entre varios almacenes de datos de forma segura, confiable y escalable. Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para más información acerca de la actividad de copia.
+
+> [AZURE.IMPORTANT] 
+Revise el artículo [Información general del tutorial](data-factory-get-started.md) y realice los pasos de requisitos previos antes de completar este tutorial.
 >   
 > Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/library/dn820234.aspx) para obtener la documentación completa sobre los cmdlets de la factoría de datos.
   
@@ -56,7 +59,7 @@ Paso | Descripción
 [Paso 4: Crear y ejecutar una canalización](#CreateAndRunAPipeline) | En este paso, creará una canalización denominada **ADFTutorialPipeline** en Factoría de datos: **ADFTutorialDataFactoryPSH**. La canalización dispondrá de una **actividad de copia** que copia datos de un blob de Azure en una tabla de base de datos de Azure de salida.
 [Paso 5: Supervisar conjuntos de datos y canalización](#MonitorDataSetsAndPipeline) | En este paso, supervisará los conjuntos de datos y la canalización con PowerShell de Azure.
 
-## <a name="CreateDataFactory"></a>Paso 1: Crear una factoría de datos de Azure
+## <a name="CreateDataFactory"></a>Paso 1: Creación de una factoría de datos de Azure
 En este paso, use PowerShell de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactoryPSH**.
 
 1. Inicie Azure PowerShell y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
@@ -74,7 +77,7 @@ En este paso, use PowerShell de Azure para crear una factoría de datos de Azure
 
 	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "ADFTutorialDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, yournameADFTutorialDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 
-	> [AZURE.NOTE]El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
+	> [AZURE.NOTE] El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
 ## <a name="CreateLinkedServices"></a>Paso 2: Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser Almacenamiento de Azure, Base de datos SQL de Azure o Base de datos SQL Server local que contenga los datos de entrada o almacene los datos de salida de una canalización de Factoría de datos. Un servicio de proceso es el servicio que procesa datos de entrada y genera datos de salida.
@@ -379,7 +382,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 		Start             : 3/3/2015 12:00:00 AM
 		End               : 3/3/2015 1:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     :
 		LongRetryCount    : 0
 
@@ -391,7 +394,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 		Start             : 3/4/2015 11:00:00 PM
 		End               : 3/4/2015 12:00:00 AM
 		RetryCount        : 0
-		Status            : PendingExecution
+		Status            : Waiting
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
@@ -421,6 +424,8 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 
 Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
+## Otras referencias
+Consulte el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) para obtener información detallada sobre la **Actividad de copia** en Data Factory de Azure.
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -442,4 +447,4 @@ Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

@@ -4,7 +4,7 @@
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
-   manager="dwrede"
+   manager="erikre"
    editor=""/>
 
 <tags
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="11/11/2015"
+   ms.date="02/11/2016"
    ms.author="rajram"/>
 
 
 # Introducción al conector de Facebook y su incorporación a una aplicación lógica
+>[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones lógicas. Para la versión de esquema 2015-08-01-preview, haga clic en [API de Facebook](../connectors/create-api-facebook.md).
+
 Conéctese a la cuenta de Facebook para publicar mensajes o fotos. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
 
 Con el conector de Facebook puede:
@@ -54,14 +56,14 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Faceboo
 
 Ahora puede usar los comentarios recuperados del desencadenador de Facebook en otras acciones. En el siguiente flujo, cada vez que se publique un nuevo comentario en la línea de tiempo de Facebook del usuario se tuiteará en la línea de tiempo de Twitter del usuario: ![][10]
 
-De forma parecida, puede crear flujos mediante acciones del conector de Facebook. El siguiente flujo recuperará un nuevo mensaje publicado en el grupo Yammer y lo publicará en la página en Facebook administrada por el usuario: ![][11]
+De forma parecida, puede crear flujos mediante acciones del conector de Facebook. El siguiente flujo recuperará un nuevo mensaje publicado en el grupo Yammer y publicará el mismo comentario en la página en Facebook administrada por el usuario: ![][11]
 
-> [AZURE.TIP]Para obtener el identificador de página de Facebook o el de grupo de Yammer busque el código numérico en la dirección URL.
+> [AZURE.TIP] Para obtener el identificador de página de Facebook o el de grupo de Yammer busque el código numérico en la dirección URL.
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -80,4 +82,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0224_2016-->

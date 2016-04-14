@@ -13,8 +13,8 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.topic="hero-article"
+	ms.date="02/09/2016"
 	ms.author="tomfitz"/>
 
 #Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
@@ -220,7 +220,8 @@ Ahora puede dirigirse a **http://localhost:8000/** para probar la aplicación.
 
 Una vez que se haya probado la aplicación localmente, esta puede publicarse en Aplicaciones web mediante Git. Será necesario inicializar el repositorio de Git local y publicar la aplicación.
 
-> [AZURE.NOTE]Estos son los mismos pasos que se muestran en el Portal de Azure al final de la sección Creación de una aplicación web y configuración de la publicación Git, más arriba.
+> [AZURE.NOTE]
+Estos son los mismos pasos que se muestran en el Portal de Azure al final de la sección Creación de una aplicación web y configuración de la publicación Git, más arriba.
 
 1. (Opcional) Si ha olvidado la dirección URL del repositorio de Git remoto o no la encuentra, vaya a las propiedades de la aplicación web del Portal de Azure.
 
@@ -261,7 +262,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 
 	![Sitio web PHP de Azure][running-app]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Pasos siguientes
 
@@ -302,4 +303,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

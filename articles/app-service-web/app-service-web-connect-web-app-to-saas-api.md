@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="12/24/2015"
+	ms.date="02/26/2016"
 	ms.author="cfowler"/>
 
 # Conexión de una aplicación web en una aplicación de API en Servicios de aplicaciones de Azure
@@ -47,7 +47,7 @@ Este tutorial se basa en las series de tutoriales de aplicaciones de API:
 
 	![Selección de la aplicación de API existente](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
-	>[AZURE.NOTE]El código de cliente para conectarse a la aplicación de API se generará automáticamente a partir de un extremo de API de Swagger.
+	>[AZURE.NOTE] El código de cliente para conectarse a la aplicación de API se generará automáticamente a partir de un extremo de API de Swagger.
 
 1. Para aprovechar el código de API generado, abra el archivo HomeController.cs y reemplace la acción `Contact` por lo siguiente:
 
@@ -65,16 +65,16 @@ Este tutorial se basa en las series de tutoriales de aplicaciones de API:
 
 1. Actualice la vista `Contact` para que refleje la lista dinámica de contactos con el código siguiente:
 	<pre>// Add to the very top of the view file
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	@model IList&lt;MyContactsList.Web.Models.Contact>
 	
 	// Replace the default email addresses with the following
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
+	&lt;h3>Public Contacts&lt;/h3>
+	&lt;ul>
+	    @foreach (var contact in Model)
+	    {
+	        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+	    }
+	&lt;/ul> 
 	</pre>
 
 	![Actualizaciones de código de Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
@@ -83,10 +83,10 @@ Este tutorial se basa en las series de tutoriales de aplicaciones de API:
 
 Siga las instrucciones disponibles en [Implementación de una aplicación web de Azure](web-sites-deploy.md).
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0302_2016-->

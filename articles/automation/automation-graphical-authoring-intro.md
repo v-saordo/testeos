@@ -3,7 +3,7 @@
    description="Creación gráfica le permite crear runbooks para Automatización de Azure sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico."
    services="automation"   
    documentationCenter=""
-   authors="bwren"
+   authors="mgoedtel"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2016"
-   ms.author="bwren" />
+   ms.date="02/23/2016"
+   ms.author="magoedte;bwren" />
 
 # Creación gráfica en Automatización de Azure
 
@@ -30,7 +30,7 @@ Todos los runbooks de Automatización de Azure son flujos de trabajo de Windows 
 
 ## Información general del editor de gráficos
 
-Puede abrir el editor de gráficos en el Portal de vista previa de Azure a través de la creación o la edición de un runbook gráfico.
+Puede abrir el editor de gráficos en el Portal de Azure a través de la creación o la edición de un Runbook gráfico.
 
 ![Área de trabajo gráfica](media/automation-graphical-authoring-intro/graphical-editor.png)
 
@@ -79,7 +79,7 @@ Par importar un archivo de runbook gráfico, seleccione la opción **Importar** 
 
 ### Prueba de un runbook gráfico
 
-Puede probar la versión de borrador de un runbook en el Portal de vista previa de Azure mientras deja sin modificación la versión publicada del runbook, o bien puede probar un runbook nuevo antes de su publicación. Esto permite comprobar que el runbook se ejecute correctamente antes de reemplazar la versión publicada. Cuando se prueba un runbook, se ejecuta el runbook de borrador y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero sí se muestran los resultados en el Panel de resultados de prueba.
+Puede probar la versión de borrador de un Runbook en el Portal de Azure mientras deja sin modificación la versión publicada del Runbook, o bien puede probar un Runbook nuevo antes de su publicación. Esto permite comprobar que el runbook se ejecute correctamente antes de reemplazar la versión publicada. Cuando se prueba un runbook, se ejecuta el runbook de borrador y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero sí se muestran los resultados en el Panel de resultados de prueba.
 
 Para abrir el control de Prueba de un runbook, abra el runbook para editarlo y, a continuación, haga clic en el botón **Panel de prueba**.
 
@@ -298,9 +298,9 @@ Tiene que realizar la autenticación al comienzo del runbook y después de cada 
 
 ### Entrada de runbook
 
-Un runbook puede requerir una entrada, ya sea de un usuario cuando el runbook se inicia mediante el Portal de vista previa de Azure o desde otro runbook, si el actual se usa como secundario. Por ejemplo, si tiene un runbook que crea una máquina virtual, es posible que deba proporcionar información, como el nombre de la máquina virtual y otras propiedades cada vez que inicie el runbook.
+Un Runbook puede requerir una entrada, ya sea de un usuario (cuando el Runbook se inicia mediante el Portal de Azure) o de otro Runbook (si el actual se usa como secundario). Por ejemplo, si tiene un runbook que crea una máquina virtual, es posible que deba proporcionar información, como el nombre de la máquina virtual y otras propiedades cada vez que inicie el runbook.
 
-Para aceptar entradas para un runbook, defina uno o más parámetros de entrada. Debe proporcionar valores para estos parámetros cada vez que se inicie el runbook. Cuando se inicia un runbook con el Portal de vista previa de Azure, se le solicitará que proporcione valores para cada uno de los parámetros de entrada del runbook.
+Para aceptar entradas para un runbook, defina uno o más parámetros de entrada. Debe proporcionar valores para estos parámetros cada vez que se inicie el runbook. Cuando se inicia un Runbook con el Portal de Azure, se le solicitará que proporcione valores para cada uno de los parámetros de entrada del Runbook.
 
 Para tener acceso a los parámetros de entrada correspondientes a un runbook, haga clic en el botón **Entrada y salida** en la barra de herramientas del runbook.
 
@@ -316,7 +316,7 @@ Las propiedades de la siguiente tabla definen cada parámetro de entrada.
 |:---|:---|
 | Nombre | El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
 | Descripción | Una descripción opcional del parámetro de entrada. |
-| Tipo | El tipo de datos que se espera para el valor del parámetro. El Portal de vista previa de Azure proporcionará un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
+| Tipo | El tipo de datos que se espera para el valor del parámetro. El Portal de Azure proporcionará un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
 | Obligatorio | Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado | Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |
 
@@ -419,4 +419,4 @@ En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter C
 - [Operadores](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0302_2016-->

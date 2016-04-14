@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: mover y procesar archivos de registro con Factoría de datos [PowerShell]
@@ -31,16 +31,13 @@ En este tutorial, recopilamos registros de ejemplo, los procesamos y enriquecemo
 
 	Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/library/dn820234.aspx) para obtener la documentación completa sobre los cmdlets de la factoría de datos.
     
-	Si usa Azure PowerShell de una **versión inferior a 1.0**, deberá usar los cmdlets que se documentan [aquí][old-cmdlet-reference]. También debe ejecutar los comandos siguientes antes de usar los cmdlets de Factoría de datos:
-
-	1. Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y la contraseña que usó para iniciar sesión en el Portal de Azure.
+	1. Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que utilizó para iniciar sesión en el Portal de Azure.
 	2. Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
 	3. Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de Azure.
 	
 	Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
 
-2. Cambie al modo AzureResourceManager a medida que los cmdlets de Factoría de datos de Azure están disponibles en este modo: **Switch-AzureMode AzureResourceManager**.
- 
+
 2.	**(recomendado)** Revise y practique el tutorial del artículo [Introducción a Factoría de datos de Azure][adfgetstarted] para obtener un tutorial sencillo para familiarizarse con el portal y los cmdlets.
 3.	**(recomendado)** Revise y practique el tutorial del artículo [Uso de Pig y Hive con Factoría de datos de Azure][usepigandhive] para obtener un tutorial sobre cómo crear una canalización para desplazar datos desde un origen de datos local a un almacenamiento de blobs de Azure.
 4.	Descargue los archivos [ ADFWalkthrough][adfwalkthrough-download] en la carpeta **C:\\ADFWalkthrough** y **conserve la estructura de carpetas**:
@@ -183,14 +180,14 @@ En este paso, creará una factoría de datos de Azure llamada **LogProcessingFac
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-	> [AZURE.IMPORTANT]El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre de la factoría de datos "LogProcessingFactory" no está disponible**, cambie el nombre (por ejemplo, yournameLogProcessingFactory). Use este nombre en lugar de LogProcessingFactory mientras sigue los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+	> [AZURE.IMPORTANT] El nombre de la Factoría de datos de Azure debe ser único de forma global. Si recibe el error **El nombre de la factoría de datos "LogProcessingFactory" no está disponible**, cambie el nombre (por ejemplo, yournameLogProcessingFactory). Use este nombre en lugar de LogProcessingFactory mientras sigue los pasos de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
 	> 
 	> El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
 
  
 ## <a name="MainStep3"></a> Paso 3: Creación de servicios vinculados
 
-> [AZURE.NOTE]En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure, concretamente el Editor de Factoría de datos.
+> [AZURE.NOTE] En este artículo se usa Azure PowerShell para crear servicios vinculados, tablas y canalizaciones. Consulte el [tutorial Uso del Editor de Factoría de datos][adftutorial-using-editor] si quiere realizar este tutorial con el Portal de Azure, concretamente el Editor de Factoría de datos.
 
 En este paso, creará los servicios vinculados siguientes: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService y HDInsightLinkedService.
 
@@ -394,7 +391,7 @@ Para especificar el período activo para el proceso, puede usar el cmdlet Set-Az
 
 	![Hoja SEGMENTO DE DATOS RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **Validación pendiente**, según la rapidez con la que se procesen.
+	Si se produjo un error, verá el estado **Error** aquí. Puede que también vea los dos segmentos con el estado **Listo** o con el estado **En espera**, según la rapidez con la que se procesen.
  
 	Consulte [Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] para obtener una descripción de todos los estados posibles de los segmentos.
 
@@ -506,4 +503,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0218_2016-->

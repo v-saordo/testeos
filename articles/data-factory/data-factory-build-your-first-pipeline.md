@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
@@ -188,7 +188,7 @@ Mediante el Bloc de notas, cree un archivo denominado **input.log** en **c:\\adf
 Puede usar cualquier herramienta de su elección (por ejemplo: el [Explorador de Almacenamiento de Microsoft Azure](http://storageexplorer.com/), CloudXPlorer de ClumsyLeaf Software) para realizar esta tarea. Esta sección proporciona instrucciones sobre cómo usar la herramienta AzCopy.
 	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de **AzCopy**](http://aka.ms/downloadazcopy) o la [versión más reciente de vista previa](http://aka.ms/downloadazcopypr). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
+	1. Descargue la [versión más reciente de [**AzCopy**](http://aka.ms/downloadazcopypr) o [la versión más reciente de vista previa](http://aka.ms/downloadazcopy). Consulte el artículo [Uso de AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -222,4 +222,4 @@ Ahora ya está listo para comenzar el tutorial. Haga clic en una de las pestaña
 - Visual Studio
 - Plantillas del Administrador de recursos de Azure 
 
-<!-----HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->

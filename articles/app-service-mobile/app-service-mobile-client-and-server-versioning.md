@@ -3,7 +3,7 @@
   description="Lista de SDK de cliente y compatibilidad con versiones de SDK de servidor para Servicios móviles y Aplicaciones móviles de Azure"
   services="app-service\mobile"
   documentationCenter=""
-  authors="lindydonna" 
+  authors="lindydonna"
   manager="dwrede"
   editor=""/>
 
@@ -13,15 +13,12 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="12/15/2015"
+  ms.date="02/04/2016"
   ms.author="donnam"/>
 
 # Control de versiones de cliente y servidor en Aplicaciones móviles y Servicios móviles
 
 La versión más reciente de Servicios móviles de Azure es la característica **Aplicaciones móviles** del Servicio de aplicaciones de Azure.
-
-<!-- Azure App Service offers a number of platform benefits over Mobile Services, including continuous integration and deployment, staging lots, and VNET support.
- -->
 
 Los SDK de cliente y servidor de Aplicaciones móviles originalmente se basaban en los de Servicios móviles, pero *no* son compatibles entre sí. Es decir, debe usar el SDK de cliente de *Aplicaciones móviles* con un SDK de servidor de *Aplicaciones móviles* y, de forma similar, para *Servicios móviles*. Este contrato se aplica a través de un valor de encabezado especial usado por los SDK de cliente y servidor, `ZUMO-API-VERSION`.
 
@@ -45,7 +42,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Puede anular la comprobación de la versión estableciendo el valor **true** para la configuración de la aplicación **MS\_SkipVersionCheck**. Especifique esto en el archivo web.config o en la sección Configuración de la aplicación del Portal de Azure.
 
-> [AZURE.NOTE]Hay una serie de cambios de comportamiento entre Servicios móviles y Aplicaciones móviles, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no rompen la funcionalidad de la aplicación.
+> [AZURE.NOTE] Hay una serie de cambios de comportamiento entre Servicios móviles y Aplicaciones móviles, especialmente en las áreas de sincronización sin conexión, autenticación y notificaciones push. Solo debe anular la comprobación de versión después de realizar pruebas exhaustivas para asegurarse de que estos cambios de comportamiento no rompen la funcionalidad de la aplicación.
 
 ## Resumen de compatibilidad para todas las versiones
 
@@ -82,7 +79,7 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 
 | Plataforma de servidor | Versión | Encabezado de versión aceptado |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Sin encabezado de versión** |
+| .NET | [WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Sin encabezado de versión ** |
 | Node.js | (próximamente) | **Sin encabezado de versión** |
 
 <!-- TODO: add Node npm version -->
@@ -93,7 +90,7 @@ Nota: los SDK de cliente de Servicios móviles *no* envían un valor de encabeza
 | ---------------- | ---------------------------- | -------- |
 | Sin especificar | Cualquiera | 200 - CORRECTO |
 | Cualquier valor | True | 200 - CORRECTO |
-| Cualquier valor | False/Sin especificar | 400 - Solicitud incorrecta | 
+| Cualquier valor | False/Sin especificar | 400 - Solicitud incorrecta |
 
 ## <a name="2.0.0"></a>Cliente y servidor de Aplicaciones móviles de Azure
 
@@ -142,4 +139,4 @@ La comprobación de versión se incluye en las siguientes versiones del SDK de s
 [Migración de un servicio móvil a Servicio de aplicaciones de Azure]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Azure mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0211_2016-->

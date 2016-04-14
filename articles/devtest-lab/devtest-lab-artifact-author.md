@@ -1,6 +1,6 @@
-    <properties 
-	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
-	description="Learn how to author your own artifacts for use with DevTest Labs"
+<properties 
+	pageTitle="Creación de artefactos personalizados para la máquina virtual del Laboratorio de desarrollo y pruebas | Microsoft Azure"
+	description="Aprenda a crear sus propios artefactos para usarlos con laboratorios de desarrollo y pruebas"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/18/2016"
 	ms.author="tarcher"/>
 
 #Creación de artefactos personalizados para la máquina virtual del Laboratorio de desarrollo y pruebas
 
+> [AZURE.NOTE] Haga clic en el vínculo siguiente para ver el vídeo que acompaña a este artículo: [Cómo crear artefactos personalizados](/documentation/videos/how-to-author-custom-artifacts)
+
+## Información general
 Los **artefactos** se utilizan para implementar y configurar la aplicación después de aprovisionar una máquina virtual. Un artefacto consta de un archivo de definición de artefacto y otros archivos de script que se almacenan en un repositorio de Git. Los archivos de definición de artefacto constan de JSON y expresiones que puede utilizar para especificar lo que desea instalar en una máquina virtual. Por ejemplo, puede definir el nombre del artefacto, el comando que se va a ejecutar y los parámetros que están disponibles cuando se ejecuta el comando. Puede hacer referencia a otros archivos de script en el archivo de definición de artefacto por nombre.
 
 ##Formato del archivo de definición de artefacto
@@ -119,6 +122,6 @@ Cree su artefacto personalizado siguiendo estos pasos:
 
 ## Pasos siguientes
 
-Aprenda cómo [agregar un repositorio de artefactos de Git al Laboratorio de desarrollo y pruebas](devtest-lab-add-artifact-repo.md).
+- Aprenda cómo [agregar un repositorio de artefactos de Git al Laboratorio de desarrollo y pruebas](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0224_2016-->

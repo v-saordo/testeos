@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/25/2016" 
 	ms.author="v-donntr"/>
 
 
@@ -541,7 +541,14 @@ Otra herramienta que puede usar para publicar la aplicación es FileZilla, un cl
 1. En FileZilla, haga clic en **File (Archivo) > Site Manager (Administrador de sitios)**.
 2. En el cuadro de diálogo **Site Manager** (Administrador de sitios), haga clic en **New Site** (Nuevo sitio). Aparecerá un nuevo sitio FTP en blanco en **Select Entry** (Seleccionar entrada), en el que se le solicitará que proporcione un nombre. Para este procedimiento, asígnele el nombre `AzureWebDemo-FTP`.
 
-    En la pestaña **General**, especifique la siguiente configuración: - **Host:** especifique el **Nombre de host FTP** que copió del panel. - **Port** (Puerto): deje este campo en blanco, ya que se trata de una transferencia pasiva y el servidor será el que determine el puerto que se debe usar. - **Protocol** (Protocolo): es el protocolo de transferencia de archivo FTP. - **Encryption** (Cifrado): use el modo FTP sin cifrar. - **Logon Type** (Tipo de inicio de sesión): especifique Normal. - **User** (Usuario): especifique el usuario FTP o la implementación que copió del panel. Se trata del nombre de usuario FTP completo, que tiene la forma *nombreaplicaciónweb\\nombreusuario*.- **Password** (Contraseña): escriba la contraseña que especificó al configurar las credenciales de la implementación.
+    En la pestaña **General**, especifique la configuración siguiente:
+    - **Servidor:** escriba el **Nombre del host FTP** que haya copiado del panel.
+    - **Puerto:** (déjelo en blanco, puesto que se trata de una transferencia pasiva y el servidor determinará el puerto que se utilizará).
+    - **Protocolo:** FTP - Protocolo de Transferencia de Archivos
+    - **Cifrado:** Use plain FTP (Usar FTP sin formato)
+    - **Modo de acceso:** Normal
+    - **Usuario:** introduzca el usuario de implementación / FTP que haya copiado del panel. Se trata del nombre de usuario FTP completo, que tiene la forma *nombredeaplicaciónweb\\nombredeusuario*.
+    - **Contraseña:** escriba la contraseña que haya especificado al configurar las credenciales de implementación.
 
     En la pestaña **Transfer Settings** (Configuración de transferencia), elija **Passive** (Pasivo).
 
@@ -594,10 +601,10 @@ Este procedimiento crea una aplicación web de Servicio de aplicaciones. Se le f
 [kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh690946.aspx
 [portal clásico de Azure]: https://manage.windowsazure.com
 [¿Qué es un directorio de Azure AD?]: http://technet.microsoft.com/library/jj573650.aspx
-[Crear y cargar un certificado de administración para Azure]: http://msdn.microsoft.com/library/azure/gg551722.aspx
+[Crear y cargar un certificado de administración para Azure]: ../cloud-services/cloud-services-certs-create.md
 [Keytool: herramienta para administrar certificados y claves]: http://docs.oracle.com/javase/6/docs/technotes/tools/windows/keytool.html
-[WebSiteManagementClient]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html
+[WebSiteManagementClient]: http://azure.github.io/azure-sdk-for-java/com/microsoft/azure/management/websites/WebSiteManagementClient.html
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [Portal Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0302_2016-->

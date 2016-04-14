@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights para ASP.NET" 
-	description="Analice los patrones de uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." 
+	pageTitle="Análisis de aplicaciones web para ASP.NET con Application Insights" 
+	description="Análisis de rendimiento, disponibilidad y uso para el sitio web de ASP.NET, hospedado localmente o en Azure." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.topic="get-started-article" 
+	ms.date="03/06/2016" 
 	ms.author="awills"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-El SDK de Application Insights envía telemetría desde su aplicación web en directo al Portal de Azure, donde puede iniciar sesión y ver los gráficos de rendimiento y uso de la aplicación.
+El SDK de Application Insights envía un análisis telemétrico desde su aplicación web activa al Portal de Azure, donde puede iniciar sesión y ver gráficos que representan el rendimiento y uso de la aplicación.
 
 ![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-asp-net/10-perf.png)
 
@@ -68,13 +68,13 @@ El comando realizó estos pasos (que podría [hacer manualmente](app-insights-st
 2. Crea un recurso de Application Insights en el [portal de Azure][portal]. Es donde verá los datos. Recupera la *clave de instrumentación*, que identifica el recurso.
 3. Inserta la clave de instrumentación en `ApplicationInsights.config`, de modo que el SDK puede enviar datos de telemetría al portal.
 
-Si no inicia sesión en Azure inicialmente, el SDK se instalará sin necesidad de conectarlo a un recurso. Podrá ver y buscar la telemetría de Application Insights en el concentrador de diagnósticos de Visual Studio mientras realiza la depuración. Puede llevar a cabo los demás pasos más adelante.
+Si no inicia sesión en Azure inicialmente, el SDK se instalará sin necesidad de conectarlo a un recurso. Podrá ver y buscar la telemetría de Application Insights en la ventana de búsqueda de Visual Studio mientras realiza la depuración. Puede llevar a cabo los demás pasos más adelante.
 
 ## <a name="run"></a> Ejecución del proyecto
 
 Ejecute la aplicación con F5 y pruébela. Abra varias páginas para generar telemetría.
 
-En Visual Studio, aparecerá un recuento de los eventos que se han enviado.
+En Visual Studio, verá un recuento de los eventos que se han registrado.
 
 ![En Visual Studio, el botón de Application Insights se muestra durante la depuración.](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
@@ -83,7 +83,7 @@ Haga clic en este botón para abrir la búsqueda de diagnóstico.
 
 ### Búsqueda de diagnóstico
 
-La ventana de búsqueda muestra los eventos que se han enviado al portal de Application Insights. (Hay una característica de búsqueda equivalente en el portal).
+La ventana de búsqueda muestra los eventos que se han registrado. (Si inició la sesión en Azure al configurar Application Insights, podrá buscar los mismos eventos en el portal.)
 
 ![Haga clic con el botón derecho en el proyecto y seleccione Application Insights, Búsqueda.](./media/app-insights-asp-net/34.png)
 
@@ -94,7 +94,7 @@ La búsqueda de texto sin formato funciona en todos los campos de los eventos. P
 
 ### Excepciones
 
-Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exception-mvc.md), los informes de excepciones se mostrarán en la ventana de búsqueda.
+Si ha [configurado la supervisión de excepciones](app-insights-asp-net-exceptions.md), los informes de excepciones se mostrarán en la ventana Búsqueda.
 
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
@@ -106,6 +106,8 @@ Abra el recurso de Application Insights en el [Portal de Azure][portal].
 
 ![Haga clic con el botón secundario en el proyecto y abra el Portal de Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+Si no inició sesión en Azure cuando agregó Application Ingsights a esta aplicación, hágalo ahora. Seleccione **Configurar Application Insights** Eso le permitirá seguir viendo la telemetría desde la aplicación activa después de haberla implementado. La telemetría aparecerá en el portal de Application Insights.
+
 ### Métricas: datos agregados
 
 Busque los datos en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
@@ -114,7 +116,7 @@ Busque los datos en los gráficos de Información general. Al principio, solo ap
 
 Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
 
-* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-asp-net-client.md)
+* *¿No hay datos de usuario o página?* - [Agregar datos de usuario y página](app-insights-web-track-usage.md)
 
 ### Búsqueda: eventos individuales
 
@@ -124,7 +126,7 @@ Abra Búsqueda para investigar solicitudes individuales y sus eventos asociados.
 
 [Más información sobre la búsqueda](app-insights-diagnostic-search.md)
 
-* *¿No hay eventos asociados?* Configure [excepciones de servidor](app-insights-asp-net-exception-mvc.md) y [dependencias](app-insights-asp-net-dependencies.md).
+* *¿No hay eventos asociados?* Configure [excepciones de servidor](app-insights-asp-net-exceptions.md) y [dependencias](app-insights-asp-net-dependencies.md).
 
 
 ## ¿No hay datos?
@@ -146,7 +148,7 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 #### ¿Tiene problemas el servidor de compilación?
 
-Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
+Consulte [este apartado de la solución de problemas](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild).
 
 > [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
@@ -159,18 +161,18 @@ El concentrador de diagnósticos (en Visual Studio 2015 o posterior) muestra los
 
 ![Abra la ventana Herramientas de diagnóstico e inspeccione los eventos de Application Insights.](./media/app-insights-asp-net/31.png)
 
-Resulta especialmente útil si tiene alguna [telemetría personalizada](app-insights-api-custom-events-metrics.md) que quiera depurar antes de enviarla al portal.
+Esto es especialmente útil si tiene alguna [telemetría personalizada](app-insights-api-custom-events-metrics.md) que desee depurar antes de enviarla al portal.
 
-* *En primer lugar, he configurado completamente Application Insights para enviar datos de telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
+* *En primer lugar, he configurado completamente Application Insights para enviar la telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
 
-    Comente la línea `<instrumentationkey>...` de ApplicationInsights.config. Cuando esté listo para enviar de nuevo datos de telemetría al portal, quite los comentarios.
+    Convierta en comentario la línea `<instrumentationkey>...` de ApplicationInsights.config. Cuando esté listo para enviar de nuevo datos de telemetría al portal, quite los comentarios.
 
 
 
 ## Pasos siguientes
 
-- [Datos de página y usuario](../article/application-insights/app-insights-asp-net-client.md#selector1)
-- [Excepciones](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Datos de página y usuario](../article/application-insights/app-insights-javascript.md#selector1)
+- [Excepciones](../article/application-insights/app-insights-asp-net-exceptions.md#selector1)
 - [Dependencias](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
 - [Disponibilidad](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
@@ -212,4 +214,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0309_2016-->

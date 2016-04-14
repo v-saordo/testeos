@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: preguntas más frecuentes
@@ -132,9 +132,9 @@ En el ejemplo anterior, otherLinkedServiceName1 y otherLinkedServiceName2 repres
 Puede volver a ejecutar un segmento de una de las siguientes maneras:
 
 - Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento del portal. 
-- Ejecute el cmdlet **AzureDataFactorySliceStatus Set** con el estado establecido en **PendingExecution** para el segmento.   
+- Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado establecido en **En espera** para el segmento.   
 	
-		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
 Consulte [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
 
@@ -174,4 +174,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0224_2016-->

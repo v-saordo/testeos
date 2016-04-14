@@ -19,6 +19,18 @@
 
 Una vez [configurado Application Insights en su proyecto](app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en el [portal de Azure](https://portal.azure.com).
 
+## El panel
+
+Al iniciar sesión en el [Portal de Azure](https://portal.azure.com), obtendrá acceso en primer lugar al panel. Puede personalizarlo o ponerlo en modo de pantalla completa. Este ejemplo se ha personalizado para mostrar los principales gráficos que les interesan a los propietarios.
+
+
+![Panel personalizado.](./media/app-insights-portal/30.png)
+
+1. Haga clic en la esquina superior en cualquier momento para volver al panel.
+2. **+ Nuevo** crea un recurso nuevo. Un [Recurso de Application Insights](app-insights-create-new-resource.md) es un lugar para almacenar y analizar datos de telemetría de la aplicación.
+3. La barra de navegación abre los recursos existentes.
+4. Edite y cree paneles con la barra de herramientas del panel.
+
 ## Encontrar la telemetría
 
 En el [portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que ha creado para la aplicación.
@@ -83,14 +95,28 @@ Elija lo que desea ver en la información general. En Personalizar, puede insert
 
 ![Haga clic en Editar. Arrastre los iconos y gráficos. Agregue iconos de la galería. Luego haga clic en Hecho.](./media/app-insights-portal/020-customize.png)
 
-### Personalizar el panel de Azure
+## Paneles
+
+El panel del Portal de Azure es la página principal que aparece al iniciar sesión en [el portal](https://portal.azure.com) por primera vez. En él, puede juntar gráficos e iconos (grupos de gráficos) de diversos recursos.
+
+![Haga clic en Editar. Arrastre los iconos y gráficos. Agregue iconos de la galería. Luego haga clic en Hecho.](./media/app-insights-portal/30.png)
+
+Cuando está consultando una hoja o un gráfico especialmente interesante, puede anclarlo al panel. Lo verá la próxima vez que regrese.
+
+![Para anclar un gráfico, mantenga el puntero encima y haga clic en "..." en el encabezado.](./media/app-insights-portal/33.png)
+
+Puede guardar más de un panel y cambiar de uno a otro. Cuando se ancla un gráfico o una hoja, se agrega al panel actual.
+
+![Para cambiar entre los paneles, haga clic en Panel y seleccione un panel guardado. Para crear un panel y guardarlo, haga clic en Nuevo. Para reorganizar, haga clic en Editar.](./media/app-insights-portal/32.png)
+
+Por ejemplo, podría tener un panel para mostrarlo en pantalla completa en la sala de reuniones y otro para el desarrollo general.
 
 
-El panel del Portal de Azure es la página principal que aparece al iniciar sesión en el portal por primera vez. En él, puede juntar iconos (grupos de gráficos) de diversos recursos.
+En el panel, una hoja aparece como un icono. Haga clic en él para ir a la hoja. Un gráfico replica el gráfico en su ubicación original.
 
-Para anclar un icono de la hoja de información general de Application Insights al panel del portal, seleccione el encabezado del icono y luego "...".
 
-Si quiere obtener un panel más completo, use [Power BI](https://azure.microsoft.com/blog/application-insights-content-pack-for-power-bi/) para mostrar los datos de telemetría.
+![](./media/app-insights-portal/35.png)
+
 
 ## Hojas de métricas
 
@@ -159,7 +185,7 @@ Si edita una hoja, pero le gustaría volver al conjunto original guardado, haga 
 
 En Búsqueda se muestran eventos individuales, como vistas de páginas, solicitudes, excepciones, seguimientos de registro y eventos personalizados. No se muestran métricas agregadas o instancias de la llamada TrackMetric().
 
-> [AZURE.NOTE]Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
+> [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría (y está usando la versión 2.0.0-beta3, o una posterior, del SDK de ASP.NET), el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre ellos. [Más información sobre el muestreo](app-insights-sampling.md).
 
 Abra la búsqueda de diagnóstico:
 
@@ -179,7 +205,7 @@ Por ejemplo, seleccione solicitudes con un código de respuesta específico.
 
 El hecho de no elegir ningún valor de una propiedad determinada tiene el mismo efecto que elegir todos los valores; se desactiva el filtrado en esa propiedad.
 
-> [AZURE.NOTE]Si la aplicación genera muchos datos de telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Los eventos que forman parte de la misma operación se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo.](app-insights-sampling.md)
+> [AZURE.NOTE] Si la aplicación genera muchos datos de telemetría, el módulo de muestreo adaptable reducirá automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Los eventos que forman parte de la misma operación se seleccionarán o se anulará su selección como grupo, por lo que puede navegar entre los eventos relacionados. [Más información sobre el muestreo.](app-insights-sampling.md)
 
 
 ### Acotación de la búsqueda
@@ -205,4 +231,4 @@ Para ver de nuevo la búsqueda, **vaya a la hoja de información general** y abr
 
 Si ha guardado con el intervalo de tiempo relativo, la hoja abierta de nuevo tiene los datos más recientes. Si ha guardado con el intervalo de tiempo absoluto, verá los mismos datos cada vez.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0224_2016-->

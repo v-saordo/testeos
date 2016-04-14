@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Cómo configurar alertas de Azure para enviar a otros sistemas"
 	description="Redistribuir alertas de Azure a otros sistemas que no sean de Azure."
-	authors="rboucher"
-	manager="ronmart"
+	authors="kamathashwin"
+	manager=""
 	editor=""
 	services="azure-portal"
 	documentationCenter="na"/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
-	ms.author="robb"/>
+	ms.date="02/16/2016"
+	ms.author="ashwink"/>
 
 # Cómo configurar webhooks para las alertas
 
@@ -73,7 +73,7 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
 }
 ```
 
->[AZURE.NOTE]En nuestra próxima actualización, agregaremos compatibilidad para las alertas en eventos ("conditionType": "Event").
+>[AZURE.NOTE] En nuestra próxima actualización, agregaremos compatibilidad para las alertas en eventos ("conditionType": "Event").
 
 
 | Campo | ¿Obligatorio? | ¿Conjunto fijo de valores? | Notas |
@@ -103,7 +103,7 @@ La operación POST contendrá el siguiente esquema y carga de JSON para todas la
 |propiedades |N |Opcional |Es un conjunto de pares <Key  Value> (es decir, el diccionario <String  String>) que incluye detalles sobre el evento. El campo de propiedades es opcional. Un flujo de trabajo basado en aplicación lógica o interfaz de usuario personalizada, los usuarios pueden especificar clave/valores que se pueden pasar a través de la carga. La forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta).|
 
 
->[AZURE.NOTE]No se puede usar el campo de propiedades a través del Portal. En nuestro próximo lanzamiento del SDK de Insights, puede establecer las propiedades mediante la API de la alerta.
+>[AZURE.NOTE] No se puede usar el campo de propiedades a través del Portal. En nuestro próximo lanzamiento del SDK de Insights, puede establecer las propiedades mediante la API de la alerta.
 
 ## Pasos siguientes
 
@@ -123,4 +123,4 @@ Use las alertas de Azure para enviar mensajes a otros servicios. Use las siguien
 
 [Usar la aplicación lógica para enviar mensajes a una cola de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0218_2016-->

@@ -21,7 +21,7 @@
 
 En este tutorial, aprenderá a crear aplicaciones complejas de gran escala con el [Servicio de aplicaciones de Azure](/services/app-service/) de manera que admita [ Agile Software Development](https://en.wikipedia.org/wiki/Agile_software_development). Se supone que ya conoce la [Implementación de aplicaciones complejas con criterio previsible en Azure](app-service-deploy-complex-application-predictably.md).
 
-Las limitaciones de los procesos técnicos a menudo pueden ser un obstáculo para una implementación correcta de metodologías ágiles. El Servicio de aplicaciones de Azure, con características tales como [publicación continua](web-sites-publish-source-control.md), [entornos de ensayo](web-sites-staged-publishing.md) (ranuras) y [supervisión](web-sites-monitor.md), cuando se acompaña acertadamente de la orquestación y la administración de implementación del [Administrador de recursos de Azure](resource-group-overview.md), puede formar parte de una gran solución para los desarrolladores que adoptan Agile Software Development.
+Las limitaciones de los procesos técnicos a menudo pueden ser un obstáculo para una implementación correcta de metodologías ágiles. El Servicio de aplicaciones de Azure, con características tales como [publicación continua](web-sites-publish-source-control.md), [entornos de ensayo](web-sites-staged-publishing.md) (ranuras) y [supervisión](web-sites-monitor.md), cuando se acompaña acertadamente de la orquestación y la administración de implementación del [Administrador de recursos de Azure](../resource-group-overview.md), puede formar parte de una gran solución para los desarrolladores que adoptan Agile Software Development.
 
 La tabla siguiente es una breve lista de los requisitos asociados al desarrollo ágil y la forma en que Servicios de Azure habilita cada uno de ellos.
 
@@ -43,7 +43,7 @@ Recorrerá un flujo de trabajo típico de desarrollo-prueba-ensayo-producción p
 
 Para traducir la imagen en palabras:
 
--	La arquitectura de implementación se divide en tres entornos distintos (o [grupos de recursos](resource-group-overview.md) en Azure), cada uno con su correspondiente [plan de Servicio de aplicaciones](azure-web-sites-web-hosting-plans-in-depth-overview.md), configuración de [escalado](web-sites-scale.md) y base de datos SQL. 
+-	La arquitectura de implementación se divide en tres entornos distintos (o [grupos de recursos](../resource-group-overview.md) en Azure), cada uno con su correspondiente [plan de Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), configuración de [escalado](web-sites-scale.md) y base de datos SQL. 
 -	Cada entorno se puede administrar por separado. Incluso pueden existir en distintas suscripciones.
 -	El ensayo y la producción se implementan como dos ranuras de la misma aplicación de Servicio de aplicaciones. La rama principal se configura para la integración continua con la ranura de ensayo.
 -	Cuando una confirmación en la rama principal se comprueba en la ranura de ensayo (con datos de producción), la aplicación de ensayo comprobada se cambia a la ranura de producción [sin tiempo de inactividad](web-sites-staged-publishing.md).
@@ -63,7 +63,7 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 -	Shell de Git (instalado con [GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión 
 -	Bits más recientes de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Conocimientos básicos de lo siguiente:
-	-	Implementación de plantillas de [Administrador de recursos de Azure](resource-group-overview.md) (vea también [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implementación de plantillas de [Administrador de recursos de Azure](../resource-group-overview.md) (vea también [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -270,14 +270,14 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md)
 -	[Desarrollo ágil en la práctica: trucos y sugerencias para un ciclo de desarrollo actualizado](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Estrategias de implementación avanzada para Aplicaciones web de Azure con plantillas de Administrador de recursos](http://channel9.msdn.com/Events/Build/2015/2-620)
--	[Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
+-	[Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 -	[JSONLint: validador de JSON](http://jsonlint.com/)
 -	[ARMClient: configurar publicación de GitHub para el sitio](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 -	[Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
--	[Azure PowerShell](powershell-install-configure.md)
--	[Herramientas de línea de comandos multiplataforma de Azure](xplat-cli-install.md)
+-	[Azure PowerShell](../powershell-install-configure.md)
+-	[Herramientas de línea de comandos multiplataforma de Azure](../xplat-cli-install.md)
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0211_2016-->

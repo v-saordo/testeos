@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -64,7 +64,7 @@ Para configurar la integración de Tidemark en Azure AD, será preciso que agreg
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br> ![Aplicaciones][3]<br>
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]<br>
 6. En el cuadro de búsqueda, escriba **Tidemark**. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_01.png)<br>
-7. En el panel de resultados, seleccione **Tidemark** y, luego, haga clic en **Completa** para agregar la aplicación. <br><br>
+7. En el panel de resultados, seleccione **Tidemark** y, luego, haga clic en **Completar** para agregar la aplicación. <br><br> ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tidemark-tutorial/tutorial_tidemark_02.png)<br>
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
 El objetivo de esta sección es mostrar cómo configurar y probar el inicio de sesión único de Azure AD con Tidemark con un usuario de prueba llamado "Britta Simon".
@@ -75,7 +75,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Tidemark, e
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Tidemark](#creating-a-Tidemark-test-user)**: para tener un homólogo de Britta Simon en Tidemark que esté vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba de Tidemark](#creating-a-tidemark-test-user)**: para tener un homólogo de Britta Simon en Tidemark que esté vinculado a la representación de ella en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -213,4 +213,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [204]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tidemark-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0204_2016-->
